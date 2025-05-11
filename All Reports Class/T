@@ -1,0 +1,42 @@
+ Volume in drive C is S3A4095D001
+ Volume Serial Number is 285B-BEF2
+
+ Directory of C:\VenuJD\InventoryNew\RSI\INVENTORY_19OCT11\All Reports Class
+
+28/10/2011  12:40    <DIR>          .
+28/10/2011  12:40    <DIR>          ..
+09/01/2010  10:09            13,777 rptABCSummary.vb
+09/02/2007  04:49             9,464 rptBarStockposition.vb
+18/02/2009  05:30             8,066 rptGrncumpurchase.vb
+22/01/2010  04:44            21,912 rptGrncumpurchaseNote.vb
+08/04/2011  14:38            14,961 rptInputTax.vb
+05/06/2007  03:06            10,227 rptIssuedetailsreport.vb
+05/06/2007  04:40            16,291 rptIssueRegisterreport.vb
+09/11/2009  21:13             7,717 rptIssuesummary.vb
+07/05/2007  23:36             9,520 rptMainstockpositionreport.vb
+20/06/2007  01:26             6,800 rptMainstocksummary.vb
+08/04/2011  14:33             8,025 rptPurchaseItemwise_NIZAM.vb
+08/05/2007  00:58            21,970 rptPurchaseregisterreport.vb
+26/12/2009  03:26             7,111 rptPurchaseregistersummary.vb
+27/07/2009  05:41             9,887 rptPurchaseregistersummary_RECON.vb
+08/04/2011  14:33             6,741 rptPurchasesummary_NIZAM.vb
+14/12/2009  19:58            13,335 rptRolSummary.vb
+15/06/2009  01:42            14,180 rptStockadjustment.vb
+28/06/2008  01:46             9,591 rptStockadjustmentreport.vb
+06/12/2009  02:21            23,902 rptStockIssuedetails.vb
+06/12/2009  00:20             9,619 rptStockIssueregister.vb
+22/01/2010  04:52            11,078 rptStockissuereport.vb
+18/05/2011  16:09            53,371 rptStockledgermainstock.vb
+21/08/2007  01:17            13,837 rptStockledgermainstockreport.vb
+26/12/2009  03:16            14,534 rptStockPurchaseregister.vb
+28/07/2009  04:14            13,902 rptStockPurchaseregister_Recon.vb
+10/07/2007  00:19             8,440 rptStockregister.vb
+08/04/2011  14:36            60,947 rptStockSummary.vb
+14/11/2008  02:38             9,119 rptStockSummaryminus.vb
+13/05/2008  04:03             8,804 rptStockSummary_excep.vb
+24/02/2010  23:03            10,165 rptStocktransferreport.vb
+28/10/2011  12:40                 0 T
+02/06/2007  03:36                53 txtIssuedetailsreport.vb
+02/06/2007  04:03             6,720 txtIssueregisterreport.vb
+              33 File(s)        454,066 bytes
+               2 Dir(s)   1,112,231,936 bytes free

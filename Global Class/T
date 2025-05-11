@@ -1,0 +1,42 @@
+ Volume in drive C is S3A4095D001
+ Volume Serial Number is 285B-BEF2
+
+ Directory of C:\VenuJD\INVENT~2\RSI\INVENT~1\Global Class
+
+28/10/2011  13:27    <DIR>          .
+28/10/2011  13:27    <DIR>          ..
+18/06/2011  14:59           402,399 CompanyList1.resx
+18/06/2011  14:59            25,865 CompanyList1.vb
+21/11/2009  00:49            41,627 frmListSearch.resx
+03/12/2009  07:52            12,459 frmListSearch.vb
+18/06/2011  15:19            10,364 frmSearch.resx
+18/06/2011  15:19             8,482 frmSearch.vb
+18/06/2011  15:30            12,660 frmSearch_Advanced.resx
+18/06/2011  15:30            15,130 frmSearch_Advanced.vb
+17/06/2011  16:57            14,131 GlobalClass.vb
+01/08/2011  12:50           203,227 GlobalFunction.vb
+07/06/2011  10:45             3,668 GlobalVariables.vb
+18/06/2011  15:22            13,558 List Operation.resx
+18/06/2011  15:22            18,789 List Operation.vb
+18/06/2011  15:22            12,366 ListOperattion1.resx
+18/06/2011  15:22            18,292 ListOperattion1.vb
+09/10/2011  12:59            73,472 Main MDI.resx
+09/10/2011  12:59            72,002 Main MDI.vb
+03/05/2007  04:27             5,156 MainModules.vb
+17/07/2007  00:03           149,205 Memberhelp1.resx
+14/11/2008  02:38           122,606 Memberhelp1.vb
+18/06/2011  15:53           673,541 ReportDesigner.resx
+18/06/2011  15:53            26,761 ReportDesigner.vb
+18/06/2011  15:06            13,229 StockIssueRate.resx
+18/06/2011  15:06            44,540 StockIssueRate.vb
+07/10/2011  19:47            21,543 SubStoreConsumption.resx
+07/10/2011  19:52            24,702 SubStoreConsumption.vb
+28/10/2011  13:27                 0 T
+04/07/2011  18:34            24,911 UserAdmin.resx
+04/07/2011  18:35            52,829 UserAdmin.vb
+11/11/2010  14:22           181,077 UserAdmin1.resx
+11/11/2010  14:22            56,147 UserAdmin1.vb
+18/06/2011  15:01            10,369 YearEndConversion.resx
+18/06/2011  15:01             7,526 YearEndConversion.vb
+              33 File(s)      2,372,633 bytes
+               2 Dir(s)   1,100,722,176 bytes free

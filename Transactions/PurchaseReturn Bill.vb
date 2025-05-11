@@ -1,0 +1,7705 @@
+Imports System.Data.SqlClient
+Imports System.IO
+Imports CrystalDecisions.CrystalReports.Engine
+Public Class PurchaseReturn_Bill
+    Inherits System.Windows.Forms.Form
+    Dim VCONN As New GlobalClass
+#Region " Windows Form Designer generated code "
+
+    Public Sub New()
+        MyBase.New()
+
+        'This call is required by the Windows Form Designer.
+        InitializeComponent()
+
+        'Add any initialization after the InitializeComponent() call
+
+    End Sub
+
+    'Form overrides dispose to clean up the component list.
+    Protected Overloads Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing Then
+            If Not (components Is Nothing) Then
+                components.Dispose()
+            End If
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    Friend WithEvents frmbut As System.Windows.Forms.GroupBox
+    Friend WithEvents lbl_Heading As System.Windows.Forms.Label
+    Friend WithEvents cmd_Grnnohelp As System.Windows.Forms.Button
+    Friend WithEvents dtp_Excisepassdate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtp_Grndate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lbl_Supplierinvno As System.Windows.Forms.Label
+    Friend WithEvents lbl_Grndate As System.Windows.Forms.Label
+    Friend WithEvents lbl_Grnno As System.Windows.Forms.Label
+    Friend WithEvents lbl_Supplierinvdate As System.Windows.Forms.Label
+    Friend WithEvents lbl_Excisepassno As System.Windows.Forms.Label
+    Friend WithEvents lbl_Excisepassdate As System.Windows.Forms.Label
+    Friend WithEvents txt_Totalamt As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_Remarks As System.Windows.Forms.Label
+    Friend WithEvents lbl_Suppliercode As System.Windows.Forms.Label
+    Friend WithEvents lbl_Freeze As System.Windows.Forms.Label
+    Friend WithEvents txt_Discountamt As System.Windows.Forms.TextBox
+    Friend WithEvents cmd_Suppliercodehelp As System.Windows.Forms.Button
+    Friend WithEvents txt_Excisepassno As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Remarks As System.Windows.Forms.TextBox
+    Friend WithEvents grp_Grngroup1 As System.Windows.Forms.GroupBox
+    Friend WithEvents cbo_Storelocation As System.Windows.Forms.ComboBox
+    Friend WithEvents dtp_Supplierinvdate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lbl_Creditdays As System.Windows.Forms.Label
+    Friend WithEvents lbl_Grn As System.Windows.Forms.Label
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents cmdValueby As System.Windows.Forms.Button
+    Friend WithEvents OptPercentage As System.Windows.Forms.RadioButton
+    Friend WithEvents OptValue As System.Windows.Forms.RadioButton
+    Friend WithEvents txtChangeValue As System.Windows.Forms.TextBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents cmdRoundoff As System.Windows.Forms.Button
+    Friend WithEvents OptNearest As System.Windows.Forms.RadioButton
+    Friend WithEvents OptNone As System.Windows.Forms.RadioButton
+    Friend WithEvents Cmd_Clear As System.Windows.Forms.Button
+    Friend WithEvents Cmd_View As System.Windows.Forms.Button
+    Friend WithEvents Cmd_Freeze As System.Windows.Forms.Button
+    Friend WithEvents Cmd_Add As System.Windows.Forms.Button
+    Friend WithEvents Cmd_Exit As System.Windows.Forms.Button
+    Friend WithEvents grp_StockGrndetails As System.Windows.Forms.GroupBox
+    Friend WithEvents lbl_StockGrndetails As System.Windows.Forms.Label
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
+    Friend WithEvents Cmd_StockGrnprint As System.Windows.Forms.Button
+    Friend WithEvents Cmd_StockGrnView As System.Windows.Forms.Button
+    Friend WithEvents Cmd_StockGrnexit As System.Windows.Forms.Button
+    Friend WithEvents Cmd_StockGrnClear As System.Windows.Forms.Button
+    Friend WithEvents grp_Billingdetails As System.Windows.Forms.GroupBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents grp_Excisedetails As System.Windows.Forms.GroupBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Lbl_SubledgerCode As System.Windows.Forms.Label
+    Friend WithEvents Lbl_CostCenterCode As System.Windows.Forms.Label
+    Friend WithEvents Cmd_CostCenterCodeHelp As System.Windows.Forms.Button
+    Friend WithEvents Txt_CostCenterDesc As System.Windows.Forms.TextBox
+    Friend WithEvents Txt_CostCenterCode As System.Windows.Forms.TextBox
+    Friend WithEvents Cmd_SlCodeHelp As System.Windows.Forms.Button
+    Friend WithEvents Txt_SlDesc As System.Windows.Forms.TextBox
+    Friend WithEvents Txt_Slcode As System.Windows.Forms.TextBox
+    Friend WithEvents Txt_GLAcDesc As System.Windows.Forms.TextBox
+    Friend WithEvents Cmd_GLAcHelp As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Txt_GLAcIn As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Creditdays As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Suppliercode As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Suppliername As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Grnno As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Supplierinvno As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_Glaccountdesc As System.Windows.Forms.Label
+    Friend WithEvents Lbl_SubledgerName As System.Windows.Forms.Label
+    Friend WithEvents Lbl_CostCenterDesc As System.Windows.Forms.Label
+    Friend WithEvents grp_grnposting As System.Windows.Forms.GroupBox
+    Friend WithEvents txt_Trucknumber As System.Windows.Forms.TextBox
+    Friend WithEvents dtp_Stockindate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lbl_Trucknumber As System.Windows.Forms.Label
+    Friend WithEvents lbl_Stockindate As System.Windows.Forms.Label
+    Friend WithEvents lbl_Billterms As System.Windows.Forms.Label
+    Friend WithEvents cbo_Billingterms As System.Windows.Forms.ComboBox
+    Friend WithEvents ssgrid_billdetails As AxFPSpreadADO.AxfpSpread
+    Friend WithEvents ssgrid As AxFPSpreadADO.AxfpSpread
+    Friend WithEvents Cmd_ToDocno As System.Windows.Forms.Button
+    Friend WithEvents Cmd_FromDocno As System.Windows.Forms.Button
+    Friend WithEvents txt_ToDocno As System.Windows.Forms.TextBox
+    Friend WithEvents txt_FromDocno As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_ToDocno As System.Windows.Forms.Label
+    Friend WithEvents lbl_FromDocno As System.Windows.Forms.Label
+    Friend WithEvents lbl_Surchargeamt As System.Windows.Forms.Label
+    Friend WithEvents lbl_Billamount As System.Windows.Forms.Label
+    Friend WithEvents txt_Vatamount As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Surchargeamt As System.Windows.Forms.TextBox
+    Friend WithEvents txt_Billamount As System.Windows.Forms.TextBox
+    Friend WithEvents CMB_CATEGORY As System.Windows.Forms.ComboBox
+    Friend WithEvents cmd_print As System.Windows.Forms.Button
+    Friend WithEvents txt_Storecode As System.Windows.Forms.TextBox
+    Friend WithEvents Cmd_Storecode As System.Windows.Forms.Button
+    Friend WithEvents txt_StoreDesc As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Txt_PONo As System.Windows.Forms.TextBox
+    Friend WithEvents cmd_PONOhelp As System.Windows.Forms.Button
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents TXT_OVERALLdiscount As System.Windows.Forms.TextBox
+    Friend WithEvents cmd_Post As System.Windows.Forms.Button
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Txt_footer As System.Windows.Forms.TextBox
+    Friend WithEvents Txt_signature As System.Windows.Forms.TextBox
+    Friend WithEvents Chk_item As System.Windows.Forms.CheckBox
+    Friend WithEvents grp_footer As System.Windows.Forms.GroupBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents chk_excel As System.Windows.Forms.CheckBox
+    Friend WithEvents cmd_export As System.Windows.Forms.Button
+    Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox11 As System.Windows.Forms.GroupBox
+    Friend WithEvents LabelClosingQuantity As System.Windows.Forms.Label
+    Friend WithEvents btn_auth As System.Windows.Forms.Button
+    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PurchaseReturn_Bill))
+        Me.cmd_Grnnohelp = New System.Windows.Forms.Button()
+        Me.dtp_Excisepassdate = New System.Windows.Forms.DateTimePicker()
+        Me.txt_Totalamt = New System.Windows.Forms.TextBox()
+        Me.txt_Remarks = New System.Windows.Forms.TextBox()
+        Me.lbl_Remarks = New System.Windows.Forms.Label()
+        Me.lbl_Suppliercode = New System.Windows.Forms.Label()
+        Me.frmbut = New System.Windows.Forms.GroupBox()
+        Me.cmd_export = New System.Windows.Forms.Button()
+        Me.Cmd_View = New System.Windows.Forms.Button()
+        Me.chk_excel = New System.Windows.Forms.CheckBox()
+        Me.btn_auth = New System.Windows.Forms.Button()
+        Me.Cmd_Clear = New System.Windows.Forms.Button()
+        Me.Cmd_Add = New System.Windows.Forms.Button()
+        Me.Cmd_Freeze = New System.Windows.Forms.Button()
+        Me.cmd_print = New System.Windows.Forms.Button()
+        Me.Cmd_Exit = New System.Windows.Forms.Button()
+        Me.cmd_Post = New System.Windows.Forms.Button()
+        Me.dtp_Grndate = New System.Windows.Forms.DateTimePicker()
+        Me.lbl_Heading = New System.Windows.Forms.Label()
+        Me.lbl_Freeze = New System.Windows.Forms.Label()
+        Me.lbl_Supplierinvno = New System.Windows.Forms.Label()
+        Me.lbl_Grndate = New System.Windows.Forms.Label()
+        Me.lbl_Grnno = New System.Windows.Forms.Label()
+        Me.grp_Grngroup1 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Txt_PONo = New System.Windows.Forms.TextBox()
+        Me.cmd_PONOhelp = New System.Windows.Forms.Button()
+        Me.txt_Discountamt = New System.Windows.Forms.TextBox()
+        Me.cmd_Suppliercodehelp = New System.Windows.Forms.Button()
+        Me.cbo_Storelocation = New System.Windows.Forms.ComboBox()
+        Me.lbl_Supplierinvdate = New System.Windows.Forms.Label()
+        Me.lbl_Excisepassno = New System.Windows.Forms.Label()
+        Me.lbl_Excisepassdate = New System.Windows.Forms.Label()
+        Me.dtp_Supplierinvdate = New System.Windows.Forms.DateTimePicker()
+        Me.txt_Excisepassno = New System.Windows.Forms.TextBox()
+        Me.lbl_Creditdays = New System.Windows.Forms.Label()
+        Me.lbl_Grn = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmdRoundoff = New System.Windows.Forms.Button()
+        Me.OptNearest = New System.Windows.Forms.RadioButton()
+        Me.OptNone = New System.Windows.Forms.RadioButton()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.cmdValueby = New System.Windows.Forms.Button()
+        Me.OptPercentage = New System.Windows.Forms.RadioButton()
+        Me.OptValue = New System.Windows.Forms.RadioButton()
+        Me.txtChangeValue = New System.Windows.Forms.TextBox()
+        Me.grp_StockGrndetails = New System.Windows.Forms.GroupBox()
+        Me.lbl_StockGrndetails = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Cmd_StockGrnprint = New System.Windows.Forms.Button()
+        Me.Cmd_StockGrnView = New System.Windows.Forms.Button()
+        Me.Cmd_StockGrnexit = New System.Windows.Forms.Button()
+        Me.Cmd_StockGrnClear = New System.Windows.Forms.Button()
+        Me.lbl_FromDocno = New System.Windows.Forms.Label()
+        Me.txt_FromDocno = New System.Windows.Forms.TextBox()
+        Me.Cmd_FromDocno = New System.Windows.Forms.Button()
+        Me.txt_ToDocno = New System.Windows.Forms.TextBox()
+        Me.Cmd_ToDocno = New System.Windows.Forms.Button()
+        Me.lbl_ToDocno = New System.Windows.Forms.Label()
+        Me.grp_Billingdetails = New System.Windows.Forms.GroupBox()
+        Me.ssgrid_billdetails = New AxFPSpreadADO.AxfpSpread()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.grp_Excisedetails = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txt_Trucknumber = New System.Windows.Forms.TextBox()
+        Me.dtp_Stockindate = New System.Windows.Forms.DateTimePicker()
+        Me.lbl_Trucknumber = New System.Windows.Forms.Label()
+        Me.lbl_Stockindate = New System.Windows.Forms.Label()
+        Me.Lbl_SubledgerCode = New System.Windows.Forms.Label()
+        Me.Lbl_CostCenterCode = New System.Windows.Forms.Label()
+        Me.Cmd_CostCenterCodeHelp = New System.Windows.Forms.Button()
+        Me.Txt_CostCenterDesc = New System.Windows.Forms.TextBox()
+        Me.Txt_CostCenterCode = New System.Windows.Forms.TextBox()
+        Me.Cmd_SlCodeHelp = New System.Windows.Forms.Button()
+        Me.Txt_SlDesc = New System.Windows.Forms.TextBox()
+        Me.Txt_Slcode = New System.Windows.Forms.TextBox()
+        Me.Txt_GLAcDesc = New System.Windows.Forms.TextBox()
+        Me.Cmd_GLAcHelp = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Txt_GLAcIn = New System.Windows.Forms.TextBox()
+        Me.txt_Creditdays = New System.Windows.Forms.TextBox()
+        Me.txt_Suppliercode = New System.Windows.Forms.TextBox()
+        Me.txt_Suppliername = New System.Windows.Forms.TextBox()
+        Me.txt_Grnno = New System.Windows.Forms.TextBox()
+        Me.txt_Supplierinvno = New System.Windows.Forms.TextBox()
+        Me.lbl_Glaccountdesc = New System.Windows.Forms.Label()
+        Me.Lbl_SubledgerName = New System.Windows.Forms.Label()
+        Me.Lbl_CostCenterDesc = New System.Windows.Forms.Label()
+        Me.grp_grnposting = New System.Windows.Forms.GroupBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.lbl_Billterms = New System.Windows.Forms.Label()
+        Me.cbo_Billingterms = New System.Windows.Forms.ComboBox()
+        Me.ssgrid = New AxFPSpreadADO.AxfpSpread()
+        Me.lbl_Surchargeamt = New System.Windows.Forms.Label()
+        Me.lbl_Billamount = New System.Windows.Forms.Label()
+        Me.txt_Vatamount = New System.Windows.Forms.TextBox()
+        Me.txt_Surchargeamt = New System.Windows.Forms.TextBox()
+        Me.txt_Billamount = New System.Windows.Forms.TextBox()
+        Me.CMB_CATEGORY = New System.Windows.Forms.ComboBox()
+        Me.txt_Storecode = New System.Windows.Forms.TextBox()
+        Me.Cmd_Storecode = New System.Windows.Forms.Button()
+        Me.txt_StoreDesc = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TXT_OVERALLdiscount = New System.Windows.Forms.TextBox()
+        Me.grp_footer = New System.Windows.Forms.GroupBox()
+        Me.Txt_signature = New System.Windows.Forms.TextBox()
+        Me.Txt_footer = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Chk_item = New System.Windows.Forms.CheckBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.LabelClosingQuantity = New System.Windows.Forms.Label()
+        Me.frmbut.SuspendLayout()
+        Me.grp_Grngroup1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.grp_StockGrndetails.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.grp_Billingdetails.SuspendLayout()
+        CType(Me.ssgrid_billdetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grp_Excisedetails.SuspendLayout()
+        Me.grp_grnposting.SuspendLayout()
+        CType(Me.ssgrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grp_footer.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox6.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox7.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'cmd_Grnnohelp
+        '
+        Me.cmd_Grnnohelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_Grnnohelp.Image = CType(resources.GetObject("cmd_Grnnohelp.Image"), System.Drawing.Image)
+        Me.cmd_Grnnohelp.Location = New System.Drawing.Point(234, 13)
+        Me.cmd_Grnnohelp.Name = "cmd_Grnnohelp"
+        Me.cmd_Grnnohelp.Size = New System.Drawing.Size(23, 26)
+        Me.cmd_Grnnohelp.TabIndex = 24
+        '
+        'dtp_Excisepassdate
+        '
+        Me.dtp_Excisepassdate.CalendarFont = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Excisepassdate.CustomFormat = "dd/MMM/yyyy"
+        Me.dtp_Excisepassdate.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Excisepassdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtp_Excisepassdate.Location = New System.Drawing.Point(240, 128)
+        Me.dtp_Excisepassdate.Name = "dtp_Excisepassdate"
+        Me.dtp_Excisepassdate.Size = New System.Drawing.Size(216, 26)
+        Me.dtp_Excisepassdate.TabIndex = 2
+        '
+        'txt_Totalamt
+        '
+        Me.txt_Totalamt.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Totalamt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Totalamt.Enabled = False
+        Me.txt_Totalamt.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.txt_Totalamt.Location = New System.Drawing.Point(542, 15)
+        Me.txt_Totalamt.MaxLength = 15
+        Me.txt_Totalamt.Name = "txt_Totalamt"
+        Me.txt_Totalamt.ReadOnly = True
+        Me.txt_Totalamt.Size = New System.Drawing.Size(104, 22)
+        Me.txt_Totalamt.TabIndex = 0
+        Me.txt_Totalamt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txt_Remarks
+        '
+        Me.txt_Remarks.BackColor = System.Drawing.Color.White
+        Me.txt_Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Remarks.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Remarks.Location = New System.Drawing.Point(99, 10)
+        Me.txt_Remarks.MaxLength = 200
+        Me.txt_Remarks.Multiline = True
+        Me.txt_Remarks.Name = "txt_Remarks"
+        Me.txt_Remarks.Size = New System.Drawing.Size(282, 32)
+        Me.txt_Remarks.TabIndex = 14
+        '
+        'lbl_Remarks
+        '
+        Me.lbl_Remarks.AutoSize = True
+        Me.lbl_Remarks.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Remarks.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Remarks.Location = New System.Drawing.Point(16, 10)
+        Me.lbl_Remarks.Name = "lbl_Remarks"
+        Me.lbl_Remarks.Size = New System.Drawing.Size(67, 15)
+        Me.lbl_Remarks.TabIndex = 43
+        Me.lbl_Remarks.Text = "REMARKS "
+        '
+        'lbl_Suppliercode
+        '
+        Me.lbl_Suppliercode.AutoSize = True
+        Me.lbl_Suppliercode.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Suppliercode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Suppliercode.Location = New System.Drawing.Point(5, 24)
+        Me.lbl_Suppliercode.Name = "lbl_Suppliercode"
+        Me.lbl_Suppliercode.Size = New System.Drawing.Size(99, 15)
+        Me.lbl_Suppliercode.TabIndex = 28
+        Me.lbl_Suppliercode.Text = "SUPPLIER CODE"
+        '
+        'frmbut
+        '
+        Me.frmbut.BackColor = System.Drawing.Color.Transparent
+        Me.frmbut.Controls.Add(Me.cmd_export)
+        Me.frmbut.Controls.Add(Me.Cmd_View)
+        Me.frmbut.Controls.Add(Me.chk_excel)
+        Me.frmbut.Controls.Add(Me.btn_auth)
+        Me.frmbut.Controls.Add(Me.Cmd_Clear)
+        Me.frmbut.Controls.Add(Me.Cmd_Add)
+        Me.frmbut.Controls.Add(Me.Cmd_Freeze)
+        Me.frmbut.Controls.Add(Me.cmd_print)
+        Me.frmbut.Controls.Add(Me.Cmd_Exit)
+        Me.frmbut.Location = New System.Drawing.Point(867, 105)
+        Me.frmbut.Name = "frmbut"
+        Me.frmbut.Size = New System.Drawing.Size(139, 527)
+        Me.frmbut.TabIndex = 44
+        Me.frmbut.TabStop = False
+        '
+        'cmd_export
+        '
+        Me.cmd_export.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_export.BackgroundImage = Global.Inventory.My.Resources.Resources.excel
+        Me.cmd_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmd_export.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_export.ForeColor = System.Drawing.Color.Black
+        Me.cmd_export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmd_export.Location = New System.Drawing.Point(10, 309)
+        Me.cmd_export.Name = "cmd_export"
+        Me.cmd_export.Size = New System.Drawing.Size(120, 56)
+        Me.cmd_export.TabIndex = 472
+        Me.cmd_export.Text = "Export"
+        Me.cmd_export.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_export.UseVisualStyleBackColor = False
+        '
+        'Cmd_View
+        '
+        Me.Cmd_View.BackColor = System.Drawing.Color.Transparent
+        Me.Cmd_View.BackgroundImage = Global.Inventory.My.Resources.Resources.view
+        Me.Cmd_View.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Cmd_View.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_View.ForeColor = System.Drawing.Color.Black
+        Me.Cmd_View.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_View.Location = New System.Drawing.Point(10, 131)
+        Me.Cmd_View.Name = "Cmd_View"
+        Me.Cmd_View.Size = New System.Drawing.Size(120, 56)
+        Me.Cmd_View.TabIndex = 15
+        Me.Cmd_View.Text = " View[F9]"
+        Me.Cmd_View.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_View.UseVisualStyleBackColor = False
+        '
+        'chk_excel
+        '
+        Me.chk_excel.BackColor = System.Drawing.Color.Transparent
+        Me.chk_excel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chk_excel.Location = New System.Drawing.Point(48, 490)
+        Me.chk_excel.Name = "chk_excel"
+        Me.chk_excel.Size = New System.Drawing.Size(72, 24)
+        Me.chk_excel.TabIndex = 465
+        Me.chk_excel.Text = "EXCEL"
+        Me.chk_excel.UseVisualStyleBackColor = False
+        Me.chk_excel.Visible = False
+        '
+        'btn_auth
+        '
+        Me.btn_auth.BackColor = System.Drawing.Color.Transparent
+        Me.btn_auth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btn_auth.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_auth.ForeColor = System.Drawing.Color.Black
+        Me.btn_auth.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_auth.Location = New System.Drawing.Point(10, 371)
+        Me.btn_auth.Name = "btn_auth"
+        Me.btn_auth.Size = New System.Drawing.Size(120, 56)
+        Me.btn_auth.TabIndex = 466
+        Me.btn_auth.Text = "Authorize"
+        Me.btn_auth.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_auth.UseVisualStyleBackColor = False
+        '
+        'Cmd_Clear
+        '
+        Me.Cmd_Clear.BackColor = System.Drawing.Color.Transparent
+        Me.Cmd_Clear.BackgroundImage = Global.Inventory.My.Resources.Resources.Clear
+        Me.Cmd_Clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Cmd_Clear.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_Clear.ForeColor = System.Drawing.Color.Black
+        Me.Cmd_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_Clear.Location = New System.Drawing.Point(10, 14)
+        Me.Cmd_Clear.Name = "Cmd_Clear"
+        Me.Cmd_Clear.Size = New System.Drawing.Size(120, 56)
+        Me.Cmd_Clear.TabIndex = 17
+        Me.Cmd_Clear.Text = "Clear[F6]"
+        Me.Cmd_Clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Clear.UseVisualStyleBackColor = False
+        '
+        'Cmd_Add
+        '
+        Me.Cmd_Add.BackColor = System.Drawing.Color.Transparent
+        Me.Cmd_Add.BackgroundImage = Global.Inventory.My.Resources.Resources.save
+        Me.Cmd_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Cmd_Add.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_Add.ForeColor = System.Drawing.Color.Black
+        Me.Cmd_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_Add.Location = New System.Drawing.Point(10, 73)
+        Me.Cmd_Add.Name = "Cmd_Add"
+        Me.Cmd_Add.Size = New System.Drawing.Size(120, 56)
+        Me.Cmd_Add.TabIndex = 12
+        Me.Cmd_Add.Text = "Add [F7]"
+        Me.Cmd_Add.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Add.UseVisualStyleBackColor = False
+        '
+        'Cmd_Freeze
+        '
+        Me.Cmd_Freeze.BackColor = System.Drawing.Color.Transparent
+        Me.Cmd_Freeze.BackgroundImage = Global.Inventory.My.Resources.Resources.Delete
+        Me.Cmd_Freeze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Cmd_Freeze.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_Freeze.ForeColor = System.Drawing.Color.Black
+        Me.Cmd_Freeze.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_Freeze.Location = New System.Drawing.Point(10, 192)
+        Me.Cmd_Freeze.Name = "Cmd_Freeze"
+        Me.Cmd_Freeze.Size = New System.Drawing.Size(120, 56)
+        Me.Cmd_Freeze.TabIndex = 13
+        Me.Cmd_Freeze.Text = "Void[F8]"
+        Me.Cmd_Freeze.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Freeze.UseVisualStyleBackColor = False
+        '
+        'cmd_print
+        '
+        Me.cmd_print.BackColor = System.Drawing.Color.Transparent
+        Me.cmd_print.BackgroundImage = Global.Inventory.My.Resources.Resources.print
+        Me.cmd_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmd_print.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_print.ForeColor = System.Drawing.Color.Black
+        Me.cmd_print.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmd_print.Location = New System.Drawing.Point(10, 250)
+        Me.cmd_print.Name = "cmd_print"
+        Me.cmd_print.Size = New System.Drawing.Size(120, 56)
+        Me.cmd_print.TabIndex = 14
+        Me.cmd_print.Text = "Print [F10]"
+        Me.cmd_print.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_print.UseVisualStyleBackColor = False
+        '
+        'Cmd_Exit
+        '
+        Me.Cmd_Exit.BackColor = System.Drawing.Color.Transparent
+        Me.Cmd_Exit.BackgroundImage = Global.Inventory.My.Resources.Resources._Exit
+        Me.Cmd_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Cmd_Exit.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_Exit.ForeColor = System.Drawing.Color.Black
+        Me.Cmd_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_Exit.Location = New System.Drawing.Point(10, 428)
+        Me.Cmd_Exit.Name = "Cmd_Exit"
+        Me.Cmd_Exit.Size = New System.Drawing.Size(120, 56)
+        Me.Cmd_Exit.TabIndex = 15
+        Me.Cmd_Exit.Text = "Exit[F11]"
+        Me.Cmd_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Exit.UseVisualStyleBackColor = False
+        '
+        'cmd_Post
+        '
+        Me.cmd_Post.BackColor = System.Drawing.Color.ForestGreen
+        Me.cmd_Post.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmd_Post.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_Post.ForeColor = System.Drawing.Color.White
+        Me.cmd_Post.Image = CType(resources.GetObject("cmd_Post.Image"), System.Drawing.Image)
+        Me.cmd_Post.Location = New System.Drawing.Point(872, 696)
+        Me.cmd_Post.Name = "cmd_Post"
+        Me.cmd_Post.Size = New System.Drawing.Size(104, 32)
+        Me.cmd_Post.TabIndex = 437
+        Me.cmd_Post.Text = "A/C POST"
+        Me.cmd_Post.UseVisualStyleBackColor = False
+        Me.cmd_Post.Visible = False
+        '
+        'dtp_Grndate
+        '
+        Me.dtp_Grndate.CalendarFont = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Grndate.CalendarMonthBackground = System.Drawing.Color.White
+        Me.dtp_Grndate.CalendarTitleForeColor = System.Drawing.Color.AliceBlue
+        Me.dtp_Grndate.CustomFormat = "dd/MMM/yyyy"
+        Me.dtp_Grndate.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Grndate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtp_Grndate.Location = New System.Drawing.Point(443, 16)
+        Me.dtp_Grndate.Name = "dtp_Grndate"
+        Me.dtp_Grndate.Size = New System.Drawing.Size(96, 21)
+        Me.dtp_Grndate.TabIndex = 3
+        '
+        'lbl_Heading
+        '
+        Me.lbl_Heading.AutoSize = True
+        Me.lbl_Heading.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Heading.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Heading.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lbl_Heading.Location = New System.Drawing.Point(213, 76)
+        Me.lbl_Heading.Name = "lbl_Heading"
+        Me.lbl_Heading.Size = New System.Drawing.Size(163, 18)
+        Me.lbl_Heading.TabIndex = 21
+        Me.lbl_Heading.Text = " PURCHASE RETURN"
+        Me.lbl_Heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lbl_Freeze
+        '
+        Me.lbl_Freeze.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Freeze.Font = New System.Drawing.Font("Times New Roman", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Freeze.ForeColor = System.Drawing.Color.Red
+        Me.lbl_Freeze.Location = New System.Drawing.Point(600, 38)
+        Me.lbl_Freeze.Name = "lbl_Freeze"
+        Me.lbl_Freeze.Size = New System.Drawing.Size(200, 25)
+        Me.lbl_Freeze.TabIndex = 47
+        Me.lbl_Freeze.Text = "Record Void  On "
+        Me.lbl_Freeze.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lbl_Freeze.Visible = False
+        '
+        'lbl_Supplierinvno
+        '
+        Me.lbl_Supplierinvno.AutoSize = True
+        Me.lbl_Supplierinvno.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Supplierinvno.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Supplierinvno.Location = New System.Drawing.Point(5, 54)
+        Me.lbl_Supplierinvno.Name = "lbl_Supplierinvno"
+        Me.lbl_Supplierinvno.Size = New System.Drawing.Size(88, 15)
+        Me.lbl_Supplierinvno.TabIndex = 26
+        Me.lbl_Supplierinvno.Text = "PARTY INV. NO"
+        '
+        'lbl_Grndate
+        '
+        Me.lbl_Grndate.AutoSize = True
+        Me.lbl_Grndate.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Grndate.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Grndate.Location = New System.Drawing.Point(295, 19)
+        Me.lbl_Grndate.Name = "lbl_Grndate"
+        Me.lbl_Grndate.Size = New System.Drawing.Size(63, 15)
+        Me.lbl_Grndate.TabIndex = 25
+        Me.lbl_Grndate.Text = "PRN DATE"
+        '
+        'lbl_Grnno
+        '
+        Me.lbl_Grnno.AutoSize = True
+        Me.lbl_Grnno.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Grnno.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Grnno.Location = New System.Drawing.Point(5, 15)
+        Me.lbl_Grnno.Name = "lbl_Grnno"
+        Me.lbl_Grnno.Size = New System.Drawing.Size(51, 15)
+        Me.lbl_Grnno.TabIndex = 23
+        Me.lbl_Grnno.Text = "PRN NO"
+        '
+        'grp_Grngroup1
+        '
+        Me.grp_Grngroup1.BackColor = System.Drawing.Color.Transparent
+        Me.grp_Grngroup1.Controls.Add(Me.Label4)
+        Me.grp_Grngroup1.Controls.Add(Me.Txt_PONo)
+        Me.grp_Grngroup1.Controls.Add(Me.cmd_PONOhelp)
+        Me.grp_Grngroup1.Location = New System.Drawing.Point(186, 103)
+        Me.grp_Grngroup1.Name = "grp_Grngroup1"
+        Me.grp_Grngroup1.Size = New System.Drawing.Size(272, 43)
+        Me.grp_Grngroup1.TabIndex = 22
+        Me.grp_Grngroup1.TabStop = False
+        Me.grp_Grngroup1.Visible = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(5, 17)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(45, 15)
+        Me.Label4.TabIndex = 433
+        Me.Label4.Text = "P.O NO"
+        Me.Label4.Visible = False
+        '
+        'Txt_PONo
+        '
+        Me.Txt_PONo.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_PONo.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_PONo.Location = New System.Drawing.Point(72, 13)
+        Me.Txt_PONo.MaxLength = 50
+        Me.Txt_PONo.Name = "Txt_PONo"
+        Me.Txt_PONo.Size = New System.Drawing.Size(152, 21)
+        Me.Txt_PONo.TabIndex = 0
+        Me.Txt_PONo.Visible = False
+        '
+        'cmd_PONOhelp
+        '
+        Me.cmd_PONOhelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_PONOhelp.Image = CType(resources.GetObject("cmd_PONOhelp.Image"), System.Drawing.Image)
+        Me.cmd_PONOhelp.Location = New System.Drawing.Point(224, 9)
+        Me.cmd_PONOhelp.Name = "cmd_PONOhelp"
+        Me.cmd_PONOhelp.Size = New System.Drawing.Size(23, 26)
+        Me.cmd_PONOhelp.TabIndex = 434
+        Me.cmd_PONOhelp.Visible = False
+        '
+        'txt_Discountamt
+        '
+        Me.txt_Discountamt.BackColor = System.Drawing.Color.White
+        Me.txt_Discountamt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Discountamt.Enabled = False
+        Me.txt_Discountamt.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Discountamt.Location = New System.Drawing.Point(382, 16)
+        Me.txt_Discountamt.MaxLength = 15
+        Me.txt_Discountamt.Name = "txt_Discountamt"
+        Me.txt_Discountamt.Size = New System.Drawing.Size(80, 21)
+        Me.txt_Discountamt.TabIndex = 1
+        Me.txt_Discountamt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'cmd_Suppliercodehelp
+        '
+        Me.cmd_Suppliercodehelp.Image = CType(resources.GetObject("cmd_Suppliercodehelp.Image"), System.Drawing.Image)
+        Me.cmd_Suppliercodehelp.Location = New System.Drawing.Point(187, 21)
+        Me.cmd_Suppliercodehelp.Name = "cmd_Suppliercodehelp"
+        Me.cmd_Suppliercodehelp.Size = New System.Drawing.Size(23, 26)
+        Me.cmd_Suppliercodehelp.TabIndex = 29
+        '
+        'cbo_Storelocation
+        '
+        Me.cbo_Storelocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_Storelocation.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbo_Storelocation.Location = New System.Drawing.Point(784, 1000)
+        Me.cbo_Storelocation.Name = "cbo_Storelocation"
+        Me.cbo_Storelocation.Size = New System.Drawing.Size(192, 23)
+        Me.cbo_Storelocation.TabIndex = 8
+        '
+        'lbl_Supplierinvdate
+        '
+        Me.lbl_Supplierinvdate.AutoSize = True
+        Me.lbl_Supplierinvdate.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Supplierinvdate.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Supplierinvdate.Location = New System.Drawing.Point(295, 56)
+        Me.lbl_Supplierinvdate.Name = "lbl_Supplierinvdate"
+        Me.lbl_Supplierinvdate.Size = New System.Drawing.Size(100, 15)
+        Me.lbl_Supplierinvdate.TabIndex = 27
+        Me.lbl_Supplierinvdate.Text = "PARTY INV. DATE"
+        '
+        'lbl_Excisepassno
+        '
+        Me.lbl_Excisepassno.AutoSize = True
+        Me.lbl_Excisepassno.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Excisepassno.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Excisepassno.Location = New System.Drawing.Point(64, 88)
+        Me.lbl_Excisepassno.Name = "lbl_Excisepassno"
+        Me.lbl_Excisepassno.Size = New System.Drawing.Size(162, 17)
+        Me.lbl_Excisepassno.TabIndex = 5
+        Me.lbl_Excisepassno.Text = "EXCISE PASS NO       :"
+        '
+        'lbl_Excisepassdate
+        '
+        Me.lbl_Excisepassdate.AutoSize = True
+        Me.lbl_Excisepassdate.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Excisepassdate.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Excisepassdate.Location = New System.Drawing.Point(64, 128)
+        Me.lbl_Excisepassdate.Name = "lbl_Excisepassdate"
+        Me.lbl_Excisepassdate.Size = New System.Drawing.Size(164, 17)
+        Me.lbl_Excisepassdate.TabIndex = 6
+        Me.lbl_Excisepassdate.Text = "EXCISE PASS DATE   :"
+        '
+        'dtp_Supplierinvdate
+        '
+        Me.dtp_Supplierinvdate.CalendarFont = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Supplierinvdate.CustomFormat = "dd/MMM/yyyy"
+        Me.dtp_Supplierinvdate.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Supplierinvdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtp_Supplierinvdate.Location = New System.Drawing.Point(440, 52)
+        Me.dtp_Supplierinvdate.Name = "dtp_Supplierinvdate"
+        Me.dtp_Supplierinvdate.Size = New System.Drawing.Size(96, 26)
+        Me.dtp_Supplierinvdate.TabIndex = 6
+        '
+        'txt_Excisepassno
+        '
+        Me.txt_Excisepassno.BackColor = System.Drawing.Color.White
+        Me.txt_Excisepassno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Excisepassno.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Excisepassno.Location = New System.Drawing.Point(240, 88)
+        Me.txt_Excisepassno.MaxLength = 15
+        Me.txt_Excisepassno.Name = "txt_Excisepassno"
+        Me.txt_Excisepassno.Size = New System.Drawing.Size(216, 26)
+        Me.txt_Excisepassno.TabIndex = 1
+        '
+        'lbl_Creditdays
+        '
+        Me.lbl_Creditdays.AutoSize = True
+        Me.lbl_Creditdays.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Creditdays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Creditdays.Location = New System.Drawing.Point(808, 80)
+        Me.lbl_Creditdays.Name = "lbl_Creditdays"
+        Me.lbl_Creditdays.Size = New System.Drawing.Size(121, 16)
+        Me.lbl_Creditdays.TabIndex = 32
+        Me.lbl_Creditdays.Text = "CREDIT DAYS  :"
+        Me.lbl_Creditdays.Visible = False
+        '
+        'lbl_Grn
+        '
+        Me.lbl_Grn.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Grn.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Grn.ForeColor = System.Drawing.Color.Blue
+        Me.lbl_Grn.Location = New System.Drawing.Point(8, 632)
+        Me.lbl_Grn.Name = "lbl_Grn"
+        Me.lbl_Grn.Size = New System.Drawing.Size(160, 24)
+        Me.lbl_Grn.TabIndex = 45
+        Me.lbl_Grn.Visible = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
+        Me.GroupBox1.Location = New System.Drawing.Point(72, 1000)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(480, 128)
+        Me.GroupBox1.TabIndex = 352
+        Me.GroupBox1.TabStop = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.cmdRoundoff)
+        Me.GroupBox2.Controls.Add(Me.OptNearest)
+        Me.GroupBox2.Controls.Add(Me.OptNone)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.Blue
+        Me.GroupBox2.Location = New System.Drawing.Point(264, 20)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(208, 88)
+        Me.GroupBox2.TabIndex = 353
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Rounded Off"
+        '
+        'cmdRoundoff
+        '
+        Me.cmdRoundoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdRoundoff.ForeColor = System.Drawing.Color.Blue
+        Me.cmdRoundoff.Location = New System.Drawing.Point(136, 16)
+        Me.cmdRoundoff.Name = "cmdRoundoff"
+        Me.cmdRoundoff.Size = New System.Drawing.Size(56, 39)
+        Me.cmdRoundoff.TabIndex = 2
+        Me.cmdRoundoff.Text = "Round Off"
+        '
+        'OptNearest
+        '
+        Me.OptNearest.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.OptNearest.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.OptNearest.Location = New System.Drawing.Point(24, 44)
+        Me.OptNearest.Name = "OptNearest"
+        Me.OptNearest.Size = New System.Drawing.Size(85, 16)
+        Me.OptNearest.TabIndex = 2
+        Me.OptNearest.Text = "Nearest Rs"
+        '
+        'OptNone
+        '
+        Me.OptNone.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.OptNone.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.OptNone.Location = New System.Drawing.Point(24, 18)
+        Me.OptNone.Name = "OptNone"
+        Me.OptNone.Size = New System.Drawing.Size(88, 16)
+        Me.OptNone.TabIndex = 1
+        Me.OptNone.Text = "None"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.cmdValueby)
+        Me.GroupBox3.Controls.Add(Me.OptPercentage)
+        Me.GroupBox3.Controls.Add(Me.OptValue)
+        Me.GroupBox3.Controls.Add(Me.txtChangeValue)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.Blue
+        Me.GroupBox3.Location = New System.Drawing.Point(8, 20)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(248, 88)
+        Me.GroupBox3.TabIndex = 352
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Discount Amount"
+        '
+        'cmdValueby
+        '
+        Me.cmdValueby.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdValueby.ForeColor = System.Drawing.Color.Blue
+        Me.cmdValueby.Location = New System.Drawing.Point(191, 16)
+        Me.cmdValueby.Name = "cmdValueby"
+        Me.cmdValueby.Size = New System.Drawing.Size(48, 40)
+        Me.cmdValueby.TabIndex = 3
+        Me.cmdValueby.Text = "Value Chg"
+        '
+        'OptPercentage
+        '
+        Me.OptPercentage.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.OptPercentage.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.OptPercentage.Location = New System.Drawing.Point(10, 56)
+        Me.OptPercentage.Name = "OptPercentage"
+        Me.OptPercentage.Size = New System.Drawing.Size(87, 16)
+        Me.OptPercentage.TabIndex = 2
+        Me.OptPercentage.Text = "Percentage"
+        '
+        'OptValue
+        '
+        Me.OptValue.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.OptValue.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.OptValue.Location = New System.Drawing.Point(10, 24)
+        Me.OptValue.Name = "OptValue"
+        Me.OptValue.Size = New System.Drawing.Size(80, 16)
+        Me.OptValue.TabIndex = 1
+        Me.OptValue.Text = "Value"
+        '
+        'txtChangeValue
+        '
+        Me.txtChangeValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtChangeValue.Location = New System.Drawing.Point(100, 56)
+        Me.txtChangeValue.MaxLength = 10
+        Me.txtChangeValue.Name = "txtChangeValue"
+        Me.txtChangeValue.Size = New System.Drawing.Size(92, 20)
+        Me.txtChangeValue.TabIndex = 3
+        '
+        'grp_StockGrndetails
+        '
+        Me.grp_StockGrndetails.BackgroundImage = CType(resources.GetObject("grp_StockGrndetails.BackgroundImage"), System.Drawing.Image)
+        Me.grp_StockGrndetails.Controls.Add(Me.lbl_StockGrndetails)
+        Me.grp_StockGrndetails.Controls.Add(Me.GroupBox5)
+        Me.grp_StockGrndetails.Controls.Add(Me.lbl_FromDocno)
+        Me.grp_StockGrndetails.Controls.Add(Me.txt_FromDocno)
+        Me.grp_StockGrndetails.Controls.Add(Me.Cmd_FromDocno)
+        Me.grp_StockGrndetails.Controls.Add(Me.txt_ToDocno)
+        Me.grp_StockGrndetails.Controls.Add(Me.Cmd_ToDocno)
+        Me.grp_StockGrndetails.Controls.Add(Me.lbl_ToDocno)
+        Me.grp_StockGrndetails.Location = New System.Drawing.Point(222, 1000)
+        Me.grp_StockGrndetails.Name = "grp_StockGrndetails"
+        Me.grp_StockGrndetails.Size = New System.Drawing.Size(514, 238)
+        Me.grp_StockGrndetails.TabIndex = 361
+        Me.grp_StockGrndetails.TabStop = False
+        '
+        'lbl_StockGrndetails
+        '
+        Me.lbl_StockGrndetails.BackColor = System.Drawing.Color.Maroon
+        Me.lbl_StockGrndetails.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_StockGrndetails.ForeColor = System.Drawing.Color.White
+        Me.lbl_StockGrndetails.Location = New System.Drawing.Point(0, 7)
+        Me.lbl_StockGrndetails.Name = "lbl_StockGrndetails"
+        Me.lbl_StockGrndetails.Size = New System.Drawing.Size(520, 25)
+        Me.lbl_StockGrndetails.TabIndex = 26
+        Me.lbl_StockGrndetails.Text = "GRN CHECKLIST"
+        Me.lbl_StockGrndetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox5.Controls.Add(Me.Cmd_StockGrnprint)
+        Me.GroupBox5.Controls.Add(Me.Cmd_StockGrnView)
+        Me.GroupBox5.Controls.Add(Me.Cmd_StockGrnexit)
+        Me.GroupBox5.Controls.Add(Me.Cmd_StockGrnClear)
+        Me.GroupBox5.Location = New System.Drawing.Point(8, 168)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(496, 56)
+        Me.GroupBox5.TabIndex = 25
+        Me.GroupBox5.TabStop = False
+        '
+        'Cmd_StockGrnprint
+        '
+        Me.Cmd_StockGrnprint.BackColor = System.Drawing.Color.ForestGreen
+        Me.Cmd_StockGrnprint.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Cmd_StockGrnprint.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_StockGrnprint.ForeColor = System.Drawing.Color.White
+        Me.Cmd_StockGrnprint.Image = CType(resources.GetObject("Cmd_StockGrnprint.Image"), System.Drawing.Image)
+        Me.Cmd_StockGrnprint.Location = New System.Drawing.Point(256, 16)
+        Me.Cmd_StockGrnprint.Name = "Cmd_StockGrnprint"
+        Me.Cmd_StockGrnprint.Size = New System.Drawing.Size(104, 32)
+        Me.Cmd_StockGrnprint.TabIndex = 25
+        Me.Cmd_StockGrnprint.Text = "Print [F10]"
+        Me.Cmd_StockGrnprint.UseVisualStyleBackColor = False
+        '
+        'Cmd_StockGrnView
+        '
+        Me.Cmd_StockGrnView.BackColor = System.Drawing.Color.ForestGreen
+        Me.Cmd_StockGrnView.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Cmd_StockGrnView.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_StockGrnView.ForeColor = System.Drawing.Color.White
+        Me.Cmd_StockGrnView.Image = CType(resources.GetObject("Cmd_StockGrnView.Image"), System.Drawing.Image)
+        Me.Cmd_StockGrnView.Location = New System.Drawing.Point(128, 16)
+        Me.Cmd_StockGrnView.Name = "Cmd_StockGrnView"
+        Me.Cmd_StockGrnView.Size = New System.Drawing.Size(104, 32)
+        Me.Cmd_StockGrnView.TabIndex = 13
+        Me.Cmd_StockGrnView.Text = "View [F9]"
+        Me.Cmd_StockGrnView.UseVisualStyleBackColor = False
+        '
+        'Cmd_StockGrnexit
+        '
+        Me.Cmd_StockGrnexit.BackColor = System.Drawing.Color.ForestGreen
+        Me.Cmd_StockGrnexit.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Cmd_StockGrnexit.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_StockGrnexit.ForeColor = System.Drawing.Color.White
+        Me.Cmd_StockGrnexit.Image = CType(resources.GetObject("Cmd_StockGrnexit.Image"), System.Drawing.Image)
+        Me.Cmd_StockGrnexit.Location = New System.Drawing.Point(376, 16)
+        Me.Cmd_StockGrnexit.Name = "Cmd_StockGrnexit"
+        Me.Cmd_StockGrnexit.Size = New System.Drawing.Size(104, 32)
+        Me.Cmd_StockGrnexit.TabIndex = 15
+        Me.Cmd_StockGrnexit.Text = "Exit[F11]"
+        Me.Cmd_StockGrnexit.UseVisualStyleBackColor = False
+        '
+        'Cmd_StockGrnClear
+        '
+        Me.Cmd_StockGrnClear.BackColor = System.Drawing.Color.ForestGreen
+        Me.Cmd_StockGrnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Cmd_StockGrnClear.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_StockGrnClear.ForeColor = System.Drawing.Color.White
+        Me.Cmd_StockGrnClear.Image = CType(resources.GetObject("Cmd_StockGrnClear.Image"), System.Drawing.Image)
+        Me.Cmd_StockGrnClear.Location = New System.Drawing.Point(8, 16)
+        Me.Cmd_StockGrnClear.Name = "Cmd_StockGrnClear"
+        Me.Cmd_StockGrnClear.Size = New System.Drawing.Size(104, 32)
+        Me.Cmd_StockGrnClear.TabIndex = 24
+        Me.Cmd_StockGrnClear.Text = "Clear[F6]"
+        Me.Cmd_StockGrnClear.UseVisualStyleBackColor = False
+        '
+        'lbl_FromDocno
+        '
+        Me.lbl_FromDocno.AutoSize = True
+        Me.lbl_FromDocno.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_FromDocno.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_FromDocno.Location = New System.Drawing.Point(38, 67)
+        Me.lbl_FromDocno.Name = "lbl_FromDocno"
+        Me.lbl_FromDocno.Size = New System.Drawing.Size(135, 19)
+        Me.lbl_FromDocno.TabIndex = 2
+        Me.lbl_FromDocno.Text = "FROM GRN NO :"
+        '
+        'txt_FromDocno
+        '
+        Me.txt_FromDocno.BackColor = System.Drawing.Color.Wheat
+        Me.txt_FromDocno.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_FromDocno.Location = New System.Drawing.Point(184, 64)
+        Me.txt_FromDocno.Name = "txt_FromDocno"
+        Me.txt_FromDocno.Size = New System.Drawing.Size(208, 29)
+        Me.txt_FromDocno.TabIndex = 4
+        '
+        'Cmd_FromDocno
+        '
+        Me.Cmd_FromDocno.BackColor = System.Drawing.Color.Transparent
+        Me.Cmd_FromDocno.Image = CType(resources.GetObject("Cmd_FromDocno.Image"), System.Drawing.Image)
+        Me.Cmd_FromDocno.Location = New System.Drawing.Point(392, 64)
+        Me.Cmd_FromDocno.Name = "Cmd_FromDocno"
+        Me.Cmd_FromDocno.Size = New System.Drawing.Size(23, 29)
+        Me.Cmd_FromDocno.TabIndex = 38
+        Me.Cmd_FromDocno.UseVisualStyleBackColor = False
+        '
+        'txt_ToDocno
+        '
+        Me.txt_ToDocno.BackColor = System.Drawing.Color.Wheat
+        Me.txt_ToDocno.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_ToDocno.Location = New System.Drawing.Point(184, 112)
+        Me.txt_ToDocno.Name = "txt_ToDocno"
+        Me.txt_ToDocno.Size = New System.Drawing.Size(208, 29)
+        Me.txt_ToDocno.TabIndex = 5
+        '
+        'Cmd_ToDocno
+        '
+        Me.Cmd_ToDocno.BackColor = System.Drawing.Color.Transparent
+        Me.Cmd_ToDocno.Image = CType(resources.GetObject("Cmd_ToDocno.Image"), System.Drawing.Image)
+        Me.Cmd_ToDocno.Location = New System.Drawing.Point(392, 112)
+        Me.Cmd_ToDocno.Name = "Cmd_ToDocno"
+        Me.Cmd_ToDocno.Size = New System.Drawing.Size(23, 29)
+        Me.Cmd_ToDocno.TabIndex = 39
+        Me.Cmd_ToDocno.UseVisualStyleBackColor = False
+        '
+        'lbl_ToDocno
+        '
+        Me.lbl_ToDocno.AutoSize = True
+        Me.lbl_ToDocno.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_ToDocno.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_ToDocno.Location = New System.Drawing.Point(64, 114)
+        Me.lbl_ToDocno.Name = "lbl_ToDocno"
+        Me.lbl_ToDocno.Size = New System.Drawing.Size(108, 19)
+        Me.lbl_ToDocno.TabIndex = 3
+        Me.lbl_ToDocno.Text = "TO GRN NO :"
+        '
+        'grp_Billingdetails
+        '
+        Me.grp_Billingdetails.BackColor = System.Drawing.SystemColors.Control
+        Me.grp_Billingdetails.BackgroundImage = CType(resources.GetObject("grp_Billingdetails.BackgroundImage"), System.Drawing.Image)
+        Me.grp_Billingdetails.Controls.Add(Me.ssgrid_billdetails)
+        Me.grp_Billingdetails.Controls.Add(Me.Label2)
+        Me.grp_Billingdetails.Location = New System.Drawing.Point(16, 1000)
+        Me.grp_Billingdetails.Name = "grp_Billingdetails"
+        Me.grp_Billingdetails.Size = New System.Drawing.Size(664, 310)
+        Me.grp_Billingdetails.TabIndex = 364
+        Me.grp_Billingdetails.TabStop = False
+        '
+        'ssgrid_billdetails
+        '
+        Me.ssgrid_billdetails.DataSource = Nothing
+        Me.ssgrid_billdetails.Location = New System.Drawing.Point(25, 50)
+        Me.ssgrid_billdetails.Name = "ssgrid_billdetails"
+        Me.ssgrid_billdetails.OcxState = CType(resources.GetObject("ssgrid_billdetails.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.ssgrid_billdetails.Size = New System.Drawing.Size(608, 248)
+        Me.ssgrid_billdetails.TabIndex = 11
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.Maroon
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(3, 8)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(661, 24)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "BILLING DETAILS"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'grp_Excisedetails
+        '
+        Me.grp_Excisedetails.BackgroundImage = CType(resources.GetObject("grp_Excisedetails.BackgroundImage"), System.Drawing.Image)
+        Me.grp_Excisedetails.Controls.Add(Me.Label5)
+        Me.grp_Excisedetails.Controls.Add(Me.txt_Trucknumber)
+        Me.grp_Excisedetails.Controls.Add(Me.dtp_Stockindate)
+        Me.grp_Excisedetails.Controls.Add(Me.lbl_Trucknumber)
+        Me.grp_Excisedetails.Controls.Add(Me.lbl_Stockindate)
+        Me.grp_Excisedetails.Controls.Add(Me.lbl_Excisepassno)
+        Me.grp_Excisedetails.Controls.Add(Me.txt_Excisepassno)
+        Me.grp_Excisedetails.Controls.Add(Me.lbl_Excisepassdate)
+        Me.grp_Excisedetails.Controls.Add(Me.dtp_Excisepassdate)
+        Me.grp_Excisedetails.Location = New System.Drawing.Point(216, 1000)
+        Me.grp_Excisedetails.Name = "grp_Excisedetails"
+        Me.grp_Excisedetails.Size = New System.Drawing.Size(512, 206)
+        Me.grp_Excisedetails.TabIndex = 366
+        Me.grp_Excisedetails.TabStop = False
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.Maroon
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(3, 8)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(506, 24)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "EXCISE DETAILS"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txt_Trucknumber
+        '
+        Me.txt_Trucknumber.BackColor = System.Drawing.Color.White
+        Me.txt_Trucknumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Trucknumber.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Trucknumber.Location = New System.Drawing.Point(240, 168)
+        Me.txt_Trucknumber.MaxLength = 15
+        Me.txt_Trucknumber.Name = "txt_Trucknumber"
+        Me.txt_Trucknumber.Size = New System.Drawing.Size(216, 26)
+        Me.txt_Trucknumber.TabIndex = 3
+        '
+        'dtp_Stockindate
+        '
+        Me.dtp_Stockindate.CalendarFont = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Stockindate.CustomFormat = "dd/MMM/yyyy"
+        Me.dtp_Stockindate.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_Stockindate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtp_Stockindate.Location = New System.Drawing.Point(240, 48)
+        Me.dtp_Stockindate.Name = "dtp_Stockindate"
+        Me.dtp_Stockindate.Size = New System.Drawing.Size(216, 26)
+        Me.dtp_Stockindate.TabIndex = 0
+        '
+        'lbl_Trucknumber
+        '
+        Me.lbl_Trucknumber.AutoSize = True
+        Me.lbl_Trucknumber.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Trucknumber.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Trucknumber.Location = New System.Drawing.Point(64, 168)
+        Me.lbl_Trucknumber.Name = "lbl_Trucknumber"
+        Me.lbl_Trucknumber.Size = New System.Drawing.Size(165, 17)
+        Me.lbl_Trucknumber.TabIndex = 7
+        Me.lbl_Trucknumber.Text = "TRUCK NUMBER      :"
+        '
+        'lbl_Stockindate
+        '
+        Me.lbl_Stockindate.AutoSize = True
+        Me.lbl_Stockindate.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Stockindate.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Stockindate.Location = New System.Drawing.Point(64, 48)
+        Me.lbl_Stockindate.Name = "lbl_Stockindate"
+        Me.lbl_Stockindate.Size = New System.Drawing.Size(164, 17)
+        Me.lbl_Stockindate.TabIndex = 4
+        Me.lbl_Stockindate.Text = "STOCK IN DATE        :"
+        '
+        'Lbl_SubledgerCode
+        '
+        Me.Lbl_SubledgerCode.AutoSize = True
+        Me.Lbl_SubledgerCode.BackColor = System.Drawing.Color.Transparent
+        Me.Lbl_SubledgerCode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_SubledgerCode.Location = New System.Drawing.Point(266, 266)
+        Me.Lbl_SubledgerCode.Name = "Lbl_SubledgerCode"
+        Me.Lbl_SubledgerCode.Size = New System.Drawing.Size(63, 15)
+        Me.Lbl_SubledgerCode.TabIndex = 37
+        Me.Lbl_SubledgerCode.Text = "SL CODE :"
+        Me.Lbl_SubledgerCode.Visible = False
+        '
+        'Lbl_CostCenterCode
+        '
+        Me.Lbl_CostCenterCode.AutoSize = True
+        Me.Lbl_CostCenterCode.BackColor = System.Drawing.Color.Transparent
+        Me.Lbl_CostCenterCode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_CostCenterCode.Location = New System.Drawing.Point(196, 301)
+        Me.Lbl_CostCenterCode.Name = "Lbl_CostCenterCode"
+        Me.Lbl_CostCenterCode.Size = New System.Drawing.Size(131, 15)
+        Me.Lbl_CostCenterCode.TabIndex = 40
+        Me.Lbl_CostCenterCode.Text = "COST CENTER CODE  :"
+        Me.Lbl_CostCenterCode.Visible = False
+        '
+        'Cmd_CostCenterCodeHelp
+        '
+        Me.Cmd_CostCenterCodeHelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_CostCenterCodeHelp.Image = CType(resources.GetObject("Cmd_CostCenterCodeHelp.Image"), System.Drawing.Image)
+        Me.Cmd_CostCenterCodeHelp.Location = New System.Drawing.Point(404, 294)
+        Me.Cmd_CostCenterCodeHelp.Name = "Cmd_CostCenterCodeHelp"
+        Me.Cmd_CostCenterCodeHelp.Size = New System.Drawing.Size(24, 26)
+        Me.Cmd_CostCenterCodeHelp.TabIndex = 41
+        Me.Cmd_CostCenterCodeHelp.Visible = False
+        '
+        'Txt_CostCenterDesc
+        '
+        Me.Txt_CostCenterDesc.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_CostCenterDesc.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_CostCenterDesc.Location = New System.Drawing.Point(597, 298)
+        Me.Txt_CostCenterDesc.MaxLength = 50
+        Me.Txt_CostCenterDesc.Name = "Txt_CostCenterDesc"
+        Me.Txt_CostCenterDesc.ReadOnly = True
+        Me.Txt_CostCenterDesc.Size = New System.Drawing.Size(235, 21)
+        Me.Txt_CostCenterDesc.TabIndex = 13
+        Me.Txt_CostCenterDesc.Visible = False
+        '
+        'Txt_CostCenterCode
+        '
+        Me.Txt_CostCenterCode.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_CostCenterCode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_CostCenterCode.Location = New System.Drawing.Point(332, 298)
+        Me.Txt_CostCenterCode.MaxLength = 10
+        Me.Txt_CostCenterCode.Name = "Txt_CostCenterCode"
+        Me.Txt_CostCenterCode.Size = New System.Drawing.Size(72, 21)
+        Me.Txt_CostCenterCode.TabIndex = 12
+        Me.Txt_CostCenterCode.Visible = False
+        '
+        'Cmd_SlCodeHelp
+        '
+        Me.Cmd_SlCodeHelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_SlCodeHelp.Image = CType(resources.GetObject("Cmd_SlCodeHelp.Image"), System.Drawing.Image)
+        Me.Cmd_SlCodeHelp.Location = New System.Drawing.Point(404, 264)
+        Me.Cmd_SlCodeHelp.Name = "Cmd_SlCodeHelp"
+        Me.Cmd_SlCodeHelp.Size = New System.Drawing.Size(23, 26)
+        Me.Cmd_SlCodeHelp.TabIndex = 38
+        Me.Cmd_SlCodeHelp.Visible = False
+        '
+        'Txt_SlDesc
+        '
+        Me.Txt_SlDesc.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_SlDesc.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_SlDesc.Location = New System.Drawing.Point(597, 266)
+        Me.Txt_SlDesc.MaxLength = 50
+        Me.Txt_SlDesc.Name = "Txt_SlDesc"
+        Me.Txt_SlDesc.ReadOnly = True
+        Me.Txt_SlDesc.Size = New System.Drawing.Size(235, 21)
+        Me.Txt_SlDesc.TabIndex = 11
+        Me.Txt_SlDesc.Visible = False
+        '
+        'Txt_Slcode
+        '
+        Me.Txt_Slcode.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_Slcode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Slcode.Location = New System.Drawing.Point(332, 266)
+        Me.Txt_Slcode.MaxLength = 10
+        Me.Txt_Slcode.Name = "Txt_Slcode"
+        Me.Txt_Slcode.Size = New System.Drawing.Size(72, 21)
+        Me.Txt_Slcode.TabIndex = 10
+        Me.Txt_Slcode.Visible = False
+        '
+        'Txt_GLAcDesc
+        '
+        Me.Txt_GLAcDesc.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_GLAcDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Txt_GLAcDesc.Enabled = False
+        Me.Txt_GLAcDesc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.Txt_GLAcDesc.Location = New System.Drawing.Point(597, 234)
+        Me.Txt_GLAcDesc.MaxLength = 50
+        Me.Txt_GLAcDesc.Name = "Txt_GLAcDesc"
+        Me.Txt_GLAcDesc.ReadOnly = True
+        Me.Txt_GLAcDesc.Size = New System.Drawing.Size(242, 22)
+        Me.Txt_GLAcDesc.TabIndex = 9
+        Me.Txt_GLAcDesc.Visible = False
+        '
+        'Cmd_GLAcHelp
+        '
+        Me.Cmd_GLAcHelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmd_GLAcHelp.Image = CType(resources.GetObject("Cmd_GLAcHelp.Image"), System.Drawing.Image)
+        Me.Cmd_GLAcHelp.Location = New System.Drawing.Point(404, 232)
+        Me.Cmd_GLAcHelp.Name = "Cmd_GLAcHelp"
+        Me.Cmd_GLAcHelp.Size = New System.Drawing.Size(23, 26)
+        Me.Cmd_GLAcHelp.TabIndex = 35
+        Me.Cmd_GLAcHelp.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(268, 234)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(64, 15)
+        Me.Label1.TabIndex = 34
+        Me.Label1.Text = "GL A/C IN :"
+        Me.Label1.Visible = False
+        '
+        'Txt_GLAcIn
+        '
+        Me.Txt_GLAcIn.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_GLAcIn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Txt_GLAcIn.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_GLAcIn.Location = New System.Drawing.Point(332, 234)
+        Me.Txt_GLAcIn.MaxLength = 10
+        Me.Txt_GLAcIn.Name = "Txt_GLAcIn"
+        Me.Txt_GLAcIn.Size = New System.Drawing.Size(72, 21)
+        Me.Txt_GLAcIn.TabIndex = 8
+        Me.Txt_GLAcIn.Visible = False
+        '
+        'txt_Creditdays
+        '
+        Me.txt_Creditdays.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Creditdays.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.txt_Creditdays.Location = New System.Drawing.Point(920, 80)
+        Me.txt_Creditdays.MaxLength = 50
+        Me.txt_Creditdays.Name = "txt_Creditdays"
+        Me.txt_Creditdays.ReadOnly = True
+        Me.txt_Creditdays.Size = New System.Drawing.Size(64, 22)
+        Me.txt_Creditdays.TabIndex = 7
+        Me.txt_Creditdays.Visible = False
+        '
+        'txt_Suppliercode
+        '
+        Me.txt_Suppliercode.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Suppliercode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Suppliercode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Suppliercode.Location = New System.Drawing.Point(115, 21)
+        Me.txt_Suppliercode.MaxLength = 50
+        Me.txt_Suppliercode.Name = "txt_Suppliercode"
+        Me.txt_Suppliercode.Size = New System.Drawing.Size(72, 21)
+        Me.txt_Suppliercode.TabIndex = 4
+        '
+        'txt_Suppliername
+        '
+        Me.txt_Suppliername.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Suppliername.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Suppliername.Enabled = False
+        Me.txt_Suppliername.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Suppliername.Location = New System.Drawing.Point(408, 20)
+        Me.txt_Suppliername.MaxLength = 50
+        Me.txt_Suppliername.Name = "txt_Suppliername"
+        Me.txt_Suppliername.Size = New System.Drawing.Size(230, 21)
+        Me.txt_Suppliername.TabIndex = 5
+        '
+        'txt_Grnno
+        '
+        Me.txt_Grnno.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Grnno.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Grnno.Location = New System.Drawing.Point(72, 16)
+        Me.txt_Grnno.MaxLength = 50
+        Me.txt_Grnno.Name = "txt_Grnno"
+        Me.txt_Grnno.Size = New System.Drawing.Size(160, 21)
+        Me.txt_Grnno.TabIndex = 2
+        '
+        'txt_Supplierinvno
+        '
+        Me.txt_Supplierinvno.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Supplierinvno.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Supplierinvno.Location = New System.Drawing.Point(115, 53)
+        Me.txt_Supplierinvno.MaxLength = 50
+        Me.txt_Supplierinvno.Name = "txt_Supplierinvno"
+        Me.txt_Supplierinvno.Size = New System.Drawing.Size(168, 21)
+        Me.txt_Supplierinvno.TabIndex = 5
+        '
+        'lbl_Glaccountdesc
+        '
+        Me.lbl_Glaccountdesc.AutoSize = True
+        Me.lbl_Glaccountdesc.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Glaccountdesc.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Glaccountdesc.Location = New System.Drawing.Point(505, 238)
+        Me.lbl_Glaccountdesc.Name = "lbl_Glaccountdesc"
+        Me.lbl_Glaccountdesc.Size = New System.Drawing.Size(87, 15)
+        Me.lbl_Glaccountdesc.TabIndex = 36
+        Me.lbl_Glaccountdesc.Text = "GL A/C DESC  :"
+        Me.lbl_Glaccountdesc.Visible = False
+        '
+        'Lbl_SubledgerName
+        '
+        Me.Lbl_SubledgerName.AutoSize = True
+        Me.Lbl_SubledgerName.BackColor = System.Drawing.Color.Transparent
+        Me.Lbl_SubledgerName.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_SubledgerName.Location = New System.Drawing.Point(528, 266)
+        Me.Lbl_SubledgerName.Name = "Lbl_SubledgerName"
+        Me.Lbl_SubledgerName.Size = New System.Drawing.Size(64, 15)
+        Me.Lbl_SubledgerName.TabIndex = 39
+        Me.Lbl_SubledgerName.Text = "SL NAME :"
+        '
+        'Lbl_CostCenterDesc
+        '
+        Me.Lbl_CostCenterDesc.AutoSize = True
+        Me.Lbl_CostCenterDesc.BackColor = System.Drawing.Color.Transparent
+        Me.Lbl_CostCenterDesc.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_CostCenterDesc.Location = New System.Drawing.Point(464, 301)
+        Me.Lbl_CostCenterDesc.Name = "Lbl_CostCenterDesc"
+        Me.Lbl_CostCenterDesc.Size = New System.Drawing.Size(127, 15)
+        Me.Lbl_CostCenterDesc.TabIndex = 42
+        Me.Lbl_CostCenterDesc.Text = "COST CENTER DESC :"
+        '
+        'grp_grnposting
+        '
+        Me.grp_grnposting.BackColor = System.Drawing.Color.Transparent
+        Me.grp_grnposting.Controls.Add(Me.Label19)
+        Me.grp_grnposting.Controls.Add(Me.Label18)
+        Me.grp_grnposting.Controls.Add(Me.Label17)
+        Me.grp_grnposting.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grp_grnposting.Location = New System.Drawing.Point(193, 214)
+        Me.grp_grnposting.Name = "grp_grnposting"
+        Me.grp_grnposting.Size = New System.Drawing.Size(649, 120)
+        Me.grp_grnposting.TabIndex = 33
+        Me.grp_grnposting.TabStop = False
+        Me.grp_grnposting.Visible = False
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.Color.Transparent
+        Me.Label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label19.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label19.Location = New System.Drawing.Point(236, 80)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(32, 24)
+        Me.Label19.TabIndex = 474
+        Me.Label19.Text = "F4"
+        Me.Label19.Visible = False
+        '
+        'Label18
+        '
+        Me.Label18.BackColor = System.Drawing.Color.Transparent
+        Me.Label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label18.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label18.Location = New System.Drawing.Point(235, 48)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(32, 24)
+        Me.Label18.TabIndex = 473
+        Me.Label18.Text = "F4"
+        Me.Label18.Visible = False
+        '
+        'Label17
+        '
+        Me.Label17.BackColor = System.Drawing.Color.Transparent
+        Me.Label17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label17.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label17.Location = New System.Drawing.Point(235, 15)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(32, 24)
+        Me.Label17.TabIndex = 472
+        Me.Label17.Text = "F4"
+        Me.Label17.Visible = False
+        '
+        'lbl_Billterms
+        '
+        Me.lbl_Billterms.AutoSize = True
+        Me.lbl_Billterms.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Billterms.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Billterms.Location = New System.Drawing.Point(16, 16)
+        Me.lbl_Billterms.Name = "lbl_Billterms"
+        Me.lbl_Billterms.Size = New System.Drawing.Size(53, 16)
+        Me.lbl_Billterms.TabIndex = 31
+        Me.lbl_Billterms.Text = "TYPE  :"
+        '
+        'cbo_Billingterms
+        '
+        Me.cbo_Billingterms.BackColor = System.Drawing.Color.Wheat
+        Me.cbo_Billingterms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_Billingterms.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.cbo_Billingterms.Location = New System.Drawing.Point(80, 8)
+        Me.cbo_Billingterms.Name = "cbo_Billingterms"
+        Me.cbo_Billingterms.Size = New System.Drawing.Size(120, 23)
+        Me.cbo_Billingterms.TabIndex = 6
+        '
+        'ssgrid
+        '
+        Me.ssgrid.DataSource = Nothing
+        Me.ssgrid.Location = New System.Drawing.Point(194, 326)
+        Me.ssgrid.Name = "ssgrid"
+        Me.ssgrid.OcxState = CType(resources.GetObject("ssgrid.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.ssgrid.Size = New System.Drawing.Size(638, 154)
+        Me.ssgrid.TabIndex = 9
+        '
+        'lbl_Surchargeamt
+        '
+        Me.lbl_Surchargeamt.AutoSize = True
+        Me.lbl_Surchargeamt.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Surchargeamt.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Surchargeamt.Location = New System.Drawing.Point(16, 16)
+        Me.lbl_Surchargeamt.Name = "lbl_Surchargeamt"
+        Me.lbl_Surchargeamt.Size = New System.Drawing.Size(110, 15)
+        Me.lbl_Surchargeamt.TabIndex = 369
+        Me.lbl_Surchargeamt.Text = "OTHER CHARGES  "
+        '
+        'lbl_Billamount
+        '
+        Me.lbl_Billamount.AutoSize = True
+        Me.lbl_Billamount.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_Billamount.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Billamount.Location = New System.Drawing.Point(436, 15)
+        Me.lbl_Billamount.Name = "lbl_Billamount"
+        Me.lbl_Billamount.Size = New System.Drawing.Size(88, 15)
+        Me.lbl_Billamount.TabIndex = 370
+        Me.lbl_Billamount.Text = "BILL AMOUNT "
+        '
+        'txt_Vatamount
+        '
+        Me.txt_Vatamount.BackColor = System.Drawing.Color.White
+        Me.txt_Vatamount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Vatamount.Enabled = False
+        Me.txt_Vatamount.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Vatamount.Location = New System.Drawing.Point(468, 16)
+        Me.txt_Vatamount.MaxLength = 15
+        Me.txt_Vatamount.Name = "txt_Vatamount"
+        Me.txt_Vatamount.Size = New System.Drawing.Size(72, 21)
+        Me.txt_Vatamount.TabIndex = 371
+        Me.txt_Vatamount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txt_Surchargeamt
+        '
+        Me.txt_Surchargeamt.BackColor = System.Drawing.Color.White
+        Me.txt_Surchargeamt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Surchargeamt.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Surchargeamt.Location = New System.Drawing.Point(133, 12)
+        Me.txt_Surchargeamt.MaxLength = 15
+        Me.txt_Surchargeamt.Name = "txt_Surchargeamt"
+        Me.txt_Surchargeamt.Size = New System.Drawing.Size(104, 21)
+        Me.txt_Surchargeamt.TabIndex = 10
+        Me.txt_Surchargeamt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txt_Billamount
+        '
+        Me.txt_Billamount.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Billamount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Billamount.Enabled = False
+        Me.txt_Billamount.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Billamount.Location = New System.Drawing.Point(542, 13)
+        Me.txt_Billamount.MaxLength = 15
+        Me.txt_Billamount.Name = "txt_Billamount"
+        Me.txt_Billamount.ReadOnly = True
+        Me.txt_Billamount.Size = New System.Drawing.Size(96, 21)
+        Me.txt_Billamount.TabIndex = 373
+        Me.txt_Billamount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CMB_CATEGORY
+        '
+        Me.CMB_CATEGORY.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMB_CATEGORY.Location = New System.Drawing.Point(130, 16)
+        Me.CMB_CATEGORY.Name = "CMB_CATEGORY"
+        Me.CMB_CATEGORY.Size = New System.Drawing.Size(120, 23)
+        Me.CMB_CATEGORY.TabIndex = 0
+        '
+        'txt_Storecode
+        '
+        Me.txt_Storecode.BackColor = System.Drawing.Color.Wheat
+        Me.txt_Storecode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_Storecode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_Storecode.Location = New System.Drawing.Point(115, 85)
+        Me.txt_Storecode.MaxLength = 15
+        Me.txt_Storecode.Name = "txt_Storecode"
+        Me.txt_Storecode.Size = New System.Drawing.Size(72, 21)
+        Me.txt_Storecode.TabIndex = 7
+        '
+        'Cmd_Storecode
+        '
+        Me.Cmd_Storecode.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Cmd_Storecode.Image = CType(resources.GetObject("Cmd_Storecode.Image"), System.Drawing.Image)
+        Me.Cmd_Storecode.Location = New System.Drawing.Point(187, 82)
+        Me.Cmd_Storecode.Name = "Cmd_Storecode"
+        Me.Cmd_Storecode.Size = New System.Drawing.Size(23, 26)
+        Me.Cmd_Storecode.TabIndex = 430
+        Me.Cmd_Storecode.UseVisualStyleBackColor = False
+        '
+        'txt_StoreDesc
+        '
+        Me.txt_StoreDesc.BackColor = System.Drawing.Color.Wheat
+        Me.txt_StoreDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_StoreDesc.Enabled = False
+        Me.txt_StoreDesc.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_StoreDesc.Location = New System.Drawing.Point(408, 84)
+        Me.txt_StoreDesc.MaxLength = 50
+        Me.txt_StoreDesc.Name = "txt_StoreDesc"
+        Me.txt_StoreDesc.Size = New System.Drawing.Size(230, 21)
+        Me.txt_StoreDesc.TabIndex = 429
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(5, 88)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 15)
+        Me.Label3.TabIndex = 431
+        Me.Label3.Text = "STORE"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(16, 45)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(94, 15)
+        Me.Label6.TabIndex = 436
+        Me.Label6.Text = "OVERALL DISC "
+        '
+        'TXT_OVERALLdiscount
+        '
+        Me.TXT_OVERALLdiscount.BackColor = System.Drawing.Color.White
+        Me.TXT_OVERALLdiscount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TXT_OVERALLdiscount.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXT_OVERALLdiscount.Location = New System.Drawing.Point(133, 42)
+        Me.TXT_OVERALLdiscount.MaxLength = 15
+        Me.TXT_OVERALLdiscount.Name = "TXT_OVERALLdiscount"
+        Me.TXT_OVERALLdiscount.Size = New System.Drawing.Size(104, 21)
+        Me.TXT_OVERALLdiscount.TabIndex = 11
+        Me.TXT_OVERALLdiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'grp_footer
+        '
+        Me.grp_footer.BackColor = System.Drawing.Color.Transparent
+        Me.grp_footer.Controls.Add(Me.Txt_signature)
+        Me.grp_footer.Controls.Add(Me.Txt_footer)
+        Me.grp_footer.Controls.Add(Me.Label9)
+        Me.grp_footer.Controls.Add(Me.Label7)
+        Me.grp_footer.Controls.Add(Me.Label8)
+        Me.grp_footer.Location = New System.Drawing.Point(32, 428)
+        Me.grp_footer.Name = "grp_footer"
+        Me.grp_footer.Size = New System.Drawing.Size(68, 80)
+        Me.grp_footer.TabIndex = 437
+        Me.grp_footer.TabStop = False
+        Me.grp_footer.Visible = False
+        '
+        'Txt_signature
+        '
+        Me.Txt_signature.Location = New System.Drawing.Point(120, 48)
+        Me.Txt_signature.MaxLength = 79
+        Me.Txt_signature.Name = "Txt_signature"
+        Me.Txt_signature.Size = New System.Drawing.Size(776, 20)
+        Me.Txt_signature.TabIndex = 441
+        '
+        'Txt_footer
+        '
+        Me.Txt_footer.Location = New System.Drawing.Point(120, 16)
+        Me.Txt_footer.MaxLength = 150
+        Me.Txt_footer.Name = "Txt_footer"
+        Me.Txt_footer.Size = New System.Drawing.Size(776, 20)
+        Me.Txt_footer.TabIndex = 440
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(8, 48)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(103, 15)
+        Me.Label9.TabIndex = 439
+        Me.Label9.Text = "FOOTER SIGN:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(40, 16)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(0, 15)
+        Me.Label7.TabIndex = 438
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(8, 16)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(109, 15)
+        Me.Label8.TabIndex = 438
+        Me.Label8.Text = "FOOTER NAME:"
+        '
+        'Chk_item
+        '
+        Me.Chk_item.BackColor = System.Drawing.Color.Transparent
+        Me.Chk_item.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chk_item.Location = New System.Drawing.Point(16, 696)
+        Me.Chk_item.Name = "Chk_item"
+        Me.Chk_item.Size = New System.Drawing.Size(120, 24)
+        Me.Chk_item.TabIndex = 462
+        Me.Chk_item.Text = "FooterUpdation"
+        Me.Chk_item.UseVisualStyleBackColor = False
+        '
+        'Label10
+        '
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label10.Location = New System.Drawing.Point(27, 16)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(176, 23)
+        Me.Label10.TabIndex = 464
+        Me.Label10.Text = "[F3 DELETE A ROW IN GRID]"
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox4.Controls.Add(Me.lbl_Grnno)
+        Me.GroupBox4.Controls.Add(Me.txt_Grnno)
+        Me.GroupBox4.Controls.Add(Me.cmd_Grnnohelp)
+        Me.GroupBox4.Controls.Add(Me.Label14)
+        Me.GroupBox4.Controls.Add(Me.dtp_Grndate)
+        Me.GroupBox4.Controls.Add(Me.lbl_Grndate)
+        Me.GroupBox4.Controls.Add(Me.PictureBox1)
+        Me.GroupBox4.Location = New System.Drawing.Point(188, 147)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(667, 47)
+        Me.GroupBox4.TabIndex = 465
+        Me.GroupBox4.TabStop = False
+        '
+        'Label14
+        '
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label14.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label14.Location = New System.Drawing.Point(256, 15)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(32, 24)
+        Me.Label14.TabIndex = 470
+        Me.Label14.Text = "F4"
+        Me.Label14.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(407, 10)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.TabIndex = 44
+        Me.PictureBox1.TabStop = False
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox6.Controls.Add(Me.Label16)
+        Me.GroupBox6.Controls.Add(Me.Label15)
+        Me.GroupBox6.Controls.Add(Me.Label12)
+        Me.GroupBox6.Controls.Add(Me.PictureBox2)
+        Me.GroupBox6.Controls.Add(Me.Label11)
+        Me.GroupBox6.Controls.Add(Me.lbl_Suppliercode)
+        Me.GroupBox6.Controls.Add(Me.txt_Suppliercode)
+        Me.GroupBox6.Controls.Add(Me.cmd_Suppliercodehelp)
+        Me.GroupBox6.Controls.Add(Me.txt_Suppliername)
+        Me.GroupBox6.Controls.Add(Me.txt_Supplierinvno)
+        Me.GroupBox6.Controls.Add(Me.lbl_Supplierinvno)
+        Me.GroupBox6.Controls.Add(Me.lbl_Supplierinvdate)
+        Me.GroupBox6.Controls.Add(Me.dtp_Supplierinvdate)
+        Me.GroupBox6.Controls.Add(Me.txt_Storecode)
+        Me.GroupBox6.Controls.Add(Me.Label3)
+        Me.GroupBox6.Controls.Add(Me.Cmd_Storecode)
+        Me.GroupBox6.Controls.Add(Me.txt_StoreDesc)
+        Me.GroupBox6.Location = New System.Drawing.Point(188, 195)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(667, 112)
+        Me.GroupBox6.TabIndex = 466
+        Me.GroupBox6.TabStop = False
+        '
+        'Label16
+        '
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
+        Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label16.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label16.Location = New System.Drawing.Point(211, 21)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(32, 24)
+        Me.Label16.TabIndex = 471
+        Me.Label16.Text = "F4"
+        Me.Label16.Visible = False
+        '
+        'Label15
+        '
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
+        Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label15.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label15.Location = New System.Drawing.Point(210, 85)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(32, 24)
+        Me.Label15.TabIndex = 471
+        Me.Label15.Text = "F4"
+        Me.Label15.Visible = False
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(295, 88)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(80, 15)
+        Me.Label12.TabIndex = 432
+        Me.Label12.Text = "STORE DESC"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(408, 50)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox2.TabIndex = 45
+        Me.PictureBox2.TabStop = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(295, 24)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(98, 15)
+        Me.Label11.TabIndex = 43
+        Me.Label11.Text = "SUPPLIER DESC"
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox7.Controls.Add(Me.CMB_CATEGORY)
+        Me.GroupBox7.Controls.Add(Me.Label13)
+        Me.GroupBox7.Location = New System.Drawing.Point(466, 101)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(389, 48)
+        Me.GroupBox7.TabIndex = 467
+        Me.GroupBox7.TabStop = False
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(19, 18)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(68, 15)
+        Me.Label13.TabIndex = 45
+        Me.Label13.Text = "CATEGORY"
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox8.Controls.Add(Me.lbl_Surchargeamt)
+        Me.GroupBox8.Controls.Add(Me.Label6)
+        Me.GroupBox8.Controls.Add(Me.txt_Surchargeamt)
+        Me.GroupBox8.Controls.Add(Me.TXT_OVERALLdiscount)
+        Me.GroupBox8.Controls.Add(Me.lbl_Billamount)
+        Me.GroupBox8.Controls.Add(Me.txt_Billamount)
+        Me.GroupBox8.Location = New System.Drawing.Point(188, 539)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(667, 66)
+        Me.GroupBox8.TabIndex = 468
+        Me.GroupBox8.TabStop = False
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox9.Controls.Add(Me.LabelClosingQuantity)
+        Me.GroupBox9.Controls.Add(Me.Label20)
+        Me.GroupBox9.Controls.Add(Me.txt_Remarks)
+        Me.GroupBox9.Controls.Add(Me.lbl_Remarks)
+        Me.GroupBox9.Location = New System.Drawing.Point(188, 609)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(667, 51)
+        Me.GroupBox9.TabIndex = 469
+        Me.GroupBox9.TabStop = False
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.Color.Transparent
+        Me.Label20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label20.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label20.Location = New System.Drawing.Point(18, 26)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(72, 24)
+        Me.Label20.TabIndex = 476
+        Me.Label20.Text = "ALT+ R"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Location = New System.Drawing.Point(188, 308)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(667, 181)
+        Me.GroupBox10.TabIndex = 471
+        Me.GroupBox10.TabStop = False
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox11.Controls.Add(Me.txt_Discountamt)
+        Me.GroupBox11.Controls.Add(Me.txt_Vatamount)
+        Me.GroupBox11.Controls.Add(Me.txt_Totalamt)
+        Me.GroupBox11.Controls.Add(Me.Label10)
+        Me.GroupBox11.Location = New System.Drawing.Point(188, 493)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(667, 46)
+        Me.GroupBox11.TabIndex = 472
+        Me.GroupBox11.TabStop = False
+        '
+        'LabelClosingQuantity
+        '
+        Me.LabelClosingQuantity.AutoSize = True
+        Me.LabelClosingQuantity.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelClosingQuantity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LabelClosingQuantity.Location = New System.Drawing.Point(390, 17)
+        Me.LabelClosingQuantity.Name = "LabelClosingQuantity"
+        Me.LabelClosingQuantity.Size = New System.Drawing.Size(0, 16)
+        Me.LabelClosingQuantity.TabIndex = 479
+        '
+        'PurchaseReturn_Bill
+        '
+        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.BackColor = System.Drawing.Color.Cornsilk
+        Me.BackgroundImage = Global.Inventory.My.Resources.Resources._111in1024res
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1024, 738)
+        Me.Controls.Add(Me.ssgrid)
+        Me.Controls.Add(Me.GroupBox10)
+        Me.Controls.Add(Me.GroupBox9)
+        Me.Controls.Add(Me.GroupBox8)
+        Me.Controls.Add(Me.GroupBox7)
+        Me.Controls.Add(Me.GroupBox6)
+        Me.Controls.Add(Me.GroupBox4)
+        Me.Controls.Add(Me.Chk_item)
+        Me.Controls.Add(Me.grp_Billingdetails)
+        Me.Controls.Add(Me.lbl_Billterms)
+        Me.Controls.Add(Me.Lbl_SubledgerCode)
+        Me.Controls.Add(Me.lbl_Creditdays)
+        Me.Controls.Add(Me.lbl_Heading)
+        Me.Controls.Add(Me.txt_Creditdays)
+        Me.Controls.Add(Me.grp_StockGrndetails)
+        Me.Controls.Add(Me.grp_Excisedetails)
+        Me.Controls.Add(Me.Cmd_CostCenterCodeHelp)
+        Me.Controls.Add(Me.Cmd_SlCodeHelp)
+        Me.Controls.Add(Me.Cmd_GLAcHelp)
+        Me.Controls.Add(Me.cbo_Storelocation)
+        Me.Controls.Add(Me.frmbut)
+        Me.Controls.Add(Me.lbl_Freeze)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.lbl_Grn)
+        Me.Controls.Add(Me.cbo_Billingterms)
+        Me.Controls.Add(Me.grp_Grngroup1)
+        Me.Controls.Add(Me.grp_footer)
+        Me.Controls.Add(Me.cmd_Post)
+        Me.Controls.Add(Me.Lbl_CostCenterDesc)
+        Me.Controls.Add(Me.Lbl_SubledgerName)
+        Me.Controls.Add(Me.lbl_Glaccountdesc)
+        Me.Controls.Add(Me.Lbl_CostCenterCode)
+        Me.Controls.Add(Me.Txt_CostCenterDesc)
+        Me.Controls.Add(Me.Txt_CostCenterCode)
+        Me.Controls.Add(Me.Txt_SlDesc)
+        Me.Controls.Add(Me.Txt_Slcode)
+        Me.Controls.Add(Me.Txt_GLAcDesc)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Txt_GLAcIn)
+        Me.Controls.Add(Me.grp_grnposting)
+        Me.Controls.Add(Me.GroupBox11)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.KeyPreview = True
+        Me.Name = "PurchaseReturn_Bill"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "GRN CUM PURCHASE BILL"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.frmbut.ResumeLayout(False)
+        Me.grp_Grngroup1.ResumeLayout(False)
+        Me.grp_Grngroup1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.grp_StockGrndetails.ResumeLayout(False)
+        Me.grp_StockGrndetails.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.grp_Billingdetails.ResumeLayout(False)
+        CType(Me.ssgrid_billdetails, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grp_Excisedetails.ResumeLayout(False)
+        Me.grp_Excisedetails.PerformLayout()
+        Me.grp_grnposting.ResumeLayout(False)
+        CType(Me.ssgrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grp_footer.ResumeLayout(False)
+        Me.grp_footer.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+
+#End Region
+    Public i, TotalCount, billrow As Integer
+    Dim GRNno(), sqlstring, Gr As String
+    Dim gconnection As New GlobalClass
+    Dim vsearch, vitem, accountcode, sstr As String
+    Public Listbox As System.Windows.Forms.ListBox
+    Dim boolchk, costcentercodestatus, slcodestatus, blnchkupdateclsbal As Boolean
+    Dim PO, doctype As String
+    Dim CATEGORY As String
+    Dim scode As String
+    Dim CLQTY As Integer
+    Dim CURRENTUOM, VENDORLINK As String
+    Private Sub Resize_Form()
+        Dim cControl As Control
+        Dim i_i As Integer
+        Dim J, K, L, M, n, o, P, Q, R, S, T, U As Integer
+        'If (Screen.PrimaryScreen.Bounds.Height = 768) And (Screen.PrimaryScreen.Bounds.Width = 1366) Then
+        '    Exit Sub
+        'End If
+        J = 780
+        K = 1044
+        Me.ResizeRedraw = True
+
+        T = CInt(Screen.PrimaryScreen.WorkingArea.Size.Height)
+        U = CInt(Screen.PrimaryScreen.WorkingArea.Size.Width)
+        If U = 800 Then
+            T = T - 50
+        End If
+        If U = 1280 Then
+            T = T - 50
+        End If
+        If U = 1360 Then
+            T = T - 75
+        End If
+        If U = 1366 Then
+            T = T - 75
+        End If
+        Me.Location = Screen.PrimaryScreen.WorkingArea.Location
+        Me.StartPosition = FormStartPosition.CenterScreen
+        Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+        Me.Width = U
+        Me.Height = T
+
+
+        With Me
+            For i_i = 0 To .Controls.Count - 1
+                ' MsgBox(Controls(i_i).Name)
+                If TypeOf .Controls(i_i) Is Form Then
+
+
+                    If .Controls(i_i).Location.X = 0 Then
+                        L = 0
+                    Else
+                        L = .Controls(i_i).Location.X + CInt((.Controls(i_i).Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                    End If
+                    If .Controls(i_i).Location.Y = 0 Then
+                        L = 0
+                    Else
+                        M = .Controls(i_i).Location.Y + CInt((.Controls(i_i).Location.Y) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+                    .Controls(i_i).Left = L
+                    .Controls(i_i).Top = M
+                    If .Controls(i_i).Size.Width = 0 Then
+                        n = 0
+                    Else
+                        n = .Controls(i_i).Size.Width + CInt((.Controls(i_i).Size.Width) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                    End If
+                    If .Controls(i_i).Size.Height = 0 Then
+                        o = 0
+                    Else
+                        o = .Controls(i_i).Size.Height + CInt((.Controls(i_i).Size.Height) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+
+                    .Controls(i_i).Width = n
+                    .Controls(i_i).Height = o
+                ElseIf TypeOf .Controls(i_i) Is Panel Then
+
+
+                    If .Controls(i_i).Location.X = 0 Then
+                        L = 0
+                    Else
+                        L = .Controls(i_i).Location.X + CInt((.Controls(i_i).Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                    End If
+                    If .Controls(i_i).Location.Y = 0 Then
+                        L = 0
+
+                    Else
+                        M = .Controls(i_i).Location.Y + CInt((.Controls(i_i).Location.Y) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+
+                    .Controls(i_i).Left = L
+                    .Controls(i_i).Top = M
+                    If .Controls(i_i).Size.Width = 0 Then
+                        n = 0
+                    Else
+                        n = .Controls(i_i).Size.Width + CInt((.Controls(i_i).Size.Width) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                    End If
+                    If .Controls(i_i).Size.Height = 0 Then
+                        o = 0
+                    Else
+                        o = .Controls(i_i).Size.Height + CInt((.Controls(i_i).Size.Height) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+
+                    .Controls(i_i).Width = n
+                    .Controls(i_i).Height = o
+
+                    For Each cControl In .Controls(i_i).Controls
+
+                        If cControl.Location.X = 0 Then
+                            R = 0
+                        Else
+                            R = cControl.Location.X + CInt((cControl.Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                        End If
+                        If cControl.Location.Y = 0 Then
+                            S = 0
+                        Else
+                            S = cControl.Location.Y + CInt((cControl.Location.Y) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                        End If
+
+                        cControl.Left = R
+                        cControl.Top = S
+
+
+                        If cControl.Size.Width = 0 Then
+                            P = 0
+                        Else
+                            P = (cControl.Size.Width + CInt((cControl.Size.Width) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width)))))
+                        End If
+
+                        If cControl.Size.Height = 0 Then
+                            Q = 0
+                        Else
+                            Q = (cControl.Size.Height + CInt((cControl.Size.Height) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height)))))
+                        End If
+
+                        cControl.Width = P
+                        cControl.Height = Q
+                    Next
+                ElseIf TypeOf .Controls(i_i) Is GroupBox Then
+
+
+                    If .Controls(i_i).Location.X = 0 Then
+                        L = 0
+                    Else
+                        If Controls(i_i).Name = "GroupBox2" Then
+                            L = .Controls(i_i).Location.X + CInt((.Controls(i_i).Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+
+                            If U = 800 Then
+                                L = L + 50
+                            End If
+                            If U = 1280 Then
+                                L = L + 50
+                            End If
+                            If U = 1360 Then
+                                L = L + 75
+                            End If
+                            If U = 1366 Then
+                                L = L + 75
+                            End If
+                        ElseIf Controls(i_i).Name = "grp_orderby" Then
+                            L = .Controls(i_i).Location.X + CInt((.Controls(i_i).Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+
+                            If U = 800 Then
+                                L = L + 50
+                            End If
+                            If U = 1280 Then
+                                L = L + 50
+                            End If
+                            If U = 1360 Then
+                                L = L + 75
+                            End If
+                            If U = 1366 Then
+                                L = L + 75
+                            End If
+                        ElseIf Controls(i_i).Name = "frmbut" Then
+                            L = .Controls(i_i).Location.X + CInt((.Controls(i_i).Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+
+                            If U = 800 Then
+                                L = L + 50
+                            End If
+                            If U = 1280 Then
+                                L = L + 50
+                            End If
+                            If U = 1360 Then
+                                L = L + 75
+                            End If
+                            If U = 1366 Then
+                                L = L + 75
+                            End If
+                        Else
+                            L = .Controls(i_i).Location.X + CInt((.Controls(i_i).Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+
+                            ' L = L - 5
+                        End If
+                    End If
+
+                    If .Controls(i_i).Location.Y = 0 Then
+                        L = 0
+
+                    Else
+                        M = .Controls(i_i).Location.Y + CInt((.Controls(i_i).Location.Y) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+
+                    .Controls(i_i).Left = L
+                    .Controls(i_i).Top = M
+                    If .Controls(i_i).Size.Width = 0 Then
+                        n = 0
+                    Else
+                        n = .Controls(i_i).Size.Width + CInt((.Controls(i_i).Size.Width) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                    End If
+                    If .Controls(i_i).Size.Height = 0 Then
+                        o = 0
+                    Else
+                        o = .Controls(i_i).Size.Height + CInt((.Controls(i_i).Size.Height) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+
+                    .Controls(i_i).Width = n
+                    .Controls(i_i).Height = o
+
+                    For Each cControl In .Controls(i_i).Controls
+
+                        If cControl.Location.X = 0 Then
+                            R = 0
+                        Else
+                            R = cControl.Location.X + CInt((cControl.Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                        End If
+                        If cControl.Location.Y = 0 Then
+                            S = 0
+                        Else
+                            S = cControl.Location.Y + CInt((cControl.Location.Y) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                        End If
+
+                        cControl.Left = R
+                        cControl.Top = S
+
+
+                        If cControl.Size.Width = 0 Then
+                            P = 0
+                        Else
+                            P = (cControl.Size.Width + CInt((cControl.Size.Width) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width)))))
+                        End If
+
+                        If cControl.Size.Height = 0 Then
+                            Q = 0
+                        Else
+                            Q = (cControl.Size.Height + CInt((cControl.Size.Height) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height)))))
+                        End If
+
+                        cControl.Width = P
+                        cControl.Height = Q
+                    Next
+                ElseIf TypeOf .Controls(i_i) Is Label Then
+                    If .Controls(i_i).Location.X = 0 Then
+                        L = 0
+                    Else
+                        L = .Controls(i_i).Location.X + CInt((.Controls(i_i).Location.X) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                    End If
+                    If .Controls(i_i).Location.Y = 0 Then
+                        L = 0
+
+                    Else
+                        M = .Controls(i_i).Location.Y + CInt((.Controls(i_i).Location.Y) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+
+                    .Controls(i_i).Left = L
+                    .Controls(i_i).Top = M
+                    If .Controls(i_i).Size.Width = 0 Then
+                        n = 0
+                    Else
+                        n = .Controls(i_i).Size.Width + CInt((.Controls(i_i).Size.Width) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Width) - K) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Width))))
+                    End If
+                    If .Controls(i_i).Size.Height = 0 Then
+                        o = 0
+                    Else
+                        o = .Controls(i_i).Size.Height + CInt((.Controls(i_i).Size.Height) * ((CInt(Screen.PrimaryScreen.WorkingArea.Size.Height) - J) / (CInt(Screen.PrimaryScreen.WorkingArea.Size.Height))))
+                    End If
+
+                    .Controls(i_i).Width = n
+                    .Controls(i_i).Height = o
+                End If
+            Next i_i
+        End With
+    End Sub
+
+
+    Private Sub GRN_Cum_Purchase_Bill_CSC_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            GRNCumPurchaseBillTransbool = True
+            Call Resize_Form()
+            Me.DoubleBuffered = True
+            Call FillGRNTYPE()
+            Call categoryfill()
+            Call FillStore()
+            GroupBox10.Controls.Add(ssgrid)
+            ssgrid.Location = New Point(10, 10)
+            ssgrid.Width = GroupBox10.Width - 15
+            ssgrid.Height = GroupBox10.Height - 15
+            'Call CreateListBox()
+            '   Call FillBillterms()
+            '  Call Fillbilldetails()
+            Call FOOTER()
+            Call GridLock()
+            Lbl_SubledgerCode.Visible = False
+            Lbl_SubledgerName.Visible = False
+            Txt_Slcode.Visible = False
+            Cmd_SlCodeHelp.Visible = False
+            Txt_SlDesc.Visible = False
+            Lbl_CostCenterCode.Visible = False
+            Lbl_CostCenterDesc.Visible = False
+            Txt_CostCenterCode.Visible = False
+            Txt_CostCenterDesc.Visible = False
+            Cmd_CostCenterCodeHelp.Visible = False
+            '    grp_StockGrndetails.Top = 1000
+            '   grp_grnposting.Height = 48
+            '  grp_grnposting.Width = 848
+            '  grp_Excisedetails.Top = 1000
+            ' grp_footer.Visible = False
+            If CMB_CATEGORY.Items.Count > 0 Then
+                CMB_CATEGORY.SelectedIndex = 0
+
+            End If
+
+            Call autogenerate()
+         
+            'ssgrid.Top = 272
+            '  ssgrid.Left = 10
+            'ssgrid.Height = 255
+            '    ssgrid.Top = 344
+
+            '     ssgrid.Left = 178
+            '     ssgrid.Height = 176
+   
+            ssgrid.Focus()
+            ssgrid.SetActiveCell(1, 1)
+            If gUserCategory <> "S" Then
+                Call GetRights()
+            End If
+                     Show()
+            ' cbo_Billingterms.Visible = False
+            '    lbl_Billterms.Visible = False
+            '
+            ' txt_Grnno.Text = ""
+
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : LOAD " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+
+
+    Public Function CALC_WEIGHTED()
+        Dim MITEM, SQLS, itemc As String
+        Dim z As Integer
+        Dim MLASTSTOCK, MLASTRATE, MCLSSTOCK As Double
+        '  Array.Clear(Insert, 0, Insert.Length)
+        Try
+
+
+            'itemc = Mid(itemc, 1, Len(itemc) - 1)
+
+            sqlstring = "DROP TABLE INV_WEIGHTED_TAB2"
+            gconnection.ExcuteStoreProcedure(sqlstring)
+            SQLS = "SELECT * INTO INV_WEIGHTED_TAB2 FROM INV_WEIGHTED_VIEW2 WHERE 1<0 "
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            sqlstring = "ALTER TABLE INV_WEIGHTED_TAB2 ADD ROWID INTEGER IDENTITY(1,1)"
+            gconnection.ExcuteStoreProcedure(sqlstring)
+            SQLS = " INSERT INTO INV_WEIGHTED_TAB2 (DOCDETAILS,ITEMCODE, ITEMNAME, DOCDATE, QTY, RATE, AMOUNT, CLSSTOCK, TYPE, STORECODE, CATEGORY, LASTSTOCK, LASTRATE, PRIORITY) "
+            SQLS = SQLS & "SELECT DOCDETAILS,ITEMCODE, ITEMNAME, DOCDATE, QTY, RATE, AMOUNT, CLSSTOCK, TYPE, STORECODE, CATEGORY, LASTSTOCK, LASTRATE, PRIORITY FROM INV_WEIGHTED_VIEW2 where itemcode in ("
+            '****** select the itemcode from the grid ************
+            For z = 1 To ssgrid.DataRowCnt
+                ssgrid.Col = 1
+                ssgrid.Row = z
+                itemc = ssgrid.Text
+                SQLS = SQLS & "'" & itemc & "',"
+            Next
+            SQLS = Mid(SQLS, 1, Len(SQLS) - 1)
+            SQLS = SQLS & " )  ORDER BY  ITEMCODE,DOCDATE, PRIORITY"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            SQLS = "ALTER TABLE INV_WEIGHTED_TAB2 ADD WEIGHTED_RATE NUMERIC(18,2)"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            SQLS = "UPDATE INV_WEIGHTED_TAB2 SET WEIGHTED_RATE =0"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            SQLS = " UPDATE INV_WEIGHTED_TAB2 SET CLSSTOCK=(SELECT SUM(QTY) FROM INV_WEIGHTED_TAB2 A WHERE A.ITEMCODE=INV_WEIGHTED_TAB2.ITEMCODE AND A.ROWID<=INV_WEIGHTED_TAB2.ROWID )"
+            gconnection.ExcuteStoreProcedure(SQLS)
+            SQLS = " UPDATE INV_WEIGHTED_TAB2 SET LASTSTOCK=(SELECT ISNULL(SUM(QTY),0) FROM INV_WEIGHTED_TAB2 A WHERE A.ITEMCODE=INV_WEIGHTED_TAB2.ITEMCODE AND A.ROWID<INV_WEIGHTED_TAB2.ROWID )"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            SQLS = " UPDATE INV_WEIGHTED_TAB2 SET LASTRATE=(SELECT TOP 1 ISNULL(RATE,0) AS RATE FROM INV_WEIGHTED_TAB2 A "
+            SQLS = SQLS & " WHERE  A.ITEMCODE=INV_WEIGHTED_TAB2.ITEMCODE AND A.ROWID<INV_WEIGHTED_TAB2.ROWID AND A.TYPE IN ('OPENING','GRN') ORDER BY A.ROWID DESC) "
+            SQLS = SQLS & " WHERE TYPE IN ('OPENING','GRN')"
+            gconnection.ExcuteStoreProcedure(SQLS)
+            SQLS = " UPDATE  INV_WEIGHTED_TAB2 SET LASTRATE=RATE WHERE TYPE IN ('OPENING','GRN') AND ISNULL(LASTRATE,0)=0"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            SQLS = " UPDATE INV_WEIGHTED_TAB2 SET WEIGHTED_RATE = RATE WHERE TYPE='OPENING'"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            sqlstring = "SELECT * FROM INV_WEIGHTED_TAB2 WHERE STORECODE='MNS' ORDER BY ROWID"
+            Dim SqlConnection As New SqlConnection
+            SqlConnection.ConnectionString = gconnection.Getconnection()
+            SqlConnection.Open()
+            Dim DS As New DataSet
+            Dim DA As New SqlDataAdapter(sqlstring, SqlConnection)
+            '  DA.Fill(DS)
+            Dim DT As New DataTable
+            DA.Fill(DT)
+            DT.TableName = "INV_WEIGHTED_TAB2"
+            If DS.Tables.Contains("INV_WEIGHTED_TAB2") = True Then
+                DS.Tables.Remove("INV_WEIGHTED_TAB2")
+            End If
+            DS.Tables.Add(DT)
+
+            SqlConnection.Close()
+
+            'gconnection.getDataSet(sqlstring, "INV_WEIGHTED_TAB2")
+            If DS.Tables("INV_WEIGHTED_TAB2").Rows.Count > 0 Then
+                Dim ITEMCODE As String
+                Dim RATE As Double
+                Dim QTY As Double
+                ITEMCODE = DS.Tables("INV_WEIGHTED_TAB2").Rows(0).Item("ITEMCODE")
+                For i = 0 To DS.Tables("INV_WEIGHTED_TAB2").Rows.Count - 1
+                    'If ITEMCODE = "LPDR105" Then
+                    '    MessageBox.Show("LPDR105")
+                    'End If
+                    If ITEMCODE <> DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("ITEMCODE") Then
+                        QTY = 0
+                        RATE = 0
+                        ITEMCODE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("ITEMCODE")
+
+                        QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
+                        If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
+                            RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+
+                        ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Then
+                            If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
+                                RATE = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+                            Else
+                                RATE = 0
+                            End If
+                        Else
+                            DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
+
+                        End If
+                    Else
+                        QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
+                        If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
+                            RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+
+                        ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Then
+                            If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
+                                RATE = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+                            Else
+                                RATE = 0
+                            End If
+                            DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
+
+                        Else
+                            DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
+
+                        End If
+                    End If
+                    'If i < DS.Tables("INV_WEIGHTED_TAB2").Rows.Count - 1 Then
+                    '    ITEMCODE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i + 1).Item("ITEMCODE")
+                    'End If
+
+                Next
+
+            End If
+
+            SQLS = "DROP TABLE INV_WEIGHTED_TAB3 "
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            SQLS = "CREATE TABLE INV_WEIGHTED_TAB3 (ROWID INTEGER, WEIGHTED_RATE NUMERIC(18,2) )"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            'SQLS = "ALTER TABLE INV_WEIGHTED_TAB3 ALTER COLUMN ROWID INTEGER"
+            'gconnection.ExcuteStoreProcedure(SQLS)
+            'SQLS = "ALTER TABLE INV_WEIGHTED_TAB3 ADD ROWID INTEGER"
+            'gconnection.ExcuteStoreProcedure(SQLS)
+            Dim SQLS1 As String
+            Dim J As Integer
+            SQLS = ""
+            For i = 0 To DS.Tables("INV_WEIGHTED_TAB2").Rows.Count - 1
+                SQLS = SQLS & "INSERT INTO INV_WEIGHTED_TAB3 (ROWID, WEIGHTED_RATE) VALUES ( "
+
+                For J = 0 To DS.Tables("INV_WEIGHTED_TAB2").Columns.Count - 1
+                    If ((UCase(DS.Tables("INV_WEIGHTED_TAB2").Columns(J).ColumnName) = "ROWID") Or (UCase(DS.Tables("INV_WEIGHTED_TAB2").Columns(J).ColumnName) = "WEIGHTED_RATE")) Then
+                        SQLS = SQLS & "'" & DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item(J) & "',"
+                    End If
+                    'SQLS = SQLS & "'" & DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item(J) & "',"
+                Next
+                SQLS = Mid(SQLS, 1, Len(SQLS) - 2)
+                SQLS = SQLS & " ')"
+
+            Next
+            If SQLS <> "" Then
+                gconnection.ExcuteStoreProcedure(SQLS)
+            End If
+
+            SQLS = "UPDATE INV_WEIGHTED_TAB2 SET WEIGHTED_RATE=A.WEIGHTED_RATE FROM  INV_WEIGHTED_TAB3 A WHERE A.ROWID=INV_WEIGHTED_TAB2.ROWID"
+            gconnection.ExcuteStoreProcedure(SQLS)
+            '***** UPDATION OF THE TRANSACTION AFTER CALCULATING WEIGHTED RATE **********************
+            SQLS = "UPDATE STOCKISSUEDETAIL SET Rate=A.WEIGHTED_RATE , AMOUNT= STOCKISSUEDETAIL.QTY*A.WEIGHTED_RATE FROM INV_WEIGHTED_TAB2 A "
+            SQLS = SQLS & " WHERE A.DOCDETAILS=STOCKISSUEDETAIL.Docdetails AND A.ITEMCODE=STOCKISSUEDETAIL.Itemcode AND A.TYPE='ISSUE'"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            'SQLS = "UPDATE STOCKEXPENDITUREDETAILS SET Rate=A.WEIGHTED_RATE , Amount = STOCKEXPENDITUREDETAILS.Adjustedstock * A.WEIGHTED_RATE FROM INV_WEIGHTED_TAB2 A "
+            'SQLS = SQLS & " WHERE A.DOCDETAILS=STOCKEXPENDITUREDETAILS.Docdetails AND A.ITEMCODE=STOCKEXPENDITUREDETAILS.Itemcode AND A.TYPE='EXPEND'"
+            'gconnection.ExcuteStoreProcedure(SQLS)
+
+            'SQLS = "UPDATE STOCKCONSUMPTIONDETAILS SET Rate=A.WEIGHTED_RATE, Amount=STOCKCONSUMPTIONDETAILS.Adjustedstock * A.WEIGHTED_RATE FROM INV_WEIGHTED_TAB2 A"
+            'SQLS = SQLS & " WHERE A.DOCDETAILS=STOCKCONSUMPTIONDETAILS.Docdetails AND A.ITEMCODE=STOCKCONSUMPTIONDETAILS.Itemcode AND A.TYPE='CONSUMPTION'"
+            'gconnection.ExcuteStoreProcedure(SQLS)
+
+            SQLS = "UPDATE STOCKADJUSTDETAILS SET Rate=A.WEIGHTED_RATE, Amount=STOCKADJUSTDETAILS.Adjustedstock * A.WEIGHTED_RATE FROM INV_WEIGHTED_TAB2 A "
+            SQLS = SQLS & " WHERE A.DOCDETAILS=STOCKADJUSTDETAILS.Docdetails AND A.ITEMCODE=STOCKADJUSTDETAILS.Itemcode AND A.TYPE='ADJUSTMENT'"
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+
+            SQLS = "Update inventoryitemmaster set purchaserate=a.WEIGHTED_RATE  from  INV_WEIGHTED_TAB2 A where "
+            SQLS = SQLS & " a.itemcode=inventoryitemmaster.itemcode  and docdate=(select max(docdate) from inv_weighted_tab2 where itemcode=a.ITEMCODE and storecode=a.storecode) "
+            gconnection.ExcuteStoreProcedure(SQLS)
+
+            'SQLS = "UPDATE STOCKDMGDETAIL SET Rate=A.WEIGHTED_RATE, Amount=STOCKDMGDETAIL.Qty * A.WEIGHTED_RATE FROM INV_WEIGHTED_TAB2 A "
+            ' SQLS = SQLS & " WHERE A.DOCDETAILS=STOCKDMGDETAIL.Docdetails AND A.ITEMCODE=STOCKDMGDETAIL.Itemcode AND A.TYPE='DAMAGE'"
+            'gconnection.ExcuteStoreProcedure(SQLS)
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CMD_ADD" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Function
+        End Try
+    End Function
+
+
+
+    Private Function categoryfill()
+        Try
+            Dim I As Integer
+            Dim INDEX As Integer
+            CMB_CATEGORY.Items.Clear()
+            sstr = "SELECT DISTINCT CATEGORY FROM INVENTORYITEMMASTER"
+            gconnection.getDataSet(sstr, "INVENTORYITEMMASTER")
+            If gdataset.Tables("INVENTORYITEMMASTER").Rows.Count > 0 Then
+                For I = 0 To gdataset.Tables("INVENTORYITEMMASTER").Rows.Count - 1
+                    CMB_CATEGORY.Items.Add(gdataset.Tables("INVENTORYITEMMASTER").Rows(I).Item("CATEGORY"))
+                Next
+                INDEX = CMB_CATEGORY.FindString(DefaultGRN)
+                CMB_CATEGORY.SelectedIndex = INDEX
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CATEGORYFILL " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Function
+        End Try
+    End Function
+    Private Sub FillGRNTYPE()
+        Dim Sqlstring As String
+        Sqlstring = "SELECT ISNULL(GRNTYPE,'') AS GRNTYPE FROM INVSETUP"
+        gconnection.getDataSet(Sqlstring, "INVSETUP")
+        If gdataset.Tables("INVSETUP").Rows.Count > 0 Then
+            DefaultGRN = Trim(gdataset.Tables("INVSETUP").Rows(0).Item("GRNTYPE"))
+        Else
+            DefaultGRN = "NA"
+        End If
+    End Sub
+
+    Private Sub Cmd_Clear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_Clear.Click
+        Try
+            Dim TEMP As String
+            TEMP = Trim(CMB_CATEGORY.Text)
+            Call clearform(Me)
+            CMB_CATEGORY.Text = TEMP
+            Call FOOTER()
+            Call autogenerate()
+            Call FillStore()
+            'Call FillBillterms()
+            'Call Fillbilldetails()
+            Chk_item.Checked = False
+            grp_footer.Visible = False
+            Me.lbl_Freeze.Visible = False
+            Me.lbl_Freeze.Text = "Record Void  On "
+            ssgrid.ClearRange(1, 1, -1, -1, True)
+            ssgrid_billdetails.ClearRange(1, 1, -1, -1, True)
+            CMB_CATEGORY.Enabled = True
+            Me.Cmd_Freeze.Text = "Void[F8]"
+            Cmd_Add.Text = "Add [F7]"
+            txt_Storecode.Text = ""
+            txt_StoreDesc.Text = ""
+            txt_Grnno.Enabled = True
+            txt_Grnno.ReadOnly = False
+            Txt_PONo.ReadOnly = False
+            txt_Remarks.Text = ""
+            txt_Totalamt.Text = ""
+            txt_Discountamt.Text = ""
+            txt_Excisepassno.Text = ""
+            txt_Trucknumber.Text = ""
+            txt_Supplierinvno.Text = ""
+            txt_Suppliercode.Text = ""
+            txt_Suppliername.Text = ""
+            txt_Suppliercode.ReadOnly = False
+            grp_StockGrndetails.Top = 1000
+            Lbl_SubledgerCode.Visible = False
+            Lbl_SubledgerName.Visible = False
+            Txt_Slcode.Visible = False
+            Cmd_SlCodeHelp.Visible = False
+            Txt_SlDesc.Visible = False
+            Lbl_CostCenterCode.Visible = False
+            Lbl_CostCenterDesc.Visible = False
+            Txt_CostCenterCode.Visible = False
+            Txt_CostCenterDesc.Visible = False
+            ' ssgrid.Top = 344
+
+            '   ssgrid.Left = 178
+            '   ssgrid.Height = 176
+
+            'DISABLE GLACCOUNT
+            'Txt_GLAcIn.Visible = False
+            'Txt_GLAcDesc.Visible = False
+            'Cmd_GLAcHelp.Visible = False
+            'lbl_Glaccountdesc.Visible = False
+            'Label1.Visible = False
+
+            Cmd_Add.Enabled = True
+            Cmd_Freeze.Enabled = True
+            Cmd_CostCenterCodeHelp.Visible = False
+            grp_StockGrndetails.Top = 1000
+            grp_grnposting.Height = 48
+            grp_grnposting.Width = 848
+            grp_Excisedetails.Top = 1000
+            'ssgrid.Top = 192
+            'ssgrid.Top = 272
+            'ssgrid.Left = 10
+            'ssgrid.Height = 255
+            'ssgrid.Top = 344
+
+            'ssgrid.Left = 178
+            'ssgrid.Height = 176
+            'ssgrid.Height = 312
+            dtp_Grndate.Value = gconnection.getvalue("select getdate()")
+            dtp_Supplierinvdate.Value = gconnection.getvalue("select getdate()")
+            dtp_Excisepassdate.Value = gconnection.getvalue("select getdate()")
+            ssgrid.Focus()
+            ssgrid.SetActiveCell(1, 1)
+            If gUserCategory <> "S" Then
+                Call GetRights()
+            End If
+            Call FillGRNTYPE()
+            LabelClosingQuantity.Text = ""
+            'If gpaymentcode = "Y" Then
+            '    cbo_Billingterms.Visible = True
+            '    lbl_Billterms.Visible = True
+            'Else
+                cbo_Billingterms.Visible = False
+                lbl_Billterms.Visible = False
+            'End If
+            Show()
+            If gpocode = "Y" Then
+                Txt_PONo.Focus()
+            Else
+                txt_Grnno.Focus()
+            End If
+
+            TXT_OVERALLdiscount.Text = ""
+            txt_Billamount.Text = ""
+            txt_Surchargeamt.Text = ""
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CMD CLEAR" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub GetRights()
+        Try
+            Dim i, j, k, x As Integer
+            Dim vmain, vsmod, vssmod As Long
+            Dim ssql, SQLSTRING As String
+            Dim M1 As New MainMenu
+            Dim chstr As String
+            GmoduleName = "GRN Cum Purchase Bill"
+
+            SQLSTRING = "SELECT * FROM useradmin WHERE USERNAME = '" & Trim(gUsername) & "' AND MAINGROUP='INVENTORY' AND MODULENAME LIKE '%" & Trim(GmoduleName) & "%' ORDER BY RIGHTS"
+            gconnection.getDataSet(SQLSTRING, "USER")
+            If gdataset.Tables("USER").Rows.Count - 1 >= 0 Then
+                For i = 0 To gdataset.Tables("USER").Rows.Count - 1
+                    With gdataset.Tables("USER").Rows(i)
+                        chstr = abcdMINUS(.Item("RIGHTS"))
+                    End With
+                Next
+            End If
+            Me.Cmd_Add.Enabled = False
+            Me.Cmd_Freeze.Enabled = False
+            Me.Cmd_View.Enabled = False
+            'A-All,S-Save,M-Modify,C-Cancel,D-Delete,V-View,P-Print
+            If Len(chstr) > 0 Then
+                Dim Right() As Char
+                Right = chstr.ToCharArray
+                For x = 0 To Right.Length - 1
+                    If Right(x) = "A" Then
+                        Me.Cmd_Add.Enabled = True
+                        Me.Cmd_Freeze.Enabled = True
+                        Me.Cmd_View.Enabled = True
+                        Exit Sub
+                    End If
+                    If UCase(Mid(Me.Cmd_Add.Text, 1, 1)) = "A" Then
+                        If Right(x) = "S" Then
+                            Me.Cmd_Add.Enabled = True
+                        End If
+                    Else
+                        If Right(x) = "M" Then
+                            Me.Cmd_Add.Enabled = True
+                        End If
+                    End If
+                    If Right(x) = "D" Then
+                        Me.Cmd_Freeze.Enabled = True
+                    End If
+                    If Right(x) = "V" Then
+                        Me.Cmd_View.Enabled = True
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : GETRIGHTS " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub cmd_lock()
+        Me.Cmd_Add.Enabled = False
+        Me.Cmd_Clear.Enabled = False
+        Me.Cmd_Freeze.Enabled = False
+        Me.Cmd_View.Enabled = False
+        Me.cmd_print.Enabled = False
+        Me.Cmd_Exit.Enabled = False
+    End Sub
+    Private Sub cmd_unlock()
+        Me.Cmd_Add.Enabled = True
+        Me.Cmd_Clear.Enabled = True
+        Me.Cmd_Freeze.Enabled = True
+        Me.Cmd_View.Enabled = True
+        Me.cmd_print.Enabled = True
+        Me.Cmd_Exit.Enabled = True
+    End Sub
+
+    Private Sub Cmd_Add_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_Add.Click
+        Try
+            Dim Totalamount, Taxamount, Calamount, Caltax, CalBilamount, BillAmount, Batchno, Avgrate, Avgquantity As Double
+            Dim dblBasic, dblDiscount, dblExcise, dblVAT, dblSurchase, dblTranportation, dblOthpostcharge, dblOthNegcharge As Double
+            Dim Qty, Amount, totQty, discount As Double
+            Dim sqlstring, varchk, Typecode() As String
+            Dim Insert(0) As String
+            Dim i As Integer
+            scode = Trim(CStr(txt_Storecode.Text))
+            Call checkValidation() '''--->Check Validation
+            If boolchk = False Then Exit Sub
+            Me.txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+            '  grp_Billingdetails.Top = 1000
+            ' For i = 1 To ssgrid_billdetails.DataRowCnt
+            'ssgrid_billdetails.Row = i
+            'ssgrid_billdetails.Col = 1
+            'If Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "BAS" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblBasic = dblBasic + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "DIS" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblDiscount = dblDiscount + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "EXC" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblExcise = dblExcise + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "V.A" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblVAT = dblVAT + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "SUR" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblSurchase = dblSurchase + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "TRA" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblTranportation = dblTranportation + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 12, 6) = "ES (+)" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblOthpostcharge = dblOthpostcharge + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 12, 6) = "ES (-)" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        dblOthNegcharge = dblOthNegcharge + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "BIL" Then
+            '    ssgrid_billdetails.Col = 4
+            '    If Val(ssgrid_billdetails.Text) > 0 Then
+            '        BillAmount = BillAmount + Format(Val(ssgrid_billdetails.Text), "0.00")
+            '    End If
+            'End If
+            'Next i
+            '''**************************************** $ COMPLETE CALCUTATION FOR BASIC AMOUNT  $ **************************************
+            '''*********************************************************** Case-1 : Add [F7] ***************************************************'''
+            If Mid(CStr(Cmd_Add.Text), 1, 1) = "A" Then
+                GRNno = Split(Trim(txt_Grnno.Text), "/")
+                Typecode = Split(Trim(cbo_Billingterms.Text), " ")
+
+                '===================STOCK CHECH
+          
+                '''*********************************************************** INSERT INTO GRN_HEADER *******************************************'''
+                sqlstring = "INSERT INTO Grn_header(category,Grnno,Grndetails,Grndate,POno,Supplierinvno,Supplierdate,Suppliercode,"
+                sqlstring = sqlstring & " Suppliername,Typecode,Typedesc,Excisepassno,Excisedate,Stockindate,Trucknumber,Creditdays,Glaccountcode,Glaccountname,"
+                sqlstring = sqlstring & " Slcode,Slname,Costcentercode,Costcentername,Totalamount,VATamount,Surchargeamt,OverallDiscount,Discount,Billamount,Remarks,Void,Adduser,Adddate,Updateuser,Updatetime,STORECODE, STOREDESC,updfooter,updname,Grntype)"
+                sqlstring = sqlstring & " VALUES ('" & Trim(CMB_CATEGORY.Text) & "','" & CStr(GRNno(2)) & "','" & Trim(CStr(txt_Grnno.Text)) & "',"
+                sqlstring = sqlstring & " '" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "',"
+                sqlstring = sqlstring & " '" & Trim(Txt_PONo.Text) & "',"
+                sqlstring = sqlstring & " '" & Trim(CStr(txt_Supplierinvno.Text)) & "','" & Format(CDate(dtp_Supplierinvdate.Value), "dd/MMM/yyyy") & "', "
+                sqlstring = sqlstring & " '" & Trim(CStr(txt_Suppliercode.Text)) & "','" & Trim(CStr(txt_Suppliername.Text)) & "','" & Trim(CStr(Typecode(0))) & "','" & Trim(CStr(Typecode(0))) & "',"
+                sqlstring = sqlstring & " '" & Trim(CStr(txt_Excisepassno.Text)) & "','" & Format(CDate(dtp_Excisepassdate.Value), "dd/MMM/yyyy") & "','" & Format(CDate(dtp_Stockindate.Value), "dd/MMM/yyyy") & "',"
+                sqlstring = sqlstring & " '" & Trim(CStr(txt_Trucknumber.Text)) & "'," & Val(txt_Creditdays.Text) & ",'" & Trim(CStr(Txt_GLAcIn.Text)) & "','" & Trim(CStr(Txt_GLAcDesc.Text)) & "', "
+                sqlstring = sqlstring & " '" & Trim(CStr(Txt_Slcode.Text)) & "','" & Trim(CStr(Txt_SlDesc.Text)) & "','" & Trim(CStr(Txt_CostCenterCode.Text)) & "','" & Trim(CStr(Txt_CostCenterDesc.Text)) & "',"
+                sqlstring = sqlstring & " " & Format(Val(txt_Totalamt.Text), "0.00") & "," & Format(Val(txt_Vatamount.Text), "0.00") & "," & Format(Val(txt_Surchargeamt.Text), "0.00") & "," & Format(Val(TXT_OVERALLdiscount.Text), "0.00") & "," & Format(Val(txt_Discountamt.Text), "0.00") & ","
+                sqlstring = sqlstring & " " & Format(Val(txt_Billamount.Text), "0.00") & ","
+                sqlstring = sqlstring & " '" & Trim(CStr(txt_Remarks.Text)) & "','N','" & Trim(gUsername) & "',getDate(),'',getDate(),"
+                sqlstring = sqlstring & " '" & Trim(CStr(txt_Storecode.Text)) & "','" & Trim(CStr(txt_StoreDesc.Text)) & "',"
+                sqlstring = sqlstring & " '" & Trim(CStr(Txt_footer.Text)) & "','" & Trim(CStr(Txt_signature.Text)) & "','PRN')"
+                Insert(0) = sqlstring
+                '''******************************************************** UPDATE FOOTER IN GRNHEADER **********************************'''
+                sqlstring = "UPDATE Grn_header SET "
+                sqlstring = sqlstring & " updfooter = '" & Trim(Txt_footer.Text) & "', updname = '" & Trim(Txt_signature.Text) & "' "
+                sqlstring = sqlstring & " WHERE Grndetails='" & Trim(txt_Grnno.Text) & "' "
+                '''******************************************************** END **********************************'''
+
+                '''******************************************************** INSERT INTO GRN_DETAILS **********************************'''
+                For i = 1 To ssgrid.DataRowCnt
+                    ssgrid.Row = i
+                    ssgrid.Col = 1
+                    sqlstring = "INSERT INTO Grn_details(Grnno,Grndetails,Grndate,POno,Suppliercode,Suppliername,Itemcode,Itemname,"
+                    sqlstring = sqlstring & " UOM,Qty,Rate,Discount,TaxPer,TaxAmount,Amount,voiditem,Category,Adduser,Adddate,UpdateUser,Updatetime,STORECODE,STOREDESC,othcharge,GrnType)"
+                    sqlstring = sqlstring & " VALUES('" & CStr(GRNno(2)) & "','" & Trim(txt_Grnno.Text) & "','" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "',"
+                    sqlstring = sqlstring & " '" & Trim(Txt_PONo.Text) & "', "
+                    sqlstring = sqlstring & " '" & Trim(txt_Suppliercode.Text) & "','" & Trim(txt_Suppliername.Text) & "',"
+                    ssgrid.Col = 1
+                    sqlstring = sqlstring & " '" & Trim(ssgrid.Text) & "',"
+                    ssgrid.Col = 2
+                    sqlstring = sqlstring & " '" & Trim(ssgrid.Text) & "',"
+                    ssgrid.Col = 3
+                    sqlstring = sqlstring & " '" & Trim(ssgrid.Text) & "',"
+                    ssgrid.Col = 4
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.000") & ","
+                    ssgrid.Col = 5
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+                    ssgrid.Col = 6
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+
+                    ssgrid.Col = 7
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.000") & ","
+
+                    ssgrid.Col = 8
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.000") & ","
+                    ssgrid.Col = 9
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+
+                    sqlstring = sqlstring & "'N','" & Trim(CMB_CATEGORY.Text) & "',"
+                    sqlstring = sqlstring & "'" & Trim(gUsername) & "',getDate(),'',getDate(),"
+                    sqlstring = sqlstring & "'" & Trim(txt_Storecode.Text) & "','" & Trim(txt_StoreDesc.Text) & "',"
+                    ssgrid.Col = 10
+                    sqlstring = sqlstring & Val(ssgrid.Text) & ",'PRN')"
+
+                    ReDim Preserve Insert(Insert.Length)
+                    Insert(Insert.Length - 1) = sqlstring
+
+                    '''VENUJD********************************************* UPDATEING CLOSING STOCK IN INVENTORYITEMMASTER *************************'''
+ 
+                    ssgrid.Col = 3
+                    ssgrid.Row = i
+                    CURRENTUOM = Trim(ssgrid.Text)
+                    ssgrid.Col = 4
+                    ssgrid.Row = i
+                    sqlstring = "UPDATE INVENTORYITEMMASTER SET clstock = (ISNULL(clstock,0)  - " & Format(Val(ssgrid.Text), "0.00") & " * B.CONVVALUE)  FROM INVENTORY_TRANSCONVERSION B "
+                    ssgrid.Col = 1
+                    ssgrid.Row = i
+                    sqlstring = sqlstring & "WHERE ITEMCODE = '" & Trim(ssgrid.Text) & "' AND STORECODE = '" & Trim(txt_Storecode.Text) & "' AND STOCKUOM = B.TRANSUOM AND  '" & Trim(CURRENTUOM) & "' = B.BASEUOM"
+                    ReDim Preserve Insert(Insert.Length)
+                    Insert(Insert.Length - 1) = sqlstring
+
+                    '''********************************************* UPDATE PURCHASE RATE IN INVENTORY ITEMMASTER *************************'''
+                   '''********************************************* UPDATE COMPLETE ******************************************************'''
+                Next i
+                '''************************************************* INSERT BILLING DETAILS INTO GRN_BILLTERMS ****************************'''
+                'For i = 1 To ssgrid_billdetails.DataRowCnt
+                '    ssgrid_billdetails.Row = i
+                '    sqlstring = "INSERT INTO Grn_billterms(Grndetails,Grndate,Billterms,Percentage,Taxcode,Amount,"
+                '    sqlstring = sqlstring & " Slno,Formula,Signs,Accode,Acdesc)"
+                '    sqlstring = sqlstring & " VALUES('" & Trim(txt_Grnno.Text) & "','" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy ") & "',"
+                '    ssgrid_billdetails.Col = 1
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 2
+                '    sqlstring = sqlstring & "" & Format(Val(ssgrid_billdetails.Text), "0.00") & ","
+                '    ssgrid_billdetails.Col = 3
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 4
+                '    sqlstring = sqlstring & "" & Format(Val(ssgrid_billdetails.Text), "0.00") & ","
+                '    ssgrid_billdetails.Col = 5
+                '    sqlstring = sqlstring & "" & Format(Val(ssgrid_billdetails.Text), "0.00") & ","
+                '    ssgrid_billdetails.Col = 6
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 7
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 8
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 9
+                '    sqlstring = sqlstring & "'" & Replace(Trim(ssgrid_billdetails.Text), "'", "") & "')"
+                '    ReDim Preserve Insert(Insert.Length)
+                '    Insert(Insert.Length - 1) = sqlstring
+                'Next i
+                '''****************************************** UPDATE COMPLETE *********************************************
+                Call cmd_lock()
+                gconnection.MoreTrans(Insert)
+                CALC_WEIGHTED()
+                sqlstring = "update inventoryitemmaster set CLVALUE=(isnull(clstock,0) * ISNULL(PURCHASERATE,0))"
+                gconnection.dataOperation1(6, sqlstring, "inventoryitemmaster")
+
+                '   Call Grn_Triggers(txt_Grnno.Text, scode)
+                Call cmd_unlock()
+                If MessageBox.Show("Do You Want Print it Now ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    If Trim(txt_Grnno.Text) <> "" Then
+                        txt_FromDocno.Text = Trim(txt_Grnno.Text)
+                        txt_ToDocno.Text = Trim(txt_Grnno.Text)
+                    End If
+                    'Call cmd_print_Click(Cmd_View, e)
+                    Call Cmd_View_Click(Cmd_View, e)
+                    ''If MessageBox.Show(" Need TO Post To Accounts ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    ''    Call cmd_Post_Click(sender, e)
+                    ''Else
+                    Call Cmd_Clear_Click(sender, e)
+                    ''End If
+
+                Else
+                    ''If MessageBox.Show(" Need TO Post To Accounts ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    ''    Call cmd_Post_Click(sender, e)
+                    ''Else
+                    Call Cmd_Clear_Click(sender, e)
+                    ''End If
+                End If
+                '''*********************************************************** Case-2 : Update [F7] *******************************************'''
+            ElseIf Mid(CStr(Cmd_Add.Text), 1, 1) = "U" Then
+                GRNno = Split(Trim(txt_Grnno.Text), "/")
+                Call Calculate()
+                Me.txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+                '''**************************************** $ COMPLETE CALCUTATION FOR BASIC AMOUNT  $ **************************************
+                '****************************************** $ CALCULATE BILLAMT,BASIC,DISCOUNT,EXCISEAMT,VAT,SURCHARGE,ETC $ ************************************
+                'grp_Billingdetails.Top = 1000
+                'For i = 1 To ssgrid_billdetails.DataRowCnt - 1
+                '    ssgrid_billdetails.Row = i
+                '    ssgrid_billdetails.Col = 1
+                '    If Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "BAS" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblBasic = dblBasic + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "DIS" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblDiscount = dblDiscount + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "EXC" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblExcise = dblExcise + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "V.A" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblVAT = dblVAT + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "SUR" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblSurchase = dblSurchase + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "TRA" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblTranportation = dblTranportation + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 12, 6) = "ES (+)" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblOthpostcharge = dblOthpostcharge + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 12, 6) = "ES (-)" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            dblOthNegcharge = dblOthNegcharge + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "BIL" Then
+                '        ssgrid_billdetails.Col = 4
+                '        If Val(ssgrid_billdetails.Text) > 0 Then
+                '            BillAmount = BillAmount + Format(Val(ssgrid_billdetails.Text), "0.00")
+                '        End If
+                '    End If
+                'Next i
+                Me.txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+                GRNno = Split(Trim(txt_Grnno.Text), "/")
+                Typecode = Split(Trim(cbo_Billingterms.Text), " ")
+                '''********************************************************** UPDATING OPENING STOCK ****************************************************'''
+                Dim strsql As String
+                Dim vitemcode, vclsstock, vcurqty, vgrnqty, vdiff, vnetclosing, VDBLAMT, VHIGHRATIO
+                Dim closingbalance As Double
+                Dim j, k As Int16
+                blnchkupdateclsbal = True
+                
+                '''********************************************************** UPDATE GRN_HEADER *********************************************************'''
+                sqlstring = "UPDATE Grn_header SET Grndate='" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "',"
+                sqlstring = sqlstring & " Supplierinvno='" & Trim(CStr(txt_Supplierinvno.Text)) & "',Supplierdate='" & Format(CDate(dtp_Supplierinvdate.Value), "dd/MMM/yyyy") & "',category='" & Trim(CStr(CMB_CATEGORY.Text)) & "',"
+                sqlstring = sqlstring & " Suppliercode='" & Trim(CStr(txt_Suppliercode.Text)) & "',Suppliername='" & Trim(CStr(txt_Suppliername.Text)) & "',Typecode = '" & Trim(CStr(Typecode(0))) & "',Typedesc = '" & Trim(CStr(Typecode(0))) & "',"
+                sqlstring = sqlstring & " Excisepassno='" & Trim(CStr(txt_Excisepassno.Text)) & "',Excisedate='" & Format(CDate(dtp_Excisepassdate.Value), "dd/MMM/yyyy") & "',Stockindate ='" & Format(CDate(dtp_Stockindate.Value), "dd/MMM/yyyy") & "', "
+                sqlstring = sqlstring & " Trucknumber ='" & Trim(CStr(txt_Trucknumber.Text)) & "' ,Creditdays=" & Val(txt_Creditdays.Text) & ",Glaccountcode = '" & Trim(CStr(Txt_GLAcIn.Text)) & "',Glaccountname ='" & Trim(CStr(Txt_GLAcDesc.Text)) & "', "
+                sqlstring = sqlstring & " Slcode = '" & Trim(CStr(Txt_Slcode.Text)) & "',Slname='" & Trim(CStr(Txt_SlDesc.Text)) & "',Costcentercode ='" & Trim(CStr(Txt_CostCenterCode.Text)) & "',Costcentername ='" & Trim(CStr(Txt_CostCenterDesc.Text)) & "',"
+                sqlstring = sqlstring & " Totalamount=" & Format(Val(txt_Totalamt.Text), "0.00") & ",VATamount = " & Format(Val(txt_Vatamount.Text), "0.00") & ",Surchargeamt = " & Format(Val(txt_Surchargeamt.Text), "0.00") & " ,Discount=" & Format(Val(txt_Discountamt.Text), "0.00") & ","
+                sqlstring = sqlstring & " Overalldiscount=" & Format(Val(TXT_OVERALLdiscount.Text), "0.00") & ","
+                sqlstring = sqlstring & " Billamount = " & Format(Val(txt_Billamount.Text), "0.00") & ","
+                sqlstring = sqlstring & " Remarks = '" & Replace(Trim(CStr(txt_Remarks.Text)), "'", "") & "',Updateuser='" & Trim(gUsername) & "',Updatetime='" & Format(Now, "dd/MMM/yyyy") & "',"
+                sqlstring = sqlstring & " STORECODE = '" & Trim(txt_Storecode.Text) & "', STOREDESC = '" & Trim(txt_StoreDesc.Text) & "', "
+                sqlstring = sqlstring & " updfooter = '" & Trim(Txt_footer.Text) & "', updname = '" & Trim(Txt_signature.Text) & "',GrnType='PRN' "
+                sqlstring = sqlstring & " WHERE Grndetails='" & Trim(txt_Grnno.Text) & "' "
+                Insert(0) = sqlstring
+                '''********************************************************* DELETE FROM GRN_DETAILS *****************************************************'''
+                sqlstring = "DELETE FROM Grn_details WHERE Grndetails='" & Trim(txt_Grnno.Text) & "' "
+                ReDim Preserve Insert(Insert.Length)
+                Insert(Insert.Length - 1) = sqlstring
+                '''******************************************************** INSERT INTO GRN_DETAILS ******************************************************'''
+                For i = 1 To ssgrid.DataRowCnt
+                    ssgrid.Row = i
+                    ssgrid.Col = 1
+                    sqlstring = "INSERT INTO Grn_details(Grnno,Grndetails,Grndate,Suppliercode,Suppliername,Itemcode,Itemname,"
+                    sqlstring = sqlstring & " UOM,Qty,Rate,Discount,TaxPer,TaxAmount,Amount,Voiditem,Category,Adduser,Adddate,UpdateUser,Updatetime,STORECODE,STOREDESC,pono,othcharge,GRNType)"
+                    sqlstring = sqlstring & " VALUES('" & CStr(GRNno(2)) & "','" & Trim(txt_Grnno.Text) & "','" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "',"
+                    sqlstring = sqlstring & " '" & Trim(txt_Suppliercode.Text) & "','" & Trim(txt_Suppliername.Text) & "',"
+                    ssgrid.Col = 1
+                    Dim ITEMCODE1 As String = ssgrid.Text
+                    sqlstring = sqlstring & " '" & Trim(ssgrid.Text) & "',"
+                    ssgrid.Col = 2
+                    sqlstring = sqlstring & " '" & Trim(ssgrid.Text) & "',"
+                    ssgrid.Col = 3
+                    Dim UOM1 As String = ssgrid.Text
+                    sqlstring = sqlstring & " '" & Trim(ssgrid.Text) & "',"
+                    ssgrid.Col = 4
+                    Dim clqty As Double = Format(Val(ssgrid.Text), "0.000")
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.000") & ","
+                    ssgrid.Col = 5
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+                    ssgrid.Col = 6
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+                    ssgrid.Col = 7
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+                    ssgrid.Col = 8
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+                    ssgrid.Col = 9
+                    sqlstring = sqlstring & " " & Format(Val(ssgrid.Text), "0.00") & ","
+                    'ssgrid.Col = 10
+                    'sqlstring = sqlstring & "" & Format(Val(ssgrid.Text), "0.00") & ","
+                    'ssgrid.Col = 11
+                    'sqlstring = sqlstring & "" & Format(Val(ssgrid.Text), "0.00") & ","
+                    'ssgrid.Col = 12
+                    'sqlstring = sqlstring & "" & Format(Val(ssgrid.Text), "0.00") & ","
+                    'ssgrid.Col = 13
+                    'sqlstring = sqlstring & "'" & Trim(ssgrid.Text) & "',"
+                    'ssgrid.Col = 14
+                    'sqlstring = sqlstring & "" & Format(Val(ssgrid.Text), "0.00") & ","
+                    sqlstring = sqlstring & "'N','" & Trim(CMB_CATEGORY.Text) & "',"
+                    sqlstring = sqlstring & "'" & Trim(gUsername) & "',getDate(),'" & Trim(gUsername) & "',getDate(), "
+                    sqlstring = sqlstring & "'" & Trim(txt_Storecode.Text) & "','" & Trim(txt_StoreDesc.Text) & "','" & Txt_PONo.Text & "', "
+                    ssgrid.Col = 10
+                    sqlstring = sqlstring & Val(ssgrid.Text) & ",'PRN')"
+                    ReDim Preserve Insert(Insert.Length)
+                    Insert(Insert.Length - 1) = sqlstring
+
+                    Dim SQL As String = "SELECT ISNULL(SUM(QTY*MF),0) FROM CLOSINGVLAUE('" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "','" & ITEMCODE1 & "' ,'" & Trim(txt_Storecode.Text) & "','" & UOM1 & "')"
+                    Dim cls As Double = gconnection.getvalue(SQL)
+                    cls = cls - clqty
+                    If (cls < 0) Then
+                        MessageBox.Show("You Cannot Update this GRN,Updation Make Stock Negative")
+                        Exit Sub
+                    End If
+
+                    '''VENUJD********************************************* UPDATEING CLOSING STOCK IN INVENTORYITEMMASTER *************************'''
+                    clqty = 0
+                    ssgrid.Col = 1
+                    ssgrid.Row = i
+                    sqlstring = "select QTY * b.convvalue  as  Qty from GRN_DETAILS,INVENTORY_TRANSCONVERSION B,INVENTORYITEMMASTER i WHERE GRNDETAILS ='" & txt_Grnno.Text & "' AND i.ITEMCODE ='" & Trim(ssgrid.Text) & "' AND i.STORECODE = '" & Trim(txt_Storecode.Text) & "' AND i.STOCKUOM = B.TRANSUOM  AND  uom = B.BASEUOM"
+                    gconnection.getDataSet(sqlstring, "GRN_DETAILS1")
+                    If gdataset.Tables("GRN_DETAILS1").Rows.Count > 0 Then
+                        clqty = gdataset.Tables("GRN_DETAILS1").Rows(0).Item("QTY")
+                    End If
+
+                    ssgrid.Col = 3
+                    ssgrid.Row = i
+                    CURRENTUOM = Trim(ssgrid.Text)
+                    ssgrid.Col = 4
+                    ssgrid.Row = i
+                    sqlstring = "UPDATE INVENTORYITEMMASTER SET clstock = (ISNULL(clstock,0) + " & Format(Val(clqty), "0.00") & ") - (" & Format(Val(ssgrid.Text), "0.00") & " * B.CONVVALUE)  FROM INVENTORY_TRANSCONVERSION B "
+                    ssgrid.Col = 1
+                    ssgrid.Row = i
+                    sqlstring = sqlstring & "WHERE ITEMCODE = '" & Trim(ssgrid.Text) & "' AND STORECODE = '" & Trim(txt_Storecode.Text) & "' AND STOCKUOM = B.TRANSUOM AND  '" & Trim(CURRENTUOM) & "' = B.BASEUOM"
+                    ReDim Preserve Insert(Insert.Length)
+                    Insert(Insert.Length - 1) = sqlstring
+
+                    '''********************************************* UPDATE PURCHASE RATE IN INVENTORY ITEMMASTER *************************'''
+                Next i
+                '''********************************************************* DELETE FROM GRN_DETAILS *****************************************************'''
+                'sqlstring = "DELETE FROM Grn_billterms WHERE Grndetails='" & Trim(txt_Grnno.Text) & "' "
+                'ReDim Preserve Insert(Insert.Length)
+                'Insert(Insert.Length - 1) = sqlstring
+                ' '''************************************************* INSERT BILLING DETAILS INTO GRN_BILLTERMS ****************************'''
+                'For i = 1 To ssgrid_billdetails.DataRowCnt
+                '    ssgrid_billdetails.Row = i
+                '    sqlstring = "INSERT INTO Grn_billterms(Grndetails,Grndate,Billterms,Percentage,Taxcode,Amount,"
+                '    sqlstring = sqlstring & " Slno,Formula,Signs,Accode,Acdesc)"
+                '    sqlstring = sqlstring & " VALUES('" & Trim(txt_Grnno.Text) & "','" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy ") & "',"
+                '    ssgrid_billdetails.Col = 1
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 2
+                '    sqlstring = sqlstring & "" & Format(Val(ssgrid_billdetails.Text), "0.00") & ","
+                '    ssgrid_billdetails.Col = 3
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 4
+                '    sqlstring = sqlstring & "" & Format(Val(ssgrid_billdetails.Text), "0.00") & ","
+                '    ssgrid_billdetails.Col = 5
+                '    sqlstring = sqlstring & "" & Format(Val(ssgrid_billdetails.Text), "0.00") & ","
+                '    ssgrid_billdetails.Col = 6
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 7
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 8
+                '    sqlstring = sqlstring & "'" & Trim(ssgrid_billdetails.Text) & "',"
+                '    ssgrid_billdetails.Col = 9
+                '    sqlstring = sqlstring & "'" & Replace(Trim(ssgrid_billdetails.Text), "'", "") & "')"
+                '    ReDim Preserve Insert(Insert.Length)
+                '    Insert(Insert.Length - 1) = sqlstring
+                'Next i
+                ''''***************************************** COMPLETE ACCOUNT POSTING FOR BILLDETAILS SECTIONS ****************************'''
+                '''****************************************** UPDATE Complete *********************************************
+                Call cmd_lock() ' Untill transaction completes
+                gconnection.MoreTrans(Insert)
+                CALC_WEIGHTED()
+                sqlstring = "update inventoryitemmaster set CLVALUE=(isnull(clstock,0) * ISNULL(PURCHASERATE,0))"
+                gconnection.dataOperation1(6, sqlstring, "inventoryitemmaster")
+
+                '    Call Grn_Triggers(txt_Grnno.Text, scode)
+                Call cmd_unlock()
+                If MessageBox.Show("Do You Want Print it Now ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    If Trim(txt_Grnno.Text) <> "" Then
+                        txt_FromDocno.Text = Trim(txt_Grnno.Text)
+                        txt_ToDocno.Text = Trim(txt_Grnno.Text)
+                    End If
+                    Call Cmd_View_Click(Cmd_View, e)
+                    Call Cmd_Clear_Click(sender, e)
+                Else
+                    Call Cmd_Clear_Click(sender, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CMD_ADD_CLEAR" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub checkupdate_clsbal()
+        Try
+            Dim vclsstock, vcurqty, vgrnqty, vdiff, vnetclosing As Double
+            Dim strsql, vitemcode As String
+            Dim i, j, k As Integer
+            blnchkupdateclsbal = True
+            For i = 1 To ssgrid.DataRowCnt
+                ssgrid.Row = i
+                ssgrid.Col = 1
+                vitemcode = Trim(ssgrid.Text)
+                ssgrid.Col = 4
+                vcurqty = Val(ssgrid.Text)
+                ssgrid.Col = 14
+                vclsstock = Val(ssgrid.Text)
+                ssgrid.Col = 13
+                vgrnqty = Val(ssgrid.Text)
+                ''********************************** CALCULATION OF STOCK ********************************'''
+                vdiff = Val(vgrnqty) - Val(vcurqty)
+                vnetclosing = Val(vclsstock) - Val(vdiff)
+                If vnetclosing < 0 Then
+                    If Mid(CStr(Cmd_Add.Text), 1, 1) = "A" Then
+                        MessageBox.Show(" Insufficient Stock For Updation ...", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        ssgrid.Col = 4
+                        ssgrid.Row = i
+                        ssgrid.Focus()
+                        blnchkupdateclsbal = False
+                        Exit Sub
+                    End If
+                End If
+            Next i
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CHECKUPDATE_CLBAL" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_Freeze_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_Freeze.Click
+        Try
+            Dim vclsstock, vcurqty, vgrnqty, vdiff, vnetclosing As Double
+            Dim strsql, vitemcode As String
+            Call checkValidation() ''-->Check Validation
+            Dim insert(0) As String
+            For i = 1 To ssgrid.DataRowCnt
+                ssgrid.Row = i
+                ssgrid.Col = 1
+                vitemcode = Trim(ssgrid.Text)
+                ssgrid.Col = 4
+                vcurqty = Val(ssgrid.Text)
+                ssgrid.Col = 14
+                vclsstock = Val(ssgrid.Text)
+                ssgrid.Col = 13
+                vgrnqty = Val(ssgrid.Text)
+                ''********************************** CALCULATION OF STOCK ********************************'''
+                vdiff = Val(vgrnqty) - Val(vcurqty)
+                vnetclosing = Val(vclsstock) - Val(vcurqty)
+                If Val(vnetclosing) < 0 Then
+                    If Mid(CStr(Cmd_Add.Text), 1, 1) = "U" Then
+                        MessageBox.Show("Sorry!There will be Negative Stock on Itemcod  :  " & vitemcode & "if  deleted...", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        ssgrid.Col = 4
+                        ssgrid.Row = i
+                        ssgrid.Focus()
+                        boolchk = False
+                        Exit Sub
+                    End If
+                End If
+            Next i
+            If boolchk = False Then Exit Sub
+            If Mid(Me.Cmd_Freeze.Text, 1, 1) = "V" Or Mid(Me.Cmd_Freeze.Text, 1, 1) = "F" Then
+
+                If MsgBox("Are you Sure to Freeze the Record..", MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.No Then
+                    Exit Sub
+                End If
+
+                sqlstring = "INSERT INTO GRN_HEADER_DEL( Grnno , Grndetails , Grndate , POno , Supplierinvno , Supplierdate , Suppliercode , Suppliername , Typecode , Typedesc , Excisepassno , Excisedate , Stockindate , Trucknumber , Creditdays , Glaccountcode , Glaccountname , Slcode , Slname , Costcentercode , Costcentername , Totalamount , VATamount , Surchargeamt , Discount , Billamount , Remarks , Void , Adduser , Adddate , Updateuser , Updatetime , POSTINGFLAG , category , tdssectioncode , TDSFLAG , TDSPERCENTAGE , TDSAMOUNT , storecode , storedesc )"
+                sqlstring = sqlstring & " SELECT Grnno , Grndetails , Grndate , POno , Supplierinvno , Supplierdate , Suppliercode , Suppliername , Typecode , Typedesc , Excisepassno , Excisedate , Stockindate , Trucknumber , Creditdays , Glaccountcode , Glaccountname , Slcode , Slname , Costcentercode , Costcentername , Totalamount , VATamount , Surchargeamt , Discount , Billamount , Remarks , Void , Adduser , Adddate , Updateuser , Updatetime , POSTINGFLAG , category , tdssectioncode , TDSFLAG , TDSPERCENTAGE , TDSAMOUNT , storecode , storedesc"
+                sqlstring = sqlstring & " FROM GRN_HEADER A"
+                sqlstring = sqlstring & " WHERE A.Grndetails = '" & Trim(txt_Grnno.Text) & "' "
+                sqlstring = sqlstring & " AND A.PONO = '" & Trim(Txt_PONo.Text) & "' "
+                insert(0) = sqlstring
+
+                sqlstring = " DELETE FROM GRN_HEADER "
+                sqlstring = sqlstring & " WHERE Grndetails = '" & Trim(txt_Grnno.Text) & "' "
+                sqlstring = sqlstring & " AND PONO = '" & Trim(Txt_PONo.Text) & "' "
+                ReDim Preserve insert(insert.Length)
+                insert(insert.Length - 1) = sqlstring
+                '''***************************************** DELETE the GRNNO in Complete **********************************'''
+                '''***************************************** DELETE the GRNNO in Grn_details **************************'''
+                For i = 1 To ssgrid.DataRowCnt
+                    With ssgrid
+                        sqlstring = "INSERT INTO GRN_DETAILS_DEL( Grnno , Grndetails , Grndate , POno , Suppliercode , Suppliername , Itemcode , Itemname , UOM , Qty , Rate , Discount , Amount , Dblamount , DblUOM , Highratio , Avgqty , voiditem , Adduser , Adddate , Updateuser , Updatetime , category , taxpercentage , storecode , storedesc , taxper , taxamount ) "
+                        sqlstring = sqlstring & " SELECT Grnno , Grndetails , Grndate , POno , Suppliercode , Suppliername , Itemcode , Itemname , UOM , Qty , Rate , Discount , Amount , Dblamount , DblUOM , Highratio , Avgqty , voiditem , Adduser , Adddate , Updateuser , Updatetime , category , taxpercentage , storecode , storedesc , taxper , taxamount"
+                        sqlstring = sqlstring & " FROM GRN_DETAILS A"
+                        sqlstring = sqlstring & " WHERE A.Grndetails = '" & Trim(txt_Grnno.Text) & "'"
+                        sqlstring = sqlstring & " AND A.PONO = '" & Trim(Txt_PONo.Text) & "' "
+                        ReDim Preserve insert(insert.Length)
+                        insert(insert.Length - 1) = sqlstring
+
+                        sqlstring = " DELETE FROM GRN_DETAILS "
+                        sqlstring = sqlstring & " WHERE Grndetails = '" & Trim(txt_Grnno.Text) & "' "
+                        sqlstring = sqlstring & " AND PONO = '" & Trim(Txt_PONo.Text) & "' "
+                        ReDim Preserve insert(insert.Length)
+                        insert(insert.Length - 1) = sqlstring
+
+                        'UPDATING CLOSING STOCK IN INVENTORYITEMMASTER - START --***VENUJD
+                        CLQTY = 0
+                        ssgrid.Col = 1
+                        ssgrid.Row = i
+                        sqlstring = "select (QTY * b.convvalue) as QTY from GRN_DETAILS,INVENTORY_TRANSCONVERSION B,INVENTORYITEMMASTER i WHERE GRNDETAILS ='" & txt_Grnno.Text & "' AND i.ITEMCODE ='" & Trim(ssgrid.Text) & "' AND i.STORECODE = '" & Trim(txt_Storecode.Text) & "' AND i.STOCKUOM = B.TRANSUOM AND  uom = B.BASEUOM"
+                        gconnection.getDataSet(sqlstring, "GRN_DETAILS1")
+                        If gdataset.Tables("GRN_DETAILS1").Rows.Count > 0 Then
+                            CLQTY = gdataset.Tables("GRN_DETAILS1").Rows(0).Item("QTY")
+                        End If
+
+                        ssgrid.Col = 3
+                        ssgrid.Row = i
+                        CURRENTUOM = Trim(ssgrid.Text)
+                        ssgrid.Col = 4
+                        ssgrid.Row = i
+                        sqlstring = "UPDATE INVENTORYITEMMASTER SET CLOSINGQTY = (ISNULL(CLOSINGQTY,0) + " & Format(Val(CLQTY), "0.00") & ")   "
+                        ssgrid.Col = 1
+                        ssgrid.Row = i
+                        sqlstring = sqlstring & "WHERE ITEMCODE = '" & Trim(ssgrid.Text) & "' AND STORECODE = '" & Trim(txt_Storecode.Text) & "' "
+                        ReDim Preserve insert(insert.Length)
+                        insert(insert.Length - 1) = sqlstring
+                        'UPDATING CLOSING STOCK IN INVENTORYITEMMASTER - END --***VENUJD
+
+                    End With
+                Next i
+                '''***************************************** DELETE the GRNNO is Complete **********************************'''
+                '''***************************************** DELETE the GRNNO in Grn_header **************************'''
+                Call cmd_lock() ' Untill transaction completes
+                gconnection.MoreTrans(insert)
+
+                If MessageBox.Show(" Need TO Post To Accounts ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    Call cmd_Post_Click(sender, e)
+                End If
+
+                Call Grn_Triggers(txt_Grnno.Text, scode)
+                Call cmd_unlock()
+                If MessageBox.Show("Do You Want Print it Now ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    If Trim(txt_Grnno.Text) <> "" Then
+                        txt_FromDocno.Text = Trim(txt_Grnno.Text)
+                        txt_ToDocno.Text = Trim(txt_Grnno.Text)
+                    End If
+                    Call cmd_print_Click(Cmd_View, e)
+                    If MessageBox.Show(" Need TO Post To Accounts ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                        Call cmd_Post_Click(sender, e)
+                    End If
+                    Call Cmd_Clear_Click(sender, e)
+                Else
+                    If MessageBox.Show(" Need TO Post To Accounts ", MyCompanyName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                        Call cmd_Post_Click(sender, e)
+                    End If
+
+                    Call Cmd_Clear_Click(sender, e)
+                End If
+            End If
+
+            '''****************************************** UPDATE Complete *********************************************
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CMD_FREEZE" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Function printoperation()
+        Try
+            Dim i As Integer
+            Dim objGrncumpurchase As New rptGrncumpurchaseNote
+            Dim sqlstring = "SELECT ISNULL(G.PONO,'') AS PONO, ISNULL(G.GRNDETAILS,'') AS GRNDETAILS,G.GRNDATE, ISNULL(G.SUPPLIERCODE,'') AS SUPPLIERCODE, ISNULL(G.SUPPLIERNAME,'') AS SUPPLIERNAME,"
+            sqlstring = sqlstring & " ISNULL(G.SUPPLIERINVNO,'') AS SUPPLIERINVNO,  ISNULL(G.EXCISEPASSNO,'') AS EXCISEPASSNO,ISNULL(G.GLACCOUNTCODE,'') AS GLACCOUNTCODE,ISNULL(G.GLACCOUNTNAME,'') AS GLACCOUNTNAME,"
+            sqlstring = sqlstring & " ISNULL(G.TOTALAMOUNT,0) AS TOTALAMOUNT,ISNULL(VATAMOUNT,0) AS VATAMOUNT,ISNULL(G.SURCHARGEAMT,0) AS SURCHARGEAMT,ISNULL(G.DISCOUNT,0) AS DISCOUNT,ISNULL(G.BILLAMOUNT,0) AS BILLAMOUNT,"
+            sqlstring = sqlstring & " ISNULL(D.ITEMCODE,'') AS ITEMCODE, ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM, ISNULL(D.QTY,0) AS QTY, ISNULL(D.RATE,0) AS RATE,ISNULL(G.REMARKS,'') AS REMARKS, "
+            sqlstring = sqlstring & " ISNULL(D.AMOUNT,0) AS AMOUNT,isnull(d.discount,0) as ddiscount,isnull(d.taxper,0) as taxper,isnull(d.taxamount,0) as taxamount, isnull(g.OverallDiscount,0) OverallDiscount,ISNULL(UPDFOOTER,'') AS UPDFOOTER,ISNULL(UPDNAME,'') AS UPDNAME "
+            sqlstring = sqlstring & " FROM GRN_HEADER AS G INNER JOIN GRN_DETAILS AS D ON G.GRNDETAILS = D.GRNDETAILS "
+            sqlstring = sqlstring & " WHERE G.GRNDETAILS BETWEEN '" & Trim(txt_Grnno.Text) & "' AND '" & Trim(txt_Grnno.Text) & "'"
+            sqlstring = sqlstring & " ORDER BY D.AUTOID ,G.GRNDETAILS,G.GRNDATE"
+            Dim heading() As String = {"GRN CUM PURCHASE BILL"}
+            objGrncumpurchase.ReportDetails_sc(sqlstring, heading, txt_Grnno.Text, txt_Grnno.Text)
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Printoperation " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Function
+        End Try
+    End Function
+    Private Sub Cmd_View_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_View.Click
+        Try
+            ' If MsgBox("Click 'YES' to Windows view or 'NO' to Text view", MsgBoxStyle.YesNo, "Group Master") = MsgBoxResult.Yes Then
+            Dim rViewer As New Viewer
+            Dim sqlstring, SSQL As String
+            Dim r As New Rpt_GrnBill
+            sqlstring = "SELECT ISNULL(PONO,'') AS PONO, ISNULL(GRNDETAILS,'') AS GRNDETAILS,GRNDATE, ISNULL(SUPPLIERCODE,'') AS SUPPLIERCODE, ISNULL(SUPPLIERNAME,'') AS SUPPLIERNAME,"
+            sqlstring = sqlstring & " ISNULL(SUPPLIERINVNO,'') AS SUPPLIERINVNO,  ISNULL(EXCISEPASSNO,'') AS EXCISEPASSNO,ISNULL(GLACCOUNTCODE,'') AS GLACCOUNTCODE,ISNULL(GLACCOUNTNAME,'') AS GLACCOUNTNAME,"
+            sqlstring = sqlstring & " ISNULL(TOTALAMOUNT,0) AS TOTALAMOUNT,ISNULL(VATAMOUNT,0) AS VATAMOUNT,ISNULL(SURCHARGEAMT,0) AS SURCHARGEAMT,ISNULL(DISCOUNT,0) AS DISCOUNT,ISNULL(BILLAMOUNT,0) AS BILLAMOUNT,"
+            sqlstring = sqlstring & " ISNULL(ITEMCODE,'') AS ITEMCODE, ISNULL(ITEMNAME,'') AS ITEMNAME,ISNULL(UOM,'') AS UOM, ISNULL(QTY,0) AS QTY, ISNULL(RATE,0) AS RATE,ISNULL(REMARKS,'') AS REMARKS, "
+            sqlstring = sqlstring & " ISNULL(AMOUNT,0) AS AMOUNT,isnull(discount,0) as ddiscount,isnull(taxper,0) as taxper,isnull(taxamount,0) as taxamount, isnull(OverallDiscount,0) OverallDiscount,ISNULL(UPDFOOTER,'') AS UPDFOOTER,ISNULL(UPDNAME,'') AS UPDNAME,ISNULL(Adddate,'') AS ADDDATE ,ISNULL(UPDATETIME,'') AS UPDATETIME "
+            sqlstring = sqlstring & " FROM VW_INV_GRNBILL "
+            sqlstring = sqlstring & " WHERE GRNDETAILS BETWEEN '" & Trim(txt_Grnno.Text) & "' AND '" & Trim(txt_Grnno.Text) & "'"
+            sqlstring = sqlstring & " ORDER BY AUTOID ,GRNDETAILS,GRNDATE"
+
+            gconnection.getDataSet(sqlstring, "VW_INV_GRNBILL")
+            If gdataset.Tables("VW_INV_GRNBILL").Rows.Count > 0 Then
+                If chk_excel.Checked = True Then
+                    Dim exp As New exportexcel
+                    exp.Show()
+                    Call exp.export(sqlstring, "PURCHASE RETURN BILL ", "")
+                Else
+                    rViewer.ssql = sqlstring
+                    rViewer.Report = r
+                    rViewer.TableName = "VW_INV_GRNBILL"
+                    Dim textobj1 As TextObject
+                    textobj1 = r.ReportDefinition.ReportObjects("Text13")
+                    textobj1.Text = MyCompanyName
+
+                    Dim textobj3 As TextObject
+                    textobj3 = r.ReportDefinition.ReportObjects("Text14")
+                    textobj3.Text = "PURCHASE RETURN BILL"
+
+                    Dim textobj2 As TextObject
+                    textobj2 = r.ReportDefinition.ReportObjects("Text30")
+                    textobj2.Text = gUsername
+                    If MyCompanyName = "THE BENGAL CLUB" Then
+                        Dim textobj4 As TextObject
+                        textobj4 = r.ReportDefinition.ReportObjects("Text28")
+                        textobj4.Text = ""
+                    End If
+                    rViewer.Show()
+                End If
+            Else
+                    MessageBox.Show(" No Records To Display ", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation.Information.Information)
+                End If
+
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : View Click " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_Exit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_Exit.Click
+        Try
+            Me.Close()
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Exit Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Grnno_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Grnno.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                If Trim(txt_Grnno.Text) = "" Then
+                    Call cmd_Grnnohelp_Click(cmd_Grnnohelp, e)
+                Else
+                    txt_Grnno_Validated(txt_Grnno, e)
+                    dtp_Grndate.Focus()
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Grnno Key Press " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub dtp_Grndate_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles dtp_Grndate.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                txt_Suppliercode.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Grn Date Keypress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Supplierinvno_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Supplierinvno.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                dtp_Supplierinvdate.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Supplier Invno Keypress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub dtp_Supplierinvdate_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles dtp_Supplierinvdate.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                txt_Storecode.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : dtp_Supplierinvdate_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Suppliercode_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Suppliercode.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                If Trim(txt_Suppliercode.Text) = "" Then
+                    Call cmd_Suppliercodehelp_Click(cmd_Suppliercodehelp, e)
+                Else
+                    Call txt_Suppliercode_Validated(txt_Suppliercode, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Suppliercode_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Suppliername_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Suppliername.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                If slcodestatus = True Then
+                    Txt_Slcode.Focus()
+                Else
+                    ssgrid.Focus()
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Suppliername_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Excisepassno_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Excisepassno.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                dtp_Excisepassdate.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Excisepassno_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub dtp_Excisepassdate_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles dtp_Excisepassdate.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                txt_Trucknumber.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : dtp_Excisepassdate_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub cbo_Storelocation_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles cbo_Storelocation.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                txt_Creditdays.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : cbo_Storelocation_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Creditdays_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Creditdays.KeyPress
+        Try
+            getNumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                ssgrid.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Creditdays_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Totalamt_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Totalamt.KeyPress
+        Try
+            getNumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                txt_Vatamount.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Totalamt_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Billamt_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        Try
+            getNumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                Cmd_Add.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Billamt_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub cmd_Grnnohelp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd_Grnnohelp.Click
+        Try
+            gSQLString = "SELECT Grndetails,Grndate,SUPPLIERNAME FROM Grn_header"
+            M_WhereCondition = "  Where Isnull(GRNTYPE,'')='PRN' "
+            Dim vform As New List_Operation
+            vform.Field = "GRNDETAILS,GRNDATE,SUPPLIERNAME"
+            vform.vFormatstring1 = "       GRN NO             |         GRN DATE     |     SUPPLIERNAME                                       "
+            vform.vCaption = "GRN CUM PURCHASE BILL HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.KeyPos2 = 2
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                txt_Grnno.Text = Trim(vform.keyfield & "")
+                ssgrid.ClearRange(1, 1, -1, -1, True)
+                Call txt_Grnno_Validated(txt_Grnno.Text, e)
+                Call Grid_lock()
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : cmd_Grnnohelp_Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Grnno_Validated(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Grnno.Validated
+        Dim I, J, K As Integer
+        Dim vString, sqlstring As String
+        Dim vTypeseqno, Clsquantity As Double
+        Dim vGroupseqno As Double
+        Dim dt As New DataTable
+        If Trim(txt_Grnno.Text) <> "" Then
+            Try
+                sqlstring = "SELECT  ISNULL(GRNNO,'') AS GRNNO,ISNULL(GRNDETAILS,'') AS GRNDETAILS,ISNULL(PONO,'') AS PONO,ISNULL(INDENTNO,'') AS INDENTNO,GRNDATE,ISNULL(SUPPLIERINVNO,'') AS SUPPLIERINVNO,"
+                sqlstring = sqlstring & " SUPPLIERDATE,ISNULL(SUPPLIERCODE,'') AS SUPPLIERCODE,ISNULL(SUPPLIERNAME,'') AS SUPPLIERNAME,ISNULL(TYPECODE,'') AS TYPECODE,"
+                sqlstring = sqlstring & " ISNULL(TYPEDESC,'') AS TYPEDESC, ISNULL(EXCISEPASSNO,'') AS EXCISEPASSNO,EXCISEDATE,STOCKINDATE,ISNULL(TRUCKNUMBER,'') AS TRUCKNUMBER,"
+                sqlstring = sqlstring & " ISNULL(CREDITDAYS,0) AS CREDITDAYS,ISNULL(GLACCOUNTCODE,'') AS GLACCOUNTCODE,ISNULL(GLACCOUNTNAME,'') AS GLACCOUNTNAME,"
+                sqlstring = sqlstring & " ISNULL(SLCODE,'') AS SLCODE,ISNULL(SLNAME,'') AS SLNAME,ISNULL(COSTCENTERCODE,'') AS COSTCENTERCODE,ISNULL(COSTCENTERNAME,'') AS COSTCENTERNAME,"
+                sqlstring = sqlstring & " ISNULL(TOTALAMOUNT,0) AS TOTALAMOUNT,ISNULL(VATAMOUNT,0) AS VATAMOUNT,ISNULL(SURCHARGEAMT,0) AS SURCHARGEAMT,ISNULL(DISCOUNT,0) AS DISCOUNT,ISNULL(BILLAMOUNT,0) AS BILLAMOUNT,ISNULL(REMARKS,'') AS REMARKS,"
+                sqlstring = sqlstring & " ISNULL(VOID,'') AS VOID,ISNULL(ADDUSER,'') AS ADDUSER,ADDDATE,ISNULL(UPDATEUSER,'') AS UPDATEUSER,UPDATETIME,"
+                sqlstring = sqlstring & " ISNULL(STORECODE,'') STORECODE , ISNULL(STOREDESC,'MAINSTORE') STOREDESC, ISNULL(OVERALLDISCOUNT,0) OVERALLDISCOUNT,ISNULL(UPDFOOTER,'') UPDFOOTER,ISNULL(UPDNAME,'') UPDNAME FROM GRN_HEADER"
+                sqlstring = sqlstring & " WHERE (GRNNO = '" & Format(Val(txt_Grnno.Text), "0000") & "' OR Grndetails='" & Trim(txt_Grnno.Text) & "') "
+                sqlstring = sqlstring & " and  rtrim(substring(grndetails,5,2)) = '" & Mid(doctype, 1, 2) & "'  and  isnull(GrnType,'')='PRN'"
+                gconnection.getDataSet(sqlstring, "GRNHEADER")
+                '''************************************************* SELECT record from Grn_header *********************************************''''                
+                If gdataset.Tables("GRNHEADER").Rows.Count > 0 Then
+                    Call GridUnLock()
+                    Cmd_Add.Text = "Update[F7]"
+                    Me.txt_Grnno.ReadOnly = True
+                    txt_Grnno.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("GRNDETAILS"))
+                    Txt_PONo.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("PONO"))
+                    dtp_Grndate.Value = Format(CDate(gdataset.Tables("GRNHEADER").Rows(0).Item("GRNDATE")), "dd/MMM/yyyy")
+                    txt_Supplierinvno.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("SUPPLIERINVNO"))
+                    dtp_Supplierinvdate.Value = Format(CDate(gdataset.Tables("GRNHEADER").Rows(0).Item("SUPPLIERDATE")), "dd/MMM/yyyy")
+                    txt_Suppliercode.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("SUPPLIERCODE"))
+                    txt_Suppliername.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("SUPPLIERNAME"))
+                    cbo_Billingterms.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("TYPECODE")) & "  " & Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("TYPEDESC"))
+                    txt_Excisepassno.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("EXCISEPASSNO"))
+                    dtp_Excisepassdate.Value = Format(CDate(gdataset.Tables("GRNHEADER").Rows(0).Item("EXCISEDATE")), "dd/MMM/yyyy")
+                    dtp_Stockindate.Value = Format(CDate(gdataset.Tables("GRNHEADER").Rows(0).Item("STOCKINDATE")), "dd/MMM/yyyy")
+                    txt_Trucknumber.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("TRUCKNUMBER"))
+                    txt_Creditdays.Text = Format(Val(gdataset.Tables("GRNHEADER").Rows(0).Item("CREDITDAYS")), "0")
+                    Txt_GLAcIn.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("GLACCOUNTCODE"))
+                    Txt_GLAcDesc.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("GLACCOUNTNAME"))
+                    Txt_Slcode.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("SLCODE"))
+                    Txt_SlDesc.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("SLNAME"))
+                    txt_Totalamt.Text = Format(Val(gdataset.Tables("GRNHEADER").Rows(0).Item("TOTALAMOUNT")), "0.00")
+                    txt_Storecode.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("STORECODE"))
+                    txt_StoreDesc.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("STOREDESC"))
+                    Txt_footer.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("UPDFOOTER"))
+                    Txt_signature.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("UPDNAME"))
+                    If Trim(Txt_Slcode.Text) <> "" Then
+                        grp_grnposting.Top = 218
+                        grp_grnposting.Width = 848
+                        grp_grnposting.Height = 80
+                        'ssgrid.Left = 10
+                        'ssgrid.Top = 312
+                        'ssgrid.Height = 200
+                        '    ssgrid.Top = 344
+                        '   ssgrid.Left = 178
+                        '  ssgrid.Height = 176
+                        Lbl_SubledgerCode.Visible = True
+                        Lbl_SubledgerName.Visible = True
+                        Txt_Slcode.Visible = True
+                        Cmd_SlCodeHelp.Visible = True
+                        Txt_SlDesc.Visible = True
+                    Else
+                        grp_grnposting.Top = 218
+                        grp_grnposting.Height = 48
+                        grp_grnposting.Width = 848
+                        'ssgrid.Top = 272
+                        'ssgrid.Left = 10
+                        'ssgrid.Height = 264
+                        ' ssgrid.Top = 344
+                        'ssgrid.Left = 178
+                        'ssgrid.Height = 176
+                    End If
+                    Txt_CostCenterCode.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("COSTCENTERCODE"))
+                    Txt_CostCenterDesc.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("COSTCENTERNAME"))
+                    If Trim(Txt_CostCenterCode.Text) <> "" And Trim(Txt_Slcode.Text) <> "" Then
+                        Lbl_CostCenterCode.Visible = True
+                        Lbl_CostCenterDesc.Visible = True
+                        Txt_CostCenterCode.Visible = True
+                        Txt_CostCenterDesc.Visible = True
+                        grp_grnposting.Top = 218
+                        grp_grnposting.Height = 120
+                        grp_grnposting.Width = 848
+                        'ssgrid.Top = 344
+                        'ssgrid.Left = 10
+                        'ssgrid.Height = 200
+                        'ssgrid.Top = 344
+                        'ssgrid.Left = 178
+                        'ssgrid.Height = 176
+                        lbl_Creditdays.Top = 280
+                        lbl_Creditdays.Left = 504
+                        txt_Creditdays.Top = 280
+                        txt_Creditdays.Left = 672
+                    ElseIf Trim(Txt_CostCenterCode.Text) = "" And Trim(Txt_Slcode.Text) <> "" Then
+                        grp_grnposting.Top = 218
+                        grp_grnposting.Width = 848
+                        grp_grnposting.Height = 80
+                        'ssgrid.Left = 10
+                        'ssgrid.Top = 272
+                        'ssgrid.Height = 224
+                        'ssgrid.Top = 344
+                        'ssgrid.Left = 178
+                        'ssgrid.Height = 176
+                        Lbl_SubledgerCode.Visible = True
+                        Lbl_SubledgerName.Visible = True
+                        Txt_Slcode.Visible = True
+                        Cmd_SlCodeHelp.Visible = True
+                        Txt_SlDesc.Visible = True
+                    Else
+                        grp_grnposting.Top = 218
+                        grp_grnposting.Height = 48
+                        grp_grnposting.Width = 848
+                        'ssgrid.Top = 272
+                        'ssgrid.Left = 10
+                        'ssgrid.Height = 264
+                        'ssgrid.Top = 344
+                        'ssgrid.Left = 178
+                        'ssgrid.Height = 176
+                    End If
+                    TXT_OVERALLdiscount.Text = Format(Val(gdataset.Tables("GRNHEADER").Rows(0).Item("OVERALLdiscount")), "0.00")
+                    txt_Discountamt.Text = Format(Val(gdataset.Tables("GRNHEADER").Rows(0).Item("DISCOUNT")), "0.00")
+                    txt_Vatamount.Text = Format(Val(gdataset.Tables("GRNHEADER").Rows(0).Item("VATAMOUNT")), "0.00")
+                    txt_Surchargeamt.Text = Format(Val(gdataset.Tables("GRNHEADER").Rows(0).Item("SURCHARGEAMT")), "0.00")
+                    txt_Billamount.Text = Format(Val(gdataset.Tables("GRNHEADER").Rows(0).Item("BILLAMOUNT")), "0.00")
+                    txt_Remarks.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("REMARKS"))
+                    If Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("VOID")) = "Y" Then
+                        Cmd_Add.Enabled = False
+                        Cmd_Freeze.Enabled = False
+                    End If
+                    '''************************************************* SELECT record from Grn_details *********************************************''''                
+                    Dim vtmpitemcode, strsql As String
+                    sqlstring = "SELECT ISNULL(ITEMCODE,'') AS ITEMCODE,ISNULL(ITEMNAME,'') AS ITEMNAME,ISNULL(UOM,'') AS UOM,"
+                    sqlstring = sqlstring & " ISNULL(QTY,0) AS QTY,ISNULL(RATE,0) AS RATE,ISNULL(DISCOUNT,0) AS DISCOUNT,ISNULL(TAXPER,0) AS TAXPER,ISNULL(TAXAMOUNT,0) AS TAXAMOUNT,ISNULL(AMOUNT,0) AS AMOUNT,ISNULL(CATEGORY,'')AS CATEGORY,"
+                    sqlstring = sqlstring & " ISNULL(VOIDITEM,'') AS VOIDITEM , isnull(OTHCHARGE,0) AS OTHCHARGE FROM GRN_DETAILS WHERE  GRNDETAILS ='" & Trim(txt_Grnno.Text) & "'"
+                    sqlstring = sqlstring & " ORDER BY AUTOID "
+                    gconnection.getDataSet(sqlstring, "GRNDETAILS")
+                    If gdataset.Tables("GRNDETAILS").Rows.Count > 0 Then
+                        For I = 1 To gdataset.Tables("GRNDETAILS").Rows.Count
+                            ssgrid.SetText(1, I, Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("ITEMCODE")))
+                            vtmpitemcode = Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("ITEMCODE"))
+                            ssgrid.SetText(2, I, Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("ITEMNAME")))
+                            ssgrid.Col = 3
+                            ssgrid.Row = I
+                            ssgrid.TypeComboBoxString = Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("UOM"))
+                            ssgrid.Text = Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("UOM"))
+                            ssgrid.SetText(4, I, Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("QTY")))
+                            ssgrid.SetText(5, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("RATE")), "0.00"))
+                            ssgrid.SetText(6, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("DISCOUNT")), "0.00"))
+                            '            ssgrid.SetText(7, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("PROFITPER")), "0.00"))
+                            ssgrid.SetText(7, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("TAXPER")), "0.00"))
+                            ssgrid.SetText(8, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("TAXAMOUNT")), "0.00"))
+                            ssgrid.SetText(9, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("AMOUNT")), "0.00"))
+                            '           ssgrid.SetText(11, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("SALERATE")), "0.00"))
+                            '          ssgrid.SetText(12, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("DBLAMOUNT")), "0.00"))
+                            '         ssgrid.SetText(13, I, Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("DBLUOM")))
+                            'ssgrid.SetText(14, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("HIGHRATIO")), "0.00"))
+                            ssgrid.SetText(11, I, Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("VOIDITEM")))
+                            ssgrid.SetText(10, I, Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("othcharge")))
+                            '        ssgrid.SetText(19, I, Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("FREEQTY")))
+
+                            'GRNDATE = Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy")
+                            'It's getting so late so commanded
+
+                            '  Clsquantity = ClosingQuantity_Date(vtmpitemcode, Trim(txt_Storecode.Text), Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("UOM")), GRNDATE)
+                            ' Clsquantity = ClosingQuantity(vtmpitemcode, GetMainStore())
+                            'ssgrid.SetText(17, I, Clsquantity)
+                            CMB_CATEGORY.Text = gdataset.Tables("GRNDETAILS").Rows(J).Item("CATEGORY")
+                            J = J + 1
+                        Next
+                    End If
+                    TotalCount = gdataset.Tables("GRNDETAILS").Rows.Count
+                    ssgrid.SetActiveCell(1, 1)
+                    'sqlstring = "SELECT ISNULL(BillTerms,'') AS BillTerms,ISNULL(Percentage,0) AS Percentage,ISNULL(TaxCode,'') AS Taxcode,ISNULL(Amount,0) AS Amount,ISNULL(SlNo,0) AS SlNo,ISNULL(Formula,'')AS Formula,"
+                    'sqlstring = sqlstring & "ISNULL(Signs,'') AS Signs,ISNULL(Accode,'') AS Accode,ISNULL(Acdesc,'') AS Acdesc FROM grn_billterms WHERE  Grndetails='" & Trim(txt_Grnno.Text) & "' ORDER BY AUTOID"
+                    'gconnection.getDataSet(sqlstring, "grn_billterms")
+                    'If gdataset.Tables("grn_billterms").Rows.Count > 0 Then
+                    '    For I = 1 To gdataset.Tables("grn_billterms").Rows.Count
+                    '        ssgrid_billdetails.SetText(1, I, Trim(gdataset.Tables("grn_billterms").Rows(K).Item("BillTerms")))
+                    '        ssgrid_billdetails.SetText(2, I, Format(Val(gdataset.Tables("grn_billterms").Rows(K).Item("Percentage")), "0.00"))
+                    '        ssgrid_billdetails.SetText(3, I, Trim(gdataset.Tables("grn_billterms").Rows(K).Item("Taxcode")))
+                    '        ssgrid_billdetails.SetText(4, I, Format(Val(gdataset.Tables("grn_billterms").Rows(K).Item("Amount")), "0.00"))
+                    '        ssgrid_billdetails.SetText(5, I, Format(Val(gdataset.Tables("grn_billterms").Rows(K).Item("SlNo")), "0"))
+                    '        ssgrid_billdetails.SetText(6, I, Trim(gdataset.Tables("grn_billterms").Rows(K).Item("Formula")))
+                    '        ssgrid_billdetails.SetText(7, I, Trim(gdataset.Tables("grn_billterms").Rows(K).Item("Signs")))
+                    '        ssgrid_billdetails.SetText(8, I, Trim(gdataset.Tables("grn_billterms").Rows(K).Item("Accode")))
+                    '        ssgrid_billdetails.SetText(9, I, Trim(gdataset.Tables("grn_billterms").Rows(K).Item("Acdesc")))
+                    '        K = K + 1
+                    '    Next
+                    'End If
+                    If gUserCategory <> "S" Then
+                        Call GetRights()
+                    End If
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Enter valid GRN No : txt_Grnno_Validated" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                Exit Sub
+            End Try
+        End If
+    End Sub
+    Private Sub cmd_Suppliercodehelp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd_Suppliercodehelp.Click
+        Try
+            gSQLString = "SELECT SLCODE,SLNAME FROM accountssubledgermaster "
+            M_WhereCondition = " WHERE ACCODE IN ('" & Trim(gCreditors) & "') "
+            Dim vform As New ListOperattion1
+            vform.Field = "SLNAME,SLCODE"
+            vform.vFormatstring = "       SLCODE                    |                      SLNAME                                                                                                          "
+            vform.vCaption = "SUB LEDGER MASTER HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                txt_Suppliercode.Text = Trim(vform.keyfield & "")
+                Call txt_Suppliercode_Validated(txt_Suppliercode, e)
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : cmd_Suppliercodehelp_Click " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+
+    Private Sub txt_Grnno_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Grnno.KeyDown
+        Try
+            If e.KeyCode = Keys.F4 Then
+                If cmd_Grnnohelp.Enabled = True Then
+                    search = Trim(txt_Grnno.Text)
+                    Call cmd_Grnnohelp_Click(cmd_Grnnohelp, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Grnno_KeyDown" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+
+    Private Sub GRN_Cum_Purchase_Bill_CSC_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        Try
+            If e.KeyCode = Keys.F6 Then
+                Call Cmd_Clear_Click(Cmd_Clear, e)
+                Exit Sub
+            ElseIf e.KeyCode = Keys.F8 Then
+                Call Cmd_Freeze_Click(Cmd_Freeze, e)
+                Exit Sub
+            ElseIf e.KeyCode = Keys.F2 Then
+                txt_Grnno.Text = ""
+                txt_Grnno.Focus()
+                Exit Sub
+            ElseIf e.KeyCode = Keys.F7 Then
+                Call Cmd_Add_Click(Cmd_Add, e)
+                Exit Sub
+            ElseIf e.KeyCode = Keys.F9 Then
+                Call Cmd_View_Click(Cmd_View, e)
+                Exit Sub
+            ElseIf e.KeyCode = Keys.F11 Then
+                Call Cmd_Exit_Click(Cmd_Exit, e)
+                Exit Sub
+            ElseIf e.KeyCode = Keys.F12 Then
+                Call billingterms()
+                Exit Sub
+            ElseIf e.KeyCode = Keys.Escape Then
+                If grp_Excisedetails.Top = 104 Then
+                    grp_Excisedetails.Top = 1000
+                    dtp_Supplierinvdate.Focus()
+                    Exit Sub
+                ElseIf grp_Billingdetails.Top = 144 Then
+                    grp_Billingdetails.Top = 1000
+                    txt_Remarks.Focus()
+                    Exit Sub
+                ElseIf grp_StockGrndetails.Top = 176 Then
+                    grp_StockGrndetails.Top = 1000
+                    Cmd_View.Focus()
+                    Exit Sub
+                Else
+                    Call Cmd_Exit_Click(Cmd_Exit, e)
+                    Exit Sub
+                End If
+            ElseIf e.Alt = True And e.KeyCode = Keys.R Then
+                Me.txt_Remarks.Focus()
+                Exit Sub
+            ElseIf e.Alt = True And e.KeyCode = Keys.D Then
+                Me.txt_Discountamt.Focus()
+                Exit Sub
+            ElseIf e.Alt = True And e.KeyCode = Keys.G Then
+                Me.ssgrid.Focus()
+                Me.ssgrid.SetActiveCell(1, 1)
+                Exit Sub
+            ElseIf e.Alt = True And e.KeyCode = Keys.V Then
+                Me.txt_Vatamount.Focus()
+                Exit Sub
+            ElseIf e.Alt = True And e.KeyCode = Keys.N Then
+                Me.txt_Grnno.Focus()
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : GRN_Cum_Purchase_Bill_CSC_KeyDown " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub autogenerate()
+        Try
+            Dim sqlstring, financalyear As String
+            Dim month As String
+            Dim CATLEN As Integer
+
+            month = UCase(Format(Now, "MMM"))
+            gcommand = New SqlCommand
+            financalyear = Mid(gFinancalyearStart, 3, 2) & "-" & Mid(gFinancialyearEnd, 3, 2)
+
+            sqlstring = "SELECT ISNULL(CATEGORY,'') AS CATEGORY FROM INVENTORYITEMMASTER WHERE ISNULL(CATEGORY,'')='" & Trim(CMB_CATEGORY.Text & "") & "' GROUP BY CATEGORY"
+            gconnection.getDataSet(sqlstring, "CATEGORY")
+            If gdataset.Tables("CATEGORY").Rows.Count > 0 Then
+                CATEGORY = Mid(Trim(gdataset.Tables("CATEGORY").Rows(0).Item("CATEGORY") & ""), 1, 3)
+                CATLEN = Len(Trim(CATEGORY))
+            Else
+                CATLEN = 3
+                CATEGORY = month
+            End If
+            sqlstring = "SELECT MAX(Cast(SUBSTRING(GRNNO,1,6) As Numeric)) FROM GRN_HEADER WHERE SUBSTRING(GRNDETAILS,5," & CATLEN & ")='" & CATEGORY & "' " & " and SUBSTRING(GRNDETAILS,1,3)='PRN'"
+            '        sqlstring = "SELECT MAX(Cast(SUBSTRING(GRNNO,1,6) As Numeric)) FROM GRN_HEADER"
+            gconnection.openConnection()
+            gcommand.CommandText = sqlstring
+            gcommand.CommandType = CommandType.Text
+            gcommand.Connection = gconnection.Myconn
+            gdreader = gcommand.ExecuteReader
+            If gdreader.Read Then
+                If gdreader(0) Is System.DBNull.Value Then
+                    txt_Grnno.Text = "PRN/" & CATEGORY & "/" & "0001/" & financalyear
+                    gdreader.Close()
+                    gcommand.Dispose()
+                    gconnection.closeConnection()
+                Else
+                    txt_Grnno.Text = "PRN/" & CATEGORY & "/" & Format(gdreader(0) + 1, "0000") & "/" & financalyear
+                    gdreader.Close()
+                    gcommand.Dispose()
+                    gconnection.closeConnection()
+                End If
+            Else
+                txt_Grnno.Text = "PRN/" & CATEGORY & "/0001/" & financalyear
+                gdreader.Close()
+                gcommand.Dispose()
+                gconnection.closeConnection()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : autogenerate" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub Calculate()
+        Try
+            Dim ValQty, ValRate, ValDiscount, VarTotal As Double
+            Dim ValHighratio, ValItemamount, ValDblamount As Double
+            Dim VALTAXPER, VALTAXAMOUNT As Double
+            Dim i As Integer
+            If ssgrid.ActiveCol = 1 Or ssgrid.ActiveCol = 2 Or ssgrid.ActiveCol = 3 Or ssgrid.ActiveCol = 4 Or ssgrid.ActiveCol = 5 Or ssgrid.ActiveCol = 6 Or ssgrid.ActiveCol = 7 Then
+                i = ssgrid.ActiveRow
+                ssgrid.Col = 4
+                ssgrid.Row = i
+                ValQty = Val(ssgrid.Text)
+                ssgrid.Col = 5
+                ssgrid.Row = i
+                ValRate = Val(ssgrid.Text)
+                ssgrid.Col = 6
+                ssgrid.Row = i
+                ValDiscount = Val(ssgrid.Text)
+                ssgrid.Col = 7
+                ssgrid.Row = i
+                VALTAXPER = Val(ssgrid.Text)
+
+
+                ' ssgrid.Col = 12
+                ' ssgrid.Row = i
+                ' ValHighratio = Val(ssgrid.Text())
+                ValItemamount = Format(Val(ValQty) * Val(ValRate), "0.00")
+                'ValDblamount = Format(Val(ValQty) * Val(ValHighratio), "0.00")
+                VALTAXAMOUNT = (ValItemamount - ValDiscount) * (VALTAXPER / 100)
+                If Val(ValItemamount) = 0 Then
+                    ssgrid.SetText(9, i, "")
+                    ssgrid.SetText(10, i, "")
+                Else
+                    ssgrid.SetText(9, i, Val(ValItemamount))
+                    ssgrid.SetText(10, i, Val(ValDblamount))
+                End If
+                If Val(VALTAXAMOUNT) = 0 Then
+                    ssgrid.SetText(8, i, "")
+                Else
+                    ssgrid.SetText(8, i, Val(VALTAXAMOUNT))
+                End If
+
+                Me.txt_Totalamt.Text = 0
+                Me.txt_Vatamount.Text = 0
+                Me.txt_Discountamt.Text = 0
+                Me.txt_Billamount.Text = 0
+                ValDiscount = 0 : VarTotal = 0 : VALTAXAMOUNT = 0
+                For i = 1 To ssgrid.DataRowCnt
+                    ssgrid.Col = 6
+                    ssgrid.Row = i
+                    ValDiscount = Val(ssgrid.Text)
+                    ssgrid.Col = 8
+                    ssgrid.Row = i
+                    VALTAXAMOUNT = Val(ssgrid.Text)
+
+                    ssgrid.Col = 9
+                    ssgrid.Row = i
+                    VarTotal = Val(ssgrid.Text)
+
+                    Me.txt_Discountamt.Text = Format(Val(Me.txt_Discountamt.Text) + Val(ValDiscount), "0.00")
+                    Me.txt_Vatamount.Text = Format(Val(Me.txt_Vatamount.Text) + Val(VALTAXAMOUNT), "0.00")
+                    Me.txt_Totalamt.Text = Format(Val(Me.txt_Totalamt.Text) + Val(VarTotal), "0.00")
+                    Me.txt_Billamount.Text = Format((Val(Me.txt_Totalamt.Text) + Val(Me.txt_Vatamount.Text)) - Val(Me.txt_Discountamt.Text), "0.00")
+                Next i
+                '                Me.txt_Billamount.Text = Format(Val(Me.txt_Totalamt.Text) - Val(Me.TXT_OVERALLdiscount.Text))
+                Me.txt_Billamount.Text = Format((Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text)) - (Val(txt_Discountamt.Text) + Val(TXT_OVERALLdiscount.Text)), "0.00")
+                i = i - 1
+            End If
+            Call calc_billamt()
+
+            Dim Oth_grossAmt, tempSurcharge As Double
+            Dim x As Integer
+            For x = 1 To ssgrid.DataRowCnt
+                ValDiscount = 0 : VarTotal = 0 : VALTAXAMOUNT = 0 : tempSurcharge = 0 : Oth_grossAmt = 0
+                ssgrid.Col = 6
+                ssgrid.Row = x
+                ValDiscount = Val(ssgrid.Text)
+                ssgrid.Col = 8
+                ssgrid.Row = x
+                VALTAXAMOUNT = Val(ssgrid.Text)
+
+                ssgrid.Col = 9
+                ssgrid.Row = x
+                VarTotal = Val(ssgrid.Text)
+
+                'Othercharges col in grid
+                ssgrid.Col = 10
+                ssgrid.Row = x
+                tempSurcharge = Val(txt_Surchargeamt.Text) / Val(txt_Totalamt.Text)
+                tempSurcharge = tempSurcharge - (Val(TXT_OVERALLdiscount.Text) / Val(txt_Totalamt.Text))
+                Oth_grossAmt = (VarTotal) * tempSurcharge
+                If Val(txt_Surchargeamt.Text) <> 0 Or Val(TXT_OVERALLdiscount.Text) <> 0 Then
+                    ssgrid.Text = Oth_grossAmt
+                Else
+                    ssgrid.Text = "0.00"
+                End If
+            Next x
+
+            Dim checkother, diffamt As Double
+            checkother = 0 : diffamt = 0
+
+            For x = 1 To ssgrid.DataRowCnt
+                ValDiscount = 0 : VarTotal = 0 : VALTAXAMOUNT = 0 : tempSurcharge = 0 : Oth_grossAmt = 0
+                ssgrid.Col = 6
+                ssgrid.Row = x
+                ValDiscount = Val(ssgrid.Text)
+                ssgrid.Col = 8
+                ssgrid.Row = x
+                VALTAXAMOUNT = Val(ssgrid.Text)
+
+                ssgrid.Col = 9
+                ssgrid.Row = x
+                VarTotal = Val(ssgrid.Text)
+
+                ssgrid.Col = 10
+                ssgrid.Row = x
+                checkother = checkother + Val(ssgrid.Text)
+
+                If x = ssgrid.DataRowCnt Then
+                    If checkother <> Val(txt_Surchargeamt.Text) - Val(TXT_OVERALLdiscount.Text) Then
+                        diffamt = checkother - (Val(txt_Surchargeamt.Text) - Val(TXT_OVERALLdiscount.Text))
+                        ssgrid.Text = ssgrid.Text - diffamt
+                    End If
+                End If
+            Next x
+
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Calculate" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub checkValidation()
+        Try
+            boolchk = False
+            '''**************************************** Check DATEVALIDATION *******************************************''
+            Call Checkdatevalidate(Format(dtp_Grndate.Value, "dd/MMM/yyyy"))
+            If chkdatevalidate = False Then Exit Sub
+            '''**************************************** Check GRN NO. can't be blank *******************************************''
+            If Trim(txt_Grnno.Text) = "" Then
+                MessageBox.Show("GRN NO. Can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                txt_Grnno.Focus()
+                Exit Sub
+            End If
+            '''**************************************** Check SUPPLIER INVOICENO. can't be blank *******************************************''
+            If Trim(txt_Supplierinvno.Text) = "" Then
+                MessageBox.Show("Supplier Invoice no. Can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                txt_Supplierinvno.Focus()
+                Exit Sub
+            End If
+            '''**************************************** Check SUPPLIER CODE can't be blank *******************************************''
+            If Trim(txt_Suppliercode.Text) = "" Then
+                MessageBox.Show("Supplier Code Can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                txt_Suppliercode.Focus()
+                Exit Sub
+            End If
+            '''**************************************** Check SUPPLIER NAME can't be blank *******************************************''
+            If Trim(txt_Suppliername.Text) = "" Then
+                MessageBox.Show("Supplier Name Can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                txt_Suppliername.Focus()
+                Exit Sub
+            End If
+
+            sqlstring = "SELECT ISNULL(CATEGORY,'') AS CATEGORY FROM INVENTORYITEMMASTER WHERE ISNULL(CATEGORY,'')='" & Trim(CMB_CATEGORY.Text & "") & "' GROUP BY CATEGORY"
+            gconnection.getDataSet(sqlstring, "CATEGORY")
+            If gdataset.Tables("CATEGORY").Rows.Count <= 0 Then
+                MsgBox("Select Valid Category....", MsgBoxStyle.OKOnly, "Category")
+                CMB_CATEGORY.Focus()
+            End If
+
+            '''**************************************** Check TOTAL AMOUNT can't be blank *******************************************''
+            If Trim(txt_Totalamt.Text) = "" Then
+                MessageBox.Show("Total Amount Can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                txt_Totalamt.Focus()
+                Exit Sub
+            End If
+            '''**************************************** Check BILL AMOUNT can't be blank *******************************************''
+            'DISABLE GLACCOUNT
+
+            'If Trim(Txt_GLAcIn.Text) = "" Then
+            '    MessageBox.Show("GLAcin cannot be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            '    Txt_GLAcIn.Focus()
+            '    Exit Sub
+            'End If
+
+            If Trim(Txt_Slcode.Text) = "" And slcodestatus = True Then
+                MessageBox.Show("Slcode cannot be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                Txt_GLAcIn.Focus()
+                Exit Sub
+            End If
+            If Trim(Txt_CostCenterCode.Text) = "" And costcentercodestatus = True Then
+                MessageBox.Show("Costcentercode cannot be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                Txt_GLAcIn.Focus()
+                Exit Sub
+            End If
+            '''********************************************* Check ssgrid value can't be blank ********************************************'''
+            For i = 1 To ssgrid.DataRowCnt
+                ssgrid.Row = i
+                ssgrid.Col = 1
+                If Trim(ssgrid.Text) = "" Then
+                    MessageBox.Show("Item Code can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                    Exit Sub
+                End If
+                ssgrid.Col = 2
+                If Trim(ssgrid.Text) = "" Then
+                    MessageBox.Show("Item Description can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    ssgrid.SetActiveCell(2, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                    Exit Sub
+                End If
+                ssgrid.Col = 3
+                If Trim(ssgrid.Text) = "" Then
+                    MessageBox.Show("UOM can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                    Exit Sub
+                End If
+                ssgrid.Col = 4
+                If Val(ssgrid.Text) = 0 Then
+                    MessageBox.Show("Quantity can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                    Exit Sub
+                End If
+                ssgrid.Col = 5
+                If Val(ssgrid.Text) = 0 Then
+                    MessageBox.Show("Rate can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    ssgrid.SetActiveCell(5, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                    Exit Sub
+                End If
+                ssgrid.Col = 9
+                If Val(ssgrid.Text) = 0 Then
+                    MessageBox.Show("Amount can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    ssgrid.SetActiveCell(9, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                    Exit Sub
+                End If
+            Next
+            If Cmd_Add.Text = "Update[F7]" And Me.lbl_Grn.Text = "Bill Generated" Then
+                If Me.ssgrid.DataRowCnt > TotalCount Then
+                    MsgBox("GRN Has Been Generated You Can Not Add More Item", MsgBoxStyle.Exclamation, MyCompanyName)
+                    Exit Sub
+                End If
+            End If
+            ''''**********check if the bill is matched
+            Dim strsql As String
+            strsql = "select count(*) as count from matching where avoucherno='" & Trim(txt_Grnno.Text) & "' "
+            gconnection.getDataSet(strsql, "matching")
+            If gdataset.Tables("matching").Rows.Count > 0 Then
+                If gdataset.Tables("matching").Rows(0).Item("Count") >= 1 Then
+                    MsgBox("Bill is Already Matched ..." & vbCrLf & "You Cannot Modify the Bill", MsgBoxStyle.Exclamation, MyCompanyName)
+                    boolchk = False
+                    Exit Sub
+                End If
+            End If
+            boolchk = True
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : checkValidation" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub FillMenu()
+        Try
+            Dim vform As New ListOperattion1
+            Dim K As Integer
+            '''******************************************************** $ FILL THE ITEMCODE,ITEMDESC INTO SSGRID ********** 
+            gSQLString = "SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, "
+            gSQLString = gSQLString & " ISNULL(CONVVALUE,0) AS CONVUOM FROM INVENTORYITEMMASTER I"
+            If Trim(search) = " " Then
+                M_WhereCondition = ""
+            Else
+                M_WhereCondition = " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE='" & txt_Storecode.Text & "'"
+            End If
+            vform.Field = " ITEMNAME,ITEMCODE"
+            vform.vFormatstring = "    ITEMCODE    |                     ITEMNAME                    |  STOCKUOM  | PURCHASERATE | CONVUOM | HIGHRATIO |"
+            vform.vCaption = "INVENTORY ITEM CODE HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.KeyPos2 = 2
+            vform.Keypos3 = 3
+            vform.keypos4 = 4
+            'vform.Keypos5 = 5
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                ssgrid.Col = 1
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield)
+                ssgrid.Col = 2
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield1)
+                ssgrid.Col = 3
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.TypeComboBoxString = Trim(vform.keyfield2)
+                ssgrid.Text = Trim(vform.keyfield2)
+                ssgrid.Col = 5
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield3), "0.00")
+                ssgrid.Col = 11
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield4)
+                ssgrid.Col = 12
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield5), "0.00")
+                ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                ssgrid.Focus()
+            Else
+                ssgrid.SetActiveCell(0, ssgrid.ActiveRow)
+                Exit Sub
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillMenu" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub FillMenuItem()
+        Try
+            Dim vform As New ListOperattion1
+            Dim K As Integer
+            Dim ssql As String
+            '''******************************************************** $ FILL THE ITEMDESC,ITEMCODE INTO SSGRID ********** 
+            gSQLString = "SELECT DISTINCT ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.ITEMCODE,'') AS ITEMCODE,"
+            gSQLString = gSQLString & "ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE "
+            gSQLString = gSQLString & "  FROM INVENTORYITEMMASTER AS I"
+            If Trim(search) = " " Then
+                M_WhereCondition = ""
+            Else
+                M_WhereCondition = " WHERE I.ITEMNAME LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y'  AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "'"
+            End If
+            vform.Field = "I.ITEMNAME,I.ITEMCODE"
+            vform.vFormatstring = "                     ITEMNAME                |   ITEMCODE    | STOCKUOM  |PURCHASERATE | CONVUOM | HIGHRATIO |"
+            vform.vCaption = "INVENTORY ITEM CODE HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.KeyPos2 = 2
+            vform.Keypos3 = 3
+            vform.keypos4 = 4
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                ssgrid.Col = 1
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield1)
+                ssgrid.Col = 2
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield)
+                ssgrid.Col = 3
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.TypeComboBoxString = Trim(vform.keyfield2)
+                ssgrid.Text = Trim(vform.keyfield2)
+                ssgrid.Col = 5
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield3), "0.00")
+                ssgrid.Col = 13
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield4)
+                ssgrid.Col = 14
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield5), "0.00")
+                ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                ssgrid.Focus()
+            Else
+                ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+                Exit Sub
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillMenuItem" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub txt_Totalamt_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Totalamt.LostFocus
+        Try
+            txt_Totalamt.Text = Format(Val(txt_Totalamt.Text), "0.00")
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Totalamt_LostFocus" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Discountamt_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Discountamt.LostFocus
+        Try
+            If Val(txt_Discountamt.Text) <> 0 Then
+                txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+            End If
+            txt_Discountamt.Text = Format(Val(txt_Discountamt.Text), "0.00")
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Discountamt_LostFocus" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Supplierinvno_LostFocus(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Supplierinvno.LostFocus
+        Try
+            Call supplerinvno()
+            txt_Supplierinvno.BackColor = Color.Wheat
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Supplierinvno_LostFocus" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub supplerinvno()
+        Try
+            If Trim(txt_Supplierinvno.Text) = "" Then
+                txt_Supplierinvno.Text = Trim(txt_Grnno.Text)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : supplerinvno" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub FillStore()
+        Try
+            Dim i As Integer
+            sqlstring = "SELECT distinct(Storedesc) FROM StoreMaster ORDER BY Storedesc ASC"
+            gconnection.getDataSet(sqlstring, "StoreMaster")
+            cbo_Storelocation.Items.Clear()
+            cbo_Storelocation.Sorted = True
+            If gdataset.Tables("StoreMaster").Rows.Count > 0 Then
+                For i = 0 To gdataset.Tables("StoreMaster").Rows.Count - 1
+                    cbo_Storelocation.Items.Add(gdataset.Tables("StoreMaster").Rows(i).Item("Storedesc"))
+                Next i
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillStore" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Public Function CreateListBox()
+        Try
+            Listbox = New System.Windows.Forms.ListBox
+            Listbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Listbox.Location = New System.Drawing.Point(1000, 1000)
+            Listbox.Name = "ListViewHelp"
+            Listbox.Size = New System.Drawing.Size(10, 10)
+            Listbox.TabIndex = 29
+            Listbox.ScrollAlwaysVisible = False
+            Listbox.HorizontalScrollbar = False
+            Me.Controls.Add(Listbox)
+            Listbox.BringToFront()
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CreateListBox" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Function
+        End Try
+    End Function
+    Public Function TextBoxKeydownevent(ByVal e As System.Windows.Forms.KeyEventArgs, ByVal ObjTextBox As TextBox)
+        If e.KeyCode = Keys.Down Then
+            Try
+                Listbox.SelectedIndex = Listbox.SelectedIndex + 1
+            Catch ex As Exception
+                Listbox.SelectedIndex = 0
+            End Try
+        End If
+        If e.KeyCode = Keys.Up Then
+            Try
+                Listbox.SelectedIndex = Listbox.SelectedIndex - 1
+            Catch ex As Exception
+                Listbox.SelectedIndex = Listbox.Items.Count - 1
+            End Try
+        End If
+        If e.KeyCode = Keys.Enter Then
+            ObjTextBox.Text = Listbox.SelectedItem()
+            Listbox.Location = New System.Drawing.Point(1000, 1000)
+        End If
+        If e.KeyCode = Keys.Escape Then
+            Listbox.Location = New System.Drawing.Point(1000, 1000)
+            ObjTextBox.Focus()
+        End If
+    End Function
+    Public Function TextBoxTextchangeevent(ByVal e As System.EventArgs, ByVal ObjTextBox As TextBox, ByVal Sqlstring As String, ByVal Tablename As String, ByVal ds As DataSet)
+        Try
+            gadapter = New SqlDataAdapter(Sqlstring, gconnection.Myconn)
+            If ds.Tables.Contains(Tablename) = True Then
+                ds.Tables.Remove(Tablename)
+            End If
+            gadapter.Fill(ds, Tablename)
+            Call TextBoxHelp(ObjTextBox, Tablename, ds)
+        Catch ex As Exception
+            Exit Function
+        End Try
+    End Function
+    Public Function TextBoxHelp(ByVal ObjTextBox As TextBox, ByVal Tablename As String, ByVal ds As DataSet)
+        Dim drow As DataRow
+        Listbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Listbox.Location = New System.Drawing.Point(ObjTextBox.Left, ObjTextBox.Top + ObjTextBox.Height)
+        Listbox.Size = New System.Drawing.Size(ObjTextBox.Width, 100)
+        Listbox.Items.Clear()
+        If ds.Tables(Tablename).Rows.Count > 0 Then
+            For Each drow In ds.Tables(Tablename).Rows
+                Listbox.Items.Add(drow.Item(1))
+            Next
+        End If
+        Try
+            Listbox.SelectedIndex = 0
+        Catch ex As Exception
+        End Try
+    End Function
+    Public Function FOOTER()
+        sqlstring = "SELECT isnull(UPDFOOTER,'') as UPDFOOTER, isnull(UPDNAME,'') as UPDNAME  FROM Grn_header WHERE  AUTOID IN (SELECT MAX(AUTOID) FROM Grn_header)"
+        gconnection.getDataSet(sqlstring, "Grn_header")
+        If gdataset.Tables("Grn_header").Rows.Count > 0 Then
+            Txt_footer.Text = Trim(gdataset.Tables("Grn_header").Rows(0).Item("UPDFOOTER"))
+            Txt_signature.Text = Trim(gdataset.Tables("Grn_header").Rows(0).Item("UPDNAME"))
+        End If
+    End Function
+    Private Sub txt_Suppliername_Validated(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Suppliername.Validated
+        Try
+            If Trim(txt_Suppliername.Text) <> "" Then
+                sqlstring = "SELECT SLCODE,SLNAME FROM accountssubledgermaster WHERE ACCODE = '" & Trim(gCreditors) & "'AND SLNAME='" & Trim(txt_Suppliername.Text) & "'"
+                gconnection.getDataSet(sqlstring, "accountssubledgermaster")
+                If gdataset.Tables("accountssubledgermaster").Rows.Count > 0 Then
+                    txt_Suppliername.Text = Trim(gdataset.Tables("accountssubledgermaster").Rows(0).Item("SLNAME"))
+                    txt_Suppliercode.Text = Trim(gdataset.Tables("accountssubledgermaster").Rows(0).Item("SLCODE"))
+                    txt_Excisepassno.Focus()
+                    txt_Suppliercode.ReadOnly = True
+                Else
+                    txt_Suppliercode.Text = ""
+                    txt_Suppliercode.ReadOnly = False
+                    txt_Suppliername.Focus()
+                End If
+            Else
+                txt_Suppliercode.Text = ""
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Suppliername_Validated" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+
+    Private Sub Cmd_StockGrnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_StockGrnClear.Click
+        Try
+            Me.txt_FromDocno.Text = ""
+            Me.txt_ToDocno.Text = ""
+            Me.txt_FromDocno.ReadOnly = False
+            Me.txt_FromDocno.ReadOnly = False
+            Me.txt_FromDocno.Focus()
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_StockGrnClear_Click " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_StockGrnView_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_StockGrnView.Click
+        Try
+            Dim i As Integer
+            Dim objGrncumpurchase As New rptGrncumpurchase
+            gPrint = False
+            If Trim(txt_FromDocno.Text) = "" Then
+                MessageBox.Show("From Grn No. can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                Exit Sub
+            ElseIf Trim(txt_ToDocno.Text) = "" Then
+                MessageBox.Show("To Grn No. can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                Exit Sub
+            End If
+            sqlstring = " SELECT * FROM VIEWPURCHASEREGISTERSUMMARY "
+            sqlstring = sqlstring & " WHERE GRNDETAILS BETWEEN '" & Trim(txt_FromDocno.Text) & "' AND '" & Trim(txt_ToDocno.Text) & "'"
+            sqlstring = sqlstring & " ORDER BY GRNDATE,GRNDETAILS,SUPPLIERNAME,ITEMCODE  "
+            Dim heading() As String = {"GRN CUM PURCHASE BILL"}
+            Dim ObjStockPurchaseregisterReport As New rptStockPurchaseregister
+            ObjStockPurchaseregisterReport.Reportdetails(sqlstring, heading, Now, Now)
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_StockGrnView_Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_StockGrnprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_StockGrnprint.Click
+        Try
+            gPrint = True
+            Dim i As Integer
+            Dim objGrncumpurchase As New rptGrncumpurchase
+            If Trim(txt_FromDocno.Text) = "" Then
+                MessageBox.Show("From Grn No. can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                Exit Sub
+            ElseIf Trim(txt_ToDocno.Text) = "" Then
+                MessageBox.Show("To Grn No. can't be blank", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                Exit Sub
+            End If
+            sqlstring = " SELECT * FROM VIEWPURCHASEREGISTERSUMMARY "
+            sqlstring = sqlstring & " WHERE GRNDETAILS BETWEEN '" & Trim(txt_FromDocno.Text) & "' AND '" & Trim(txt_ToDocno.Text) & "'"
+            sqlstring = sqlstring & " ORDER BY GRNDATE,GRNDETAILS,SUPPLIERNAME,ITEMCODE  "
+            Dim heading() As String = {"GRN CUM PURCHASE BILL"}
+            Dim ObjStockPurchaseregisterReport As New rptStockPurchaseregister
+            ObjStockPurchaseregisterReport.Reportdetails(sqlstring, heading, Now, Now)
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_StockGrnprint_Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_StockGrnexit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_StockGrnexit.Click
+        Try
+            txt_FromDocno.Text = ""
+            txt_ToDocno.Text = ""
+            grp_StockGrndetails.Top = 1000
+            Cmd_Clear_Click(Cmd_Clear, e)
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_StockGrnexit_Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub txt_FromDocno_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_FromDocno.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                If Trim(txt_FromDocno.Text) = "" Then
+                    Call Cmd_FromDocno_Click(Cmd_FromDocno, e)
+                Else
+                    txt_FromDocno_Validated(txt_FromDocno, e)
+                    txt_ToDocno.Focus()
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_FromDocno_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_ToDocno_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_ToDocno.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                If Trim(txt_ToDocno.Text) = "" Then
+                    Call Cmd_ToDocno_Click(Cmd_ToDocno, e)
+                Else
+                    txt_ToDocno_Validated(txt_ToDocno, e)
+                    Cmd_StockGrnView.Focus()
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_ToDocno_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_FromDocno_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_FromDocno.Click
+        Try
+            gSQLString = "SELECT GRNDETAILS,GRNDATE FROM Grn_header"
+            M_WhereCondition = " "
+            Dim vform As New List_Operation
+            vform.Field = "GRNDETAILS,GRNDATE"
+            vform.vFormatstring1 = "          GRN CODE              |         GRN DATE                             "
+            vform.vCaption = "GRN CUM PURCHASE BILL HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                txt_FromDocno.Text = Trim(vform.keyfield & "")
+                txt_ToDocno.Focus()
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_FromDocno_Click " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_ToDocno_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_ToDocno.Click
+        Try
+            gSQLString = "SELECT GRNDETAILS,GRNDATE FROM Grn_header"
+            M_WhereCondition = " "
+            Dim vform As New List_Operation
+            vform.Field = "GRNDETAILS,GRNDATE"
+            vform.vFormatstring1 = "          GRN CODE              |         GRN DATE                             "
+            vform.vCaption = "GRN CUM PURCHASE BILL HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                txt_ToDocno.Text = Trim(vform.keyfield & "")
+                Cmd_StockGrnView.Focus()
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_ToDocno_Click " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_GLAcHelp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_GLAcHelp.Click
+        Try
+            Dim vform As New ListOperattion1
+            gSQLString = "SELECT accode,acdesc FROM accountsglaccountmaster"
+            M_WhereCondition = ""
+            vform.Field = "ACDESC,ACCODE"
+            vform.vFormatstring = "  ACCODE                              |                      ACDESC                                                                                                     "
+            vform.vCaption = "GLACCOUNT MASTER HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                Txt_GLAcIn.Text = Trim(vform.keyfield & "")
+                Txt_GLAcDesc.Text = Trim(vform.keyfield1 & "")
+                Call Glaccountvalidate()
+            Else
+                Me.Txt_GLAcIn.Focus()
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_GLAcHelp_Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub Glaccountvalidate()
+        Try
+            Dim sqlstring As String
+            If Trim(Txt_GLAcIn.Text) <> "" Then
+                sqlstring = "SELECT slcode,slname FROM accountssubledgermaster WHERE accode = '" & Trim(Txt_GLAcIn.Text) & "'"
+                gconnection.getDataSet(sqlstring, "accountssubledgermaster")
+                If gdataset.Tables("accountssubledgermaster").Rows.Count > 0 Then
+                    Lbl_SubledgerCode.Visible = True
+                    Lbl_SubledgerName.Visible = True
+                    Txt_Slcode.Visible = True
+                    Cmd_SlCodeHelp.Visible = True
+                    Txt_SlDesc.Visible = True
+                    slcodestatus = True
+                    grp_grnposting.Top = 218
+                    grp_grnposting.Height = 80
+                    ssgrid.Left = 10
+                    ssgrid.Top = 272
+                    ssgrid.Height = 224
+                    Txt_Slcode.Focus()
+                Else
+                    Lbl_SubledgerCode.Visible = False
+                    Lbl_SubledgerName.Visible = False
+                    Txt_Slcode.Visible = False
+                    Cmd_SlCodeHelp.Visible = False
+                    Txt_SlDesc.Visible = False
+                    slcodestatus = False
+                    grp_grnposting.Top = 218
+                    grp_grnposting.Height = 48
+                    grp_grnposting.Width = 848
+                    ssgrid.Top = 272
+                    ssgrid.Left = 10
+                    ssgrid.Height = 250
+                    ssgrid.Focus()
+                    Txt_CostCenterCode.Focus()
+                End If
+                gdataset.Tables("accountssubledgermaster").Dispose()
+                Call Costcentervalidate()
+            Else
+                Txt_GLAcIn.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Glaccountvalidate" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub Costcentervalidate()
+        Try
+            Dim SQLSTRING As String
+            Dim DR As DataRow
+            Dim i As Integer
+            If Trim(Txt_GLAcIn.Text) <> "" Then
+                SQLSTRING = "SELECT PRIMARYGROUPCODE FROM ACCOUNTTAGGING WHERE GLACCODE = '" & Trim(Txt_GLAcIn.Text) & "'"
+                gconnection.getDataSet(SQLSTRING, "MASTER1")
+                If gdataset.Tables("MASTER1").Rows.Count > 0 Then
+                    Lbl_CostCenterCode.Visible = True
+                    Lbl_CostCenterDesc.Visible = True
+                    Txt_CostCenterCode.Visible = True
+                    Txt_CostCenterDesc.Visible = True
+                    Cmd_CostCenterCodeHelp.Visible = True
+                    costcentercodestatus = True
+                    grp_grnposting.Top = 218
+                    grp_grnposting.Width = 848
+                    grp_grnposting.Height = 120
+                    ssgrid.Top = 344
+                    ssgrid.Left = 10
+                    ssgrid.Height = 195
+                    lbl_Creditdays.Top = 280
+                    lbl_Creditdays.Left = 504
+                    txt_Creditdays.Top = 280
+                    txt_Creditdays.Left = 672
+                    Gr = Nothing
+                    For Each DR In gdataset.Tables("MASTER1").Rows
+                        If Trim(Gr) = "" Then
+                            Gr = "'" & Trim(DR("PRIMARYGROUPCODE")) & "'"
+                        Else
+                            Gr = Gr & ",'" & Trim(DR("PRIMARYGROUPCODE")) & "'"
+                        End If
+                    Next
+                Else
+                    Lbl_CostCenterCode.Visible = False
+                    Lbl_CostCenterDesc.Visible = False
+                    Txt_CostCenterCode.Visible = False
+                    Txt_CostCenterDesc.Visible = False
+                    Cmd_CostCenterCodeHelp.Visible = False
+                    costcentercodestatus = False
+                    If slcodestatus = True Then
+                        grp_grnposting.Top = 218
+                        grp_grnposting.Height = 80
+                        ssgrid.Left = 65
+                        ssgrid.Top = 272
+                        ssgrid.Height = 215
+                        Txt_Slcode.Focus()
+                    Else
+                        grp_grnposting.Height = 48
+                        grp_grnposting.Width = 848
+                        ssgrid.Top = 272
+                        ssgrid.Left = 10
+                        ssgrid.Height = 255
+                        ssgrid.Focus()
+                    End If
+                End If
+            Else
+                Txt_GLAcIn.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Costcentervalidate" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_GLAcIn_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_GLAcIn.Validated
+        Try
+            Dim sqlstring As String
+            If Trim(Txt_GLAcIn.Text) <> "" Then
+                sqlstring = "select accode, acdesc from accountsglaccountmaster where accode = '" & Trim(Txt_GLAcIn.Text) & "'"
+                gconnection.getDataSet(sqlstring, "accountsglaccountmaster")
+                If gdataset.Tables("accountsglaccountmaster").Rows.Count > 0 Then
+                    Txt_GLAcDesc.Text = Trim(UCase(gdataset.Tables("accountsglaccountmaster").Rows(0).Item("acdesc")))
+                    If slcodestatus = True Then
+                        Txt_Slcode.Focus()
+                    Else
+                        Txt_CostCenterCode.Focus()
+                    End If
+                Else
+                    Txt_GLAcIn.Text = ""
+                    Txt_GLAcDesc.Text = ""
+                End If
+                gdataset.Tables("accountsglaccountmaster").Dispose()
+                Call Glaccountvalidate()
+            Else
+                Txt_GLAcIn.Text = ""
+                'Txt_GLAcIn.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_GLAcIn_Validated " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_Slcode_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_Slcode.Validated
+        Try
+            Dim sqlstring As String
+            If Trim(Txt_Slcode.Text) <> "" Then
+                sqlstring = "SELECT slcode, sldesc from accountssubledgermaster WHERE accode = '" & Trim(Txt_GLAcIn.Text) & "' and slcode = '" & Trim(Txt_Slcode.Text) & "'"
+                gconnection.getDataSet(sqlstring, "accountssubledgermaster")
+                If gdataset.Tables("accountssubledgermaster").Rows.Count > 0 Then
+                    Txt_Slcode.Text = Trim(UCase(gdataset.Tables("accountssubledgermaster").Rows(0).Item("slcode")))
+                    Txt_SlDesc.Text = Trim(UCase(gdataset.Tables("accountssubledgermaster").Rows(0).Item("sldesc")))
+                    If costcentercodestatus = True Then
+                        Txt_CostCenterCode.Focus()
+                    Else
+                        ssgrid.Focus()
+                    End If
+                Else
+                    Txt_Slcode.Text = ""
+                    Txt_SlDesc.Text = ""
+                End If
+                gdataset.Tables("accountssubledgermaster").Dispose()
+            Else
+                Txt_Slcode.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_Slcode_Validated" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_CostCenterCode_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_CostCenterCode.Validated
+        Try
+            Dim sqlstring As String
+            If Trim(Txt_CostCenterCode.Text) <> "" Then
+                sqlstring = "SELECT COSTCENTERCODE,COSTCENTERDESC from accountscostcentermaster where COSTCENTERCODE = '" & Trim(Txt_CostCenterCode.Text) & "' And PRIMARYGROUPCODE IN (" & Gr & ")"
+                gconnection.getDataSet(sqlstring, "accountscostcentermaster")
+                If gdataset.Tables("accountscostcentermaster").Rows.Count > 0 Then
+                    Txt_CostCenterDesc.Text = Trim(UCase(gdataset.Tables("accountscostcentermaster").Rows(0).Item("COSTCENTERDESC")))
+                    ssgrid.Focus()
+                    ssgrid.SetActiveCell(1, 1)
+                Else
+                    Txt_CostCenterDesc.Text = ""
+                    Txt_CostCenterCode.Text = ""
+                End If
+                gdataset.Tables("accountscostcentermaster").Dispose()
+            Else
+                Txt_CostCenterCode.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_CostCenterCode_Validated" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub Cmd_CostCenterCodeHelp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_CostCenterCodeHelp.Click
+        Try
+            Dim vform As New ListOperattion1
+            gSQLString = "SELECT COSTCENTERCODE,COSTCENTERDESC FROM ACCOUNTSCOSTCENTERMASTER"
+            M_WhereCondition = " WHERE PRIMARYGROUPCODE IN (" & Gr & ")"
+            vform.Field = "COSTCENTERCODE"
+            vform.Field = "COSTCENTERDESC"
+            vform.vFormatstring = "  COSTCENTERCODE                   |                          COSTCENTERDESC                                "
+            vform.vCaption = "COSTCENTER MASTER HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                Txt_CostCenterCode.Text = Trim(vform.keyfield & "")
+                Txt_CostCenterDesc.Text = Trim(vform.keyfield1 & "")
+                ssgrid.Focus()
+                ssgrid.SetActiveCell(1, 1)
+            Else
+                Me.Txt_Slcode.Focus()
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_CostCenterCodeHelp_Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_SlCodeHelp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_SlCodeHelp.Click
+        Try
+            Dim vform As New ListOperattion1
+            gSQLString = "SELECT slcode,sldesc FROM accountssubledgermaster"
+            M_WhereCondition = " WHERE accode = '" & Trim(Txt_GLAcIn.Text) & "'"
+            vform.Field = "SLCODE"
+            vform.Field = "SLDESC"
+            vform.vFormatstring = "  SLCODE                             |                          SLDESC                                "
+            vform.vCaption = "SUBLEDGER MASTER HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                Txt_Slcode.Text = Trim(vform.keyfield & "")
+                Txt_SlDesc.Text = Trim(vform.keyfield1 & "")
+                Me.Txt_CostCenterCode.Focus()
+            Else
+                Me.Txt_GLAcIn.Focus()
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Cmd_SlCodeHelp_Click" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_GLAcIn_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Txt_GLAcIn.KeyDown
+        Try
+            If e.KeyCode = Keys.F4 Then
+                Call Cmd_GLAcHelp_Click(sender, e)
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_GLAcIn_KeyDown " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_Slcode_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Txt_Slcode.KeyDown
+        Try
+            If e.KeyCode = Keys.F4 Then
+                Call Cmd_SlCodeHelp_Click(sender, e)
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_Slcode_KeyDown" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_CostCenterCode_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Txt_CostCenterCode.KeyDown
+        Try
+            If e.KeyCode = Keys.F4 Then
+                Call Cmd_CostCenterCodeHelp_Click(sender, e)
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_CostCenterCode_KeyDown " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_GLAcIn_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Txt_GLAcIn.KeyPress
+        Try
+            getAlphanumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                If Trim(Txt_GLAcIn.Text) = "" Then
+                    Call Cmd_GLAcHelp_Click(Cmd_GLAcHelp, e)
+                Else
+                    Call Txt_GLAcIn_Validated(sender, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_GLAcIn_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_Slcode_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Txt_Slcode.KeyPress
+        Try
+            getAlphanumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                If Trim(Txt_Slcode.Text) = "" Then
+                    Call Cmd_SlCodeHelp_Click(Cmd_SlCodeHelp, e)
+                    ssgrid.Focus()
+                Else
+                    Call Txt_Slcode_Validated(Txt_Slcode, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_Slcode_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Txt_CostCenterCode_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Txt_CostCenterCode.KeyPress
+        Try
+            getAlphanumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                If Trim(Txt_CostCenterCode.Text) = "" Then
+                    Call Cmd_CostCenterCodeHelp_Click(Cmd_CostCenterCodeHelp, e)
+                Else
+                    Call Txt_CostCenterCode_Validated(sender, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Txt_CostCenterCode_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Suppliercode_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Suppliercode.KeyDown
+        Try
+            If e.KeyCode = Keys.F4 Then
+                Call cmd_Suppliercodehelp_Click(cmd_Suppliercodehelp, e)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Suppliercode_KeyDown " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Suppliercode_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Suppliercode.Validated
+        Try
+            If Trim(txt_Suppliercode.Text) <> "" Then
+                sqlstring = "SELECT SLCODE,SLNAME,creditperiod FROM accountssubledgermaster WHERE ACCODE IN ("
+                sqlstring = sqlstring & "'" & Trim(gCreditors) & "') AND SLCODE='" & Trim(txt_Suppliercode.Text) & "'"
+                gconnection.getDataSet(sqlstring, "accountssubledgermaster")
+                If gdataset.Tables("accountssubledgermaster").Rows.Count > 0 Then
+                    txt_Suppliername.Text = Trim(gdataset.Tables("accountssubledgermaster").Rows(0).Item("SLNAME"))
+                    txt_Suppliercode.Text = Trim(gdataset.Tables("accountssubledgermaster").Rows(0).Item("SLCODE"))
+                    'txt_Creditdays.Text = Trim(gdataset.Tables("accountssubledgermaster").Rows(0).Item("creditperiod"))
+                    txt_Suppliername.ReadOnly = True
+                    If gpaymentcode = "Y" Then
+                        cbo_Billingterms.Focus()
+                    Else
+                        txt_Supplierinvno.Focus()
+                    End If
+
+                Else
+                    txt_Suppliercode.Text = ""
+                    txt_Suppliercode.Text = ""
+                    txt_Suppliername.ReadOnly = False
+                    txt_Suppliercode.Focus()
+                End If
+            Else
+                txt_Suppliercode.Text = ""
+                txt_Suppliername.Text = ""
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Suppliercode_Validated" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub dtp_Stockindate_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles dtp_Stockindate.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                txt_Excisepassno.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : dtp_Stockindate_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Trucknumber_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Trucknumber.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                grp_Excisedetails.Top = 1000
+                txt_Storecode.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Trucknumber_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Trucknumber_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Trucknumber.LostFocus
+        Try
+            grp_Excisedetails.Top = 1000
+            txt_Storecode.Focus()
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Trucknumber_LostFocus " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub dtp_Supplierinvdate_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles dtp_Supplierinvdate.LostFocus
+        Try
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : dtp_Supplierinvdate_LostFocus" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub cbo_Billingterms_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles cbo_Billingterms.KeyPress
+        Try
+            Call Blank(e)
+            If Asc(e.KeyChar) = 13 Then
+                'DISABLE GLACCOUNT
+                txt_Storecode.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : cbo_Billingterms_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub FillBillterms()
+        Try
+            Dim i As Integer
+            sqlstring = "SELECT DISTINCT ISNULL(TYPECODE,'') + '  ' +ISNULL(TYPEDESC,'') AS TYPEDESC  FROM PURCHASEBILLTERMS WHERE  ISNULL(FREEZE,'')<>'Y'"
+            gconnection.getDataSet(sqlstring, "PURCHASEBILLTERMS")
+            cbo_Billingterms.Items.Clear()
+            If gdataset.Tables("PURCHASEBILLTERMS").Rows.Count > 0 Then
+                For i = 0 To gdataset.Tables("PURCHASEBILLTERMS").Rows.Count - 1
+                    cbo_Billingterms.Items.Add(gdataset.Tables("PURCHASEBILLTERMS").Rows(i).Item("Typedesc"))
+                    cbo_Billingterms.Text = gdataset.Tables("PURCHASEBILLTERMS").Rows(i).Item("Typedesc")
+                Next i
+            Else
+                cbo_Billingterms.Text = ""
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillBillterms " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub billingterms()
+        Try
+            Dim per As Double
+            Call FillBillterms()
+            Call Fillbilldetails()
+            grp_Billingdetails.Top = 144
+            grp_Billingdetails.Left = 160
+            ssgrid_billdetails.Col = 4
+            ssgrid_billdetails.Row = 1
+            ssgrid_billdetails.Text = Format(Val(txt_Totalamt.Text), "0.00")
+            ssgrid_billdetails.Focus()
+            ssgrid_billdetails.SetActiveCell(2, 2)
+            ssgrid_billdetails.Col = 4
+            ssgrid_billdetails.Row = 2
+            ssgrid_billdetails.Text = Format(Val(txt_Discountamt.Text), "0.00")
+            per = (Val(txt_Discountamt.Text) * 100) / Val(txt_Totalamt.Text)
+            ssgrid_billdetails.Col = 2
+            ssgrid_billdetails.Row = 2
+            ssgrid_billdetails.Text = per
+            ssgrid_billdetails.Col = 4
+            ssgrid_billdetails.Row = billrow
+            ssgrid_billdetails.Text = Format(Val(txt_Totalamt.Text), "0.00")
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : billingterms" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub txt_Remarks_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Remarks.KeyPress
+        Try
+            If Asc(e.KeyChar) = 13 Then
+                Call billingterms()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Remarks_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub Fillbilldetails()
+        Try
+            Dim i, j As Integer
+            Dim typecode() As String
+            typecode = Split(Trim(cbo_Billingterms.Text), "  ")
+            sqlstring = "SELECT ISNuLL(Billdescription,'') As Billdescription,ISNULL(slno,0) AS SLNO,FORMULA,SIGNS,ISNULL(Accode,'') AS ACCODE ,ISNULL(Acdesc,'') AS ACDESC FROM purchasebillterms WHERE  Typecode = '" & Trim(typecode(0)) & "' AND ISNULL(Freeze,'')<>'Y'"
+            gconnection.getDataSet(sqlstring, "purchasebillterms")
+            j = 2
+            If gdataset.Tables("purchasebillterms").Rows.Count > 0 Then
+                ssgrid_billdetails.SetText(1, 1, "BASIC" & "  " & ":")
+                ssgrid_billdetails.Col = 1
+                ssgrid_billdetails.Row = 1
+                ssgrid_billdetails.Lock = True
+                ssgrid_billdetails.Col = 2
+                ssgrid_billdetails.Row = 1
+                ssgrid_billdetails.Lock = True
+                ssgrid_billdetails.Col = 3
+                ssgrid_billdetails.Row = 1
+                ssgrid_billdetails.Lock = True
+                For i = 0 To gdataset.Tables("purchasebillterms").Rows.Count - 1 Step 1
+                    ssgrid_billdetails.SetText(1, j, Trim(gdataset.Tables("purchasebillterms").Rows(i).Item("Billdescription")) & "  " & ":")
+                    ssgrid_billdetails.SetText(5, j, Trim(gdataset.Tables("purchasebillterms").Rows(i).Item("SLNO")))
+                    ssgrid_billdetails.SetText(6, j, Trim(gdataset.Tables("purchasebillterms").Rows(i).Item("FORMULA")))
+                    ssgrid_billdetails.SetText(7, j, Trim(gdataset.Tables("purchasebillterms").Rows(i).Item("SIGNS")))
+                    ssgrid_billdetails.SetText(8, j, Trim(gdataset.Tables("purchasebillterms").Rows(i).Item("ACCODE")))
+                    ssgrid_billdetails.SetText(9, j, Trim(gdataset.Tables("purchasebillterms").Rows(i).Item("ACDESC")))
+                    j = j + 1
+                Next i
+                ssgrid_billdetails.SetText(1, j, "BILL AMOUNT" & "  " & ":")
+                billrow = j
+                ssgrid_billdetails.Col = 1
+                ssgrid_billdetails.Row = j
+                ssgrid_billdetails.Lock = True
+                ssgrid_billdetails.Col = 2
+                ssgrid_billdetails.Row = j
+                ssgrid_billdetails.Lock = True
+                ssgrid_billdetails.Col = 3
+                ssgrid_billdetails.Row = j
+                ssgrid_billdetails.Lock = True
+                ssgrid_billdetails.SetActiveCell(2, 2)
+            Else
+                'SHAN
+                Call FillBillterms()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : Fillbilldetails " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub billingtermsrefresh(ByVal Activerow As Integer)
+        Try
+            Dim Totalamount, Taxamount, Calamount, Caltax, CalBilamount, BillAmount, Batchno, Avgrate, Avgquantity As Double
+            Dim dblBasic, dblDiscount, dblExcise, dblVAT, dblSurchase, dblTranportation, dblOthpostcharge, dblOthNegcharge As Double
+            Dim Sign, Formula, slno As String
+            Dim Formule() As Char
+            Dim II, J As Integer
+            Dim Camt, amt, Bamt, Gramt, GrTot, Gtot As Double
+            Dim per As Double
+
+            ssgrid_billdetails.Row = 1
+            ssgrid_billdetails.Col = 4
+            amt = Val(ssgrid_billdetails.Text)
+
+            ssgrid_billdetails.Col = 4
+            ssgrid_billdetails.Row = ssgrid_billdetails.DataRowCnt
+            ssgrid_billdetails.Text = amt
+
+            dblBasic = Format(Val(ssgrid_billdetails.Text), "0.00")
+
+            For i = 2 To ssgrid_billdetails.DataRowCnt - 1
+                ssgrid_billdetails.Row = i
+                ssgrid_billdetails.Col = 7
+                Sign = ssgrid_billdetails.Text
+
+                ssgrid_billdetails.Col = 4
+                Gramt = Val(ssgrid_billdetails.Text)
+
+                If Sign = "+" Then
+                    ssgrid_billdetails.Col = 4
+                    ssgrid_billdetails.Row = ssgrid_billdetails.DataRowCnt
+                    ssgrid_billdetails.Text = Format(Val(ssgrid_billdetails.Text) + Val(Gramt), "0.00")
+                End If
+
+                If Sign = "-" Then
+                    ssgrid_billdetails.Col = 4
+                    ssgrid_billdetails.Row = ssgrid_billdetails.DataRowCnt
+                    Bamt = ssgrid_billdetails.Text
+                    ssgrid_billdetails.Text = Format(Val(ssgrid_billdetails.Text) - Val(Gramt), "0.00")
+                End If
+
+                ssgrid_billdetails.Row = i
+                ssgrid_billdetails.Col = 1
+                If Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "BAS" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblBasic = dblBasic + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "DIS" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblDiscount = dblDiscount + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "EXC" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblExcise = dblExcise + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "V.A" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblVAT = dblVAT + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "SUR" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblSurchase = dblSurchase + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "TRA" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblTranportation = dblTranportation + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 12, 6) = "ES (+)" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblOthpostcharge = dblOthpostcharge + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 12, 6) = "ES (-)" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        dblOthNegcharge = dblOthNegcharge + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                ElseIf Mid(Trim(CStr(ssgrid_billdetails.Text)), 1, 3) = "BIL" Then
+                    ssgrid_billdetails.Col = 4
+                    If Val(ssgrid_billdetails.Text) > 0 Then
+                        BillAmount = BillAmount + Format(Val(ssgrid_billdetails.Text), "0.00")
+                    End If
+                End If
+            Next i
+
+            ssgrid_billdetails.Col = 4
+            ssgrid_billdetails.Row = ssgrid_billdetails.DataRowCnt
+            BillAmount = Format(Val(ssgrid_billdetails.Text), "0.00")
+
+            txt_Totalamt.Text = Format(dblBasic, "0.00")
+            txt_Vatamount.Text = Format(dblVAT + dblExcise, "0.00")
+            txt_Surchargeamt.Text = Format(dblSurchase + dblOthpostcharge + dblTranportation, "0.00")
+            txt_Discountamt.Text = Format(dblDiscount + dblOthNegcharge, "0.00")
+            txt_Billamount.Text = Format(BillAmount, "0.00")
+            ssgrid_billdetails.Row = Activerow
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : billingtermsrefresh " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub billingtermstaxamount(ByVal Activerow)
+        'new
+        Try
+            Dim Sign, Formula, slno As String
+            Dim Formule() As Char
+            Dim II, J As Integer
+            Dim Camt, amt, Bamt, Gramt, GrTot, Gtot As Double
+            Dim per As Double
+            Dim K As Integer
+            For K = 2 To Activerow
+                ssgrid_billdetails.Row = 1
+                ssgrid_billdetails.Col = 4
+                amt = Val(ssgrid_billdetails.Text)
+
+                ssgrid_billdetails.Row = K
+                ssgrid_billdetails.Col = 2
+                per = Val(ssgrid_billdetails.Text)
+                ssgrid_billdetails.Col = 7
+                Sign = ssgrid_billdetails.Text
+
+                ssgrid_billdetails.Col = 6
+                Formula = ssgrid_billdetails.Text
+                Formule = Formula.ToCharArray
+
+                Gtot = 0
+                ssgrid_billdetails.Row = K
+                ssgrid_billdetails.Col = 2
+                per = Val(ssgrid_billdetails.Text)
+
+                For II = 1 To Formule.Length - 1
+                    For J = 2 To ssgrid_billdetails.DataRowCnt
+                        ssgrid_billdetails.Col = 5
+                        ssgrid_billdetails.Row = J
+                        If Trim(Formule(II)) = Trim(ssgrid_billdetails.Text) Then
+                            ssgrid_billdetails.Col = 4
+                            Gtot = Gtot + Val(ssgrid_billdetails.Text)
+                            Exit For
+                        End If
+                    Next J
+                Next II
+                Camt = ((Gtot + amt) * per) / 100
+                ssgrid_billdetails.Col = 4
+                ssgrid_billdetails.Row = K
+                If Camt > 0 Then
+                    ssgrid_billdetails.Text = Format(Val(Camt), "0.00")
+                Else
+                    ssgrid_billdetails.Text = 0.0
+                End If
+            Next K
+            Call billingtermsrefresh(Activerow)
+
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : billingtermstaxamount" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+        'end new
+    End Sub
+    Private Sub BillingTermsTaxPercentage(ByVal Activerow)
+        'new
+        Try
+            Dim Sign, Formula, slno, Billdesc() As String
+            Dim Formule() As Char
+            Dim II, J As Integer
+            Dim Camt, amt, Bamt, Gramt, GrTot, Gtot As Double
+            Dim per As Double
+
+
+            ssgrid_billdetails.Row = 1
+            ssgrid_billdetails.Col = 4
+            amt = Val(ssgrid_billdetails.Text)
+
+            ssgrid_billdetails.Col = 4
+            ssgrid_billdetails.Row = billrow
+            ssgrid_billdetails.Text = Format(amt, "0.00")
+
+            ssgrid_billdetails.Row = Activerow
+            ssgrid_billdetails.Col = 2
+            per = Val(ssgrid_billdetails.Text)
+            ssgrid_billdetails.Col = 7
+            Sign = ssgrid_billdetails.Text
+
+            ssgrid_billdetails.Col = 6
+            Formula = ssgrid_billdetails.Text
+            Formule = Formula.ToCharArray
+
+            Gtot = 0
+            For II = 1 To Formule.Length - 1
+                For J = 2 To ssgrid_billdetails.DataRowCnt
+                    ssgrid_billdetails.Col = 5
+                    ssgrid_billdetails.Row = J
+                    If Trim(Formule(II)) = Trim(ssgrid_billdetails.Text) Then
+                        ssgrid_billdetails.Col = 4
+                        Gtot = Gtot + Val(ssgrid_billdetails.Text)
+                        Exit For
+                    End If
+                Next J
+            Next II
+
+
+            ssgrid_billdetails.Col = 1
+            ssgrid_billdetails.Row = Activerow
+            Billdesc = Split(Trim(ssgrid_billdetails.Text), ":")
+
+            sqlstring = "SELECT Tax FROM purchasebillterms WHERE Billdescription = '" & Trim(Billdesc(0)) & "'AND ISNULL(FREEZE,'N') <> 'Y' "
+            gconnection.getDataSet(sqlstring, "purchasebillterms")
+            If gdataset.Tables("purchasebillterms").Rows.Count > 0 Then
+                If gdataset.Tables("purchasebillterms").Rows(0).Item("Tax") & "" <> "Y" Then
+                    GrTot = Gtot + amt
+                    ssgrid_billdetails.Row = Activerow
+                    ssgrid_billdetails.Col = 2
+                    If Gtot > 0 Then
+                        ssgrid_billdetails.Col = 4
+                        Gtot = Val(ssgrid_billdetails.Text)
+                        ssgrid_billdetails.Col = 2
+                        ssgrid_billdetails.Text = Format((Gtot / amt) * 100, "0.00")
+                    Else
+                        If GrTot > 0 Then
+                            ssgrid_billdetails.Col = 4
+                            Gtot = Val(ssgrid_billdetails.Text)
+                            ssgrid_billdetails.Col = 2
+                            ssgrid_billdetails.Text = Format((Gtot / amt) * 100, "0.00")
+                        Else
+                            ssgrid_billdetails.Text = 0.0
+                        End If
+                    End If
+                    Call billingtermsrefresh(Activerow)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : BillingTermsTaxPercentage" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub ssgrid_billdetails_KeyDownEvent(ByVal sender As Object, ByVal e As AxFPSpreadADO._DSpreadEvents_KeyDownEvent) Handles ssgrid_billdetails.KeyDownEvent
+        Try
+            Dim Taxcode, Billdesc(), Sqlstring As String
+
+            Dim Sign, Formula, slno As String
+            Dim Formule() As Char
+            Dim II, J As Integer
+            Dim Camt, amt, Bamt, Gramt, GrTot, Gtot As Double
+            Dim per As Double
+            If e.keyCode = Keys.Enter Or e.keyCode = Keys.Tab Then
+                If ssgrid_billdetails.ActiveCol = 1 Then
+                    ssgrid_billdetails.Col = 1
+                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                    If Trim(ssgrid_billdetails.Text) <> "" Then
+                        ssgrid_billdetails.SetActiveCell(1, ssgrid_billdetails.ActiveRow)
+                    End If
+                ElseIf ssgrid_billdetails.ActiveCol = 2 Then
+                    ssgrid_billdetails.Col = 1
+                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                    Billdesc = Split(Trim(ssgrid_billdetails.Text), ":")
+
+                    Sqlstring = "SELECT Tax FROM purchasebillterms WHERE Billdescription = '" & Trim(Billdesc(0)) & "'AND ISNULL(FREEZE,'N') <> 'Y' "
+                    gconnection.getDataSet(Sqlstring, "purchasebillterms")
+                    If gdataset.Tables("purchasebillterms").Rows.Count > 0 Then
+                        If gdataset.Tables("purchasebillterms").Rows(0).Item("Tax") & "" = "Y" Then
+                            ssgrid_billdetails.Col = 2
+                            ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                            ssgrid_billdetails.Lock = True
+                            ssgrid_billdetails.Text = "0.00"
+                            ssgrid_billdetails.Col = 3
+                            ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                            ssgrid_billdetails.Text = ""
+                            ssgrid_billdetails.Lock = False
+                            ssgrid_billdetails.SetActiveCell(2, ssgrid_billdetails.ActiveRow)
+                        Else
+                            ssgrid_billdetails.Col = 2
+                            ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                            If Val(ssgrid_billdetails.Text) = 0 Then
+                                ssgrid_billdetails.Text = "0.00"
+                                ssgrid_billdetails.Col = 4
+                                ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                                ssgrid_billdetails.Text = "0.00"
+                                ssgrid_billdetails.Lock = False
+                                ssgrid_billdetails.SetActiveCell(3, ssgrid_billdetails.ActiveRow)
+                            Else
+                                ssgrid_billdetails.Col = 4
+                                ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                                Call billingtermsrefresh(ssgrid_billdetails.ActiveRow)
+                                ssgrid_billdetails.Lock = False
+                                ssgrid_billdetails.SetActiveCell(3, ssgrid_billdetails.ActiveRow)
+                            End If
+                        End If
+                        Call billingtermstaxamount(ssgrid_billdetails.ActiveRow)
+                    End If
+                ElseIf ssgrid_billdetails.ActiveCol = 3 Then
+                    ssgrid_billdetails.Col = 1
+                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                    Billdesc = Split(Trim(ssgrid_billdetails.Text), ":")
+                    Sqlstring = "SELECT Tax FROM purchasebillterms WHERE Billdescription = '" & Trim(Billdesc(0)) & "'AND ISNULL(FREEZE,'N') <> 'Y' "
+                    gconnection.getDataSet(Sqlstring, "purchasebillterms")
+                    If gdataset.Tables("purchasebillterms").Rows.Count > 0 Then
+                        If gdataset.Tables("purchasebillterms").Rows(0).Item("Tax") & "" = "Y" Then
+                            ssgrid_billdetails.Col = 3
+                            ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                            If Trim(ssgrid_billdetails.Text) = "" Then
+                                Call FillTaxmaster() '''---> Show Taxcode,Taxpercentage 
+                                Exit Sub
+                            Else
+                                Taxcode = Trim(ssgrid.Text)
+                                Sqlstring = "SELECT Taxcode,Taxdesc,Taxpercentage,Typeoftax,GLACCOUNTIN,GLACCOUNTDESC  FROM AccountsTaxMaster WHERE Taxcode = '" & Trim(Taxcode) & "'AND ISNULL(FREEZEFLAG,'N') <> 'Y' "
+                                gconnection.getDataSet(Sqlstring, "AccountsTaxMaster")
+                                If gdataset.Tables("AccountsTaxMaster").Rows.Count = 0 Then
+                                    Sqlstring = "SELECT Taxcode,Taxdesc,Taxpercentage,Typeoftax,GLACCOUNTIN,GLACCOUNTDESC  FROM AccountsTaxMaster WHERE Taxcode = '" & Trim(Taxcode) & "'AND ISNULL(FREEZEFLAG,'N') <> 'Y' "
+                                    gconnection.getDataSet(Sqlstring, "AccountsTaxMaster")
+                                End If
+                                If gdataset.Tables("AccountsTaxMaster").Rows.Count > 0 Then
+                                    ssgrid_billdetails.Col = 2
+                                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                                    ssgrid_billdetails.Text = Trim(gdataset.Tables("AccountsTaxMaster").Rows(0).Item("Taxpercentage") & "")
+                                    ssgrid_billdetails.Col = 3
+                                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                                    ssgrid_billdetails.Text = Trim(gdataset.Tables("AccountsTaxMaster").Rows(0).Item("Taxcode") & "")
+                                    ssgrid_billdetails.Col = 8
+                                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                                    ssgrid_billdetails.Text = Trim(gdataset.Tables("AccountsTaxMaster").Rows(0).Item("GLACCOUNTIN") & "")
+                                    ssgrid_billdetails.Col = 9
+                                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                                    ssgrid_billdetails.Text = Trim(gdataset.Tables("AccountsTaxMaster").Rows(0).Item("GLACCOUNTDESC") & "")
+                                    gdataset.Tables("AccountsTaxMaster").Dispose()
+                                Else
+                                    Call FillTaxmaster() '''---> Show Taxcode,Taxpercentage 
+                                End If
+                            End If
+                        End If
+                        Call billingtermstaxamount(ssgrid_billdetails.ActiveRow)
+                    End If
+                ElseIf ssgrid_billdetails.ActiveCol = 4 Then
+                    ssgrid_billdetails.Col = 4
+                    ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                    Call BillingTermsTaxPercentage(ssgrid_billdetails.ActiveRow)
+                    ssgrid_billdetails.SetActiveCell(1, ssgrid_billdetails.ActiveRow + 1)
+                End If
+            End If
+
+            If e.keyCode = Keys.F4 Then
+                If ssgrid_billdetails.ActiveCol = 3 Then
+                    If ssgrid_billdetails.Lock = False Then
+                        search = Nothing
+                        ssgrid.GetText(2, ssgrid.ActiveRow, search)
+                        Dim vform As New List_Operation
+                        gSQLString = "SELECT Taxcode,Taxdesc,Taxpercentage,Typeoftax,GLACCOUNTIN,GLACCOUNTDESC  FROM AccountsTaxMaster"
+                        M_WhereCondition = " WHERE  ISNULL(FREEZEFLAG,'N') <> 'Y'"
+                        vform.Field = "TAXCODE,TAXDESC"
+                        vform.vFormatstring1 = "           TAXCODE            |                  TAX DESCRIPTION         |       TAXPERCENTAGE       |   TYPE OF TAX  | GLACCOUNTIN  |  GLACCOUNTDESC  "
+                        vform.vCaption = "TAX MASTER HELP"
+                        vform.KeyPos = 0
+                        vform.KeyPos1 = 1
+                        vform.KeyPos2 = 2
+                        vform.Keypos3 = 3
+                        vform.keypos4 = 4
+                        vform.Keypos5 = 5
+                        vform.ShowDialog(Me)
+                        If Trim(vform.keyfield & "") <> "" Then
+                            ssgrid_billdetails.SetText(3, ssgrid_billdetails.ActiveRow, Trim(vform.keyfield & ""))
+                            ssgrid_billdetails.SetText(2, ssgrid_billdetails.ActiveRow, Val(vform.keyfield2))
+                            ssgrid_billdetails.SetText(8, ssgrid_billdetails.ActiveRow, Trim(vform.keyfield4))
+                            ssgrid_billdetails.SetText(9, ssgrid_billdetails.ActiveRow, Trim(vform.keyfield5))
+                            Call billingtermsrefresh(ssgrid_billdetails.ActiveRow)
+                            ssgrid_billdetails.SetActiveCell(3, ssgrid_billdetails.ActiveRow)
+                            Taxcode = Trim(vform.keyfield & "")
+                        Else
+                            ssgrid_billdetails.SetActiveCell(ssgrid_billdetails.ActiveCol, ssgrid_billdetails.ActiveRow)
+                            ssgrid_billdetails.SetText(ssgrid_billdetails.ActiveCol, ssgrid_billdetails.ActiveRow, "")
+                            Taxcode = ""
+                        End If
+                        vform.Close()
+                        vform = Nothing
+                        Call BillingTermsTaxPercentage(ssgrid_billdetails.ActiveRow)
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : ssgrid_billdetails_KeyDownEvent " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub FillTaxmaster()
+        Try
+            Dim ACHEAD As String
+            search = Nothing
+            ssgrid.GetText(2, ssgrid.ActiveRow, search)
+            Dim vform As New List_Operation
+            gSQLString = "SELECT Taxcode,Taxdesc,Taxpercentage,Typeoftax,GLACCOUNTIN,GLACCOUNTDESC  FROM AccountsTaxMaster"
+            M_WhereCondition = " WHERE  ISNULL(FREEZEFLAG,'N') <> 'Y'"
+            vform.Field = "TAXCODE,TAXDESC"
+            vform.vFormatstring1 = "           TAXCODE       |             TAX DESCRIPTION         |    TAXPERCENTAGE       |   TYPE OF TAX  | GLACCOUNTIN  |  GLACCOUNTDESC  "
+            vform.vCaption = "TAX MASTER HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.KeyPos2 = 2
+            vform.Keypos3 = 3
+            vform.keypos4 = 4
+            vform.Keypos5 = 5
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                ssgrid_billdetails.SetText(3, ssgrid_billdetails.ActiveRow, Trim(vform.keyfield & ""))
+                ssgrid_billdetails.SetText(2, ssgrid_billdetails.ActiveRow, Val(vform.keyfield2))
+                ssgrid_billdetails.SetText(8, ssgrid_billdetails.ActiveRow, Trim(vform.keyfield4))
+                ssgrid_billdetails.SetText(9, ssgrid_billdetails.ActiveRow, Trim(vform.keyfield5))
+                Call billingtermsrefresh(ssgrid_billdetails.ActiveRow)
+                ssgrid_billdetails.SetActiveCell(3, ssgrid_billdetails.ActiveRow)
+                ACHEAD = Trim(vform.keyfield & "")
+            Else
+                ssgrid_billdetails.SetActiveCell(ssgrid_billdetails.ActiveCol, ssgrid_billdetails.ActiveRow)
+                ssgrid_billdetails.SetText(ssgrid_billdetails.ActiveCol, ssgrid_billdetails.ActiveRow, "")
+                ssgrid_billdetails.SetActiveCell(2, ssgrid_billdetails.ActiveRow)
+                ACHEAD = ""
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillTaxmaster " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub ssgrid_billdetails_LeaveCell(ByVal sender As Object, ByVal e As AxFPSpreadADO._DSpreadEvents_LeaveCellEvent) Handles ssgrid_billdetails.LeaveCell
+        Try
+            Dim Taxcode, Billdesc(), Sqlstring As String
+            Dim Sign, Formula, slno As String
+            Dim Formule() As Char
+            Dim II, J As Integer
+            Dim Camt, amt, Bamt, Gramt, GrTot, Gtot As Double
+            Dim per As Double
+            If ssgrid_billdetails.ActiveCol = 1 Then
+                ssgrid_billdetails.Col = 1
+                ssgrid_billdetails.Row = ssgrid_billdetails.ActiveRow
+                If Trim(ssgrid_billdetails.Text) <> "" Then
+                    ssgrid_billdetails.SetActiveCell(2, ssgrid_billdetails.ActiveRow)
+                Else
+                    ssgrid_billdetails.SetActiveCell(2, ssgrid_billdetails.ActiveRow)
+                End If
+            ElseIf ssgrid_billdetails.ActiveCol = 2 Then
+                Call billingtermstaxamount(ssgrid_billdetails.ActiveRow)
+            ElseIf ssgrid_billdetails.ActiveCol = 3 Then
+                Call billingtermsrefresh(ssgrid_billdetails.ActiveRow)
+            ElseIf ssgrid_billdetails.ActiveCol >= 4 Then
+                Call BillingTermsTaxPercentage(ssgrid_billdetails.ActiveRow)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : ssgrid_billdetails_LeaveCell " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub GridLock()
+        Try
+            Dim Row, Col As Integer
+            ssgrid.Col = 8
+            ssgrid.Row = ssgrid.ActiveRow
+            For Row = 1 To 50
+                For Col = 1 To 8
+                    ssgrid.Row = Row
+                    ssgrid.Col = Col
+                    ssgrid.Lock = True
+                Next
+            Next
+            ssgrid.Row = 1
+            For Col = 1 To 8
+                ssgrid.Col = Col
+                ssgrid.Lock = False
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : GridLock " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub GridUnLock()
+        Try
+            Dim i, j As Integer
+            For i = 1 To 100
+                For j = 1 To 8
+                    ssgrid.Col = j
+                    ssgrid.Row = i
+                    ssgrid.Lock = False
+                Next j
+            Next i
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error :  GridUnLock" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub ssgrid_KeyDownEvent(ByVal sender As Object, ByVal e As AxFPSpreadADO._DSpreadEvents_KeyDownEvent) Handles ssgrid.KeyDownEvent
+        Dim ItemQty, ItemAmount, Salerate, ItemRate, Highratio, Dblamount As Double
+        Dim sqlstring, Itemcode, Itemdesc As String
+        Dim focusbool As Boolean
+        Dim VaritemDesc As String
+        Dim i, j, K As Integer
+
+
+
+
+        search = Nothing
+
+
+
+
+        If gpocode = "Y" Then
+            ' If Chk_Grndrct.Checked = True Then
+            ' Else
+
+            sqlstring = "select isnull(POflag,'') as POflag from INV_LINKSETUP  "
+            gconnection.getDataSet(sqlstring, "invVAL")
+            If gdataset.Tables("invval").Rows(0).Item("poflag") = "Y" Then
+
+                sqlstring = "select isnull(PONO,'') as PONO from GRN_HEADER WHERE ISNULL(PONO,'')<>'' "
+                gconnection.getDataSet(sqlstring, "PONOVAL")
+                If gdataset.Tables("PONOVAL").Rows.Count > 0 Then
+                    ' VENDORLINK = gdataset.Tables("PONOVAL").Rows(0).Item("VENDORLINK")
+                    With ssgrid
+
+                        ssgrid.Col = 1
+                        ' ssgrid.Row = i + 1
+                        ssgrid.Row = ssgrid.ActiveRow
+                        If ssgrid.Text = "" Then
+                            ' ssgrid.ClearRange(1, ssgrid.ActiveRow, 19, ssgrid.ActiveRow, True)
+                            MessageBox.Show(" You Cannot Add New item To PO ")
+                            ssgrid.DeleteRows(ssgrid.ActiveRow, 1)
+                            Exit Sub
+                        End If
+
+                    End With
+                End If
+                sqlstring = "select isnull(INDENTNO,'') as INDENTNO from GRN_HEADER WHERE ISNULL(INdENTNO,'')<>'' "
+                gconnection.getDataSet(sqlstring, "INVVAL")
+                If gdataset.Tables("INVVAL").Rows.Count > 0 Then
+                    ' VENDORLINK = gdataset.Tables("PONOVAL").Rows(0).Item("VENDORLINK")
+                    With ssgrid
+
+                        ssgrid.Col = 1
+                        ' ssgrid.Row = i + 1
+                        ssgrid.Row = ssgrid.ActiveRow
+                        If ssgrid.Text = "" Then
+                            ' ssgrid.ClearRange(1, ssgrid.ActiveRow, 19, ssgrid.ActiveRow, True)
+                            MessageBox.Show(" You Cannot Add New item To INDENT ")
+                            ssgrid.DeleteRows(ssgrid.ActiveRow, 1)
+                            Exit Sub
+                        End If
+
+                    End With
+                Else
+                    'i = ssgrid.ActiveRow
+                    '' If ssgrid.ActiveCol = 1 Then
+                    'ssgrid.Col = 4
+                    'ssgrid.Row = i
+                    'ssgrid.Lock = False
+                End If
+            End If
+        End If
+        ' End If
+        sqlstring = "select isnull(VENDORLINK,'N') as VENDORLINK from invsetup"
+        gconnection.getDataSet(sqlstring, "invsetup")
+        If gdataset.Tables("invsetup").Rows.Count > 0 Then
+            VENDORLINK = gdataset.Tables("invsetup").Rows(0).Item("VENDORLINK")
+        End If
+
+
+        Try
+            If e.keyCode = Keys.Enter Then
+                i = ssgrid.ActiveRow
+                If ssgrid.ActiveCol = 1 Then
+                    ssgrid.Col = 2
+                    ssgrid.Row = i
+                    VaritemDesc = Trim(ssgrid.Text)
+                    ssgrid.Col = 1
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        If Trim(ssgrid.Text) = "" Then
+
+                            Call FillMenuNew1()
+                            Dim itc As String
+                            Dim cct As Integer
+                            For j = 1 To ssgrid.DataRowCnt + 1
+                                'Dim ITC
+                                ssgrid.Col = 2
+                                ssgrid.Row = j
+                                itc = ssgrid.Text
+                                For K = 1 To ssgrid.DataRowCnt + 1
+                                    ssgrid.Col = 2
+                                    ssgrid.Row = K
+                                    If Trim(ssgrid.Text) = itc Then
+                                        cct = cct + 1
+                                    End If
+                                Next
+                                If cct > 1 Then
+                                    MsgBox("duplicate item entry")
+                                    ssgrid.ClearRange(1, ssgrid.ActiveRow, 17, ssgrid.ActiveRow, True)
+                                    ssgrid.Col = 1
+                                    ssgrid.Focus()
+                                    Exit Sub
+                                End If
+                                cct = 0
+                            Next
+
+                            'Call FillMenu() ''' IT WILL SHOW A POPUP MENU FOR ITEM CODE
+                        ElseIf Trim(ssgrid.Text) <> "" Then
+                            If VaritemDesc = "" Then
+                                Itemcode = Trim(ssgrid.Text)
+                                ssgrid.ClearRange(1, ssgrid.ActiveRow, 17, ssgrid.ActiveRow, True)
+                                '''****************************** $ TO fill ITEMCODE,ITEMDESC,ITEMTYPE  $ **************************************'''
+                                'sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, ISNULL(I.BASERATE,0) AS BASERATE,"
+                                'sqlstring = sqlstring & " ISNULL(O.CONVUOM,'') AS CONVUOM,ISNULL(O.HIGHRATIO,0) AS HIGHRATIO FROM INVENTORYITEMMASTER AS I INNER JOIN OPENINGSTOCK  AS O ON O.ITEMCODE = I.ITEMCODE "
+                                'sqlstring = sqlstring & " WHERE I.ITEMCODE ='" & Trim(Itemcode) & "'  AND ISNULL(I.FREEZE,'') <> 'Y'  AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' AND STORECODE='" & txt_Storecode.Text & "'"
+
+                                '********* FOR RSI CLUB ****************
+                                If VENDORLINK = "Y" Then
+                                    sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE,ISNULL(taxper,0) AS taxper,  ISNULL(v.vendorcode,'') AS VENDORCODE,ISNULL(a.slcode,'') AS SLCODE FROM INVENTORYITEMMASTER I, inv_vendormaster v, ACCOUNTSSUBLEDGERMASTER a"
+                                    sqlstring = sqlstring & " WHERE I.ITEMCODE ='" & Trim(Itemcode) & "' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' AND v.vendorcode = a.slcode And v.itemcode = I.itemcode AND V.VENDORCODE = '" & Trim(txt_Suppliercode.Text) & "'"
+                                Else
+                                    sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, ISNULL(taxper,0) AS taxper FROM INVENTORYITEMMASTER I"
+                                    sqlstring = sqlstring & " WHERE I.ITEMCODE ='" & Trim(Itemcode) & "' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' "
+                                End If
+                                gconnection.getDataSet(sqlstring, "INVENTORYITEMMASTER")
+
+                                If gdataset.Tables("INVENTORYITEMMASTER").Rows.Count > 0 Then
+
+                                    Dim ICODE, TransUom As String
+                                    '-------------16/NOV/2013-----------------
+                                    ICODE = Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE"))
+                                    '------------------------------
+
+                                    ssgrid.SetText(1, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")))
+                                    ssgrid.SetText(2, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMNAME")))
+
+                                    '    ssgrid.Col = 3
+                                    ssgrid.SetText(5, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("PURCHASERATE")), "0.00"))
+                                    'ssgrid.SetText(7, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("PROFITPER")))
+                                    If gTAXcode = "N" Then
+                                        If Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("taxper"))) <> 0.0 Then
+                                            ssgrid.SetText(7, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("taxper")), "0.00"))
+                                            ssgrid.Col = 7
+                                            ssgrid.Row = i
+                                            ssgrid.Lock = True
+                                        Else
+                                            ssgrid.Col = 7
+                                            ssgrid.Row = i
+                                            ssgrid.Lock = False
+                                        End If
+                                    Else
+                                        ssgrid.Col = 7
+                                        ssgrid.Row = i
+                                        ssgrid.Lock = False
+                                        ssgrid.Text = 0.0
+                                    End If
+                                    Dim SQL As String = "SELECT ISNULL(SUM(QTY*MF),0) FROM CLOSINGVLAUE('" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "','" & Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")) & "' ,'" & Trim(txt_Storecode.Text) & "','" & Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("STOCKUOM")) & "')"
+                                    Dim cls As Double = gconnection.getvalue(SQL)
+                                    LabelClosingQuantity.Text = "Closing Stock For Item Code " & Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")) & " Is " & Format(Val(cls), "0.00") & " Qty"
+
+
+
+                                    ' ssgrid.SetText(12, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("CONVUOM")))
+                                    'ssgrid.SetText(13, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("HIGHRATIO")), "0.00"))
+                                    ssgrid.SetText(3, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("STOCKUOM")))
+                                    'Dim SqlQuery As String
+                                    'ssgrid.Row = ssgrid.ActiveRow
+                                    'SqlQuery = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")) & "'  "
+                                    'gconnection.getDataSet(SqlQuery, "InventoryItemUOM")
+                                    'If gdataset.Tables("InventoryItemUOM").Rows.Count > 1 Then
+                                    ' Call FillTransUOM(Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")))
+                                    'ElseIf gdataset.Tables("InventoryItemUOM").Rows.Count = 1 Then
+                                    '   ssgrid.Row = ssgrid.ActiveRow
+                                    '  ssgrid.TypeComboBoxString = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                                    ' ssgrid.Text = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                                    'Else
+                                    '   ssgrid.Row = ssgrid.ActiveRow
+                                    '  ssgrid.Text = Trim(Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("STOCKUOM")))
+                                    'End If
+
+                                    '-----Added by GANESH to display converted rate for multiple UOM selected on 17/NOV/2013--------------
+                                    '    TransUom = Trim(ssgrid.Text)
+                                    '   Dim purrate As Double
+                                    '  purrate = GetGrnRate(ICODE, TransUom)
+                                    ' ssgrid.Col = 5
+                                    'ssgrid.Row = ssgrid.ActiveRow
+                                    'ssgrid.Text = Format(Val(purrate), "0.00")
+                                    '-----------------------------------------------------------------------------------------------------
+
+                                    ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                                    ssgrid.Focus()
+                                Else
+                                    MessageBox.Show("Specified ITEM CODE not found", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                    ssgrid.SetActiveCell(0, ssgrid.ActiveRow)
+                                    ssgrid.Text = ""
+                                    ssgrid.Focus()
+                                    Exit Sub
+                                End If
+                            End If
+                        End If
+                    Else
+                        ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+                    End If
+                ElseIf ssgrid.ActiveCol = 2 Then
+                    ssgrid.Col = 2
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        If Trim(ssgrid.Text) = "" Then
+                            Call FillMenuNew1() ''' IT WILL SHOW A POPUP MENU FOR ITEM CODE
+                            ' Call FillMenuItem1() ''' IT WILL SHOW A POPUP MENU FOR ITEM CODE
+                            Dim itc As String
+                            Dim cct As Integer
+                            For j = 1 To ssgrid.DataRowCnt + 1
+                                'Dim ITC
+                                ssgrid.Col = 2
+                                ssgrid.Row = j
+                                itc = ssgrid.Text
+                                For K = 1 To ssgrid.DataRowCnt + 1
+                                    ssgrid.Col = 2
+                                    ssgrid.Row = K
+                                    If Trim(ssgrid.Text) = itc Then
+                                        cct = cct + 1
+                                    End If
+                                Next
+                                If cct > 1 Then
+                                    MsgBox("duplicate item entry")
+                                    ssgrid.ClearRange(1, ssgrid.ActiveRow, 17, ssgrid.ActiveRow, True)
+                                    ssgrid.Col = 1
+                                    ssgrid.Focus()
+                                    Exit Sub
+                                End If
+                                cct = 0
+                            Next
+                        Else
+                            ssgrid.Col = 4
+                            ssgrid.Row = i
+                            If Trim(ssgrid.Text) = "" Then
+                                Itemdesc = Trim(ssgrid.Text)
+                                ssgrid.ClearRange(1, ssgrid.ActiveRow, 17, ssgrid.ActiveRow, True)
+                                '''****************************** $ TO fill ITEMCODE,ITEMDESC  $ **************************************'''
+                                'sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, "
+                                'sqlstring = sqlstring & " ISNULL(O.CONVUOM,'') AS CONVUOM,ISNULL(O.HIGHRATIO,0) AS HIGHRATIO FROM INVENTORYITEMMASTER AS I INNER JOIN OPENINGSTOCK  AS O ON O.ITEMCODE = I.ITEMCODE "
+                                'sqlstring = sqlstring & " WHERE I.ITEMNAME ='" & Trim(Itemdesc) & "'  AND ISNULL(I.FREEZE,'') <> 'Y'  AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "'"
+
+
+                                '********* FOR RSI CLUB ****************
+                                If VENDORLINK = "Y" Then
+                                    sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, ISNULL(v.vendorcode,'') AS VENDORCODE,ISNULL(a.slcode,'') AS SLCODE FROM INVENTORYITEMMASTER I, inv_vendormaster v, ACCOUNTSSUBLEDGERMASTER a"
+                                    sqlstring = sqlstring & " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' AND v.vendorcode = a.slcode And v.itemcode = I.itemcode AND V.VENDORCODE = '" & Trim(txt_Suppliercode.Text) & "'"
+                                Else
+                                    sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATe FROM INVENTORYITEMMASTER I"
+                                    sqlstring = sqlstring & " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' "
+                                End If
+                                gconnection.getDataSet(sqlstring, "inventoryitemMaster")
+                                If gdataset.Tables("inventoryitemMaster").Rows.Count > 0 Then
+                                    ssgrid.SetText(1, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")))
+                                    ssgrid.SetText(2, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMNAME")))
+                                    ssgrid.Col = 3
+                                    ssgrid.SetText(5, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("PURCHASERATE")), "0.00"))
+                                    'ssgrid.SetText(7, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("PROFITPER")))
+                                    'ssgrid.SetText(12, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("CONVUOM")))
+                                    'ssgrid.SetText(13, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("HIGHRATIO")), "0.00"))
+                                    If gTAXcode = "N" Then
+                                        If Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("taxper"))) <> 0.0 Then
+                                            ssgrid.SetText(7, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("taxper")), "0.00"))
+                                            ssgrid.Col = 7
+                                            ssgrid.Row = i
+                                            ssgrid.Lock = True
+                                        Else
+                                            ssgrid.Col = 7
+                                            ssgrid.Row = i
+                                            ssgrid.Lock = False
+                                        End If
+                                    Else
+                                        ssgrid.Col = 7
+                                        ssgrid.Row = i
+                                        ssgrid.Lock = False
+                                        ssgrid.Text = 0.0
+                                    End If
+                                    ' Dim sqlQuery As String
+                                    'sqlQuery = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & Trim(Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE"))) & "'   "
+                                    'gconnection.getDataSet(sqlQuery, "InventoryItemUOM")
+                                    'If gdataset.Tables("InventoryItemUOM").Rows.Count > 1 Then
+                                    ' Call FillTransUOM(Trim(Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE"))))
+                                    'ElseIf gdataset.Tables("InventoryItemUOM").Rows.Count = 1 Then
+                                    '   ssgrid.Row = ssgrid.ActiveRow
+                                    '  ssgrid.TypeComboBoxString = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                                    ' ssgrid.Text = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                                    'Else
+                                    '   ssgrid.Row = ssgrid.ActiveRow
+                                    '  ssgrid.Text = Trim(Trim(Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("STOCKUOM"))))
+                                    'End If
+                                    ssgrid.Col = 3
+                                    ssgrid.Row = i
+
+                                    ssgrid.Text = Trim(Trim(Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("STOCKUOM"))))
+                                    ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+
+                                    Dim SQL As String = "SELECT ISNULL(SUM(QTY*MF),0) FROM CLOSINGVLAUE('" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "','" & Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")) & "' ,'" & Trim(txt_Storecode.Text) & "','" & Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("STOCKUOM")) & "')"
+                                    Dim cls As Double = gconnection.getvalue(SQL)
+                                    LabelClosingQuantity.Text = "Closing Stock For Item Code " & Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")) & " Is " & Format(Val(cls), "0.00") & " Qty"
+
+
+                                    ssgrid.Focus()
+                                Else
+                                    MessageBox.Show("Specified ITEM DESCRIPTION not found", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                    ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+                                    ssgrid.Text = ""
+                                    ssgrid.Focus()
+                                    Exit Sub
+                                End If
+                            End If
+                        End If
+                    End If
+                ElseIf ssgrid.ActiveCol = 3 Then
+                    ssgrid.Col = 3
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        If Trim(ssgrid.Text) = "" Then
+                            ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                        Else
+                            ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                        End If
+                    End If
+                ElseIf ssgrid.ActiveCol = 4 Then
+                    ssgrid.Col = 4
+                    ssgrid.Row = i
+                    ItemQty = Val(ssgrid.Text)
+                    If ssgrid.Lock = False Then
+                        If ssgrid.Lock = False Then
+                            If Val(ssgrid.Text) = 0 Then
+                                ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                            Else
+                                Call Calculate() '''--> Calculate total amount
+                                ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                                ssgrid.Focus()
+                            End If
+                        End If
+                    Else
+                        ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+                    End If
+                ElseIf ssgrid.ActiveCol = 5 Then
+                    ssgrid.Col = 5
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        If Val(ssgrid.Text) = 0 Then
+                            ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                        Else
+                            Call Calculate() '''--> Calculate total amount
+                            ssgrid.SetActiveCell(5, ssgrid.ActiveRow)
+                            ssgrid.Focus()
+                        End If
+                    End If
+                ElseIf ssgrid.ActiveCol = 6 Then
+                    ssgrid.Col = 6
+                    ssgrid.Row = i
+                    Call Calculate() '''--> Calculate total amount
+                    ssgrid.SetActiveCell(6, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                ElseIf ssgrid.ActiveCol = 7 Then
+                    ssgrid.Col = 7
+                    ssgrid.Row = i
+                    'Call Calculate() '''--> Calculate total amount
+                    ssgrid.SetActiveCell(7, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+                ElseIf ssgrid.ActiveCol = 8 Then
+                    ssgrid.Col = 8
+                    ssgrid.Row = i
+                    Call Calculate() '''--> Calculate total amount
+                    ssgrid.SetActiveCell(8, ssgrid.ActiveRow)
+                    ssgrid.Focus()
+
+                ElseIf ssgrid.ActiveCol = 9 Then
+                    ssgrid.Col = 9
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        If Val(ssgrid.Text) = 0 Then
+                            Call Calculate() '''--> Calculate total amount
+                            ssgrid.Col = 9
+                            ssgrid.Row = ssgrid.ActiveRow
+                            ssgrid.Text = "0.00"
+                            ssgrid.Row = ssgrid.ActiveRow + 1
+                            ssgrid.Col = 1
+                            ssgrid.Lock = False
+                            ssgrid.Col = 2
+                            ssgrid.Lock = False
+                            ssgrid.Col = 3
+                            If Mid(Cmd_Add.Text, 1, 1) = "A" Then
+                                ssgrid.Lock = False
+                            Else
+                                If ssgrid.Lock = False Then
+                                    ssgrid.Lock = False
+                                End If
+                            End If
+                            ssgrid.Col = 4
+                            ssgrid.Lock = False
+                            ssgrid.Col = 5
+                            ssgrid.Lock = False
+                            ssgrid.Col = 6
+                            ssgrid.Lock = False
+                            ssgrid.Col = 7
+                            ssgrid.Lock = False
+                            ssgrid.Col = 8
+                            ssgrid.Lock = False
+                            ssgrid.Col = 9
+                            ssgrid.Lock = False
+                            ssgrid.Col = 10
+                            ssgrid.Lock = False
+                            ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                        Else
+                            Call Calculate() '''--> Calculate total amount
+                            If Mid(Cmd_Add.Text, 1, 1) = "A" Then
+                                ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                            Else
+                                ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                            End If
+                            'ssgrid.Row = ssgrid.ActiveRow + 1
+                            ssgrid.Col = 1
+                            ssgrid.Lock = False
+                            ssgrid.Col = 2
+                            ssgrid.Lock = False
+                            ssgrid.Col = 3
+                            ssgrid.Lock = False
+                            ssgrid.Col = 4
+                            ssgrid.Lock = False
+                            ssgrid.Col = 5
+                            ssgrid.Lock = False
+                            ssgrid.Col = 6
+                            ssgrid.Lock = False
+                            ssgrid.Col = 7
+                            ssgrid.Lock = False
+                            ssgrid.Col = 8
+                            ssgrid.Lock = False
+                            ssgrid.Col = 9
+                            ssgrid.Lock = False
+                            ssgrid.Col = 10
+                            ssgrid.Lock = False
+                            ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+
+                        End If
+                    End If
+                ElseIf ssgrid.ActiveCol = 10 Then
+                    ssgrid.Col = 9
+                    ssgrid.Row = i
+                    ItemAmount = Val(ssgrid.Text)
+                    If ssgrid.Lock = False Then
+                        If Trim(ssgrid.Text) = "" Then
+                            ssgrid.SetActiveCell(9, ssgrid.ActiveRow)
+                        Else
+                            ssgrid.Col = 4
+                            ItemQty = Val(ssgrid.Text)
+                            ItemRate = Val(ItemAmount) / Val(ItemQty)
+                            ssgrid.SetText(5, ssgrid.ActiveRow, ItemRate)
+                            ssgrid.SetActiveCell(1, ssgrid.ActiveRow + 1)
+                        End If
+                    End If
+                ElseIf ssgrid.ActiveCol = 11 Then
+                    '''ssgrid.Col = 11
+                    '''ssgrid.Row = i
+                    ''''If ssgrid.Text < Val(tmpsalrate) - 1 Or ssgrid.Text > Val(tmpsalrate) + 1 Then
+                    '''' MsgBox("Round off Rate should be With in +/- Rs.1")
+                    ''''  Else
+                    '''If ssgrid.Lock = False Then
+                    '''    If Val(ssgrid.Text) = 0 Then
+                    '''        ssgrid.SetActiveCell(10, ssgrid.ActiveRow)
+                    '''    Else
+                    '''        'Call Calculate() '''--> Calculate total amount
+                    '''        Call Calculate1()
+                    '''        ssgrid.SetActiveCell(18, ssgrid.ActiveRow)
+                    '''        ssgrid.Lock = True
+                    '''        ssgrid.Focus()
+                    '''    End If
+                    '''End If
+                    '''' End If
+
+                    'UPTO FREE QUANTITY --***VENUJD
+
+                    ssgrid.Col = 11
+                    ssgrid.Row = i
+                    'If ssgrid.Text < Val(tmpsalrate) - 1 Or ssgrid.Text > Val(tmpsalrate) + 1 Then
+                    ' MsgBox("Round off Rate should be With in +/- Rs.1")
+                    '  Else
+                    If ssgrid.Lock = False Then
+                        'If Val(ssgrid.Text) = 0 Then
+                        '    ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                        'Else
+                        'Call Calculate() '''--> Calculate total amount
+                        ' Call Calculate1()
+                        ssgrid.SetActiveCell(18, ssgrid.ActiveRow)
+                        ssgrid.Lock = True
+                        ssgrid.Focus()
+                        'End If
+                    End If
+                    ' End If
+                ElseIf ssgrid.ActiveCol = 12 Then
+                    ssgrid.Col = 11
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        If Trim(ssgrid.Text) = "" Then
+                            ssgrid.SetActiveCell(10, ssgrid.ActiveRow)
+                        Else
+                            ssgrid.SetActiveCell(0, ssgrid.ActiveRow + 1)
+                        End If
+                    End If
+                    'ElseIf ssgrid.ActiveCol = 13 Then
+                    '    ssgrid.Col = 13
+                    '    ssgrid.Row = i
+                    '    If ssgrid.Lock = False Then
+                    '        If Trim(ssgrid.Text) = "" Then
+                    '            ssgrid.SetActiveCell(12, ssgrid.ActiveRow)
+                    '        Else
+                    '            ssgrid.SetActiveCell(0, ssgrid.ActiveRow + 1)
+                    '        End If
+                    '    End If
+                    'ElseIf ssgrid.ActiveCol = 14 Then
+                    '    ssgrid.Col = 3
+                    '    ssgrid.Row = i
+                    '    If ssgrid.Lock = False Then
+                    '        If Val(ssgrid.Text) = 0 Then
+                    '            ssgrid.SetActiveCell(13, ssgrid.ActiveRow)
+                    '        Else
+                    '            ssgrid.SetActiveCell(0, ssgrid.ActiveRow + 1)
+                    '        End If
+                    '    End If
+                    'ElseIf ssgrid.ActiveCol = 18 Then
+                    '    ssgrid.Col = 18
+                    '    ssgrid.Row = i
+                    '    If ssgrid.Lock = False Then
+                    '        Dim ft As Double
+                    '        ft = Val(ssgrid.Text)
+                    '        If Trim(ssgrid.Text) <> 0.0 Then
+                    '            ssgrid.Col = 4
+                    '            ssgrid.Row = i
+                    '            Dim qt As Double
+                    '            qt = Val(ssgrid.Text)
+                    '            If ft > qt Then
+                    '                MessageBox.Show(" Free Qty cannot be greater the received qty")
+                    '                ssgrid.SetActiveCell(18, ssgrid.ActiveRow)
+                    '  End If
+
+                    'Else
+                    'ssgrid.SetActiveCell(0.5, ssgrid.ActiveRow + 1)
+                    '    ssgrid.SetActiveCell(19, ssgrid.ActiveRow)
+                    '  End If
+                    '  End If
+
+                End If
+            ElseIf e.keyCode = Keys.F4 Then
+                If ssgrid.ActiveCol = 1 Then
+                    ssgrid.Col = 1
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        ssgrid.Col = 1
+                        ssgrid.Row = ssgrid.ActiveRow
+                        search = Trim(ssgrid.Text)
+                        Call FillMenu()
+                    End If
+                ElseIf ssgrid.ActiveCol = 2 Then
+                    ssgrid.Col = 2
+                    ssgrid.Row = i
+                    If ssgrid.Lock = False Then
+                        ssgrid.Col = 2
+                        ssgrid.Row = ssgrid.ActiveRow
+                        search = Trim(ssgrid.Text)
+                        Call FillMenuItem()
+                    End If
+                End If
+            ElseIf e.keyCode = Keys.F3 Then
+                ssgrid.Col = ssgrid.ActiveCol
+                ssgrid.Row = i
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.ClearRange(1, ssgrid.ActiveRow, 19, ssgrid.ActiveRow, True)
+                ssgrid.DeleteRows(ssgrid.ActiveRow, 1)
+                LabelClosingQuantity.Text = ""
+                Call Calculate()
+                'ssgrid.ClearRange(1, ssgrid.ActiveRow, 19, ssgrid.ActiveRow, True)
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Col = 1
+                ssgrid.Lock = False
+                ssgrid.Col = 2
+                ssgrid.Lock = False
+                ssgrid.Col = 3
+                ssgrid.Lock = False
+                ssgrid.Col = 4
+                ssgrid.Lock = False
+                ssgrid.Col = 5
+                ssgrid.Lock = False
+                ssgrid.Col = 6
+                ssgrid.Lock = False
+                ssgrid.Col = 7
+                ssgrid.Lock = False
+                ssgrid.Col = 8
+                ssgrid.Lock = False
+                ssgrid.Col = 9
+                ssgrid.Lock = False
+                ssgrid.Col = 10
+                ssgrid.Lock = False
+                ssgrid.Col = 11
+                ssgrid.Lock = False
+                ssgrid.Col = 12
+                ssgrid.Lock = False
+                ssgrid.Col = 13
+                ssgrid.Lock = False
+                ssgrid.Col = 14
+                ssgrid.Lock = False
+                ssgrid.Col = 15
+                ssgrid.Lock = False
+                ssgrid.Col = 16
+                ssgrid.Lock = False
+                ssgrid.Col = 17
+                ssgrid.Lock = False
+
+                ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+
+            End If
+            ''MANISH
+            ''**************************CHECK ITEMS HAVING GLCODE OR NOT************************************
+            'ssgrid.Row = i
+            'ssgrid.Col = 1
+            'ITEMCODE1 = ssgrid.Text
+            'ssgrid.Row = i
+            'ssgrid.Col = 2
+            'ITEMNAME = ssgrid.Text
+            'sqlstring = "SELECT * FROM INVENTORYITEMMASTER WHERE ITEMCODE='" & ITEMCODE1 & "' AND ITEMNAME='" & ITEMNAME & "'"
+            'gconnection.getDataSet(sqlstring, "INV")
+            'ITEMCODE1 = ""
+            'ITEMNAME = ""
+            'If gdataset.Tables("INV").Rows.Count > 0 Then
+            '    ITEMCODE1 = gdataset.Tables("INV").Rows(0).Item("ITEMCODE")
+            '    ITEMNAME = gdataset.Tables("INV").Rows(0).Item("ITEMNAME")
+            'Else
+            '    MessageBox.Show("ACCOUNTS ITEM TAGGING NOT DONE FOR THIS ITEM...PLEASE GO TO ACCOUNTS ITEMTAGGING")
+            '    'Dim AITEMTAGGING As ACCOUNTSITEMTAGGING
+            '    'AITEMTAGGING.Show()
+            '    Exit Sub
+            'End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : ssgrid_KeyDownEvent " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+
+
+    Private Sub FillMenuNew1()
+        Try
+            Dim vform As New ListOperattion1
+            Dim K As Integer
+            Dim SqlQuery As String
+            '''******************************************************** $ FILL THE ITEMCODE,ITEMDESC INTO SSGRID ********** 
+
+            '''gSQLString = "SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, "
+            '''gSQLString = gSQLString & " ISNULL(CONVVALUE,0) AS CONVUOM FROM INVENTORYITEMMASTER I"
+            '''If Trim(search) = " " Then
+            '''    M_WhereCondition = ""
+            '''Else
+            '''    M_WhereCondition = " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE='" & txt_Storecode.Text & "'" 
+            '''End If
+
+            '''****************** FOR RSI CLUB ************** $ FILL THE ITEMCODE,ITEMDESC INTO SSGRID ********** 
+            'VenuJD 24JUNE11
+            If VENDORLINK = "Y" Then
+                gSQLString = "SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, ISNULL(I.Profitper,0) AS Profitper,ISNULL(taxper,0) AS taxper, ISNULL(v.vendorcode,'') AS VENDORCODE,ISNULL(a.slcode,'') AS SLCODE FROM INVENTORYITEMMASTER I, inv_vendormaster v, ACCOUNTSSUBLEDGERMASTER a"
+                If Trim(search) = " " Then
+                    M_WhereCondition = ""
+                Else
+                    M_WhereCondition = " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' AND v.vendorcode = a.slcode And v.itemcode = I.itemcode AND V.VENDORCODE = '" & Trim(txt_Suppliercode.Text) & "'"
+                End If
+            Else
+                gSQLString = "SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, ISNULL(I.Profitper,0) AS Profitper,ISNULL(taxper,0) AS taxper FROM INVENTORYITEMMASTER I"
+                If Trim(search) = " " Then
+                    M_WhereCondition = ""
+                Else
+                    M_WhereCondition = " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' "
+                End If
+            End If
+            vform.Field = " I.ITEMNAME, I.ITEMCODE"
+            vform.vFormatstring = "    ITEMCODE    |                     ITEMNAME                    |  STOCKUOM  | PURCHASERATE |PROFITPER |  VENDORCODE |"
+            vform.vCaption = "INVENTORY ITEM CODE HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.KeyPos2 = 2
+            vform.Keypos3 = 3
+            vform.keypos4 = 4
+            vform.Keypos5 = 5
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                ssgrid.Col = 1
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield)
+                ssgrid.Col = 2
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield1)
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Col = 3
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield2)
+                ssgrid.Col = 5
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield3)
+
+                ''ssgrid.TypeComboBoxString = Trim(vform.keyfield2)
+                ''ssgrid.Text = Trim(vform.keyfield2)
+                'ssgrid.Col = 5
+                'ssgrid.Row = ssgrid.ActiveRow
+                'ssgrid.Text = Format(Val(vform.keyfield3), "0.00")
+                ' ssgrid.Col = 7
+                'ssgrid.Row = ssgrid.ActiveRow
+                'ssgrid.Text = Trim(vform.keyfield6)
+                If gTAXcode = "N" Then
+                    ssgrid.Col = 7
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.Text = Trim(vform.keyfield5)
+                Else
+                    ssgrid.Col = 7
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.Text = 0.0
+                End If
+                ssgrid.Col = 13
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield6)
+                ssgrid.Col = 14
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield7), "0.00")
+
+                Dim SQL As String = "SELECT ISNULL(SUM(QTY*MF),0) FROM CLOSINGVLAUE('" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "','" & vform.keyfield & "' ,'" & Trim(txt_Storecode.Text) & "','" & vform.keyfield3 & "')"
+                Dim cls As Double = gconnection.getvalue(SQL)
+                LabelClosingQuantity.Text = "Closing Stock For Item Code " & vform.keyfield & " Is " & Format(Val(cls), "0.00") & " Qty"
+
+
+                ' ssgrid.Col = 3
+                '  SqlQuery = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & Trim(vform.keyfield) & "' and STORECODE='" & txt_Storecode.Text & "'"
+                '  SqlQuery = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & Trim(vform.keyfield) & "' "
+                ' gconnection.getDataSet(SqlQuery, "InventoryItemUOM")
+                ' If gdataset.Tables("InventoryItemUOM").Rows.Count > 1 Then
+                ' Call FillTransUOM(Trim(vform.keyfield))
+                ' ElseIf gdataset.Tables("InventoryItemUOM").Rows.Count = 1 Then
+                '    ssgrid.Row = ssgrid.ActiveRow
+                '   ssgrid.TypeComboBoxString = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                '  ssgrid.Text = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                'Else
+                '   ssgrid.Row = ssgrid.ActiveRow
+                '  ssgrid.Text = Trim(vform.keyfield2)
+                'End If
+                '-----Added by GANESH on 17/11/2013 to get rate according to selected UOM without Conversion-------
+                'Dim TransUom As String
+                'TransUom = Trim(ssgrid.Text)
+
+                'ssgrid.Col = 5
+                'ssgrid.Row = ssgrid.ActiveRow
+                'ssgrid.Text = Format(Val(GetGrnRate(Trim(vform.keyfield), TransUom)), "0.00")
+                '-------------------------------------------
+
+                'ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                'ssgrid.Focus()
+            Else
+                ssgrid.SetActiveCell(0, ssgrid.ActiveRow)
+                Exit Sub
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillMenu" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+
+
+
+
+
+
+
+
+    Private Sub FillMenuItemNew()
+        Try
+            Dim vform As New ListOperattion1
+            Dim K As Integer
+            Dim ssql As String
+            '''******************************************************** $ FILL THE ITEMDESC,ITEMCODE INTO SSGRID ********** 
+            gSQLString = "SELECT DISTINCT ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.ITEMCODE,'') AS ITEMCODE,"
+            gSQLString = gSQLString & "ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, "
+            gSQLString = gSQLString & " ISNULL(CONVVALUE,0) AS CONVVALUE FROM INVENTORYITEMMASTER AS I"
+            If Trim(search) = " " Then
+                M_WhereCondition = ""
+            Else
+                M_WhereCondition = " WHERE I.ITEMNAME LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y'  AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "'"
+            End If
+            vform.Field = "I.ITEMNAME,I.ITEMCODE"
+            vform.vFormatstring = "                     ITEMNAME                |   ITEMCODE    | STOCKUOM  |PURCHASERATE | CONVUOM | HIGHRATIO |"
+            vform.vCaption = "INVENTORY ITEM CODE HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.KeyPos2 = 2
+            vform.Keypos3 = 3
+            vform.keypos4 = 4
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                ssgrid.Col = 1
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield1)
+                ssgrid.Col = 2
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield)
+                ssgrid.Col = 3
+                Dim SqlQuery As String
+                Dim Clsquantity As Double
+                ssgrid.Row = ssgrid.ActiveRow
+                SqlQuery = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK   WHERE Itemcode ='" & Trim(vform.keyfield1) & "'  and STORECODE='" & txt_Storecode.Text & "'"
+                gconnection.getDataSet(SqlQuery, "InventoryItemUOM")
+                If gdataset.Tables("InventoryItemUOM").Rows.Count > 1 Then
+                    Call FillTransUOM(Trim(vform.keyfield1))
+                ElseIf gdataset.Tables("InventoryItemUOM").Rows.Count = 1 Then
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.TypeComboBoxString = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                    ssgrid.Text = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                Else
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.Text = Trim(vform.keyfield2)
+                End If
+                ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                Clsquantity = ClosingQuantity_NewTrans(Trim(vform.keyfield1), GetMainStore(), ssgrid.Text)
+                ssgrid.SetText(14, i, Clsquantity)
+                ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                ssgrid.Focus()
+                ''
+                ''ssgrid.TypeComboBoxString = Trim(vform.keyfield2)
+                ''ssgrid.Text = Trim(vform.keyfield2)
+                ssgrid.Col = 5
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield3), "0.00")
+                ssgrid.Col = 11
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield4)
+                ssgrid.Col = 12
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield5), "0.00")
+                ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                ssgrid.Focus()
+            Else
+                ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+                Exit Sub
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillMenuItem" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub FillMenuNew()
+        Try
+            Dim vform As New ListOperattion1
+            Dim K As Integer
+            Dim SqlQuery As String
+            '''******************************************************** $ FILL THE ITEMCODE,ITEMDESC INTO SSGRID ********** 
+
+            '''gSQLString = "SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, "
+            '''gSQLString = gSQLString & " ISNULL(CONVVALUE,0) AS CONVUOM FROM INVENTORYITEMMASTER I"
+            '''If Trim(search) = " " Then
+            '''    M_WhereCondition = ""
+            '''Else
+            '''    M_WhereCondition = " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE='" & txt_Storecode.Text & "'" 
+            '''End If
+
+            '''****************** FOR RSI CLUB ************** $ FILL THE ITEMCODE,ITEMDESC INTO SSGRID ********** 
+            'VenuJD 24JUNE11
+            If VENDORLINK = "Y" Then
+                gSQLString = "SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, ISNULL(I.Profitper,0) AS Profitper,ISNULL(taxper,0) AS taxper, ISNULL(CONVVALUE,0) AS CONVUOM, ISNULL(v.vendorcode,'') AS VENDORCODE,ISNULL(a.slcode,'') AS SLCODE FROM INVENTORYITEMMASTER I, inv_vendormaster v, ACCOUNTSSUBLEDGERMASTER a"
+                If Trim(search) = " " Then
+                    M_WhereCondition = ""
+                Else
+                    M_WhereCondition = " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' AND v.vendorcode = a.slcode And v.itemcode = I.itemcode AND V.VENDORCODE = '" & Trim(txt_Suppliercode.Text) & "'"
+                End If
+            Else
+                gSQLString = "SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, ISNULL(I.Profitper,0) AS Profitper,ISNULL(taxper,0) AS taxper, ISNULL(CONVVALUE,0) AS CONVUOM FROM INVENTORYITEMMASTER I"
+                If Trim(search) = " " Then
+                    M_WhereCondition = ""
+                Else
+                    M_WhereCondition = " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' "
+                End If
+            End If
+            vform.Field = " I.ITEMNAME, I.ITEMCODE"
+            vform.vFormatstring = "    ITEMCODE    |                     ITEMNAME                    |  STOCKUOM  | PURCHASERATE |PROFITPER | CONVUOM | VENDORCODE |"
+            vform.vCaption = "INVENTORY ITEM CODE HELP"
+            vform.KeyPos = 0
+            vform.KeyPos1 = 1
+            vform.KeyPos2 = 2
+            vform.Keypos3 = 3
+            vform.keypos4 = 4
+            vform.Keypos5 = 5
+            vform.ShowDialog(Me)
+            If Trim(vform.keyfield & "") <> "" Then
+                ssgrid.Col = 1
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield)
+                ssgrid.Col = 2
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield1)
+                ssgrid.Row = ssgrid.ActiveRow
+
+
+
+                ''ssgrid.TypeComboBoxString = Trim(vform.keyfield2)
+                ''ssgrid.Text = Trim(vform.keyfield2)
+                'ssgrid.Col = 5
+                'ssgrid.Row = ssgrid.ActiveRow
+                'ssgrid.Text = Format(Val(vform.keyfield3), "0.00")
+                ssgrid.Col = 7
+                ssgrid.Row = ssgrid.ActiveRow
+                '  ssgrid.Text = Trim(vform.keyfield4)
+                If gTAXcode = "N" Then
+                    ssgrid.Col = 8
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.Text = Trim(vform.keyfield5)
+                Else
+                    ssgrid.Col = 8
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.Text = 0.0
+                End If
+                ssgrid.Col = 13
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Trim(vform.keyfield6)
+                ssgrid.Col = 14
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(vform.keyfield7), "0.00")
+                ssgrid.Col = 3
+                '  SqlQuery = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & Trim(vform.keyfield) & "' and STORECODE='" & txt_Storecode.Text & "'"
+                SqlQuery = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & Trim(vform.keyfield) & "' "
+                gconnection.getDataSet(SqlQuery, "InventoryItemUOM")
+                If gdataset.Tables("InventoryItemUOM").Rows.Count > 1 Then
+                    Call FillTransUOM(Trim(vform.keyfield))
+                ElseIf gdataset.Tables("InventoryItemUOM").Rows.Count = 1 Then
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.TypeComboBoxString = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                    ssgrid.Text = Trim(gdataset.Tables("InventoryItemUOM").Rows(0).Item("Tranuom"))
+                Else
+                    ssgrid.Row = ssgrid.ActiveRow
+                    ssgrid.Text = Trim(vform.keyfield2)
+                End If
+                '-----Added by GANESH on 17/11/2013 to get rate according to selected UOM without Conversion-------
+                Dim TransUom As String
+                TransUom = Trim(ssgrid.Text)
+
+                ssgrid.Col = 5
+                ssgrid.Row = ssgrid.ActiveRow
+                ssgrid.Text = Format(Val(GetGrnRate(Trim(vform.keyfield), TransUom)), "0.00")
+                '-------------------------------------------
+
+                ssgrid.SetActiveCell(3, ssgrid.ActiveRow)
+                ssgrid.Focus()
+            Else
+                ssgrid.SetActiveCell(0, ssgrid.ActiveRow)
+                Exit Sub
+            End If
+            vform.Close()
+            vform = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : FillMenu" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub FillTransUOM(ByVal itemcode As String)
+        'gSQLString = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & itemcode & "'  and STORECODE='" & txt_Storecode.Text & "' "
+        gSQLString = "SELECT ISNULL(Tranuom,'') AS Tranuom  FROM  INVITEM_TRANSUOM_LINK  WHERE Itemcode ='" & itemcode & "'   "
+
+        If Trim(search) = " " Then
+            M_WhereCondition = ""
+        Else
+            M_WhereCondition = " AND  Tranuom LIKE '" & Trim(search) & "%'"
+        End If
+        Dim vform1 As New ListOperattion1
+        vform1.Field = "TRANUOM"
+        vform1.vFormatstring = "     TRANS UOM                                                                                                   "
+        vform1.vCaption = " PURCHASE UOMMASTER HELP"
+        vform1.KeyPos = 0
+        vform1.ShowDialog(Me)
+        If Trim(vform1.keyfield & "") <> "" Then
+            ssgrid.Col = 3
+            ssgrid.Row = ssgrid.ActiveRow
+            ssgrid.Text = Trim(vform1.keyfield & "")
+            ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+            ssgrid.Focus()
+        End If
+        vform1.Close()
+        vform1 = Nothing
+    End Sub
+    Private Sub ssgrid_LeaveCell(ByVal sender As Object, ByVal e As AxFPSpreadADO._DSpreadEvents_LeaveCellEvent) Handles ssgrid.LeaveCell
+        Dim ItemQty, ItemAmount, ItemRate, Highratio, Dblamount, DblQty As Double
+        Dim sqlstring, Itemcode, Itemdesc As String
+        Dim discount, quantity, Salerate As Double
+        Dim focusbool As Boolean
+        Dim i, j As Integer
+        Dim vitemdesc As String
+
+        search = Nothing
+        Try
+            Call GridUnLock()
+            i = ssgrid.ActiveRow
+            If ssgrid.ActiveCol = 2 Then
+                ssgrid.Col = 2
+                ssgrid.Row = i
+                vitemdesc = Trim(ssgrid.Text)
+                ssgrid.Col = 4
+                ssgrid.Row = i
+                DblQty = Val(ssgrid.Text)
+                ssgrid.Col = 2
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Trim(ssgrid.Text) <> "" Then
+                        If vitemdesc = "" Then
+                            If Val(DblQty) = 0 Then
+                                Itemdesc = Trim(ssgrid.Text)
+                                ssgrid.ClearRange(1, ssgrid.ActiveRow, 12, ssgrid.ActiveRow, True)
+                                '''****************************** $ TO fill ITEMCODE,ITEMDESC  $ **************************************'''
+                                'sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE, "
+                                'sqlstring = sqlstring & " ISNULL(O.CONVUOM,'') AS CONVUOM,ISNULL(O.HIGHRATIO,0) AS HIGHRATIO FROM INVENTORYITEMMASTER AS I INNER JOIN OPENINGSTOCK  AS O ON O.ITEMCODE = I.ITEMCODE "
+                                'sqlstring = sqlstring & " WHERE I.ITEMNAME ='" & Trim(Itemdesc) & "'  AND ISNULL(I.FREEZE,'') <> 'Y'"
+                                sqlstring = " SELECT DISTINCT ISNULL(I.ITEMCODE,'') AS ITEMCODE,ISNULL(I.ITEMNAME,'') AS ITEMNAME,ISNULL(I.STOCKUOM,'') AS STOCKUOM,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE,ISNULL(I.BASERATE,0) AS BASERATE, ISNULL(I.CONVVALUE,0) AS CONVUOM, ISNULL(v.vendorcode,'') AS VENDORCODE,ISNULL(a.slcode,'') AS SLCODE FROM INVENTORYITEMMASTER I, inv_vendormaster v, ACCOUNTSSUBLEDGERMASTER a"
+                                sqlstring = sqlstring & " WHERE I.ITEMCODE LIKE '" & Trim(search) & "%' AND ISNULL(I.FREEZE,'') <> 'Y' AND CATEGORY = '" & Trim(CMB_CATEGORY.Text) & "' and  I.STORECODE= '" & txt_Storecode.Text & "' AND v.vendorcode = a.slcode And v.itemcode = I.itemcode AND V.VENDORCODE = '" & Trim(txt_Suppliercode.Text) & "'"
+
+                                gconnection.getDataSet(sqlstring, "inventoryitemMaster")
+                                If gdataset.Tables("inventoryitemMaster").Rows.Count > 0 Then
+                                    ssgrid.SetText(1, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMCODE")))
+                                    ssgrid.SetText(2, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("ITEMNAME")))
+                                    ssgrid.SetText(3, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("STOCKUOM")))
+                                    ssgrid.SetText(5, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("PURCHASERATE")), "0.00"))
+                                    If gTAXcode = "N" Then
+                                        If Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("taxper"))) <> 0.0 Then
+                                            ssgrid.SetText(8, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("taxper")), "0.00"))
+                                            ssgrid.Col = 8
+                                            ssgrid.Row = i
+                                            ssgrid.Lock = True
+                                        Else
+                                            ssgrid.Col = 8
+                                            ssgrid.Row = i
+                                            ssgrid.Lock = False
+                                        End If
+                                    Else
+                                        ssgrid.Col = 8
+                                        ssgrid.Row = i
+                                        ssgrid.Lock = False
+                                        ssgrid.Text = 0.0
+                                    End If
+                                    ssgrid.SetText(13, i, Trim(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("CONVUOM")))
+                                    'ssgrid.SetText(14, i, Format(Val(gdataset.Tables("INVENTORYITEMMASTER").Rows(j).Item("HIGHRATIO")), "0.00"))
+                                    ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                                    ssgrid.Focus()
+                                Else
+                                    MessageBox.Show("Specified ITEM DESCRIPTION not found", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                    ssgrid.SetActiveCell(1, ssgrid.ActiveRow)
+                                    ssgrid.Text = ""
+                                    ssgrid.Focus()
+                                    Exit Sub
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            ElseIf ssgrid.ActiveCol = 3 Then
+                ssgrid.Col = 3
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Trim(ssgrid.Text) = "" Then
+                        ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                    Else
+                        ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                    End If
+                End If
+            ElseIf ssgrid.ActiveCol = 4 Then
+                ssgrid.Col = 4
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Val(ssgrid.Text) = 0 Then
+                        ssgrid.SetActiveCell(4, ssgrid.ActiveRow)
+                    Else
+                        Call Calculate() '''--> Calculate total amount
+                        ssgrid.SetActiveCell(5, ssgrid.ActiveRow)
+                    End If
+                End If
+            ElseIf ssgrid.ActiveCol = 5 Then
+                ssgrid.Col = 5
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    Call Calculate() '''--> Calculate total amount
+                    ssgrid.SetActiveCell(6, ssgrid.ActiveRow)
+                Else
+                    ssgrid.SetActiveCell(5, i)
+                End If
+            ElseIf ssgrid.ActiveCol = 6 Then
+                ssgrid.Col = 6
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    Call Calculate() '''--> Calculate total amount
+                    ssgrid.SetActiveCell(7, ssgrid.ActiveRow)
+
+                Else
+                    ssgrid.SetActiveCell(6, i)
+                End If
+
+            ElseIf ssgrid.ActiveCol = 7 Then
+                ssgrid.Col = 8
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    'Call Calculate() '''--> Calculate total amount
+                    'ssgrid.SetActiveCell(8, ssgrid.ActiveRow)
+                    If gTAXcode = "N" Then
+                        ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                    Else
+
+                        ssgrid.SetActiveCell(8, ssgrid.ActiveRow)
+                    End If
+                Else
+                    ssgrid.SetActiveCell(7, i)
+                End If
+
+            ElseIf ssgrid.ActiveCol = 8 Then
+                ssgrid.Col = 8
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    Call Calculate() '''--> Calculate total amount
+                    ssgrid.SetActiveCell(9, ssgrid.ActiveRow)
+                Else
+                    ssgrid.SetActiveCell(8, i)
+                End If
+            ElseIf ssgrid.ActiveCol = 9 Then
+                ssgrid.Col = 9
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Val(ssgrid.Text) = 0 Then
+                        Call Calculate() '''--> Calculate total amount
+                        ssgrid.Col = 9
+                        ssgrid.Row = ssgrid.ActiveRow
+                        ssgrid.Text = "0.00"
+                        ssgrid.Row = ssgrid.ActiveRow + 1
+                        ssgrid.Col = 1
+                        ssgrid.Lock = False
+                        ssgrid.Col = 2
+                        ssgrid.Lock = False
+                        ssgrid.Col = 3
+                        If Mid(Cmd_Add.Text, 1, 1) = "A" Then
+                            ssgrid.Lock = False
+                        Else
+                            If ssgrid.Lock = False Then
+                                ssgrid.Lock = False
+                            End If
+                        End If
+
+                        ssgrid.Col = 4
+                        ssgrid.Lock = False
+                        ssgrid.Col = 5
+                        ssgrid.Lock = False
+                        ssgrid.Col = 6
+                        ssgrid.Lock = False
+                        'ssgrid.Col = 7
+                        'ssgrid.Lock = False
+                        ssgrid.Col = 8
+                        ssgrid.Lock = False
+                        ssgrid.Col = 9
+                        ssgrid.Lock = False
+                        ssgrid.Col = 10
+                        ssgrid.Lock = False
+
+                        ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                    Else
+                        Call Calculate() '''--> Calculate total amount
+                        If Mid(Cmd_Add.Text, 1, 1) = "A" Then
+                            ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                        Else
+                            ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                        End If
+
+                        'ssgrid.Row = ssgrid.ActiveRow + 1
+                        ssgrid.Col = 1
+                        ssgrid.Lock = False
+                        ssgrid.Col = 2
+                        ssgrid.Lock = False
+                        ssgrid.Col = 3
+                        ssgrid.Lock = False
+                        ssgrid.Col = 4
+                        ssgrid.Lock = False
+                        ssgrid.Col = 5
+                        ssgrid.Lock = False
+                        ssgrid.Col = 6
+                        ssgrid.Lock = False
+                        'ssgrid.Col = 7
+                        'ssgrid.Lock = False
+                        ssgrid.Col = 8
+                        ssgrid.Lock = False
+                        ssgrid.Col = 9
+                        ssgrid.Lock = False
+                        ssgrid.Col = 10
+                        ssgrid.Lock = False
+                        'If Mid(Cmd_Add.Text, 1, 1) = "A" Then
+                        ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                        'Else
+                        '    ssgrid.SetActiveCell(0, ssgrid.ActiveRow)
+                        'End If
+
+                    End If
+                End If
+            ElseIf ssgrid.ActiveCol = 9 Then
+                ssgrid.Col = 9
+                ssgrid.Row = i
+                ItemAmount = Format(ssgrid.Text, "0.00")
+                If ssgrid.Lock = False Then
+                    If Trim(ssgrid.Text) = "" Then
+                        ssgrid.SetActiveCell(9, ssgrid.ActiveRow)
+                    Else
+                        ssgrid.Col = 4
+                        ItemQty = Format(ssgrid.Text, "0.00")
+                        ItemRate = ItemAmount / ItemQty
+                        ssgrid.Text = Format(ItemRate, "0.00")
+                        ssgrid.SetActiveCell(1, ssgrid.ActiveRow + 1)
+                    End If
+                End If
+            ElseIf ssgrid.ActiveCol = 11 Then
+                ssgrid.Col = 11
+                ssgrid.Row = i
+                '   tmpsalrate = ssgrid.Text
+                If ssgrid.Lock = False Then
+                    'Call Calculate() '''--> Calculate total amount
+                    '  Call Calculate1()
+                    ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                    If ssgrid.Lock = True Then
+                        ssgrid.SetActiveCell(1, i + 1)
+                    End If
+                Else
+                    ssgrid.SetActiveCell(0, i)
+                End If
+
+            ElseIf ssgrid.ActiveCol = 12 Then
+                ssgrid.Col = 12
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Trim(ssgrid.Text) = "" Then
+                        ssgrid.SetActiveCell(11, ssgrid.ActiveRow)
+                    Else
+                        ssgrid.SetActiveCell(1, ssgrid.ActiveRow + 1)
+                    End If
+                End If
+            ElseIf ssgrid.ActiveCol = 13 Then
+                ssgrid.Col = 13
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Trim(ssgrid.Text) = "" Then
+                        ssgrid.SetActiveCell(13, ssgrid.ActiveRow)
+                    Else
+                        ssgrid.SetActiveCell(1, ssgrid.ActiveRow + 1)
+                    End If
+                End If
+            ElseIf ssgrid.ActiveCol = 14 Then
+                ssgrid.Col = 3
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Trim(ssgrid.Text) = "" Then
+                        ssgrid.SetActiveCell(14, ssgrid.ActiveRow)
+                    Else
+                        ssgrid.SetActiveCell(1, ssgrid.ActiveRow + 1)
+                    End If
+                End If
+
+
+            ElseIf ssgrid.ActiveCol = 18 Then
+                ssgrid.Col = 18
+                ssgrid.Row = i
+                If ssgrid.Lock = False Then
+                    If Trim(ssgrid.Text) = "" Then
+                        ssgrid.SetActiveCell(18, ssgrid.ActiveRow)
+                    Else
+                        ssgrid.SetActiveCell(19, ssgrid.ActiveRow)
+                    End If
+                End If
+
+                'ssgrid.SetActiveCell(1, ssgrid.ActiveRow + 1)
+            End If
+            'MANISH
+            '**************************CHECK ITEMS HAVING GLCODE OR NOT************************************
+            Dim itemcode1, itemname As String
+            ssgrid.Row = i
+            ssgrid.Col = 1
+
+            ITEMCODE1 = ssgrid.Text
+            If ITEMCODE1 <> "" Then
+                ssgrid.Row = i
+                ssgrid.Col = 2
+                ITEMNAME = ssgrid.Text
+                sqlstring = "SELECT * FROM INVENTORYITEMMASTER WHERE ITEMCODE='" & ITEMCODE1 & "' AND ITEMNAME='" & ITEMNAME & "'"
+                gconnection.getDataSet(sqlstring, "INV")
+                ITEMCODE1 = ""
+                ITEMNAME = ""
+                If gdataset.Tables("INV").Rows.Count > 0 Then
+                    ITEMCODE1 = gdataset.Tables("INV").Rows(0).Item("ITEMCODE")
+                    ITEMNAME = gdataset.Tables("INV").Rows(0).Item("ITEMNAME")
+                Else
+                    MessageBox.Show("ACCOUNTS ITEM TAGGING NOT DONE FOR THIS ITEM...PLEASE GO TO ACCOUNTS ITEMTAGGING")
+                    'Dim AITEMTAGGING As ACCOUNTSITEMTAGGING
+                    'AITEMTAGGING.Show()
+                    Exit Sub
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : ssgrid_LeaveCell " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Vatamount_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Vatamount.TextChanged
+        Try
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Vatamount_TextChanged " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Vatamount_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Vatamount.KeyPress
+        Try
+            Call getNumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                txt_Surchargeamt.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Vatamount_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Surchargeamt_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Surchargeamt.KeyPress
+        Try
+            Call getNumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                TXT_OVERALLdiscount.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Surchargeamt_KeyPress" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Discountamt_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Discountamt.KeyPress
+        Try
+            Call getNumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                Cmd_Add.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Discountamt_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Surchargeamt_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Surchargeamt.TextChanged
+        Try
+            If Val(txt_Surchargeamt.Text) <> 0 Then
+                txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Surchargeamt_TextChanged" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub txt_Discountamt_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Discountamt.TextChanged
+        Try
+            If Val(txt_Discountamt.Text) <> 0 Then
+                txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Discountamt_TextChanged" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Vatamount_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Vatamount.LostFocus
+        Try
+            txt_Vatamount.Text = Format(Val(txt_Vatamount.Text), "0.00")
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Vatamount_LostFocus" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub txt_Surchargeamt_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Surchargeamt.LostFocus
+        Try
+            txt_Surchargeamt.Text = Format(Val(txt_Surchargeamt.Text), "0.00")
+            If Val(txt_Surchargeamt.Text) <> 0 Then
+                txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Surchargeamt_LostFocus" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub GRN_Cum_Purchase_Bill_CSC_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
+        Try
+            GRNCumPurchaseBillTransbool = False
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : GRN_Cum_Purchase_Bill_CSC_Closed" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub txt_FromDocno_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_FromDocno.KeyDown
+        Try
+            If e.KeyCode = Keys.F4 Then
+                If Cmd_FromDocno.Enabled = True Then
+                    search = Trim(txt_FromDocno.Text)
+                    Call Cmd_FromDocno_Click(Cmd_FromDocno, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_FromDocno_KeyDown " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub txt_ToDocno_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_ToDocno.KeyDown
+        Try
+            If e.KeyCode = Keys.F4 Then
+                If Cmd_ToDocno.Enabled = True Then
+                    search = Trim(txt_ToDocno.Text)
+                    Call Cmd_ToDocno_Click(Cmd_ToDocno, e)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_ToDocno_KeyDown" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub txt_FromDocno_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_FromDocno.Validated
+        If Trim(txt_FromDocno.Text) <> "" Then
+            Try
+                sqlstring = "SELECT  ISNULL(GRNNO,'') AS GRNNO,ISNULL(GRNDETAILS,'') AS GRNDETAILS"
+                sqlstring = sqlstring & " FROM GRN_HEADER WHERE GRNNO = '" & Format(Val(txt_FromDocno.Text), "0000") & "' OR GRNDETAILS='" & Trim(txt_FromDocno.Text) & "'"
+                gconnection.getDataSet(sqlstring, "GRNHEADER")
+                If gdataset.Tables("GRNHEADER").Rows.Count > 0 Then
+                    Me.txt_FromDocno.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("GRNDETAILS"))
+                    Me.txt_FromDocno.ReadOnly = True
+                End If
+            Catch
+                Exit Sub
+            End Try
+        End If
+    End Sub
+
+    Private Sub txt_ToDocno_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_ToDocno.Validated
+        If Trim(txt_ToDocno.Text) <> "" Then
+            Try
+                sqlstring = "SELECT  ISNULL(GRNNO,'') AS GRNNO,ISNULL(GRNDETAILS,'') AS GRNDETAILS"
+                sqlstring = sqlstring & " FROM GRN_HEADER WHERE GRNNO = '" & Format(Val(txt_ToDocno.Text), "0000") & "' OR GRNDETAILS='" & Trim(txt_ToDocno.Text) & "'"
+                gconnection.getDataSet(sqlstring, "GRNHEADER")
+                If gdataset.Tables("GRNHEADER").Rows.Count > 0 Then
+                    Me.txt_ToDocno.Text = Trim(gdataset.Tables("GRNHEADER").Rows(0).Item("GRNDETAILS"))
+                    Me.txt_ToDocno.ReadOnly = True
+                End If
+            Catch
+                Exit Sub
+            End Try
+        End If
+    End Sub
+    Private Sub CMB_CATEGORY_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CMB_CATEGORY.SelectedIndexChanged
+        Try
+            Call FOOTER()
+            If Cmd_Add.Text = "Add [F7]" Then
+                doctype = Trim(CMB_CATEGORY.Text)
+                Call autogenerate()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub cmd_print_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd_print.Click
+        Try
+            ' If MsgBox("Click 'YES' to Windows view or 'NO' to Text view", MsgBoxStyle.YesNo, "Group Master") = MsgBoxResult.Yes Then
+            Dim rViewer As New Viewer
+            Dim sqlstring, SSQL As String
+            Dim r As New Rpt_GrnBill
+            sqlstring = "SELECT ISNULL(PONO,'') AS PONO, ISNULL(GRNDETAILS,'') AS GRNDETAILS,GRNDATE, ISNULL(SUPPLIERCODE,'') AS SUPPLIERCODE, ISNULL(SUPPLIERNAME,'') AS SUPPLIERNAME,"
+            sqlstring = sqlstring & " ISNULL(SUPPLIERINVNO,'') AS SUPPLIERINVNO,  ISNULL(EXCISEPASSNO,'') AS EXCISEPASSNO,ISNULL(GLACCOUNTCODE,'') AS GLACCOUNTCODE,ISNULL(GLACCOUNTNAME,'') AS GLACCOUNTNAME,"
+            sqlstring = sqlstring & " ISNULL(TOTALAMOUNT,0) AS TOTALAMOUNT,ISNULL(VATAMOUNT,0) AS VATAMOUNT,ISNULL(SURCHARGEAMT,0) AS SURCHARGEAMT,ISNULL(DISCOUNT,0) AS DISCOUNT,ISNULL(BILLAMOUNT,0) AS BILLAMOUNT,"
+            sqlstring = sqlstring & " ISNULL(ITEMCODE,'') AS ITEMCODE, ISNULL(ITEMNAME,'') AS ITEMNAME,ISNULL(UOM,'') AS UOM, ISNULL(QTY,0) AS QTY, ISNULL(RATE,0) AS RATE,ISNULL(REMARKS,'') AS REMARKS, "
+            sqlstring = sqlstring & " ISNULL(AMOUNT,0) AS AMOUNT,isnull(discount,0) as ddiscount,isnull(taxper,0) as taxper,isnull(taxamount,0) as taxamount, isnull(OverallDiscount,0) OverallDiscount,ISNULL(UPDFOOTER,'') AS UPDFOOTER,ISNULL(UPDNAME,'') AS UPDNAME,ISNULL(Adddate,'') AS ADDDATE ,ISNULL(UPDATETIME,'') AS UPDATETIME "
+            sqlstring = sqlstring & " FROM VW_INV_GRNBILL "
+            sqlstring = sqlstring & " WHERE GRNDETAILS BETWEEN '" & Trim(txt_Grnno.Text) & "' AND '" & Trim(txt_Grnno.Text) & "'"
+            sqlstring = sqlstring & " ORDER BY AUTOID ,GRNDETAILS,GRNDATE"
+
+            gconnection.getDataSet(sqlstring, "VW_INV_GRNBILL")
+            If gdataset.Tables("VW_INV_GRNBILL").Rows.Count > 0 Then
+                rViewer.ssql = sqlstring
+                rViewer.Report = r
+                rViewer.TableName = "VW_INV_GRNBILL"
+                Dim textobj1 As TextObject
+                textobj1 = r.ReportDefinition.ReportObjects("Text13")
+                textobj1.Text = MyCompanyName
+
+                Dim textobj3 As TextObject
+                textobj3 = r.ReportDefinition.ReportObjects("Text14")
+                textobj3.Text = "PURCHASE RETURN BILL"
+
+
+                Dim textobj2 As TextObject
+                textobj2 = r.ReportDefinition.ReportObjects("Text30")
+                textobj2.Text = gUsername
+                rViewer.Show()
+            Else
+                MessageBox.Show(" No Records To Display ", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation.Information.Information)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : View Click " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+        ''''Try
+        ''''    gPrint = True
+        ''''    Call printoperation()
+        ''''Catch ex As Exception
+        ''''    MessageBox.Show("Plz Check Error : cmd_print_Click " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+        ''''    Exit Sub
+        ''''End Try
+    End Sub
+    Private Sub CMB_CATEGORY_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles CMB_CATEGORY.KeyDown
+        Try
+            If e.KeyCode = Keys.Enter Or e.KeyCode = Keys.Tab Then
+                Call autogenerate()
+                'dtp_Grndate.Focus()
+                If gpocode = "Y" Then
+                    Txt_PONo.Enabled = True
+                    cmd_PONOhelp.Enabled = True
+                    Txt_PONo.Focus()
+                Else
+                    txt_Grnno.Focus()
+                    Txt_PONo.Enabled = False
+                    cmd_PONOhelp.Enabled = False
+                End If
+                'Txt_PONo.Focus()
+                CMB_CATEGORY.Enabled = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : CMB_CATEGORY_KeyDown " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub Cmd_Storecode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cmd_Storecode.Click
+        gSQLString = "SELECT DISTINCT(storecode),storedesc FROM storemaster "
+        M_WhereCondition = " where freeze <> 'Y' "
+        Dim vform As New ListOperattion1
+        vform.Field = "STOREDESC,STORECODE"
+        vform.vFormatstring = "         STORE CODE              |                  STORE DESCRIPTION                                                                                                   "
+        vform.vCaption = "INVENTORY STORE MASTER HELP"
+        vform.KeyPos = 0
+        vform.KeyPos1 = 1
+        vform.ShowDialog(Me)
+        If Trim(vform.keyfield & "") <> "" Then
+            txt_Storecode.Text = Trim(vform.keyfield & "")
+            txt_StoreDesc.Text = Trim(vform.keyfield1 & "")
+            Txt_GLAcIn.Focus()
+        End If
+        vform.Close()
+        vform = Nothing
+    End Sub
+    Private Sub txt_Storecode_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Storecode.Validated
+        Dim I, J, K As Integer
+        Dim vString, sqlstring, Strsql1 As String
+        Dim GRNDATE As Date
+        Dim vTypeseqno, Clsquantity As Double
+        Dim vGroupseqno As Double
+        Dim dt As New DataTable
+        Try
+            J = 0
+            If Mid(CStr(Cmd_Add.Text), 1, 1) = "U" Then
+                Strsql1 = "Select Storecode from Grn_Header  WHERE  GRNDETAILS ='" & Trim(txt_Grnno.Text) & "'"
+                gconnection.getDataSet(Strsql1, "StrDetails")
+                If gdataset.Tables("StrDetails").Rows.Count > 0 Then
+                    If Trim(txt_Storecode.Text) = Trim(gdataset.Tables("StrDetails").Rows(J).Item("StoreCode")) Then
+                        sqlstring = "SELECT * FROM storemaster WHERE storecode='" & Trim(txt_Storecode.Text) & "'"
+                        gconnection.getDataSet(sqlstring, "storemaster")
+                        If gdataset.Tables("storemaster").Rows.Count > 0 Then
+                            txt_Storecode.Text = Trim(gdataset.Tables("storemaster").Rows(0).Item("storecode"))
+                            txt_StoreDesc.Text = Trim(gdataset.Tables("storemaster").Rows(0).Item("storedesc"))
+                        End If
+                    Else
+                        sqlstring = "SELECT * FROM storemaster WHERE storecode='" & Trim(txt_Storecode.Text) & "'"
+                        gconnection.getDataSet(sqlstring, "storemaster")
+                        If gdataset.Tables("storemaster").Rows.Count > 0 Then
+                            txt_StoreDesc.Text = Trim(gdataset.Tables("storemaster").Rows(0).Item("storedesc"))
+                        End If
+                        Dim vtmpitemcode, strsql, OldStore As String
+                        OldStore = Trim(gdataset.Tables("StrDetails").Rows(J).Item("StoreCode"))
+                        sqlstring = "SELECT ISNULL(ITEMCODE,'') AS ITEMCODE,ISNULL(ITEMNAME,'') AS ITEMNAME,ISNULL(UOM,'') AS UOM,"
+                        sqlstring = sqlstring & " ISNULL(QTY,0) AS QTY,ISNULL(RATE,0) AS RATE,ISNULL(DISCOUNT,0) AS DISCOUNT,ISNULL(TAXPER,0) AS TAXPER,ISNULL(TAXAMOUNT,0) AS TAXAMOUNT,ISNULL(AMOUNT,0) AS AMOUNT,ISNULL(CATEGORY,'')AS CATEGORY,"
+                        sqlstring = sqlstring & " ISNULL(DBLAMOUNT,0) AS DBLAMOUNT,ISNULL(DBLUOM,'') AS DBLUOM,ISNULL(HIGHRATIO,0) AS HIGHRATIO,ISNULL(VOIDITEM,'') AS VOIDITEM , isnull(OTHCHARGE,0) AS OTHCHARGE FROM GRN_DETAILS WHERE  GRNDETAILS ='" & Trim(txt_Grnno.Text) & "'"
+                        sqlstring = sqlstring & " ORDER BY AUTOID "
+                        gconnection.getDataSet(sqlstring, "GRNDETAILS")
+                        If gdataset.Tables("GRNDETAILS").Rows.Count > 0 Then
+                            For I = 1 To gdataset.Tables("GRNDETAILS").Rows.Count
+                                vtmpitemcode = Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("ITEMCODE"))
+                                GRNDATE = Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy")
+                                Clsquantity = ClosingQuantity_Date(vtmpitemcode, OldStore, Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("UOM")), GRNDATE)
+                                If Val(Clsquantity) - Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("Qty")) < 0 Then
+                                    MsgBox("Sorry!There is Negative Stock for ItemCode :  " & UCase(vtmpitemcode) & "   If Changing Store  ")
+                                    Cmd_Clear_Click(sender, e)
+                                End If
+                                J = J + 1
+                            Next
+                        End If
+                    End If
+                End If
+            Else
+                If Trim(txt_Storecode.Text) <> "" Then
+                    sqlstring = "SELECT * FROM storemaster WHERE storecode='" & Trim(txt_Storecode.Text) & "'"
+                    gconnection.getDataSet(sqlstring, "storemaster")
+                    If gdataset.Tables("storemaster").Rows.Count > 0 Then
+                        txt_Storecode.Text = Trim(gdataset.Tables("storemaster").Rows(0).Item("storecode"))
+                        txt_StoreDesc.Text = Trim(gdataset.Tables("storemaster").Rows(0).Item("storedesc"))
+                        'Txt_GLAcIn.Focus()
+                        ssgrid.Focus()
+                    End If
+                End If
+            End If
+
+        Catch
+            MessageBox.Show("Check The Error", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+
+    End Sub
+    Private Sub txt_Storecode_KeyPress1(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Storecode.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            If Trim(txt_Storecode.Text) = "" Then
+                Call Cmd_Storecode_Click(Cmd_Storecode, e)
+            Else
+                Call txt_Storecode_Validated(sender, e)
+                'Txt_GLAcIn.Focus()
+                ssgrid.Focus()
+            End If
+        End If
+    End Sub
+    Private Sub txt_Storecode_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Storecode.KeyDown
+        If e.KeyCode = Keys.F4 Then
+            If Cmd_Storecode.Enabled = True Then
+                Call Cmd_Storecode_Click(Cmd_Storecode, e)
+            End If
+        End If
+    End Sub
+
+    Private Sub cmd_PONOhelp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd_PONOhelp.Click
+        gSQLString = "SELECT ISNULL(pono,'') AS PONO,ISNULL(podate,'')AS PODATE,ISNULL(podepartment,'') AS PODEPARTMENT FROM PO_HDR"
+        M_WhereCondition = " WHERE FREEZE <> 'Y' "
+        Dim vform As New List_Operation
+        vform.Field = "PONO,PODATE,PODEPARTMENT"
+        vform.vFormatstring1 = "         PONO            |        PODATE         |        PODEPARTMENT                                   "
+        vform.vCaption = "PURCHASE MASTER HELP"
+        vform.KeyPos = 0
+        vform.KeyPos1 = 1
+        vform.ShowDialog(Me)
+
+        If Trim(vform.keyfield & "") <> "" Then
+            Txt_PONo.Text = Trim(vform.keyfield & "")
+            gSQLString = "select * from grn_header where pono = '" & Trim(Txt_PONo.Text) & "'"
+            gconnection.getDataSet(gSQLString, "GrnHdr")
+            If gdataset.Tables("GrnHdr").Rows.Count > 0 Then
+                Txt_PONo.Text = Trim(gdataset.Tables("GrnHdr").Rows(0).Item("pono"))
+                txt_Grnno.Text = Trim(gdataset.Tables("GrnHdr").Rows(0).Item("grndetails"))
+                ssgrid.ClearRange(1, 1, -1, -1, True)
+                Call txt_Grnno_Validated(txt_Grnno.Text, e)
+                txt_Grnno.Focus()
+            Else
+                ssgrid.ClearRange(1, 1, -1, -1, True)
+                Call Txt_PONo_Validated(Txt_PONo.Text, e)
+                Call Calculate()
+            End If
+        End If
+        'Call Grid_lock()
+        vform.Close()
+        vform = Nothing
+        'txt_PONo.Focus()
+        Cmd_Freeze.Enabled = True
+    End Sub
+    Private Sub Txt_PONo_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_PONo.Validated
+        Dim strsql As String
+        Dim totAmt, Discnt, itemRate, itemQty, tempDisc As Double
+        Dim sqlstring, financalyear As String
+        Dim voucherno As String
+        Dim CreditDebit As String
+        Dim i, j As Integer
+        Dim amount As Double
+        Dim accounthead, slhead, costhead As String
+
+        PoNumber = Nothing
+
+        If Trim(Me.Txt_PONo.Text) <> "" Then
+            financalyear = Mid(gFinancalyearStart, 3, 4) & "-" & Mid(gFinancialyearEnd, 3, 4)
+            If Val(Me.Txt_PONo.Text) > 0 Then
+                Me.Txt_PONo.Text = doctype & "/" & Format(Val(Me.Txt_PONo.Text), "000000") & "/" & financalyear
+            End If
+            PoNumber = Trim(Me.Txt_PONo.Text)
+        End If
+
+        strsql = " select * from grn_header where pono = '" & Trim(Me.Txt_PONo.Text) & "' "
+        gconnection.getDataSet(strsql, "grnhdrchk")
+        If gdataset.Tables("grnhdrchk").Rows.Count > 0 Then
+            Me.txt_Grnno.Text = Trim(gdataset.Tables("grnhdrchk").Rows(0).Item("grndetails"))
+            Call txt_Grnno_Validated(txt_Grnno.Text, e)
+            txt_Grnno.Focus()
+        ElseIf Trim(Txt_PONo.Text) <> "" Then
+            strsql = "SELECT * FROM PO_HDR WHERE pono='" & Trim(Txt_PONo.Text) & "'"
+            strsql = strsql & " AND FREEZE <> 'Y' "
+            gconnection.getDataSet(strsql, "PO_HDR")
+            If gdataset.Tables("PO_HDR").Rows.Count > 0 Then
+                Txt_PONo.Text = Trim(gdataset.Tables("PO_HDR").Rows(0).Item("PONO"))
+                txt_Remarks.Text = Trim(gdataset.Tables("PO_HDR").Rows(0).Item("POremarks"))
+                'Cbo_PODate.Text = Trim(gdataset.Tables("PO_HDR").Rows(0).Item("PODATE"))
+
+                strsql = " SELECT * FROM STOREMASTER WHERE STOREDESC = '" & Trim(gdataset.Tables("PO_HDR").Rows(0).Item("PODepartment")) & "'"
+                gconnection.getDataSet(strsql, "STORECOD")
+                If gdataset.Tables("storecod").Rows.Count > 0 Then
+                    txt_Storecode.Text = Trim(gdataset.Tables("storecod").Rows(0).Item("storecode"))
+                    txt_StoreDesc.Text = Trim(gdataset.Tables("storecod").Rows(0).Item("storedesc"))
+                End If
+                txt_Supplierinvno.Text = Trim(gdataset.Tables("PO_HDR").Rows(0).Item("POquotno"))
+                txt_Suppliercode.Text = Trim(gdataset.Tables("PO_HDR").Rows(0).Item("povendorcode"))
+
+                strsql = "SELECT ISNULL(VENDORCODE,0) AS VENDORCODE, ISNULL(VENDORNAME,'') AS VENDORNAME FROM PO_VIEW_VENDORMASTER WHERE VENDORCODE = '" & Trim(txt_Suppliercode.Text) & "' "
+                gconnection.getDataSet(strsql, "accountssubledgermaster")
+                txt_Suppliername.Text = Trim(gdataset.Tables("accountssubledgermaster").Rows(0).Item("vendorname"))
+                Txt_PONo.ReadOnly = True
+                If gdataset.Tables("PO_HDR").Rows(0).Item("Freeze") = "Y" Then
+                    Me.lbl_Freeze.Visible = True
+                    Me.lbl_Freeze.Text = ""
+                    Me.lbl_Freeze.Text = "Record Freezed  On " & Format(CDate(gdataset.Tables("PO_HDR").Rows(0).Item("AddDatetime")), "dd/MMM/yyyy")
+                    Me.Cmd_Freeze.Text = "UnFreeze[F8]"
+                Else
+                    Me.lbl_Freeze.Visible = False
+                    Me.lbl_Freeze.Text = "Record Freezed  On "
+                    Me.Cmd_Freeze.Text = "Freeze[F8]"
+                End If
+                'Me.Cmd_Add.Text = "Update[F7]"
+
+                '----------------------ITEMDETAILS RETRIEVE----------------------------
+                strsql = "SELECT * FROM PO_ITEMDETAILS WHERE pono='" & Trim(Txt_PONo.Text) & "' ORDER BY AUTOID "
+                gconnection.getDataSet(strsql, "PO_ITEMDETAILS")
+                If gdataset.Tables("PO_ITEMDETAILS").Rows.Count > 0 Then
+                    Dim count, temp, tcode As String
+                    For i = 0 To gdataset.Tables("PO_ITEMDETAILS").Rows.Count - 1
+                        tcode = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("itemcode")
+                        'LIN
+                        strsql = "SELECT itemcode,itemname,STOCKuom FROM PO_VIEW_ITEMMASTER "
+                        strsql = strsql & "WHERE itemcode='" & Trim(tcode) & "' "
+                        gconnection.getDataSet(strsql, "inventoryitemmaster")
+                        count = gdataset.Tables("PO_ITEMDETAILS").Rows.Count
+                        With ssgrid
+                            .Row = i + 1
+                            .Col = 1
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("itemcode")
+
+                            .Col = 2
+                            .Text = gdataset.Tables("inventoryitemmaster").Rows(0).Item("itemname")
+
+                            .Col = 3
+                            .Text = gdataset.Tables("inventoryitemmaster").Rows(0).Item("STOCKUOM")
+
+                            .Col = 4
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("quantity")
+                            itemQty = .Text
+
+                            .Col = 5
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("rate")
+                            .CellType = FPSpreadADO.CellTypeConstants.CellTypeFloat
+                            itemRate = .Text
+
+                            .Col = 6
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("DISCAMT")
+                            Discnt = Discnt + .Text
+
+                            .Col = 7
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("vat")
+
+                            .Col = 9
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("total")
+                            totAmt = totAmt + gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("AMOUNT")
+                            .Col = 8
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("VATAMT")
+                            .Col = 9
+                            .Text = gdataset.Tables("PO_ITEMDETAILS").Rows(i).Item("AMOUNT")
+                        End With
+                    Next
+                    txt_Discountamt.Text = Format(Val(Discnt), "0.00") ' + Val(Trim(gdataset.Tables("PO_HDR").Rows(0).Item("pototaldiscount"))), "0.00")
+                    TXT_OVERALLdiscount.Text = Format(Val(Trim(gdataset.Tables("PO_HDR").Rows(0).Item("POoveralldisc"))), "0.00")
+                    'txt_Totalamt.Text = Format(Val(totAmt), "0.00")
+                    Dim OTHER_taxes As Double
+                    OTHER_taxes = 0
+                    OTHER_taxes = OTHER_taxes + Val(gdataset.Tables("PO_HDR").Rows(0).Item("POED")) * totAmt / 100
+                    OTHER_taxes = OTHER_taxes + Val(gdataset.Tables("PO_HDR").Rows(0).Item("POCST")) * totAmt / 100
+                    OTHER_taxes = OTHER_taxes + Val(gdataset.Tables("PO_HDR").Rows(0).Item("POMODVAT")) * totAmt / 100
+                    OTHER_taxes = OTHER_taxes + Val(gdataset.Tables("PO_HDR").Rows(0).Item("POPTAX")) * totAmt / 100
+                    OTHER_taxes = OTHER_taxes + Val(gdataset.Tables("PO_HDR").Rows(0).Item("POOCTRA")) * totAmt / 100
+                    OTHER_taxes = OTHER_taxes + Val(gdataset.Tables("PO_HDR").Rows(0).Item("POINSURANCE")) * totAmt / 100
+                    OTHER_taxes = OTHER_taxes + Val(gdataset.Tables("PO_HDR").Rows(0).Item("POLST")) * totAmt / 100
+
+                    txt_Surchargeamt.Text = Format(Val(Trim(gdataset.Tables("PO_HDR").Rows(0).Item("POTRANSPORT"))) + Val(Trim(gdataset.Tables("PO_HDR").Rows(0).Item("POCF"))) + Val(Trim(gdataset.Tables("PO_HDR").Rows(0).Item("PODELIVERYAMT"))) + Val(OTHER_taxes), "0.00")
+                    Discnt = 0 : totAmt = 0
+                End If
+            End If
+            txt_Grnno.Focus()
+        End If
+    End Sub
+    Private Sub Txt_PONo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Txt_PONo.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            If Txt_PONo.Text = "" Then
+                Call cmd_PONOhelp_Click(Txt_PONo, e)
+            Else
+                Call Txt_PONo_Validated(Txt_PONo, e)
+                Call Calculate()
+            End If
+        End If
+    End Sub
+    Private Function Grid_lock()
+        Dim i, j As Integer
+        For i = 1 To ssgrid.DataRowCnt
+            ssgrid.Row = i
+            For j = 1 To ssgrid.MaxCols
+                ssgrid.Col = j
+                ssgrid.Lock = True
+            Next
+        Next
+    End Function
+
+    Private Sub TXT_OVERALLdiscount_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TXT_OVERALLdiscount.TextChanged
+        Try
+            If Val(TXT_OVERALLdiscount.Text) <> 0 Then
+                txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_OverallDiscount_TextChanged" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub TXT_OVERALLdiscount_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TXT_OVERALLdiscount.KeyPress
+        Try
+            Call getNumeric(e)
+            If Asc(e.KeyChar) = 13 Then
+                Cmd_Add.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_Discountamt_KeyPress " & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub TXT_OVERALLdiscount_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TXT_OVERALLdiscount.LostFocus
+        Try
+            TXT_OVERALLdiscount.Text = Format(Val(TXT_OVERALLdiscount.Text), "0.00")
+            If Val(TXT_OVERALLdiscount.Text) <> 0 Then
+                txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Plz Check Error : txt_OverallDiscount_lostfocus" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub calc_billamt()
+        txt_Billamount.Text = Format(Val(txt_Totalamt.Text) + Val(txt_Vatamount.Text) + Val(txt_Surchargeamt.Text) - Val(txt_Discountamt.Text) - Val(TXT_OVERALLdiscount.Text), "0.00")
+    End Sub
+    Private Sub Txt_PONo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_PONo.GotFocus
+        Txt_PONo.BackColor = Color.Gold
+    End Sub
+
+    Private Sub Txt_PONo_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_PONo.LostFocus
+        Txt_PONo.BackColor = Color.Wheat
+    End Sub
+
+    Private Sub txt_Grnno_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Grnno.GotFocus
+        txt_Grnno.BackColor = Color.Gold
+        Label14.Visible = True
+    End Sub
+
+    Private Sub txt_Grnno_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Grnno.LostFocus
+        txt_Grnno.BackColor = Color.Wheat
+        Label14.Visible = False
+    End Sub
+
+    Private Sub txt_Supplierinvno_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Supplierinvno.GotFocus
+        txt_Supplierinvno.BackColor = Color.Gold
+    End Sub
+
+    Private Sub txt_Suppliername_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Suppliername.GotFocus
+        txt_Suppliername.BackColor = Color.Gold
+    End Sub
+
+    Private Sub txt_Suppliername_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Suppliername.LostFocus
+        txt_Suppliername.BackColor = Color.Wheat
+    End Sub
+
+    Private Sub txt_Storecode_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Storecode.GotFocus
+        txt_Storecode.BackColor = Color.Gold
+        Label15.Visible = True
+    End Sub
+
+    Private Sub txt_Storecode_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Storecode.LostFocus
+        txt_Storecode.BackColor = Color.Wheat
+        Label15.Visible = False
+    End Sub
+
+    Private Sub Txt_GLAcIn_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_GLAcIn.GotFocus
+        Txt_GLAcIn.BackColor = Color.Gold
+        Label17.Visible = True
+    End Sub
+
+    Private Sub Txt_GLAcIn_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_GLAcIn.LostFocus
+        Txt_GLAcIn.BackColor = Color.Wheat
+        Label17.Visible = False
+    End Sub
+
+    Private Sub Txt_Slcode_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_Slcode.GotFocus
+        Txt_Slcode.BackColor = Color.Gold
+        Label18.Visible = True
+    End Sub
+
+    Private Sub Txt_Slcode_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_Slcode.LostFocus
+        Txt_Slcode.BackColor = Color.Wheat
+        Label18.Visible = False
+    End Sub
+
+    Private Sub Txt_CostCenterCode_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_CostCenterCode.GotFocus
+        Txt_CostCenterCode.BackColor = Color.Gold
+        Label19.Visible = True
+    End Sub
+
+    Private Sub Txt_CostCenterCode_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Txt_CostCenterCode.LostFocus
+        Txt_CostCenterCode.BackColor = Color.Wheat
+        Label19.Visible = False
+    End Sub
+
+    Private Sub cmd_Post_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd_Post.Click
+        Dim STRSQL As String
+        Call checkValidation() '''--->Check Validation
+        ' Call billingterms()
+        If boolchk = False Then Exit Sub
+        Me.Cursor = Cursors.WaitCursor
+        STRSQL = "EXEC PJV_POSTING_DIR " & "'" & Trim(txt_Grnno.Text) & "','P'"
+        VCONN.dataOperation(6, STRSQL, "ACCOUNTPOSTING")
+        Me.Cursor = Cursors.Default
+        MsgBox("ACCOUNT POSTING DONE SUCCESSFULLY", MsgBoxStyle.Exclamation, "SUCCESS")
+        Call Cmd_Clear_Click(sender, e)
+    End Sub
+
+    Private Sub Chk_item_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Chk_item.CheckedChanged
+        If Chk_item.Checked = True Then
+            grp_footer.Visible = True
+            Txt_footer.Focus()
+        Else
+            grp_footer.Visible = False
+        End If
+    End Sub
+
+    Private Sub Txt_footer_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Txt_footer.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            If Trim(Txt_footer.Text) <> "" Then
+                Txt_signature.Focus()
+            Else
+                Txt_footer.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub Txt_signature_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Txt_signature.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            Chk_item.Focus()
+        End If
+    End Sub
+
+    Private Sub txt_Suppliercode_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Suppliercode.GotFocus
+        txt_Suppliercode.BackColor = Color.Gold
+        Label16.Visible = True
+    End Sub
+
+    Private Sub txt_Suppliercode_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Suppliercode.LostFocus
+        txt_Suppliercode.BackColor = Color.Wheat
+        Label16.Visible = False
+    End Sub
+
+    Private Sub ssgrid_Advance(ByVal sender As System.Object, ByVal e As AxFPSpreadADO._DSpreadEvents_AdvanceEvent) Handles ssgrid.Advance
+
+    End Sub
+
+    Private Sub txt_Grnno_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Grnno.TextChanged
+
+    End Sub
+
+    Private Sub ssgrid_KeyPressEvent(ByVal sender As Object, ByVal e As AxFPSpreadADO._DSpreadEvents_KeyPressEvent) Handles ssgrid.KeyPressEvent
+
+    End Sub
+
+    Private Sub txt_Storecode_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Storecode.TextChanged
+
+    End Sub
+
+    
+    Private Sub lbl_Heading_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_Heading.Click
+
+    End Sub
+
+    Private Sub chk_excel_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chk_excel.CheckedChanged
+
+    End Sub
+
+    Private Sub cmd_export_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd_export.Click
+        Dim sqlstring As String
+        Dim _export As New EXPORT
+        _export.TABLENAME = "VW_INV_GRNBILL"
+        sqlstring = "select * from VW_INV_GRNBILL WHERE GRNDETAILS LIKE 'PRN%'"
+        Call _export.export_excel(sqlstring)
+        _export.Show()
+        Exit Sub
+    End Sub
+
+    Private Sub btn_auth_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_auth.Click
+        Authocheck("INVENTORY", "GRN Cum Purchase Bill", gUsername, "GRN_DETAILS", "GRNDETAILS", Me)
+
+    End Sub
+
+   
+End Class

@@ -1,0 +1,1320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC9B4A45-070B-4101-9290-220219E4FA5F}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Customise.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>Inventory</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>Inventory</RootNamespace>
+    <StartupObject>Inventory.Form1</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Inventory.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Inventory.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <COMReference Include="AxFPSpreadADO">
+      <Guid>{F856EC8B-F03C-4515-BDC6-64CBD617566A}</Guid>
+      <VersionMajor>7</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+    </COMReference>
+    <COMReference Include="AxFPUSpreadADO">
+      <Guid>{B9411660-10E6-4A53-BE96-7FED334704FA}</Guid>
+      <VersionMajor>7</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+    </COMReference>
+    <COMReference Include="AxMSFlexGridLib">
+      <Guid>{5E9E78A0-531B-11CF-91F6-C2863C385E30}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+    </COMReference>
+    <COMReference Include="FPSpreadADO">
+      <Guid>{F856EC8B-F03C-4515-BDC6-64CBD617566A}</Guid>
+      <VersionMajor>7</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+    <COMReference Include="FPUSpreadADO">
+      <Guid>{B9411660-10E6-4A53-BE96-7FED334704FA}</Guid>
+      <VersionMajor>7</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+    <COMReference Include="MSDATASRC">
+      <Guid>{7C0FFAB0-CD84-11D0-949A-00A0C91110ED}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <COMReference Include="MSFlexGridLib">
+      <Guid>{5E9E78A0-531B-11CF-91F6-C2863C385E30}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="All Reports Class\rptABCSummary.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptBarStockposition.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptGrncumpurchase.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptGrncumpurchaseNote.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptInputTax.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptIssuedetailsreport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptIssueRegisterreport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptIssuesummary.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptMainstockpositionreport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptMainstocksummary.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptPurchaseItemwise_NIZAM.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptPurchaseregisterreport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptPurchaseregistersummary.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptPurchaseregistersummary_RECON.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptPurchasesummary_NIZAM.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptRolSummary.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockadjustment.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockadjustmentreport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockIssuedetails.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockIssueregister.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockissuereport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockledgermainstock.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockledgermainstockreport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockPurchaseregister.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockPurchaseregister_Recon.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockregister.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockSummary.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStockSummaryminus.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="All Reports Class\rptStocktransferreport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Crystal Reports\CrystalReport1.vb">
+      <DependentUpon>Rpt_Indentwise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\CrystalReport11.vb">
+      <DependentUpon>Rpt_Itemwise_Issue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\CrystalReport12.vb">
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Dataset1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dataset1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Crystal Reports\outdetails123.vb">
+      <DependentUpon>outdetails123.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\ReportViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_ABC_Summary.vb">
+      <DependentUpon>Rpt_ABC_Summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_AccountsSubLedgerMaster.vb">
+      <DependentUpon>Rpt_AccountsSubLedgerMaster.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_ConsolidatedSummary.vb">
+      <DependentUpon>Rpt_ConsolidatedSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_deptwise.vb">
+      <DependentUpon>Rpt_deptwise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_GrnBill.vb">
+      <DependentUpon>Rpt_GrnBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_GrnBill_RSI.vb">
+      <DependentUpon>Rpt_GrnBill_RSI.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_GroupMaster.vb">
+      <DependentUpon>Rpt_GroupMaster.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_Indentbill .vb">
+      <DependentUpon>Rpt_Indentbill .rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_IndentIssue .vb">
+      <DependentUpon>Rpt_IndentIssue .rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_InDetails.vb">
+      <DependentUpon>Rpt_InDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_InDetails_item.vb">
+      <DependentUpon>Rpt_InDetails_item.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_InputTax.vb">
+      <DependentUpon>Rpt_InputTax.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_IssueDetails.vb">
+      <DependentUpon>Rpt_IssueDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_IssueDetails_item.vb">
+      <DependentUpon>Rpt_IssueDetails_item.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_IssueRegister.vb">
+      <DependentUpon>Rpt_IssueRegister.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_IssueSummary.vb">
+      <DependentUpon>Rpt_IssueSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_ItemMaster.vb">
+      <DependentUpon>Rpt_ItemMaster.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_Itemmaster_stk.vb">
+      <DependentUpon>Rpt_Itemmaster_stk.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_Itemwise_monthly_issue.vb">
+      <DependentUpon>Rpt_Itemwise_monthly_issue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_OutDetails.vb">
+      <DependentUpon>Rpt_OutDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_OutDetails_item.vb">
+      <DependentUpon>Rpt_OutDetails_item.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_Pending_Indent.vb">
+      <DependentUpon>Rpt_Pending_Indent.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_Pending_Purchase.vb">
+      <DependentUpon>Rpt_Pending_Purchase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_PurchaseRegister.vb">
+      <DependentUpon>Rpt_PurchaseRegister.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_PurchaseRegister_Det.vb">
+      <DependentUpon>Rpt_PurchaseRegister_Det.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_PurchaseRegister_Supplier.vb">
+      <DependentUpon>Rpt_PurchaseRegister_Supplier.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_PurRegister_Item.vb">
+      <DependentUpon>Rpt_PurRegister_Item.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_ROL_Summary.vb">
+      <DependentUpon>Rpt_ROL_Summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StkadjBill .vb">
+      <DependentUpon>Rpt_StkadjBill .rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StkDMGBill.vb">
+      <DependentUpon>Rpt_StkDMGBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StkInBill.vb">
+      <DependentUpon>Rpt_StkInBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StkOutBill.vb">
+      <DependentUpon>Rpt_StkOutBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StktrfBill .vb">
+      <DependentUpon>Rpt_StktrfBill .rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_stk_catsummary.vb">
+      <DependentUpon>Rpt_stk_catsummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_stk_issuesummary.vb">
+      <DependentUpon>Rpt_stk_issuesummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_stk_summary.vb">
+      <DependentUpon>Rpt_stk_summary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_stk_summaryCATH.vb">
+      <DependentUpon>Rpt_stk_summaryCATH.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_stk_summary_total1.vb">
+      <DependentUpon>Rpt_stk_summary_total.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StockAjustment.vb">
+      <DependentUpon>Rpt_StockAjustment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StockDMG.vb">
+      <DependentUpon>Rpt_StockDMG.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StockIn.vb">
+      <DependentUpon>Rpt_StockIn.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StockLedger.vb">
+      <DependentUpon>Rpt_StockLedger.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StockOut.vb">
+      <DependentUpon>Rpt_StockOut.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StockTransfer.vb">
+      <DependentUpon>Rpt_StockTransfer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_StoreMaster.vb">
+      <DependentUpon>Rpt_StoreMaster.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_SubgroupMaster.vb">
+      <DependentUpon>Rpt_SubgroupMaster.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Crystal Reports\Rpt_UOMMaster.vb">
+      <DependentUpon>Rpt_UOMMaster.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Global Class\CompanyList1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\frmListSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\frmSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\frmSearch_Advanced.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\GlobalClass.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global Class\GlobalFunction.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global Class\GlobalVariables.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global Class\List Operation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\ListOperattion1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\Main MDI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\MainModules.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global Class\Memberhelp1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\ReportDesigner.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\StockIssueRate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\SubStoreConsumption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\SubStoreConsumption_RSI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\UserAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global Class\YearEndConversion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\shutdown.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\WELCOME TO CLUBMAN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Welcome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\ACCOUNTSITEMTAGGING.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\BillingMaterial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\BOM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\CONSUMERMASTER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\Group Master.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\Item Master.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\LinkSetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\Store Master.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\Sub Group Master.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\Sub Sub Group Master.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\SUBLEDGERMASTER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\SUBSTORE Item Master.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\UOMMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\VendorMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\Version_Master.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ABC_Summary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\EXPORT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\exportexcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmBarstockposition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmCATStockSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmCocktailratiochart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmConsolidatedSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmConsolidatedSummary_RSI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmInputTax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmMainstocksummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPurchase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPurchaseregister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPurchaseregister_Recon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmRatiochart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStkLedger_grid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockadjustmentreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockDMGreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockInreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockledgermainstock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockOutreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockreturnreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockSummary_excep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockSummary_old.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStockSummary_Tot.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStocktransferreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\GridDesign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Indent_Register.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Issue Details.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Issue Register.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\IssueSmmary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PendingIndent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ROL_Summary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Stock Ledger.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transactions\Cock Tail Ratio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\GJV_JournalRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\GRN Cum Purchase Bill_CATHOLIC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\GRN Cum Purchase Bill_COMMON.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\GRN Cum Purchase Bill_CSC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\GRN Cum Purchase Bill_CSC_PO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\JournalRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\MJV_JournalRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\PurchaseReturn Bill.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\SJV_JournalRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock Adjustment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock Damage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock DMG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock In.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock Issue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock Issue_Indent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock Issue_WithoutIndent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock Out.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\Stock Transfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\StockConsumption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\StockIndent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Content Include="Crystal Reports\Dataset1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dataset1.Designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="Customise.ico" />
+    <EmbeddedResource Include="Crystal Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport12.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\outdetails123.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>outdetails123.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\ReportViewer.resx">
+      <DependentUpon>ReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_ABC_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_ABC_Summary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_AccountsSubLedgerMaster.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_AccountsSubLedgerMaster.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_ConsolidatedSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_ConsolidatedSummary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_deptwise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_deptwise.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_GrnBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_GrnBill.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_GrnBill_RSI.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_GrnBill_RSI.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_GroupMaster.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_GroupMaster.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_Indentbill .rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Indentbill .vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_IndentIssue .rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IndentIssue .vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_Indentwise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_InDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InDetails.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_InDetails_item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InDetails_item.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_InputTax.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InputTax.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_IssueDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IssueDetails.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_IssueDetails_item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IssueDetails_item.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_IssueRegister.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IssueRegister.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_IssueSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IssueSummary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_ItemMaster.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_ItemMaster.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_Itemmaster_stk.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Itemmaster_stk.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_Itemwise_Issue.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport11.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_Itemwise_monthly_issue.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Itemwise_monthly_issue.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_OutDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OutDetails.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_OutDetails_item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OutDetails_item.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_Pending_Indent.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Pending_Indent.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_Pending_Purchase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Pending_Purchase.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_PurchaseRegister.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PurchaseRegister.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_PurchaseRegister_Det.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PurchaseRegister_Det.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_PurchaseRegister_Supplier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PurchaseRegister_Supplier.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_PurRegister_Item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PurRegister_Item.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_ROL_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_ROL_Summary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StkadjBill .rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StkadjBill .vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StkDMGBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StkDMGBill.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StkInBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StkInBill.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StkOutBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StkOutBill.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StktrfBill .rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StktrfBill .vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_stk_catsummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_stk_catsummary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_stk_issuesummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_stk_issuesummary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_stk_summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_stk_summary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_stk_summaryCATH.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_stk_summaryCATH.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_stk_summary_total.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_stk_summary_total1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StockAjustment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StockAjustment.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StockDMG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StockDMG.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StockIn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StockIn.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StockLedger.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StockLedger.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StockOut.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StockOut.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StockTransfer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StockTransfer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_StoreMaster.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_StoreMaster.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_SubgroupMaster.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_SubgroupMaster.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crystal Reports\Rpt_UOMMaster.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_UOMMaster.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\CompanyList1.resx">
+      <DependentUpon>CompanyList1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\frmListSearch.resx">
+      <DependentUpon>frmListSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\frmSearch.resx">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\frmSearch_Advanced.resx">
+      <DependentUpon>frmSearch_Advanced.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\List Operation.resx">
+      <DependentUpon>List Operation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\ListOperattion1.resx">
+      <DependentUpon>ListOperattion1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\Main MDI.resx">
+      <DependentUpon>Main MDI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\Memberhelp1.resx">
+      <DependentUpon>Memberhelp1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\ReportDesigner.resx">
+      <DependentUpon>ReportDesigner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\StockIssueRate.resx">
+      <DependentUpon>StockIssueRate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\SubStoreConsumption.resx">
+      <DependentUpon>SubStoreConsumption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\SubStoreConsumption_RSI.resx">
+      <DependentUpon>SubStoreConsumption_RSI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\UserAdmin.resx">
+      <DependentUpon>UserAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global Class\YearEndConversion.resx">
+      <DependentUpon>YearEndConversion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\shutdown.resx">
+      <DependentUpon>shutdown.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\WELCOME TO CLUBMAN.resx">
+      <DependentUpon>WELCOME TO CLUBMAN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Welcome.resx">
+      <DependentUpon>Welcome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\ACCOUNTSITEMTAGGING.resx">
+      <DependentUpon>ACCOUNTSITEMTAGGING.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\BillingMaterial.resx">
+      <DependentUpon>BillingMaterial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\BOM.resx">
+      <DependentUpon>BOM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\CONSUMERMASTER.resx">
+      <DependentUpon>CONSUMERMASTER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\Group Master.resx">
+      <DependentUpon>Group Master.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\Item Master.resx">
+      <DependentUpon>Item Master.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\LinkSetup.resx">
+      <DependentUpon>LinkSetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\Store Master.resx">
+      <DependentUpon>Store Master.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\Sub Group Master.resx">
+      <DependentUpon>Sub Group Master.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\Sub Sub Group Master.resx">
+      <DependentUpon>Sub Sub Group Master.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\SUBLEDGERMASTER.resx">
+      <DependentUpon>SUBLEDGERMASTER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\SUBSTORE Item Master.resx">
+      <DependentUpon>SUBSTORE Item Master.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\UOMMaster.resx">
+      <DependentUpon>UOMMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\VendorMaster.resx">
+      <DependentUpon>VendorMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\Version_Master.resx">
+      <DependentUpon>Version_Master.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ABC_Summary.resx">
+      <DependentUpon>ABC_Summary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EXPORT.resx">
+      <DependentUpon>EXPORT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\exportexcel.resx">
+      <DependentUpon>exportexcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmBarstockposition.resx">
+      <DependentUpon>frmBarstockposition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmCATStockSummary.resx">
+      <DependentUpon>frmCATStockSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmCocktailratiochart.resx">
+      <DependentUpon>frmCocktailratiochart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmConsolidatedSummary.resx">
+      <DependentUpon>frmConsolidatedSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmConsolidatedSummary_RSI.resx">
+      <DependentUpon>frmConsolidatedSummary_RSI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmInputTax.resx">
+      <DependentUpon>frmInputTax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmMainstocksummary.resx">
+      <DependentUpon>frmMainstocksummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPurchase.resx">
+      <DependentUpon>frmPurchase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPurchaseregister.resx">
+      <DependentUpon>frmPurchaseregister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPurchaseregister_Recon.resx">
+      <DependentUpon>frmPurchaseregister_Recon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRatiochart.resx">
+      <DependentUpon>frmRatiochart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStkLedger_grid.resx">
+      <DependentUpon>frmStkLedger_grid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockadjustmentreport.resx">
+      <DependentUpon>frmStockadjustmentreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockDMGreport.resx">
+      <DependentUpon>frmStockDMGreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockInreport.resx">
+      <DependentUpon>frmStockInreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockledgermainstock.resx">
+      <DependentUpon>frmStockledgermainstock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockOutreport.resx">
+      <DependentUpon>frmStockOutreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockreturnreport.resx">
+      <DependentUpon>frmStockreturnreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockSummary.resx">
+      <DependentUpon>frmStockSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockSummary_excep.resx">
+      <DependentUpon>frmStockSummary_excep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockSummary_old.resx">
+      <DependentUpon>frmStockSummary_old.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStockSummary_Tot.resx">
+      <DependentUpon>frmStockSummary_Tot.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStocktransferreport.resx">
+      <DependentUpon>frmStocktransferreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GridDesign.resx">
+      <DependentUpon>GridDesign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Indent_Register.resx">
+      <DependentUpon>Indent_Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Issue Details.resx">
+      <DependentUpon>Issue Details.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Issue Register.resx">
+      <DependentUpon>Issue Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IssueSmmary.resx">
+      <DependentUpon>IssueSmmary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PendingIndent.resx">
+      <DependentUpon>PendingIndent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ROL_Summary.resx">
+      <DependentUpon>ROL_Summary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Stock Ledger.resx">
+      <DependentUpon>Stock Ledger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Cock Tail Ratio.resx">
+      <DependentUpon>Cock Tail Ratio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\GJV_JournalRegister.resx">
+      <DependentUpon>GJV_JournalRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\GRN Cum Purchase Bill_CATHOLIC.resx">
+      <DependentUpon>GRN Cum Purchase Bill_CATHOLIC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\GRN Cum Purchase Bill_COMMON.resx">
+      <DependentUpon>GRN Cum Purchase Bill_COMMON.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\GRN Cum Purchase Bill_CSC.resx">
+      <DependentUpon>GRN Cum Purchase Bill_CSC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\GRN Cum Purchase Bill_CSC_PO.resx">
+      <DependentUpon>GRN Cum Purchase Bill_CSC_PO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\JournalRegister.resx">
+      <DependentUpon>JournalRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\MJV_JournalRegister.resx">
+      <DependentUpon>MJV_JournalRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\PurchaseReturn Bill.resx">
+      <DependentUpon>PurchaseReturn Bill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\SJV_JournalRegister.resx">
+      <DependentUpon>SJV_JournalRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock Adjustment.resx">
+      <DependentUpon>Stock Adjustment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock Damage.resx">
+      <DependentUpon>Stock Damage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock DMG.resx">
+      <DependentUpon>Stock DMG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock In.resx">
+      <DependentUpon>Stock In.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock Issue.resx">
+      <DependentUpon>Stock Issue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock Issue_Indent.resx">
+      <DependentUpon>Stock Issue_Indent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock Issue_WithoutIndent.resx">
+      <DependentUpon>Stock Issue_WithoutIndent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock Out.resx">
+      <DependentUpon>Stock Out.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\Stock Transfer.resx">
+      <DependentUpon>Stock Transfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\StockConsumption.resx">
+      <DependentUpon>StockConsumption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\StockIndent.resx">
+      <DependentUpon>StockIndent.vb</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Crystal Reports\Dataset1.xsx">
+      <DependentUpon>Dataset1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+    <Service Include="{CF845C55-C321-4742-B673-E6212D061ED9}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,31 @@
+alter table inv_linksetup
+add taxaccountcode	varchar(50),
+DISCaccountcode	varchar(100),
+OTHACCOUNTCODE	varchar(100)
+
+
+create table itemtaxtagging
+(
+ ItemCode	varchar(50),
+Itemname	varchar(200),
+Taxcode	varchar(50),
+Taxdesc	varchar(100),
+taxperc	numeric(18,2),
+GLACCOUNTIN	varchar(100),
+void	varchar(10)
+)
+
+create table accountstagging
+(
+ code	varchar(100),
+description	varchar(50),
+accountcode	varchar(50),
+accountdesc	varchar(100),
+slcode	varchar(50),
+sldesc	varchar(100),
+costcentercode	varchar(50),
+costcenterdesc	varchar(100),
+void	varchar(10),
+tablename	varchar(50),
+colname	varchar(100)
+)

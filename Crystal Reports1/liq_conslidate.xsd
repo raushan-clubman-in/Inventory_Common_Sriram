@@ -1,0 +1,871 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="liq_conslidate" targetNamespace="http://tempuri.org/liq_conslidate.xsd" xmlns:mstns="http://tempuri.org/liq_conslidate.xsd" xmlns="http://tempuri.org/liq_conslidate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="KGA1314NEWConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KGA1314NEWConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory.My.MySettings.GlobalReference.Default.KGA1314NEWConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="INVENTORYITEMMASTERTableAdapter" GeneratorDataComponentClassName="INVENTORYITEMMASTERTableAdapter" Name="INVENTORYITEMMASTER" UserDataComponentName="INVENTORYITEMMASTERTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KGA1314NEWConnectionString (MySettings)" DbObjectName="KGA1314NEW.dbo.INVENTORYITEMMASTER" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[INVENTORYITEMMASTER] ([Autoid], [itemcode], [itemname], [alias], [groupcode], [groupname], [subgroupcode], [subgroupname], [subsubgroupcode], [subsubgroupname], [reorderlevel], [minqty], [maxqty], [valuation], [purchaserate], [salerate], [stockuom], [receiveuom], [saleuom], [leadtime], [doubleuom], [opstock], [opvalue], [convvalue], [Freeze], [TypeCode], [Adduser], [Adddate], [STORECODE], [closingqty], [closingval], [rcptqty], [rcptval], [issueqty], [issueval], [abc], [fsm], [prefix], [wefdate], [stkoption], [binlocation], [category], [selectopt], [STARTDATE], [PEGS], [ml], [PEGSRATE], [OPT], [aprdrqty], [aprdrval], [aprcrqty], [aprcrval], [maydrqty], [maydrval], [maycrqty], [maycrval], [jundrqty], [jundrval], [juncrqty], [juncrval], [juldrqty], [juldrval], [julcrqty], [julcrval], [augdrqty], [augdrval], [augcrqty], [augcrval], [sepdrqty], [sepdrval], [sepcrqty], [sepcrval], [octdrqty], [octdrval], [octcrqty], [octcrval], [novcrqty], [novcrval], [novdrqty], [novdrval], [decdrqty], [decdrval], [deccrqty], [deccrval], [jandrqty], [jandrval], [jancrqty], [jancrval], [febdrqty], [febdrval], [febcrqty], [febcrval], [mardrqty], [mardrval], [marcrqty], [marcrval], [clstock], [clvalue], [eoq], [TAXREBATE], [baserate], [INVITMTransQty], [INVITMTransValue], [INVITMStockUOM], [INVITMTRANSRATE], [Profitper], [FREEQTY], [Ledger], [CASEQTY], [updateuser], [updatetime], [taxper], [stockuomR], [receiveuomR], [doubleuomR], [saleuomR], [InvItmTransQtyR], [InvItmTransValueR], [InvItmStockUomR], [ALTQTY]) VALUES (@Autoid, @itemcode, @itemname, @alias, @groupcode, @groupname, @subgroupcode, @subgroupname, @subsubgroupcode, @subsubgroupname, @reorderlevel, @minqty, @maxqty, @valuation, @purchaserate, @salerate, @stockuom, @receiveuom, @saleuom, @leadtime, @doubleuom, @opstock, @opvalue, @convvalue, @Freeze, @TypeCode, @Adduser, @Adddate, @STORECODE, @closingqty, @closingval, @rcptqty, @rcptval, @issueqty, @issueval, @abc, @fsm, @prefix, @wefdate, @stkoption, @binlocation, @category, @selectopt, @STARTDATE, @PEGS, @ml, @PEGSRATE, @OPT, @aprdrqty, @aprdrval, @aprcrqty, @aprcrval, @maydrqty, @maydrval, @maycrqty, @maycrval, @jundrqty, @jundrval, @juncrqty, @juncrval, @juldrqty, @juldrval, @julcrqty, @julcrval, @augdrqty, @augdrval, @augcrqty, @augcrval, @sepdrqty, @sepdrval, @sepcrqty, @sepcrval, @octdrqty, @octdrval, @octcrqty, @octcrval, @novcrqty, @novcrval, @novdrqty, @novdrval, @decdrqty, @decdrval, @deccrqty, @deccrval, @jandrqty, @jandrval, @jancrqty, @jancrval, @febdrqty, @febdrval, @febcrqty, @febcrval, @mardrqty, @mardrval, @marcrqty, @marcrval, @clstock, @clvalue, @eoq, @TAXREBATE, @baserate, @INVITMTransQty, @INVITMTransValue, @INVITMStockUOM, @INVITMTRANSRATE, @Profitper, @FREEQTY, @Ledger, @CASEQTY, @updateuser, @updatetime, @taxper, @stockuomR, @receiveuomR, @doubleuomR, @saleuomR, @InvItmTransQtyR, @InvItmTransValueR, @InvItmStockUomR, @ALTQTY)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Autoid" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Autoid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@itemcode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="itemcode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@itemname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="itemname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@alias" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="alias" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@groupcode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="groupcode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@groupname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="groupname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@subgroupcode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="subgroupcode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@subgroupname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="subgroupname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@subsubgroupcode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="subsubgroupcode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@subsubgroupname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="subsubgroupname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@reorderlevel" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="reorderlevel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@minqty" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="minqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@maxqty" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="maxqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@valuation" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="valuation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@purchaserate" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="purchaserate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@salerate" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="salerate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@stockuom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="stockuom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@receiveuom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="receiveuom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@saleuom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="saleuom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@leadtime" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="leadtime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@doubleuom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="doubleuom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@opstock" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="opstock" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@opvalue" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="opvalue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@convvalue" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="convvalue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Freeze" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Freeze" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@TypeCode" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="TypeCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Adduser" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Adduser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Adddate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Adddate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@STORECODE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="STORECODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@closingqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="closingqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@closingval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="closingval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@rcptqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="rcptqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@rcptval" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="rcptval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@issueqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="issueqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@issueval" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="issueval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@abc" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="abc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@fsm" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="fsm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@prefix" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="prefix" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@wefdate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="wefdate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@stkoption" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="stkoption" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@binlocation" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="binlocation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@category" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="category" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@selectopt" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="selectopt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@STARTDATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="STARTDATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PEGS" Precision="9" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="PEGS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ml" Precision="12" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="ml" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PEGSRATE" Precision="12" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="PEGSRATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@OPT" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@aprdrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="aprdrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@aprdrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="aprdrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@aprcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="aprcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@aprcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="aprcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@maydrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="maydrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@maydrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="maydrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@maycrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="maycrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@maycrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="maycrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@jundrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="jundrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@jundrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="jundrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@juncrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="juncrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@juncrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="juncrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@juldrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="juldrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@juldrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="juldrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@julcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="julcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@julcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="julcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@augdrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="augdrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@augdrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="augdrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@augcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="augcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@augcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="augcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@sepdrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="sepdrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@sepdrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="sepdrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@sepcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="sepcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@sepcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="sepcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@octdrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="octdrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@octdrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="octdrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@octcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="octcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@octcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="octcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@novcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="novcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@novcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="novcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@novdrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="novdrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@novdrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="novdrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@decdrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="decdrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@decdrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="decdrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@deccrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="deccrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@deccrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="deccrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@jandrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="jandrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@jandrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="jandrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@jancrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="jancrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@jancrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="jancrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@febdrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="febdrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@febdrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="febdrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@febcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="febcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@febcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="febcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@mardrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="mardrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@mardrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="mardrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@marcrqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="marcrqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@marcrval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="marcrval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@clstock" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="clstock" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@clvalue" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="clvalue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@eoq" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="eoq" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TAXREBATE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TAXREBATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@baserate" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="baserate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@INVITMTransQty" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="INVITMTransQty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@INVITMTransValue" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="INVITMTransValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@INVITMStockUOM" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="INVITMStockUOM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@INVITMTRANSRATE" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="INVITMTRANSRATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Profitper" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Profitper" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@FREEQTY" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="FREEQTY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Ledger" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Ledger" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@CASEQTY" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="CASEQTY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@updateuser" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="updateuser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@updatetime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="updatetime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@taxper" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="taxper" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@stockuomR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="stockuomR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@receiveuomR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="receiveuomR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@doubleuomR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="doubleuomR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@saleuomR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="saleuomR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@InvItmTransQtyR" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="InvItmTransQtyR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@InvItmTransValueR" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="InvItmTransValueR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@InvItmStockUomR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="InvItmStockUomR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ALTQTY" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="ALTQTY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Autoid, itemcode, itemname, alias, groupcode, groupname, subgroupcode, subgroupname, subsubgroupcode, subsubgroupname, reorderlevel, minqty, maxqty, valuation, purchaserate, salerate, stockuom, receiveuom, saleuom, leadtime, doubleuom, opstock, opvalue, convvalue, Freeze, TypeCode, Adduser, Adddate, STORECODE, closingqty, closingval, rcptqty, rcptval, issueqty, issueval, abc, fsm, prefix, wefdate, stkoption, binlocation, category, selectopt, STARTDATE, PEGS, ml, PEGSRATE, OPT, aprdrqty, aprdrval, aprcrqty, aprcrval, maydrqty, maydrval, maycrqty, maycrval, jundrqty, jundrval, juncrqty, juncrval, juldrqty, juldrval, julcrqty, julcrval, augdrqty, augdrval, augcrqty, augcrval, sepdrqty, sepdrval, sepcrqty, sepcrval, octdrqty, octdrval, octcrqty, octcrval, novcrqty, novcrval, novdrqty, novdrval, decdrqty, decdrval, deccrqty, deccrval, jandrqty, jandrval, jancrqty, jancrval, febdrqty, febdrval, febcrqty, febcrval, mardrqty, mardrval, marcrqty, marcrval, clstock, clvalue, eoq, TAXREBATE, baserate, INVITMTransQty, INVITMTransValue, INVITMStockUOM, INVITMTRANSRATE, Profitper, FREEQTY, Ledger, CASEQTY, updateuser, updatetime, taxper, stockuomR, receiveuomR, doubleuomR, saleuomR, InvItmTransQtyR, InvItmTransValueR, InvItmStockUomR, ALTQTY FROM dbo.INVENTORYITEMMASTER</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Autoid" DataSetColumn="Autoid" />
+              <Mapping SourceColumn="itemcode" DataSetColumn="itemcode" />
+              <Mapping SourceColumn="itemname" DataSetColumn="itemname" />
+              <Mapping SourceColumn="alias" DataSetColumn="alias" />
+              <Mapping SourceColumn="groupcode" DataSetColumn="groupcode" />
+              <Mapping SourceColumn="groupname" DataSetColumn="groupname" />
+              <Mapping SourceColumn="subgroupcode" DataSetColumn="subgroupcode" />
+              <Mapping SourceColumn="subgroupname" DataSetColumn="subgroupname" />
+              <Mapping SourceColumn="subsubgroupcode" DataSetColumn="subsubgroupcode" />
+              <Mapping SourceColumn="subsubgroupname" DataSetColumn="subsubgroupname" />
+              <Mapping SourceColumn="reorderlevel" DataSetColumn="reorderlevel" />
+              <Mapping SourceColumn="minqty" DataSetColumn="minqty" />
+              <Mapping SourceColumn="maxqty" DataSetColumn="maxqty" />
+              <Mapping SourceColumn="valuation" DataSetColumn="valuation" />
+              <Mapping SourceColumn="purchaserate" DataSetColumn="purchaserate" />
+              <Mapping SourceColumn="salerate" DataSetColumn="salerate" />
+              <Mapping SourceColumn="stockuom" DataSetColumn="stockuom" />
+              <Mapping SourceColumn="receiveuom" DataSetColumn="receiveuom" />
+              <Mapping SourceColumn="saleuom" DataSetColumn="saleuom" />
+              <Mapping SourceColumn="leadtime" DataSetColumn="leadtime" />
+              <Mapping SourceColumn="doubleuom" DataSetColumn="doubleuom" />
+              <Mapping SourceColumn="opstock" DataSetColumn="opstock" />
+              <Mapping SourceColumn="opvalue" DataSetColumn="opvalue" />
+              <Mapping SourceColumn="convvalue" DataSetColumn="convvalue" />
+              <Mapping SourceColumn="Freeze" DataSetColumn="Freeze" />
+              <Mapping SourceColumn="TypeCode" DataSetColumn="TypeCode" />
+              <Mapping SourceColumn="Adduser" DataSetColumn="Adduser" />
+              <Mapping SourceColumn="Adddate" DataSetColumn="Adddate" />
+              <Mapping SourceColumn="STORECODE" DataSetColumn="STORECODE" />
+              <Mapping SourceColumn="closingqty" DataSetColumn="closingqty" />
+              <Mapping SourceColumn="closingval" DataSetColumn="closingval" />
+              <Mapping SourceColumn="rcptqty" DataSetColumn="rcptqty" />
+              <Mapping SourceColumn="rcptval" DataSetColumn="rcptval" />
+              <Mapping SourceColumn="issueqty" DataSetColumn="issueqty" />
+              <Mapping SourceColumn="issueval" DataSetColumn="issueval" />
+              <Mapping SourceColumn="abc" DataSetColumn="abc" />
+              <Mapping SourceColumn="fsm" DataSetColumn="fsm" />
+              <Mapping SourceColumn="prefix" DataSetColumn="prefix" />
+              <Mapping SourceColumn="wefdate" DataSetColumn="wefdate" />
+              <Mapping SourceColumn="stkoption" DataSetColumn="stkoption" />
+              <Mapping SourceColumn="binlocation" DataSetColumn="binlocation" />
+              <Mapping SourceColumn="category" DataSetColumn="category" />
+              <Mapping SourceColumn="selectopt" DataSetColumn="selectopt" />
+              <Mapping SourceColumn="STARTDATE" DataSetColumn="STARTDATE" />
+              <Mapping SourceColumn="PEGS" DataSetColumn="PEGS" />
+              <Mapping SourceColumn="ml" DataSetColumn="ml" />
+              <Mapping SourceColumn="PEGSRATE" DataSetColumn="PEGSRATE" />
+              <Mapping SourceColumn="OPT" DataSetColumn="OPT" />
+              <Mapping SourceColumn="aprdrqty" DataSetColumn="aprdrqty" />
+              <Mapping SourceColumn="aprdrval" DataSetColumn="aprdrval" />
+              <Mapping SourceColumn="aprcrqty" DataSetColumn="aprcrqty" />
+              <Mapping SourceColumn="aprcrval" DataSetColumn="aprcrval" />
+              <Mapping SourceColumn="maydrqty" DataSetColumn="maydrqty" />
+              <Mapping SourceColumn="maydrval" DataSetColumn="maydrval" />
+              <Mapping SourceColumn="maycrqty" DataSetColumn="maycrqty" />
+              <Mapping SourceColumn="maycrval" DataSetColumn="maycrval" />
+              <Mapping SourceColumn="jundrqty" DataSetColumn="jundrqty" />
+              <Mapping SourceColumn="jundrval" DataSetColumn="jundrval" />
+              <Mapping SourceColumn="juncrqty" DataSetColumn="juncrqty" />
+              <Mapping SourceColumn="juncrval" DataSetColumn="juncrval" />
+              <Mapping SourceColumn="juldrqty" DataSetColumn="juldrqty" />
+              <Mapping SourceColumn="juldrval" DataSetColumn="juldrval" />
+              <Mapping SourceColumn="julcrqty" DataSetColumn="julcrqty" />
+              <Mapping SourceColumn="julcrval" DataSetColumn="julcrval" />
+              <Mapping SourceColumn="augdrqty" DataSetColumn="augdrqty" />
+              <Mapping SourceColumn="augdrval" DataSetColumn="augdrval" />
+              <Mapping SourceColumn="augcrqty" DataSetColumn="augcrqty" />
+              <Mapping SourceColumn="augcrval" DataSetColumn="augcrval" />
+              <Mapping SourceColumn="sepdrqty" DataSetColumn="sepdrqty" />
+              <Mapping SourceColumn="sepdrval" DataSetColumn="sepdrval" />
+              <Mapping SourceColumn="sepcrqty" DataSetColumn="sepcrqty" />
+              <Mapping SourceColumn="sepcrval" DataSetColumn="sepcrval" />
+              <Mapping SourceColumn="octdrqty" DataSetColumn="octdrqty" />
+              <Mapping SourceColumn="octdrval" DataSetColumn="octdrval" />
+              <Mapping SourceColumn="octcrqty" DataSetColumn="octcrqty" />
+              <Mapping SourceColumn="octcrval" DataSetColumn="octcrval" />
+              <Mapping SourceColumn="novcrqty" DataSetColumn="novcrqty" />
+              <Mapping SourceColumn="novcrval" DataSetColumn="novcrval" />
+              <Mapping SourceColumn="novdrqty" DataSetColumn="novdrqty" />
+              <Mapping SourceColumn="novdrval" DataSetColumn="novdrval" />
+              <Mapping SourceColumn="decdrqty" DataSetColumn="decdrqty" />
+              <Mapping SourceColumn="decdrval" DataSetColumn="decdrval" />
+              <Mapping SourceColumn="deccrqty" DataSetColumn="deccrqty" />
+              <Mapping SourceColumn="deccrval" DataSetColumn="deccrval" />
+              <Mapping SourceColumn="jandrqty" DataSetColumn="jandrqty" />
+              <Mapping SourceColumn="jandrval" DataSetColumn="jandrval" />
+              <Mapping SourceColumn="jancrqty" DataSetColumn="jancrqty" />
+              <Mapping SourceColumn="jancrval" DataSetColumn="jancrval" />
+              <Mapping SourceColumn="febdrqty" DataSetColumn="febdrqty" />
+              <Mapping SourceColumn="febdrval" DataSetColumn="febdrval" />
+              <Mapping SourceColumn="febcrqty" DataSetColumn="febcrqty" />
+              <Mapping SourceColumn="febcrval" DataSetColumn="febcrval" />
+              <Mapping SourceColumn="mardrqty" DataSetColumn="mardrqty" />
+              <Mapping SourceColumn="mardrval" DataSetColumn="mardrval" />
+              <Mapping SourceColumn="marcrqty" DataSetColumn="marcrqty" />
+              <Mapping SourceColumn="marcrval" DataSetColumn="marcrval" />
+              <Mapping SourceColumn="clstock" DataSetColumn="clstock" />
+              <Mapping SourceColumn="clvalue" DataSetColumn="clvalue" />
+              <Mapping SourceColumn="eoq" DataSetColumn="eoq" />
+              <Mapping SourceColumn="TAXREBATE" DataSetColumn="TAXREBATE" />
+              <Mapping SourceColumn="baserate" DataSetColumn="baserate" />
+              <Mapping SourceColumn="INVITMTransQty" DataSetColumn="INVITMTransQty" />
+              <Mapping SourceColumn="INVITMTransValue" DataSetColumn="INVITMTransValue" />
+              <Mapping SourceColumn="INVITMStockUOM" DataSetColumn="INVITMStockUOM" />
+              <Mapping SourceColumn="INVITMTRANSRATE" DataSetColumn="INVITMTRANSRATE" />
+              <Mapping SourceColumn="Profitper" DataSetColumn="Profitper" />
+              <Mapping SourceColumn="FREEQTY" DataSetColumn="FREEQTY" />
+              <Mapping SourceColumn="Ledger" DataSetColumn="Ledger" />
+              <Mapping SourceColumn="CASEQTY" DataSetColumn="CASEQTY" />
+              <Mapping SourceColumn="updateuser" DataSetColumn="updateuser" />
+              <Mapping SourceColumn="updatetime" DataSetColumn="updatetime" />
+              <Mapping SourceColumn="taxper" DataSetColumn="taxper" />
+              <Mapping SourceColumn="stockuomR" DataSetColumn="stockuomR" />
+              <Mapping SourceColumn="receiveuomR" DataSetColumn="receiveuomR" />
+              <Mapping SourceColumn="doubleuomR" DataSetColumn="doubleuomR" />
+              <Mapping SourceColumn="saleuomR" DataSetColumn="saleuomR" />
+              <Mapping SourceColumn="InvItmTransQtyR" DataSetColumn="InvItmTransQtyR" />
+              <Mapping SourceColumn="InvItmTransValueR" DataSetColumn="InvItmTransValueR" />
+              <Mapping SourceColumn="InvItmStockUomR" DataSetColumn="InvItmStockUomR" />
+              <Mapping SourceColumn="ALTQTY" DataSetColumn="ALTQTY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="STOCKSUMMARYTableAdapter" GeneratorDataComponentClassName="STOCKSUMMARYTableAdapter" Name="STOCKSUMMARY" UserDataComponentName="STOCKSUMMARYTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KGA1314NEWConnectionString (MySettings)" DbObjectName="KGA1314NEW.dbo.STOCKSUMMARY" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[STOCKSUMMARY] ([Itemcode], [Itemname], [Uom], [Valuation], [Opqty], [Oprate], [Opval], [Rcvqty], [Rcvrate], [Rcvval], [Issqty], [Issrate], [Issval], [Clsqty], [Clsrate], [Clsval], [STORECODE], [GROUPCODE], [GROUPNAME], [SUBGROUPCODE], [SUBGROUPNAME], [pegsqty], [pegs], [RCVQTY1], [RCVRATE1], [RCVVAL1], [RCVQTY2], [RCVRATE2], [RCVVAL2], [RCVQTY3], [RCVRATE3], [RCVVAL3], [ISSQTY1], [ISSRATE1], [ISSVAL1], [ISSQTY2], [ISSRATE2], [ISSVAL2], [ISSQTY3], [ISSRATE3], [ISSVAL3], [DISPQTY], [DISPUOM], [opdispqty], [ISDISPQTY], [category], [ADJVAL], [ADJQTY], [Adjrate], [DMGQTY], [DMGVAL], [altqty]) VALUES (@Itemcode, @Itemname, @Uom, @Valuation, @Opqty, @Oprate, @Opval, @Rcvqty, @Rcvrate, @Rcvval, @Issqty, @Issrate, @Issval, @Clsqty, @Clsrate, @Clsval, @STORECODE, @GROUPCODE, @GROUPNAME, @SUBGROUPCODE, @SUBGROUPNAME, @pegsqty, @pegs, @RCVQTY1, @RCVRATE1, @RCVVAL1, @RCVQTY2, @RCVRATE2, @RCVVAL2, @RCVQTY3, @RCVRATE3, @RCVVAL3, @ISSQTY1, @ISSRATE1, @ISSVAL1, @ISSQTY2, @ISSRATE2, @ISSVAL2, @ISSQTY3, @ISSRATE3, @ISSVAL3, @DISPQTY, @DISPUOM, @opdispqty, @ISDISPQTY, @category, @ADJVAL, @ADJQTY, @Adjrate, @DMGQTY, @DMGVAL, @altqty)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Itemcode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Itemcode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Itemname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Itemname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Uom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Uom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Valuation" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Valuation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Opqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="Opqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Oprate" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Oprate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Opval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Opval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Rcvqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="Rcvqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Rcvrate" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Rcvrate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Rcvval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Rcvval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Issqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="Issqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Issrate" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Issrate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Issval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Issval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Clsqty" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="Clsqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Clsrate" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Clsrate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Clsval" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Clsval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@STORECODE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="STORECODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@GROUPCODE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="GROUPCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@GROUPNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="GROUPNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@SUBGROUPCODE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="SUBGROUPCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@SUBGROUPNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="SUBGROUPNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@pegsqty" Precision="12" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="pegsqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@pegs" Precision="12" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="pegs" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVQTY1" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="RCVQTY1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVRATE1" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RCVRATE1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVVAL1" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RCVVAL1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVQTY2" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="RCVQTY2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVRATE2" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RCVRATE2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVVAL2" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RCVVAL2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVQTY3" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="RCVQTY3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVRATE3" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RCVRATE3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RCVVAL3" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RCVVAL3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSQTY1" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="ISSQTY1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSRATE1" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ISSRATE1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSVAL1" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ISSVAL1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSQTY2" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="ISSQTY2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSRATE2" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ISSRATE2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSVAL2" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ISSVAL2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSQTY3" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="ISSQTY3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSRATE3" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ISSRATE3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISSVAL3" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ISSVAL3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DISPQTY" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="DISPQTY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DISPUOM" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DISPUOM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@opdispqty" Precision="12" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="opdispqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ISDISPQTY" Precision="12" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="ISDISPQTY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@category" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="category" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ADJVAL" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ADJVAL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ADJQTY" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="ADJQTY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Adjrate" Precision="18" ProviderType="Decimal" Scale="3" Size="0" SourceColumn="Adjrate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DMGQTY" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="DMGQTY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DMGVAL" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="DMGVAL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@altqty" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="altqty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Autoid, Itemcode, Itemname, Uom, Valuation, Opqty, Oprate, Opval, Rcvqty, Rcvrate, Rcvval, Issqty, Issrate, Issval, Clsqty, Clsrate, Clsval, STORECODE, GROUPCODE, GROUPNAME, SUBGROUPCODE, SUBGROUPNAME, pegsqty, pegs, RCVQTY1, RCVRATE1, RCVVAL1, RCVQTY2, RCVRATE2, RCVVAL2, RCVQTY3, RCVRATE3, RCVVAL3, ISSQTY1, ISSRATE1, ISSVAL1, ISSQTY2, ISSRATE2, ISSVAL2, ISSQTY3, ISSRATE3, ISSVAL3, DISPQTY, DISPUOM, opdispqty, ISDISPQTY, category, ADJVAL, ADJQTY, Adjrate, DMGQTY, DMGVAL, altqty FROM dbo.STOCKSUMMARY</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Autoid" DataSetColumn="Autoid" />
+              <Mapping SourceColumn="Itemcode" DataSetColumn="Itemcode" />
+              <Mapping SourceColumn="Itemname" DataSetColumn="Itemname" />
+              <Mapping SourceColumn="Uom" DataSetColumn="Uom" />
+              <Mapping SourceColumn="Valuation" DataSetColumn="Valuation" />
+              <Mapping SourceColumn="Opqty" DataSetColumn="Opqty" />
+              <Mapping SourceColumn="Oprate" DataSetColumn="Oprate" />
+              <Mapping SourceColumn="Opval" DataSetColumn="Opval" />
+              <Mapping SourceColumn="Rcvqty" DataSetColumn="Rcvqty" />
+              <Mapping SourceColumn="Rcvrate" DataSetColumn="Rcvrate" />
+              <Mapping SourceColumn="Rcvval" DataSetColumn="Rcvval" />
+              <Mapping SourceColumn="Issqty" DataSetColumn="Issqty" />
+              <Mapping SourceColumn="Issrate" DataSetColumn="Issrate" />
+              <Mapping SourceColumn="Issval" DataSetColumn="Issval" />
+              <Mapping SourceColumn="Clsqty" DataSetColumn="Clsqty" />
+              <Mapping SourceColumn="Clsrate" DataSetColumn="Clsrate" />
+              <Mapping SourceColumn="Clsval" DataSetColumn="Clsval" />
+              <Mapping SourceColumn="STORECODE" DataSetColumn="STORECODE" />
+              <Mapping SourceColumn="GROUPCODE" DataSetColumn="GROUPCODE" />
+              <Mapping SourceColumn="GROUPNAME" DataSetColumn="GROUPNAME" />
+              <Mapping SourceColumn="SUBGROUPCODE" DataSetColumn="SUBGROUPCODE" />
+              <Mapping SourceColumn="SUBGROUPNAME" DataSetColumn="SUBGROUPNAME" />
+              <Mapping SourceColumn="pegsqty" DataSetColumn="pegsqty" />
+              <Mapping SourceColumn="pegs" DataSetColumn="pegs" />
+              <Mapping SourceColumn="RCVQTY1" DataSetColumn="RCVQTY1" />
+              <Mapping SourceColumn="RCVRATE1" DataSetColumn="RCVRATE1" />
+              <Mapping SourceColumn="RCVVAL1" DataSetColumn="RCVVAL1" />
+              <Mapping SourceColumn="RCVQTY2" DataSetColumn="RCVQTY2" />
+              <Mapping SourceColumn="RCVRATE2" DataSetColumn="RCVRATE2" />
+              <Mapping SourceColumn="RCVVAL2" DataSetColumn="RCVVAL2" />
+              <Mapping SourceColumn="RCVQTY3" DataSetColumn="RCVQTY3" />
+              <Mapping SourceColumn="RCVRATE3" DataSetColumn="RCVRATE3" />
+              <Mapping SourceColumn="RCVVAL3" DataSetColumn="RCVVAL3" />
+              <Mapping SourceColumn="ISSQTY1" DataSetColumn="ISSQTY1" />
+              <Mapping SourceColumn="ISSRATE1" DataSetColumn="ISSRATE1" />
+              <Mapping SourceColumn="ISSVAL1" DataSetColumn="ISSVAL1" />
+              <Mapping SourceColumn="ISSQTY2" DataSetColumn="ISSQTY2" />
+              <Mapping SourceColumn="ISSRATE2" DataSetColumn="ISSRATE2" />
+              <Mapping SourceColumn="ISSVAL2" DataSetColumn="ISSVAL2" />
+              <Mapping SourceColumn="ISSQTY3" DataSetColumn="ISSQTY3" />
+              <Mapping SourceColumn="ISSRATE3" DataSetColumn="ISSRATE3" />
+              <Mapping SourceColumn="ISSVAL3" DataSetColumn="ISSVAL3" />
+              <Mapping SourceColumn="DISPQTY" DataSetColumn="DISPQTY" />
+              <Mapping SourceColumn="DISPUOM" DataSetColumn="DISPUOM" />
+              <Mapping SourceColumn="opdispqty" DataSetColumn="opdispqty" />
+              <Mapping SourceColumn="ISDISPQTY" DataSetColumn="ISDISPQTY" />
+              <Mapping SourceColumn="category" DataSetColumn="category" />
+              <Mapping SourceColumn="ADJVAL" DataSetColumn="ADJVAL" />
+              <Mapping SourceColumn="ADJQTY" DataSetColumn="ADJQTY" />
+              <Mapping SourceColumn="Adjrate" DataSetColumn="Adjrate" />
+              <Mapping SourceColumn="DMGQTY" DataSetColumn="DMGQTY" />
+              <Mapping SourceColumn="DMGVAL" DataSetColumn="DMGVAL" />
+              <Mapping SourceColumn="altqty" DataSetColumn="altqty" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="liq_conslidate" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="liq_conslidate" msprop:Generator_UserDSName="liq_conslidate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="INVENTORYITEMMASTER" msprop:Generator_TableClassName="INVENTORYITEMMASTERDataTable" msprop:Generator_TableVarName="tableINVENTORYITEMMASTER" msprop:Generator_TablePropName="INVENTORYITEMMASTER" msprop:Generator_RowDeletingName="INVENTORYITEMMASTERRowDeleting" msprop:Generator_UserTableName="INVENTORYITEMMASTER" msprop:Generator_RowChangingName="INVENTORYITEMMASTERRowChanging" msprop:Generator_RowEvHandlerName="INVENTORYITEMMASTERRowChangeEventHandler" msprop:Generator_RowDeletedName="INVENTORYITEMMASTERRowDeleted" msprop:Generator_RowEvArgName="INVENTORYITEMMASTERRowChangeEvent" msprop:Generator_RowChangedName="INVENTORYITEMMASTERRowChanged" msprop:Generator_RowClassName="INVENTORYITEMMASTERRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Autoid" msprop:Generator_ColumnVarNameInTable="columnAutoid" msprop:Generator_ColumnPropNameInRow="Autoid" msprop:Generator_ColumnPropNameInTable="AutoidColumn" msprop:Generator_UserColumnName="Autoid" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itemcode" msprop:Generator_ColumnVarNameInTable="columnitemcode" msprop:Generator_ColumnPropNameInRow="itemcode" msprop:Generator_ColumnPropNameInTable="itemcodeColumn" msprop:Generator_UserColumnName="itemcode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itemname" msprop:Generator_ColumnVarNameInTable="columnitemname" msprop:Generator_ColumnPropNameInRow="itemname" msprop:Generator_ColumnPropNameInTable="itemnameColumn" msprop:Generator_UserColumnName="itemname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="alias" msprop:Generator_ColumnVarNameInTable="columnalias" msprop:Generator_ColumnPropNameInRow="_alias" msprop:Generator_ColumnPropNameInTable="aliasColumn" msprop:Generator_UserColumnName="alias" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="groupcode" msprop:Generator_ColumnVarNameInTable="columngroupcode" msprop:Generator_ColumnPropNameInRow="groupcode" msprop:Generator_ColumnPropNameInTable="groupcodeColumn" msprop:Generator_UserColumnName="groupcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="groupname" msprop:Generator_ColumnVarNameInTable="columngroupname" msprop:Generator_ColumnPropNameInRow="groupname" msprop:Generator_ColumnPropNameInTable="groupnameColumn" msprop:Generator_UserColumnName="groupname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subgroupcode" msprop:Generator_ColumnVarNameInTable="columnsubgroupcode" msprop:Generator_ColumnPropNameInRow="subgroupcode" msprop:Generator_ColumnPropNameInTable="subgroupcodeColumn" msprop:Generator_UserColumnName="subgroupcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subgroupname" msprop:Generator_ColumnVarNameInTable="columnsubgroupname" msprop:Generator_ColumnPropNameInRow="subgroupname" msprop:Generator_ColumnPropNameInTable="subgroupnameColumn" msprop:Generator_UserColumnName="subgroupname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subsubgroupcode" msprop:Generator_ColumnVarNameInTable="columnsubsubgroupcode" msprop:Generator_ColumnPropNameInRow="subsubgroupcode" msprop:Generator_ColumnPropNameInTable="subsubgroupcodeColumn" msprop:Generator_UserColumnName="subsubgroupcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subsubgroupname" msprop:Generator_ColumnVarNameInTable="columnsubsubgroupname" msprop:Generator_ColumnPropNameInRow="subsubgroupname" msprop:Generator_ColumnPropNameInTable="subsubgroupnameColumn" msprop:Generator_UserColumnName="subsubgroupname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="reorderlevel" msprop:Generator_ColumnVarNameInTable="columnreorderlevel" msprop:Generator_ColumnPropNameInRow="reorderlevel" msprop:Generator_ColumnPropNameInTable="reorderlevelColumn" msprop:Generator_UserColumnName="reorderlevel" type="xs:double" minOccurs="0" />
+              <xs:element name="minqty" msprop:Generator_ColumnVarNameInTable="columnminqty" msprop:Generator_ColumnPropNameInRow="minqty" msprop:Generator_ColumnPropNameInTable="minqtyColumn" msprop:Generator_UserColumnName="minqty" type="xs:double" minOccurs="0" />
+              <xs:element name="maxqty" msprop:Generator_ColumnVarNameInTable="columnmaxqty" msprop:Generator_ColumnPropNameInRow="maxqty" msprop:Generator_ColumnPropNameInTable="maxqtyColumn" msprop:Generator_UserColumnName="maxqty" type="xs:double" minOccurs="0" />
+              <xs:element name="valuation" msprop:Generator_ColumnVarNameInTable="columnvaluation" msprop:Generator_ColumnPropNameInRow="valuation" msprop:Generator_ColumnPropNameInTable="valuationColumn" msprop:Generator_UserColumnName="valuation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="purchaserate" msprop:Generator_ColumnVarNameInTable="columnpurchaserate" msprop:Generator_ColumnPropNameInRow="purchaserate" msprop:Generator_ColumnPropNameInTable="purchaserateColumn" msprop:Generator_UserColumnName="purchaserate" type="xs:double" minOccurs="0" />
+              <xs:element name="salerate" msprop:Generator_ColumnVarNameInTable="columnsalerate" msprop:Generator_ColumnPropNameInRow="salerate" msprop:Generator_ColumnPropNameInTable="salerateColumn" msprop:Generator_UserColumnName="salerate" type="xs:double" minOccurs="0" />
+              <xs:element name="stockuom" msprop:Generator_ColumnVarNameInTable="columnstockuom" msprop:Generator_ColumnPropNameInRow="stockuom" msprop:Generator_ColumnPropNameInTable="stockuomColumn" msprop:Generator_UserColumnName="stockuom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="receiveuom" msprop:Generator_ColumnVarNameInTable="columnreceiveuom" msprop:Generator_ColumnPropNameInRow="receiveuom" msprop:Generator_ColumnPropNameInTable="receiveuomColumn" msprop:Generator_UserColumnName="receiveuom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="saleuom" msprop:Generator_ColumnVarNameInTable="columnsaleuom" msprop:Generator_ColumnPropNameInRow="saleuom" msprop:Generator_ColumnPropNameInTable="saleuomColumn" msprop:Generator_UserColumnName="saleuom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="leadtime" msprop:Generator_ColumnVarNameInTable="columnleadtime" msprop:Generator_ColumnPropNameInRow="leadtime" msprop:Generator_ColumnPropNameInTable="leadtimeColumn" msprop:Generator_UserColumnName="leadtime" type="xs:decimal" minOccurs="0" />
+              <xs:element name="doubleuom" msprop:Generator_ColumnVarNameInTable="columndoubleuom" msprop:Generator_ColumnPropNameInRow="doubleuom" msprop:Generator_ColumnPropNameInTable="doubleuomColumn" msprop:Generator_UserColumnName="doubleuom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="opstock" msprop:Generator_ColumnVarNameInTable="columnopstock" msprop:Generator_ColumnPropNameInRow="opstock" msprop:Generator_ColumnPropNameInTable="opstockColumn" msprop:Generator_UserColumnName="opstock" type="xs:double" minOccurs="0" />
+              <xs:element name="opvalue" msprop:Generator_ColumnVarNameInTable="columnopvalue" msprop:Generator_ColumnPropNameInRow="opvalue" msprop:Generator_ColumnPropNameInTable="opvalueColumn" msprop:Generator_UserColumnName="opvalue" type="xs:double" minOccurs="0" />
+              <xs:element name="convvalue" msprop:Generator_ColumnVarNameInTable="columnconvvalue" msprop:Generator_ColumnPropNameInRow="convvalue" msprop:Generator_ColumnPropNameInTable="convvalueColumn" msprop:Generator_UserColumnName="convvalue" type="xs:double" minOccurs="0" />
+              <xs:element name="Freeze" msprop:Generator_ColumnVarNameInTable="columnFreeze" msprop:Generator_ColumnPropNameInRow="Freeze" msprop:Generator_ColumnPropNameInTable="FreezeColumn" msprop:Generator_UserColumnName="Freeze" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TypeCode" msprop:Generator_ColumnVarNameInTable="columnTypeCode" msprop:Generator_ColumnPropNameInRow="TypeCode" msprop:Generator_ColumnPropNameInTable="TypeCodeColumn" msprop:Generator_UserColumnName="TypeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Adduser" msprop:Generator_ColumnVarNameInTable="columnAdduser" msprop:Generator_ColumnPropNameInRow="Adduser" msprop:Generator_ColumnPropNameInTable="AdduserColumn" msprop:Generator_UserColumnName="Adduser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Adddate" msprop:Generator_ColumnVarNameInTable="columnAdddate" msprop:Generator_ColumnPropNameInRow="Adddate" msprop:Generator_ColumnPropNameInTable="AdddateColumn" msprop:Generator_UserColumnName="Adddate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="STORECODE" msprop:Generator_ColumnVarNameInTable="columnSTORECODE" msprop:Generator_ColumnPropNameInRow="STORECODE" msprop:Generator_ColumnPropNameInTable="STORECODEColumn" msprop:Generator_UserColumnName="STORECODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="closingqty" msprop:Generator_ColumnVarNameInTable="columnclosingqty" msprop:Generator_ColumnPropNameInRow="closingqty" msprop:Generator_ColumnPropNameInTable="closingqtyColumn" msprop:Generator_UserColumnName="closingqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="closingval" msprop:Generator_ColumnVarNameInTable="columnclosingval" msprop:Generator_ColumnPropNameInRow="closingval" msprop:Generator_ColumnPropNameInTable="closingvalColumn" msprop:Generator_UserColumnName="closingval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rcptqty" msprop:Generator_ColumnVarNameInTable="columnrcptqty" msprop:Generator_ColumnPropNameInRow="rcptqty" msprop:Generator_ColumnPropNameInTable="rcptqtyColumn" msprop:Generator_UserColumnName="rcptqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rcptval" msprop:Generator_ColumnVarNameInTable="columnrcptval" msprop:Generator_ColumnPropNameInRow="rcptval" msprop:Generator_ColumnPropNameInTable="rcptvalColumn" msprop:Generator_UserColumnName="rcptval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="issueqty" msprop:Generator_ColumnVarNameInTable="columnissueqty" msprop:Generator_ColumnPropNameInRow="issueqty" msprop:Generator_ColumnPropNameInTable="issueqtyColumn" msprop:Generator_UserColumnName="issueqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="issueval" msprop:Generator_ColumnVarNameInTable="columnissueval" msprop:Generator_ColumnPropNameInRow="issueval" msprop:Generator_ColumnPropNameInTable="issuevalColumn" msprop:Generator_UserColumnName="issueval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="abc" msprop:Generator_ColumnVarNameInTable="columnabc" msprop:Generator_ColumnPropNameInRow="abc" msprop:Generator_ColumnPropNameInTable="abcColumn" msprop:Generator_UserColumnName="abc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fsm" msprop:Generator_ColumnVarNameInTable="columnfsm" msprop:Generator_ColumnPropNameInRow="fsm" msprop:Generator_ColumnPropNameInTable="fsmColumn" msprop:Generator_UserColumnName="fsm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prefix" msprop:Generator_ColumnVarNameInTable="columnprefix" msprop:Generator_ColumnPropNameInRow="prefix" msprop:Generator_ColumnPropNameInTable="prefixColumn" msprop:Generator_UserColumnName="prefix" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="wefdate" msprop:Generator_ColumnVarNameInTable="columnwefdate" msprop:Generator_ColumnPropNameInRow="wefdate" msprop:Generator_ColumnPropNameInTable="wefdateColumn" msprop:Generator_UserColumnName="wefdate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="stkoption" msprop:Generator_ColumnVarNameInTable="columnstkoption" msprop:Generator_ColumnPropNameInRow="stkoption" msprop:Generator_ColumnPropNameInTable="stkoptionColumn" msprop:Generator_UserColumnName="stkoption" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="binlocation" msprop:Generator_ColumnVarNameInTable="columnbinlocation" msprop:Generator_ColumnPropNameInRow="binlocation" msprop:Generator_ColumnPropNameInTable="binlocationColumn" msprop:Generator_UserColumnName="binlocation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="selectopt" msprop:Generator_ColumnVarNameInTable="columnselectopt" msprop:Generator_ColumnPropNameInRow="selectopt" msprop:Generator_ColumnPropNameInTable="selectoptColumn" msprop:Generator_UserColumnName="selectopt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="STARTDATE" msprop:Generator_ColumnVarNameInTable="columnSTARTDATE" msprop:Generator_ColumnPropNameInRow="STARTDATE" msprop:Generator_ColumnPropNameInTable="STARTDATEColumn" msprop:Generator_UserColumnName="STARTDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PEGS" msprop:Generator_ColumnVarNameInTable="columnPEGS" msprop:Generator_ColumnPropNameInRow="PEGS" msprop:Generator_ColumnPropNameInTable="PEGSColumn" msprop:Generator_UserColumnName="PEGS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ml" msprop:Generator_ColumnVarNameInTable="columnml" msprop:Generator_ColumnPropNameInRow="ml" msprop:Generator_ColumnPropNameInTable="mlColumn" msprop:Generator_UserColumnName="ml" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PEGSRATE" msprop:Generator_ColumnVarNameInTable="columnPEGSRATE" msprop:Generator_ColumnPropNameInRow="PEGSRATE" msprop:Generator_ColumnPropNameInTable="PEGSRATEColumn" msprop:Generator_UserColumnName="PEGSRATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OPT" msprop:Generator_ColumnVarNameInTable="columnOPT" msprop:Generator_ColumnPropNameInRow="OPT" msprop:Generator_ColumnPropNameInTable="OPTColumn" msprop:Generator_UserColumnName="OPT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="aprdrqty" msprop:Generator_ColumnVarNameInTable="columnaprdrqty" msprop:Generator_ColumnPropNameInRow="aprdrqty" msprop:Generator_ColumnPropNameInTable="aprdrqtyColumn" msprop:Generator_UserColumnName="aprdrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="aprdrval" msprop:Generator_ColumnVarNameInTable="columnaprdrval" msprop:Generator_ColumnPropNameInRow="aprdrval" msprop:Generator_ColumnPropNameInTable="aprdrvalColumn" msprop:Generator_UserColumnName="aprdrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="aprcrqty" msprop:Generator_ColumnVarNameInTable="columnaprcrqty" msprop:Generator_ColumnPropNameInRow="aprcrqty" msprop:Generator_ColumnPropNameInTable="aprcrqtyColumn" msprop:Generator_UserColumnName="aprcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="aprcrval" msprop:Generator_ColumnVarNameInTable="columnaprcrval" msprop:Generator_ColumnPropNameInRow="aprcrval" msprop:Generator_ColumnPropNameInTable="aprcrvalColumn" msprop:Generator_UserColumnName="aprcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="maydrqty" msprop:Generator_ColumnVarNameInTable="columnmaydrqty" msprop:Generator_ColumnPropNameInRow="maydrqty" msprop:Generator_ColumnPropNameInTable="maydrqtyColumn" msprop:Generator_UserColumnName="maydrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="maydrval" msprop:Generator_ColumnVarNameInTable="columnmaydrval" msprop:Generator_ColumnPropNameInRow="maydrval" msprop:Generator_ColumnPropNameInTable="maydrvalColumn" msprop:Generator_UserColumnName="maydrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="maycrqty" msprop:Generator_ColumnVarNameInTable="columnmaycrqty" msprop:Generator_ColumnPropNameInRow="maycrqty" msprop:Generator_ColumnPropNameInTable="maycrqtyColumn" msprop:Generator_UserColumnName="maycrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="maycrval" msprop:Generator_ColumnVarNameInTable="columnmaycrval" msprop:Generator_ColumnPropNameInRow="maycrval" msprop:Generator_ColumnPropNameInTable="maycrvalColumn" msprop:Generator_UserColumnName="maycrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="jundrqty" msprop:Generator_ColumnVarNameInTable="columnjundrqty" msprop:Generator_ColumnPropNameInRow="jundrqty" msprop:Generator_ColumnPropNameInTable="jundrqtyColumn" msprop:Generator_UserColumnName="jundrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="jundrval" msprop:Generator_ColumnVarNameInTable="columnjundrval" msprop:Generator_ColumnPropNameInRow="jundrval" msprop:Generator_ColumnPropNameInTable="jundrvalColumn" msprop:Generator_UserColumnName="jundrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="juncrqty" msprop:Generator_ColumnVarNameInTable="columnjuncrqty" msprop:Generator_ColumnPropNameInRow="juncrqty" msprop:Generator_ColumnPropNameInTable="juncrqtyColumn" msprop:Generator_UserColumnName="juncrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="juncrval" msprop:Generator_ColumnVarNameInTable="columnjuncrval" msprop:Generator_ColumnPropNameInRow="juncrval" msprop:Generator_ColumnPropNameInTable="juncrvalColumn" msprop:Generator_UserColumnName="juncrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="juldrqty" msprop:Generator_ColumnVarNameInTable="columnjuldrqty" msprop:Generator_ColumnPropNameInRow="juldrqty" msprop:Generator_ColumnPropNameInTable="juldrqtyColumn" msprop:Generator_UserColumnName="juldrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="juldrval" msprop:Generator_ColumnVarNameInTable="columnjuldrval" msprop:Generator_ColumnPropNameInRow="juldrval" msprop:Generator_ColumnPropNameInTable="juldrvalColumn" msprop:Generator_UserColumnName="juldrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="julcrqty" msprop:Generator_ColumnVarNameInTable="columnjulcrqty" msprop:Generator_ColumnPropNameInRow="julcrqty" msprop:Generator_ColumnPropNameInTable="julcrqtyColumn" msprop:Generator_UserColumnName="julcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="julcrval" msprop:Generator_ColumnVarNameInTable="columnjulcrval" msprop:Generator_ColumnPropNameInRow="julcrval" msprop:Generator_ColumnPropNameInTable="julcrvalColumn" msprop:Generator_UserColumnName="julcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="augdrqty" msprop:Generator_ColumnVarNameInTable="columnaugdrqty" msprop:Generator_ColumnPropNameInRow="augdrqty" msprop:Generator_ColumnPropNameInTable="augdrqtyColumn" msprop:Generator_UserColumnName="augdrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="augdrval" msprop:Generator_ColumnVarNameInTable="columnaugdrval" msprop:Generator_ColumnPropNameInRow="augdrval" msprop:Generator_ColumnPropNameInTable="augdrvalColumn" msprop:Generator_UserColumnName="augdrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="augcrqty" msprop:Generator_ColumnVarNameInTable="columnaugcrqty" msprop:Generator_ColumnPropNameInRow="augcrqty" msprop:Generator_ColumnPropNameInTable="augcrqtyColumn" msprop:Generator_UserColumnName="augcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="augcrval" msprop:Generator_ColumnVarNameInTable="columnaugcrval" msprop:Generator_ColumnPropNameInRow="augcrval" msprop:Generator_ColumnPropNameInTable="augcrvalColumn" msprop:Generator_UserColumnName="augcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sepdrqty" msprop:Generator_ColumnVarNameInTable="columnsepdrqty" msprop:Generator_ColumnPropNameInRow="sepdrqty" msprop:Generator_ColumnPropNameInTable="sepdrqtyColumn" msprop:Generator_UserColumnName="sepdrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sepdrval" msprop:Generator_ColumnVarNameInTable="columnsepdrval" msprop:Generator_ColumnPropNameInRow="sepdrval" msprop:Generator_ColumnPropNameInTable="sepdrvalColumn" msprop:Generator_UserColumnName="sepdrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sepcrqty" msprop:Generator_ColumnVarNameInTable="columnsepcrqty" msprop:Generator_ColumnPropNameInRow="sepcrqty" msprop:Generator_ColumnPropNameInTable="sepcrqtyColumn" msprop:Generator_UserColumnName="sepcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sepcrval" msprop:Generator_ColumnVarNameInTable="columnsepcrval" msprop:Generator_ColumnPropNameInRow="sepcrval" msprop:Generator_ColumnPropNameInTable="sepcrvalColumn" msprop:Generator_UserColumnName="sepcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="octdrqty" msprop:Generator_ColumnVarNameInTable="columnoctdrqty" msprop:Generator_ColumnPropNameInRow="octdrqty" msprop:Generator_ColumnPropNameInTable="octdrqtyColumn" msprop:Generator_UserColumnName="octdrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="octdrval" msprop:Generator_ColumnVarNameInTable="columnoctdrval" msprop:Generator_ColumnPropNameInRow="octdrval" msprop:Generator_ColumnPropNameInTable="octdrvalColumn" msprop:Generator_UserColumnName="octdrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="octcrqty" msprop:Generator_ColumnVarNameInTable="columnoctcrqty" msprop:Generator_ColumnPropNameInRow="octcrqty" msprop:Generator_ColumnPropNameInTable="octcrqtyColumn" msprop:Generator_UserColumnName="octcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="octcrval" msprop:Generator_ColumnVarNameInTable="columnoctcrval" msprop:Generator_ColumnPropNameInRow="octcrval" msprop:Generator_ColumnPropNameInTable="octcrvalColumn" msprop:Generator_UserColumnName="octcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="novcrqty" msprop:Generator_ColumnVarNameInTable="columnnovcrqty" msprop:Generator_ColumnPropNameInRow="novcrqty" msprop:Generator_ColumnPropNameInTable="novcrqtyColumn" msprop:Generator_UserColumnName="novcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="novcrval" msprop:Generator_ColumnVarNameInTable="columnnovcrval" msprop:Generator_ColumnPropNameInRow="novcrval" msprop:Generator_ColumnPropNameInTable="novcrvalColumn" msprop:Generator_UserColumnName="novcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="novdrqty" msprop:Generator_ColumnVarNameInTable="columnnovdrqty" msprop:Generator_ColumnPropNameInRow="novdrqty" msprop:Generator_ColumnPropNameInTable="novdrqtyColumn" msprop:Generator_UserColumnName="novdrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="novdrval" msprop:Generator_ColumnVarNameInTable="columnnovdrval" msprop:Generator_ColumnPropNameInRow="novdrval" msprop:Generator_ColumnPropNameInTable="novdrvalColumn" msprop:Generator_UserColumnName="novdrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="decdrqty" msprop:Generator_ColumnVarNameInTable="columndecdrqty" msprop:Generator_ColumnPropNameInRow="decdrqty" msprop:Generator_ColumnPropNameInTable="decdrqtyColumn" msprop:Generator_UserColumnName="decdrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="decdrval" msprop:Generator_ColumnVarNameInTable="columndecdrval" msprop:Generator_ColumnPropNameInRow="decdrval" msprop:Generator_ColumnPropNameInTable="decdrvalColumn" msprop:Generator_UserColumnName="decdrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="deccrqty" msprop:Generator_ColumnVarNameInTable="columndeccrqty" msprop:Generator_ColumnPropNameInRow="deccrqty" msprop:Generator_ColumnPropNameInTable="deccrqtyColumn" msprop:Generator_UserColumnName="deccrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="deccrval" msprop:Generator_ColumnVarNameInTable="columndeccrval" msprop:Generator_ColumnPropNameInRow="deccrval" msprop:Generator_ColumnPropNameInTable="deccrvalColumn" msprop:Generator_UserColumnName="deccrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="jandrqty" msprop:Generator_ColumnVarNameInTable="columnjandrqty" msprop:Generator_ColumnPropNameInRow="jandrqty" msprop:Generator_ColumnPropNameInTable="jandrqtyColumn" msprop:Generator_UserColumnName="jandrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="jandrval" msprop:Generator_ColumnVarNameInTable="columnjandrval" msprop:Generator_ColumnPropNameInRow="jandrval" msprop:Generator_ColumnPropNameInTable="jandrvalColumn" msprop:Generator_UserColumnName="jandrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="jancrqty" msprop:Generator_ColumnVarNameInTable="columnjancrqty" msprop:Generator_ColumnPropNameInRow="jancrqty" msprop:Generator_ColumnPropNameInTable="jancrqtyColumn" msprop:Generator_UserColumnName="jancrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="jancrval" msprop:Generator_ColumnVarNameInTable="columnjancrval" msprop:Generator_ColumnPropNameInRow="jancrval" msprop:Generator_ColumnPropNameInTable="jancrvalColumn" msprop:Generator_UserColumnName="jancrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="febdrqty" msprop:Generator_ColumnVarNameInTable="columnfebdrqty" msprop:Generator_ColumnPropNameInRow="febdrqty" msprop:Generator_ColumnPropNameInTable="febdrqtyColumn" msprop:Generator_UserColumnName="febdrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="febdrval" msprop:Generator_ColumnVarNameInTable="columnfebdrval" msprop:Generator_ColumnPropNameInRow="febdrval" msprop:Generator_ColumnPropNameInTable="febdrvalColumn" msprop:Generator_UserColumnName="febdrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="febcrqty" msprop:Generator_ColumnVarNameInTable="columnfebcrqty" msprop:Generator_ColumnPropNameInRow="febcrqty" msprop:Generator_ColumnPropNameInTable="febcrqtyColumn" msprop:Generator_UserColumnName="febcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="febcrval" msprop:Generator_ColumnVarNameInTable="columnfebcrval" msprop:Generator_ColumnPropNameInRow="febcrval" msprop:Generator_ColumnPropNameInTable="febcrvalColumn" msprop:Generator_UserColumnName="febcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mardrqty" msprop:Generator_ColumnVarNameInTable="columnmardrqty" msprop:Generator_ColumnPropNameInRow="mardrqty" msprop:Generator_ColumnPropNameInTable="mardrqtyColumn" msprop:Generator_UserColumnName="mardrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mardrval" msprop:Generator_ColumnVarNameInTable="columnmardrval" msprop:Generator_ColumnPropNameInRow="mardrval" msprop:Generator_ColumnPropNameInTable="mardrvalColumn" msprop:Generator_UserColumnName="mardrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="marcrqty" msprop:Generator_ColumnVarNameInTable="columnmarcrqty" msprop:Generator_ColumnPropNameInRow="marcrqty" msprop:Generator_ColumnPropNameInTable="marcrqtyColumn" msprop:Generator_UserColumnName="marcrqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="marcrval" msprop:Generator_ColumnVarNameInTable="columnmarcrval" msprop:Generator_ColumnPropNameInRow="marcrval" msprop:Generator_ColumnPropNameInTable="marcrvalColumn" msprop:Generator_UserColumnName="marcrval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="clstock" msprop:Generator_ColumnVarNameInTable="columnclstock" msprop:Generator_ColumnPropNameInRow="clstock" msprop:Generator_ColumnPropNameInTable="clstockColumn" msprop:Generator_UserColumnName="clstock" type="xs:decimal" minOccurs="0" />
+              <xs:element name="clvalue" msprop:Generator_ColumnVarNameInTable="columnclvalue" msprop:Generator_ColumnPropNameInRow="clvalue" msprop:Generator_ColumnPropNameInTable="clvalueColumn" msprop:Generator_UserColumnName="clvalue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="eoq" msprop:Generator_ColumnVarNameInTable="columneoq" msprop:Generator_ColumnPropNameInRow="eoq" msprop:Generator_ColumnPropNameInTable="eoqColumn" msprop:Generator_UserColumnName="eoq" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TAXREBATE" msprop:Generator_ColumnVarNameInTable="columnTAXREBATE" msprop:Generator_ColumnPropNameInRow="TAXREBATE" msprop:Generator_ColumnPropNameInTable="TAXREBATEColumn" msprop:Generator_UserColumnName="TAXREBATE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="baserate" msprop:Generator_ColumnVarNameInTable="columnbaserate" msprop:Generator_ColumnPropNameInRow="baserate" msprop:Generator_ColumnPropNameInTable="baserateColumn" msprop:Generator_UserColumnName="baserate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="INVITMTransQty" msprop:Generator_ColumnVarNameInTable="columnINVITMTransQty" msprop:Generator_ColumnPropNameInRow="INVITMTransQty" msprop:Generator_ColumnPropNameInTable="INVITMTransQtyColumn" msprop:Generator_UserColumnName="INVITMTransQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="INVITMTransValue" msprop:Generator_ColumnVarNameInTable="columnINVITMTransValue" msprop:Generator_ColumnPropNameInRow="INVITMTransValue" msprop:Generator_ColumnPropNameInTable="INVITMTransValueColumn" msprop:Generator_UserColumnName="INVITMTransValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="INVITMStockUOM" msprop:Generator_ColumnVarNameInTable="columnINVITMStockUOM" msprop:Generator_ColumnPropNameInRow="INVITMStockUOM" msprop:Generator_ColumnPropNameInTable="INVITMStockUOMColumn" msprop:Generator_UserColumnName="INVITMStockUOM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INVITMTRANSRATE" msprop:Generator_ColumnVarNameInTable="columnINVITMTRANSRATE" msprop:Generator_ColumnPropNameInRow="INVITMTRANSRATE" msprop:Generator_ColumnPropNameInTable="INVITMTRANSRATEColumn" msprop:Generator_UserColumnName="INVITMTRANSRATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Profitper" msprop:Generator_ColumnVarNameInTable="columnProfitper" msprop:Generator_ColumnPropNameInRow="Profitper" msprop:Generator_ColumnPropNameInTable="ProfitperColumn" msprop:Generator_UserColumnName="Profitper" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FREEQTY" msprop:Generator_ColumnVarNameInTable="columnFREEQTY" msprop:Generator_ColumnPropNameInRow="FREEQTY" msprop:Generator_ColumnPropNameInTable="FREEQTYColumn" msprop:Generator_UserColumnName="FREEQTY" type="xs:double" minOccurs="0" />
+              <xs:element name="Ledger" msprop:Generator_ColumnVarNameInTable="columnLedger" msprop:Generator_ColumnPropNameInRow="Ledger" msprop:Generator_ColumnPropNameInTable="LedgerColumn" msprop:Generator_UserColumnName="Ledger" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CASEQTY" msprop:Generator_ColumnVarNameInTable="columnCASEQTY" msprop:Generator_ColumnPropNameInRow="CASEQTY" msprop:Generator_ColumnPropNameInTable="CASEQTYColumn" msprop:Generator_UserColumnName="CASEQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="updateuser" msprop:Generator_ColumnVarNameInTable="columnupdateuser" msprop:Generator_ColumnPropNameInRow="updateuser" msprop:Generator_ColumnPropNameInTable="updateuserColumn" msprop:Generator_UserColumnName="updateuser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="updatetime" msprop:Generator_ColumnVarNameInTable="columnupdatetime" msprop:Generator_ColumnPropNameInRow="updatetime" msprop:Generator_ColumnPropNameInTable="updatetimeColumn" msprop:Generator_UserColumnName="updatetime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="taxper" msprop:Generator_ColumnVarNameInTable="columntaxper" msprop:Generator_ColumnPropNameInRow="taxper" msprop:Generator_ColumnPropNameInTable="taxperColumn" msprop:Generator_UserColumnName="taxper" type="xs:decimal" minOccurs="0" />
+              <xs:element name="stockuomR" msprop:Generator_ColumnVarNameInTable="columnstockuomR" msprop:Generator_ColumnPropNameInRow="stockuomR" msprop:Generator_ColumnPropNameInTable="stockuomRColumn" msprop:Generator_UserColumnName="stockuomR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="receiveuomR" msprop:Generator_ColumnVarNameInTable="columnreceiveuomR" msprop:Generator_ColumnPropNameInRow="receiveuomR" msprop:Generator_ColumnPropNameInTable="receiveuomRColumn" msprop:Generator_UserColumnName="receiveuomR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="doubleuomR" msprop:Generator_ColumnVarNameInTable="columndoubleuomR" msprop:Generator_ColumnPropNameInRow="doubleuomR" msprop:Generator_ColumnPropNameInTable="doubleuomRColumn" msprop:Generator_UserColumnName="doubleuomR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="saleuomR" msprop:Generator_ColumnVarNameInTable="columnsaleuomR" msprop:Generator_ColumnPropNameInRow="saleuomR" msprop:Generator_ColumnPropNameInTable="saleuomRColumn" msprop:Generator_UserColumnName="saleuomR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvItmTransQtyR" msprop:Generator_ColumnVarNameInTable="columnInvItmTransQtyR" msprop:Generator_ColumnPropNameInRow="InvItmTransQtyR" msprop:Generator_ColumnPropNameInTable="InvItmTransQtyRColumn" msprop:Generator_UserColumnName="InvItmTransQtyR" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InvItmTransValueR" msprop:Generator_ColumnVarNameInTable="columnInvItmTransValueR" msprop:Generator_ColumnPropNameInRow="InvItmTransValueR" msprop:Generator_ColumnPropNameInTable="InvItmTransValueRColumn" msprop:Generator_UserColumnName="InvItmTransValueR" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InvItmStockUomR" msprop:Generator_ColumnVarNameInTable="columnInvItmStockUomR" msprop:Generator_ColumnPropNameInRow="InvItmStockUomR" msprop:Generator_ColumnPropNameInTable="InvItmStockUomRColumn" msprop:Generator_UserColumnName="InvItmStockUomR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ALTQTY" msprop:Generator_ColumnVarNameInTable="columnALTQTY" msprop:Generator_ColumnPropNameInRow="ALTQTY" msprop:Generator_ColumnPropNameInTable="ALTQTYColumn" msprop:Generator_UserColumnName="ALTQTY" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="STOCKSUMMARY" msprop:Generator_TableClassName="STOCKSUMMARYDataTable" msprop:Generator_TableVarName="tableSTOCKSUMMARY" msprop:Generator_TablePropName="STOCKSUMMARY" msprop:Generator_RowDeletingName="STOCKSUMMARYRowDeleting" msprop:Generator_UserTableName="STOCKSUMMARY" msprop:Generator_RowChangingName="STOCKSUMMARYRowChanging" msprop:Generator_RowEvHandlerName="STOCKSUMMARYRowChangeEventHandler" msprop:Generator_RowDeletedName="STOCKSUMMARYRowDeleted" msprop:Generator_RowEvArgName="STOCKSUMMARYRowChangeEvent" msprop:Generator_RowChangedName="STOCKSUMMARYRowChanged" msprop:Generator_RowClassName="STOCKSUMMARYRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Autoid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAutoid" msprop:Generator_ColumnPropNameInRow="Autoid" msprop:Generator_ColumnPropNameInTable="AutoidColumn" msprop:Generator_UserColumnName="Autoid" type="xs:decimal" />
+              <xs:element name="Itemcode" msprop:Generator_ColumnVarNameInTable="columnItemcode" msprop:Generator_ColumnPropNameInRow="Itemcode" msprop:Generator_ColumnPropNameInTable="ItemcodeColumn" msprop:Generator_UserColumnName="Itemcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Itemname" msprop:Generator_ColumnVarNameInTable="columnItemname" msprop:Generator_ColumnPropNameInRow="Itemname" msprop:Generator_ColumnPropNameInTable="ItemnameColumn" msprop:Generator_UserColumnName="Itemname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Uom" msprop:Generator_ColumnVarNameInTable="columnUom" msprop:Generator_ColumnPropNameInRow="Uom" msprop:Generator_ColumnPropNameInTable="UomColumn" msprop:Generator_UserColumnName="Uom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Valuation" msprop:Generator_ColumnVarNameInTable="columnValuation" msprop:Generator_ColumnPropNameInRow="Valuation" msprop:Generator_ColumnPropNameInTable="ValuationColumn" msprop:Generator_UserColumnName="Valuation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Opqty" msprop:Generator_ColumnVarNameInTable="columnOpqty" msprop:Generator_ColumnPropNameInRow="Opqty" msprop:Generator_ColumnPropNameInTable="OpqtyColumn" msprop:Generator_UserColumnName="Opqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Oprate" msprop:Generator_ColumnVarNameInTable="columnOprate" msprop:Generator_ColumnPropNameInRow="Oprate" msprop:Generator_ColumnPropNameInTable="OprateColumn" msprop:Generator_UserColumnName="Oprate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Opval" msprop:Generator_ColumnVarNameInTable="columnOpval" msprop:Generator_ColumnPropNameInRow="Opval" msprop:Generator_ColumnPropNameInTable="OpvalColumn" msprop:Generator_UserColumnName="Opval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rcvqty" msprop:Generator_ColumnVarNameInTable="columnRcvqty" msprop:Generator_ColumnPropNameInRow="Rcvqty" msprop:Generator_ColumnPropNameInTable="RcvqtyColumn" msprop:Generator_UserColumnName="Rcvqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rcvrate" msprop:Generator_ColumnVarNameInTable="columnRcvrate" msprop:Generator_ColumnPropNameInRow="Rcvrate" msprop:Generator_ColumnPropNameInTable="RcvrateColumn" msprop:Generator_UserColumnName="Rcvrate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rcvval" msprop:Generator_ColumnVarNameInTable="columnRcvval" msprop:Generator_ColumnPropNameInRow="Rcvval" msprop:Generator_ColumnPropNameInTable="RcvvalColumn" msprop:Generator_UserColumnName="Rcvval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Issqty" msprop:Generator_ColumnVarNameInTable="columnIssqty" msprop:Generator_ColumnPropNameInRow="Issqty" msprop:Generator_ColumnPropNameInTable="IssqtyColumn" msprop:Generator_UserColumnName="Issqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Issrate" msprop:Generator_ColumnVarNameInTable="columnIssrate" msprop:Generator_ColumnPropNameInRow="Issrate" msprop:Generator_ColumnPropNameInTable="IssrateColumn" msprop:Generator_UserColumnName="Issrate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Issval" msprop:Generator_ColumnVarNameInTable="columnIssval" msprop:Generator_ColumnPropNameInRow="Issval" msprop:Generator_ColumnPropNameInTable="IssvalColumn" msprop:Generator_UserColumnName="Issval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Clsqty" msprop:Generator_ColumnVarNameInTable="columnClsqty" msprop:Generator_ColumnPropNameInRow="Clsqty" msprop:Generator_ColumnPropNameInTable="ClsqtyColumn" msprop:Generator_UserColumnName="Clsqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Clsrate" msprop:Generator_ColumnVarNameInTable="columnClsrate" msprop:Generator_ColumnPropNameInRow="Clsrate" msprop:Generator_ColumnPropNameInTable="ClsrateColumn" msprop:Generator_UserColumnName="Clsrate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Clsval" msprop:Generator_ColumnVarNameInTable="columnClsval" msprop:Generator_ColumnPropNameInRow="Clsval" msprop:Generator_ColumnPropNameInTable="ClsvalColumn" msprop:Generator_UserColumnName="Clsval" type="xs:decimal" minOccurs="0" />
+              <xs:element name="STORECODE" msprop:Generator_ColumnVarNameInTable="columnSTORECODE" msprop:Generator_ColumnPropNameInRow="STORECODE" msprop:Generator_ColumnPropNameInTable="STORECODEColumn" msprop:Generator_UserColumnName="STORECODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GROUPCODE" msprop:Generator_ColumnVarNameInTable="columnGROUPCODE" msprop:Generator_ColumnPropNameInRow="GROUPCODE" msprop:Generator_ColumnPropNameInTable="GROUPCODEColumn" msprop:Generator_UserColumnName="GROUPCODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GROUPNAME" msprop:Generator_ColumnVarNameInTable="columnGROUPNAME" msprop:Generator_ColumnPropNameInRow="GROUPNAME" msprop:Generator_ColumnPropNameInTable="GROUPNAMEColumn" msprop:Generator_UserColumnName="GROUPNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SUBGROUPCODE" msprop:Generator_ColumnVarNameInTable="columnSUBGROUPCODE" msprop:Generator_ColumnPropNameInRow="SUBGROUPCODE" msprop:Generator_ColumnPropNameInTable="SUBGROUPCODEColumn" msprop:Generator_UserColumnName="SUBGROUPCODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SUBGROUPNAME" msprop:Generator_ColumnVarNameInTable="columnSUBGROUPNAME" msprop:Generator_ColumnPropNameInRow="SUBGROUPNAME" msprop:Generator_ColumnPropNameInTable="SUBGROUPNAMEColumn" msprop:Generator_UserColumnName="SUBGROUPNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pegsqty" msprop:Generator_ColumnVarNameInTable="columnpegsqty" msprop:Generator_ColumnPropNameInRow="pegsqty" msprop:Generator_ColumnPropNameInTable="pegsqtyColumn" msprop:Generator_UserColumnName="pegsqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="pegs" msprop:Generator_ColumnVarNameInTable="columnpegs" msprop:Generator_ColumnPropNameInRow="pegs" msprop:Generator_ColumnPropNameInTable="pegsColumn" msprop:Generator_UserColumnName="pegs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVQTY1" msprop:Generator_ColumnVarNameInTable="columnRCVQTY1" msprop:Generator_ColumnPropNameInRow="RCVQTY1" msprop:Generator_ColumnPropNameInTable="RCVQTY1Column" msprop:Generator_UserColumnName="RCVQTY1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVRATE1" msprop:Generator_ColumnVarNameInTable="columnRCVRATE1" msprop:Generator_ColumnPropNameInRow="RCVRATE1" msprop:Generator_ColumnPropNameInTable="RCVRATE1Column" msprop:Generator_UserColumnName="RCVRATE1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVVAL1" msprop:Generator_ColumnVarNameInTable="columnRCVVAL1" msprop:Generator_ColumnPropNameInRow="RCVVAL1" msprop:Generator_ColumnPropNameInTable="RCVVAL1Column" msprop:Generator_UserColumnName="RCVVAL1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVQTY2" msprop:Generator_ColumnVarNameInTable="columnRCVQTY2" msprop:Generator_ColumnPropNameInRow="RCVQTY2" msprop:Generator_ColumnPropNameInTable="RCVQTY2Column" msprop:Generator_UserColumnName="RCVQTY2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVRATE2" msprop:Generator_ColumnVarNameInTable="columnRCVRATE2" msprop:Generator_ColumnPropNameInRow="RCVRATE2" msprop:Generator_ColumnPropNameInTable="RCVRATE2Column" msprop:Generator_UserColumnName="RCVRATE2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVVAL2" msprop:Generator_ColumnVarNameInTable="columnRCVVAL2" msprop:Generator_ColumnPropNameInRow="RCVVAL2" msprop:Generator_ColumnPropNameInTable="RCVVAL2Column" msprop:Generator_UserColumnName="RCVVAL2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVQTY3" msprop:Generator_ColumnVarNameInTable="columnRCVQTY3" msprop:Generator_ColumnPropNameInRow="RCVQTY3" msprop:Generator_ColumnPropNameInTable="RCVQTY3Column" msprop:Generator_UserColumnName="RCVQTY3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVRATE3" msprop:Generator_ColumnVarNameInTable="columnRCVRATE3" msprop:Generator_ColumnPropNameInRow="RCVRATE3" msprop:Generator_ColumnPropNameInTable="RCVRATE3Column" msprop:Generator_UserColumnName="RCVRATE3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RCVVAL3" msprop:Generator_ColumnVarNameInTable="columnRCVVAL3" msprop:Generator_ColumnPropNameInRow="RCVVAL3" msprop:Generator_ColumnPropNameInTable="RCVVAL3Column" msprop:Generator_UserColumnName="RCVVAL3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSQTY1" msprop:Generator_ColumnVarNameInTable="columnISSQTY1" msprop:Generator_ColumnPropNameInRow="ISSQTY1" msprop:Generator_ColumnPropNameInTable="ISSQTY1Column" msprop:Generator_UserColumnName="ISSQTY1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSRATE1" msprop:Generator_ColumnVarNameInTable="columnISSRATE1" msprop:Generator_ColumnPropNameInRow="ISSRATE1" msprop:Generator_ColumnPropNameInTable="ISSRATE1Column" msprop:Generator_UserColumnName="ISSRATE1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSVAL1" msprop:Generator_ColumnVarNameInTable="columnISSVAL1" msprop:Generator_ColumnPropNameInRow="ISSVAL1" msprop:Generator_ColumnPropNameInTable="ISSVAL1Column" msprop:Generator_UserColumnName="ISSVAL1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSQTY2" msprop:Generator_ColumnVarNameInTable="columnISSQTY2" msprop:Generator_ColumnPropNameInRow="ISSQTY2" msprop:Generator_ColumnPropNameInTable="ISSQTY2Column" msprop:Generator_UserColumnName="ISSQTY2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSRATE2" msprop:Generator_ColumnVarNameInTable="columnISSRATE2" msprop:Generator_ColumnPropNameInRow="ISSRATE2" msprop:Generator_ColumnPropNameInTable="ISSRATE2Column" msprop:Generator_UserColumnName="ISSRATE2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSVAL2" msprop:Generator_ColumnVarNameInTable="columnISSVAL2" msprop:Generator_ColumnPropNameInRow="ISSVAL2" msprop:Generator_ColumnPropNameInTable="ISSVAL2Column" msprop:Generator_UserColumnName="ISSVAL2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSQTY3" msprop:Generator_ColumnVarNameInTable="columnISSQTY3" msprop:Generator_ColumnPropNameInRow="ISSQTY3" msprop:Generator_ColumnPropNameInTable="ISSQTY3Column" msprop:Generator_UserColumnName="ISSQTY3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSRATE3" msprop:Generator_ColumnVarNameInTable="columnISSRATE3" msprop:Generator_ColumnPropNameInRow="ISSRATE3" msprop:Generator_ColumnPropNameInTable="ISSRATE3Column" msprop:Generator_UserColumnName="ISSRATE3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSVAL3" msprop:Generator_ColumnVarNameInTable="columnISSVAL3" msprop:Generator_ColumnPropNameInRow="ISSVAL3" msprop:Generator_ColumnPropNameInTable="ISSVAL3Column" msprop:Generator_UserColumnName="ISSVAL3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DISPQTY" msprop:Generator_ColumnVarNameInTable="columnDISPQTY" msprop:Generator_ColumnPropNameInRow="DISPQTY" msprop:Generator_ColumnPropNameInTable="DISPQTYColumn" msprop:Generator_UserColumnName="DISPQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DISPUOM" msprop:Generator_ColumnVarNameInTable="columnDISPUOM" msprop:Generator_ColumnPropNameInRow="DISPUOM" msprop:Generator_ColumnPropNameInTable="DISPUOMColumn" msprop:Generator_UserColumnName="DISPUOM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="opdispqty" msprop:Generator_ColumnVarNameInTable="columnopdispqty" msprop:Generator_ColumnPropNameInRow="opdispqty" msprop:Generator_ColumnPropNameInTable="opdispqtyColumn" msprop:Generator_UserColumnName="opdispqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISDISPQTY" msprop:Generator_ColumnVarNameInTable="columnISDISPQTY" msprop:Generator_ColumnPropNameInRow="ISDISPQTY" msprop:Generator_ColumnPropNameInTable="ISDISPQTYColumn" msprop:Generator_UserColumnName="ISDISPQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ADJVAL" msprop:Generator_ColumnVarNameInTable="columnADJVAL" msprop:Generator_ColumnPropNameInRow="ADJVAL" msprop:Generator_ColumnPropNameInTable="ADJVALColumn" msprop:Generator_UserColumnName="ADJVAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ADJQTY" msprop:Generator_ColumnVarNameInTable="columnADJQTY" msprop:Generator_ColumnPropNameInRow="ADJQTY" msprop:Generator_ColumnPropNameInTable="ADJQTYColumn" msprop:Generator_UserColumnName="ADJQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Adjrate" msprop:Generator_ColumnVarNameInTable="columnAdjrate" msprop:Generator_ColumnPropNameInRow="Adjrate" msprop:Generator_ColumnPropNameInTable="AdjrateColumn" msprop:Generator_UserColumnName="Adjrate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DMGQTY" msprop:Generator_ColumnVarNameInTable="columnDMGQTY" msprop:Generator_ColumnPropNameInRow="DMGQTY" msprop:Generator_ColumnPropNameInTable="DMGQTYColumn" msprop:Generator_UserColumnName="DMGQTY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DMGVAL" msprop:Generator_ColumnVarNameInTable="columnDMGVAL" msprop:Generator_ColumnPropNameInRow="DMGVAL" msprop:Generator_ColumnPropNameInTable="DMGVALColumn" msprop:Generator_UserColumnName="DMGVAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="altqty" msprop:Generator_ColumnVarNameInTable="columnaltqty" msprop:Generator_ColumnPropNameInRow="altqty" msprop:Generator_ColumnPropNameInTable="altqtyColumn" msprop:Generator_UserColumnName="altqty" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

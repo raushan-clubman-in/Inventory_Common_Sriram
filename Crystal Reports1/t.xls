@@ -1,0 +1,116 @@
+ Volume in drive C is S3A4095D001
+ Volume Serial Number is 285B-BEF2
+
+ Directory of C:\VenuJD\INVENT~2\RSI\INVENT~1\CRYSTA~1
+
+28/10/2011  12:57    <DIR>          .
+28/10/2011  12:57    <DIR>          ..
+24/08/2010  17:17            16,384 CrystalReport1.rpt
+10/10/2011  14:12             5,743 CrystalReport1.vb
+10/10/2011  14:52             5,761 CrystalReport11.vb
+24/08/2010  17:17             4,736 CrystalReport12.vb
+02/10/2011  01:04         1,011,504 Dataset1.vb
+02/10/2011  01:04            51,079 Dataset1.xsd
+02/10/2011  01:04             4,156 Dataset1.xsx
+03/07/2011  17:32            16,384 outdetails123.rpt
+03/07/2011  17:32             4,731 outdetails123.vb
+14/12/2009  06:01             9,093 ReportViewer.resx
+14/12/2009  06:01             4,358 ReportViewer.vb
+26/11/2010  22:55            16,384 Rpt_ABC_Summary.rpt
+26/11/2010  22:55             5,746 Rpt_ABC_Summary.vb
+09/10/2011  19:34            16,384 Rpt_ConsolidatedSummary.rpt
+09/10/2011  19:34             5,786 Rpt_ConsolidatedSummary.vb
+10/10/2011  17:41            16,384 Rpt_deptwise.rpt
+10/10/2011  17:41             5,396 Rpt_deptwise.vb
+10/10/2011  10:08            16,384 Rpt_GrnBill.rpt
+10/10/2011  10:08             4,721 Rpt_GrnBill.vb
+09/10/2011  19:14            16,384 Rpt_GroupMaster.rpt
+09/10/2011  19:15             5,076 Rpt_GroupMaster.vb
+10/10/2011  10:15            16,384 Rpt_Indentbill .rpt
+10/10/2011  10:15             4,741 Rpt_Indentbill .vb
+10/10/2011  14:12            16,384 Rpt_IndentIssue .rpt
+10/10/2011  14:12             4,746 Rpt_IndentIssue .vb
+10/10/2011  14:12            16,384 Rpt_Indentwise.rpt
+10/10/2011  14:14            16,384 Rpt_InDetails.rpt
+10/10/2011  14:14             6,407 Rpt_InDetails.vb
+10/10/2011  14:14            16,384 Rpt_InDetails_item.rpt
+10/10/2011  14:14             5,091 Rpt_InDetails_item.vb
+10/10/2011  14:16            16,384 Rpt_InputTax.rpt
+10/10/2011  14:16             4,726 Rpt_InputTax.vb
+10/10/2011  17:28            16,384 Rpt_IssueDetails.rpt
+10/10/2011  17:28             6,086 Rpt_IssueDetails.vb
+10/10/2011  17:30            16,384 Rpt_IssueDetails_item.rpt
+10/10/2011  17:30             4,771 Rpt_IssueDetails_item.vb
+10/10/2011  17:32            16,384 Rpt_IssueRegister.rpt
+10/10/2011  17:32             5,423 Rpt_IssueRegister.vb
+10/10/2011  17:33            16,384 Rpt_IssueSummary.rpt
+10/10/2011  17:33             5,751 Rpt_IssueSummary.vb
+10/10/2011  14:20            16,384 Rpt_ItemMaster.rpt
+10/10/2011  14:20             6,412 Rpt_ItemMaster.vb
+10/10/2011  14:50            16,384 Rpt_Itemmaster_stk.rpt
+10/10/2011  14:50             4,756 Rpt_Itemmaster_stk.vb
+10/10/2011  14:52            16,384 Rpt_Itemwise_Issue.rpt
+10/10/2011  14:53            16,384 Rpt_Itemwise_monthly_issue.rpt
+10/10/2011  14:53             5,801 Rpt_Itemwise_monthly_issue.vb
+02/07/2011  23:50            16,384 Rpt_OutDetails.rpt
+03/07/2011  17:34             6,450 Rpt_OutDetails.vb
+10/10/2011  14:54            16,384 Rpt_OutDetails_item.rpt
+10/10/2011  14:54             5,096 Rpt_OutDetails_item.vb
+10/10/2011  14:54            16,384 Rpt_Pending_Indent.rpt
+10/10/2011  14:54             5,761 Rpt_Pending_Indent.vb
+05/01/2010  00:05             5,425 Rpt_Pending_Purchase .vb
+05/01/2010  00:05             5,425 Rpt_Pending_Purchase 2.vb
+10/10/2011  16:17            16,384 Rpt_Pending_Purchase.rpt
+10/10/2011  16:17             5,771 Rpt_Pending_Purchase.vb
+05/01/2010  00:05            16,384 Rpt_Pending_Purchase2.rpt
+08/01/2010  10:04             5,440 Rpt_Pending_Purchase2.vb
+10/10/2011  17:05            16,384 Rpt_PurchaseRegister.rpt
+10/10/2011  17:05             4,766 Rpt_PurchaseRegister.vb
+28/10/2011  11:32            16,384 Rpt_PurchaseRegister_Det.rpt
+28/10/2011  11:32             5,456 Rpt_PurchaseRegister_Det.vb
+10/10/2011  17:09            16,384 Rpt_PurRegister_Item.rpt
+10/10/2011  17:09             4,766 Rpt_PurRegister_Item.vb
+10/10/2011  15:04            16,384 Rpt_ROL_Summary.rpt
+10/10/2011  15:04             4,741 Rpt_ROL_Summary.vb
+10/10/2011  16:15            16,384 Rpt_StkadjBill .rpt
+10/10/2011  16:15             4,741 Rpt_StkadjBill .vb
+10/10/2011  16:14            16,384 Rpt_StktrfBill .rpt
+10/10/2011  16:14             4,741 Rpt_StktrfBill .vb
+22/03/2010  17:51            16,384 Rpt_stk_issuesummary.rpt
+22/03/2010  17:51             4,765 Rpt_stk_issuesummary.vb
+10/10/2011  15:05            16,384 Rpt_stk_summary.rpt
+10/10/2011  15:05             5,411 Rpt_stk_summary.vb
+10/10/2011  15:07            16,384 Rpt_stk_summary_total.rpt
+29/04/2010  14:12             4,740 Rpt_stk_summary_total.vb
+10/10/2011  15:07             5,441 Rpt_stk_summary_total1.vb
+10/10/2011  16:00            16,384 Rpt_StockAjustment.rpt
+10/10/2011  16:00             6,096 Rpt_StockAjustment.vb
+10/10/2011  16:01            16,384 Rpt_StockIn.rpt
+10/10/2011  16:02             4,721 Rpt_StockIn.vb
+10/10/2011  16:18            16,384 Rpt_StockLedger.rpt
+10/10/2011  16:18             4,741 Rpt_StockLedger.vb
+10/10/2011  16:05            16,384 Rpt_StockOut.rpt
+10/10/2011  16:05             4,726 Rpt_StockOut.vb
+10/10/2011  16:07            16,384 Rpt_StockTransfer.rpt
+10/10/2011  16:07             4,751 Rpt_StockTransfer.vb
+10/10/2011  17:00            16,384 Rpt_StoreMaster.rpt
+10/10/2011  17:00             4,741 Rpt_StoreMaster.vb
+10/10/2011  17:01            16,384 Rpt_SubgroupMaster.rpt
+10/10/2011  17:01             5,426 Rpt_SubgroupMaster.vb
+10/10/2011  17:01            16,384 Rpt_UOMMaster.rpt
+10/10/2011  17:01             4,731 Rpt_UOMMaster.vb
+28/10/2011  12:57                 0 t
+30/12/2009  04:29            16,384 {00AD6CD6-8E0A-4F4F-A23B-BA71D9515A02}.rpt
+05/01/2010  00:05            16,384 {0A5C6D21-3947-4606-951B-3C0DD911FD66}.rpt
+09/10/2011  19:14             9,728 {22A5CF2C-F491-49FD-BDA4-350A862E3F41}.rpt
+07/12/2009  04:50            16,384 {43357FBA-0729-4175-AC65-CAC3F0050288}.rpt
+15/06/2011  14:50            16,384 {58D3B71D-1C06-4E7B-992A-56BD0F18988A}.rpt
+26/12/2009  04:29            11,776 {8BDD2B66-EDDB-4EAD-93FE-F4856E00EB28}.rpt
+09/10/2011  18:27            16,384 {A8571F80-420C-4661-A9F9-2542531E9A2E}.rpt
+02/12/2010  16:45            11,776 {BC332302-6DCA-4D3F-A867-F67AFEC1BF71}.rpt
+30/12/2009  20:35            16,384 {CE5F76A3-7965-4ECF-9A8A-F4DA1BFD08F6}.rpt
+29/12/2009  11:08            16,384 {DBB1BADE-FC54-4222-BEA7-652FCBF72771}.rpt
+09/01/2010  06:57            16,384 {EF455737-A1F3-4CAD-9E6D-5DC709196C25}.rpt
+27/03/2010  15:59            12,288 {FCC583F7-2953-4FCB-A5EC-DA3379223DD5}.rpt
+             107 File(s)      2,202,618 bytes
+               2 Dir(s)   1,112,743,936 bytes free

@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Inventory
+</name>
+</assembly>
+<members>
+<member name="M:Inventory.frmStockInreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.Itemwise_Issue_details.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.PendingIndent.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.liq_conslidate">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.INVENTORYITEMMASTERTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.STOCKSUMMARYTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateAll(Inventory.liq_conslidate)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="M:Inventory.frmStockDMGreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="T:Inventory.NewDataSet.stockConsumption_1DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.Invitem_VendorMasterDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.Inv_ExiseRptDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.VW_INV_PRNBILLDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.VW_INV_GRNBILL_GSTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.vw_INV_REORDER_LEVELDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.ASSET_GRANTMASTERDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.ASSET_LOCATIONDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.stockConsumption_1Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.Invitem_VendorMasterRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.Inv_ExiseRptRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.VW_INV_PRNBILLRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.VW_INV_GRNBILL_GSTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.vw_INV_REORDER_LEVELRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.ASSET_GRANTMASTERRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.ASSET_LOCATIONRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.NewDataSet.stockConsumption_1RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet.Invitem_VendorMasterRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet.Inv_ExiseRptRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet.VW_INV_PRNBILLRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet.VW_INV_GRNBILL_GSTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet.vw_INV_REORDER_LEVELRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet.ASSET_GRANTMASTERRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet.ASSET_LOCATIONRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.NewDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.stockConsumption_1TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.Invitem_VendorMasterTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.Inv_ExiseRptTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.VW_INV_PRNBILLTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.VW_INV_GRNBILL_GSTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.vw_INV_REORDER_LEVELTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.ASSET_GRANTMASTERTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.ASSET_LOCATIONTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.NewDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.NewDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.NewDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.NewDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.NewDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.NewDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.NewDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.NewDataSetTableAdapters.TableAdapterManager.UpdateAll(Inventory.NewDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.NewDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources._111in1024res">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources._111in1024res1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources._Exit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.background">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Calcutta_Club_Logo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.chslogo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Clear">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Delete">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.excel">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.print">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.save">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.skin">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.view">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.welcome">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.welcomelogo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:Inventory.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:Inventory.Issue_Register.FillGroupdetails">
+******************************  To fill GROUP DETAILS *******************************'''
+
+</member><member name="M:Inventory.Issue_Register.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKISSUEDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKDMGDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKADJDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKADJUSTDETAILSDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKDMGDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKTRANSFERDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.StockConsumption_detailDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKTRANSFERDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKCONSUMPTIONDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.consolidatestocksummaryDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.reportgeneraterecisstabDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.journalentryDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.PendPOGRNDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Vw_INdentIssueDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_SponsorMasterDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_INV_GRNBILLDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.INV_STKSALEDETDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STKSUMMARYDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.tempclosingqtyDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_JOURNALENTRYDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.INV_COMPANYWISEITEMDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.StoreStockDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_JOURNALENTRY1DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_INV_PRNBILLDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_PURCHASEREGISTERDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_POBILLDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.vW_PO_TAX_DETDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.PO_DELIVERYTERMS_DETDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.stocksummaryDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKISSUEDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKDMGDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKADJDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKADJUSTDETAILSRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKDMGDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKTRANSFERDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.StockConsumption_detailRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKTRANSFERDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKCONSUMPTIONDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.consolidatestocksummaryRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.reportgeneraterecisstabRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.journalentryRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.PendPOGRNRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Vw_INdentIssueRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_SponsorMasterRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_INV_GRNBILLRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.INV_STKSALEDETRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.STKSUMMARYRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.tempclosingqtyRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_JOURNALENTRYRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.INV_COMPANYWISEITEMRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.StoreStockRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_JOURNALENTRY1Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_INV_PRNBILLRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_PURCHASEREGISTERRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_POBILLRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.vW_PO_TAX_DETRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.PO_DELIVERYTERMS_DETRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.stocksummaryRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKISSUEDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKDMGDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKADJDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKADJUSTDETAILSRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKDMGDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.STOCKTRANSFERDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.StockConsumption_detailRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKTRANSFERDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.TEMPSTOCKCONSUMPTIONDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.consolidatestocksummaryRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.reportgeneraterecisstabRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.journalentryRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.PendPOGRNRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.Vw_INdentIssueRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_SponsorMasterRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_INV_GRNBILLRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.INV_STKSALEDETRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.STKSUMMARYRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.tempclosingqtyRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_JOURNALENTRYRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.INV_COMPANYWISEITEMRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.StoreStockRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.Inv_JOURNALENTRY1RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_INV_PRNBILLRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_PURCHASEREGISTERRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.VW_POBILLRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.vW_PO_TAX_DETRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.PO_DELIVERYTERMS_DETRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds.stocksummaryRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.InvTrnds">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TEMPSTOCKISSUEDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TEMPSTOCKDMGDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TEMPSTOCKADJDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.STOCKADJUSTDETAILSTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.STOCKDMGDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.STOCKTRANSFERDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.StockConsumption_detailTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TEMPSTOCKTRANSFERDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TEMPSTOCKCONSUMPTIONDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.consolidatestocksummaryTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.reportgeneraterecisstabTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.journalentryTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.PendPOGRNTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.Vw_INdentIssueTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.Inv_SponsorMasterTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.VW_INV_GRNBILLTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.INV_STKSALEDETTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.STKSUMMARYTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.tempclosingqtyTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.Inv_JOURNALENTRYTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.INV_COMPANYWISEITEMTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.StoreStockTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.Inv_JOURNALENTRY1TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.VW_INV_PRNBILLTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.VW_PURCHASEREGISTERTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.VW_POBILLTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.vW_PO_TAX_DETTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.PO_DELIVERYTERMS_DETTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.stocksummaryTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.InvTrndsTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.InvTrnds,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.InvTrndsTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.InvTrnds,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.InvTrndsTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.InvTrnds,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.InvTrndsTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.InvTrndsTableAdapters.TableAdapterManager.UpdateAll(Inventory.InvTrnds)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.InvTrndsTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="M:Inventory.frmRSIDayWiseAndProfitLossReport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.frmStockconsumptionreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.frmStocktransferreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.frmStockreturnreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="T:Inventory.DataSet1.VW_PURCHASEREGISTERNewDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_INV_GRNBILLDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet1.vW_GRN_DETDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_INV_ISSUEBILLDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet1.vw_subgroupwiseissuedetailsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet1.ASSET_PROPERTYLEDGERDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_PURCHASEREGISTERNewRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_INV_GRNBILLRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet1.vW_GRN_DETRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_INV_ISSUEBILLRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet1.vw_subgroupwiseissuedetailsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet1.ASSET_PROPERTYLEDGERRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_PURCHASEREGISTERNewRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_INV_GRNBILLRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet1.vW_GRN_DETRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet1.VW_INV_ISSUEBILLRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet1.vw_subgroupwiseissuedetailsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet1.ASSET_PROPERTYLEDGERRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet1">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.VW_PURCHASEREGISTERNewTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.VW_INV_GRNBILLTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.vW_GRN_DETTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.VW_INV_ISSUEBILLTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.vw_subgroupwiseissuedetailsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.ASSET_PROPERTYLEDGERTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.DataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.DataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.DataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.DataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.DataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.DataSet1TableAdapters.TableAdapterManager.UpdateAll(Inventory.DataSet1)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.DataSet1TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="M:Inventory.frmStockOutreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.Indent_Register.FillGroupdetails">
+******************************  To fill GROUP DETAILS *******************************'''
+
+</member><member name="M:Inventory.Indent_Register.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="P:Inventory.My.Resources.Issue_Details1.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Inventory.My.Resources.Issue_Details1.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Inventory.My.Resources.Issue_Details1">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:Inventory.frmStockadjustmentreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="P:Inventory.Inventory.Issue_Details.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Inventory.Inventory.Issue_Details.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Inventory.Inventory.Issue_Details">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

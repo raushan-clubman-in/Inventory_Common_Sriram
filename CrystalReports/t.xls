@@ -1,0 +1,43 @@
+ Volume in drive C is S3A4095D001
+ Volume Serial Number is 285B-BEF2
+
+ Directory of C:\VenuJD\INVENT~2\RSI\INVENT~1\CrystalReports
+
+28/10/2011  13:18    <DIR>          .
+28/10/2011  13:18    <DIR>          ..
+05/02/2007  00:15            16,384 Crptissueregister.rpt
+05/02/2007  00:15             6,090 Crptissueregister.vb
+17/12/2006  23:48            16,384 Crptitemwiseissuedetail.rpt
+17/12/2006  23:48             5,450 Crptitemwiseissuedetail.vb
+17/11/2006  05:36            16,384 CrptMainstock.rpt
+17/11/2006  05:36             4,730 CrptMainstock.vb
+06/05/2007  00:16            16,384 CrptPurchaseregister.rpt
+06/05/2007  00:16             5,436 CrptPurchaseregister.vb
+12/10/2006  01:54            16,384 Crptratiochart.rpt
+12/10/2006  01:54             5,405 Crptratiochart.vb
+22/01/2007  04:12            16,384 CrptStockledgermainstock.rpt
+22/01/2007  04:12             6,470 CrptStockledgermainstock.vb
+18/12/2006  03:45            16,384 CrptStockofbar.rpt
+18/12/2006  03:45             5,405 CrptStockofbar.vb
+12/11/2006  11:59            16,384 CrptStocksummarymainstock.rpt
+12/11/2006  11:59             4,790 CrptStocksummarymainstock.vb
+17/10/2006  09:02            17,048 frmCocktailratiochart.resx
+17/10/2006  09:02             6,897 frmCocktailratiochart.vb
+25/10/2006  00:15            17,055 frmIssueregister.resx
+25/10/2006  00:15             6,890 frmIssueregister.vb
+17/10/2006  08:56            17,044 frmItemwiseissuedetails.resx
+17/10/2006  08:56             6,891 frmItemwiseissuedetails.vb
+10/07/2007  00:14            47,097 frmPurchaseregister.resx
+06/10/2007  00:51            29,640 frmPurchaseregister.vb
+12/11/2006  02:46            17,020 frmStockofbar.rpt.resx
+12/11/2006  02:46             6,761 frmStockofbar.rpt.vb
+12/11/2006  02:46            17,060 frmStocksummarymainstock.resx
+12/11/2006  02:49             7,126 frmStocksummarymainstock.vb
+28/10/2011  13:18                 0 t
+17/11/2006  05:35            16,384 {438DA8F1-3143-412B-9FE4-A8ADEB1D4363}.rpt
+12/11/2006  11:59            16,384 {74CB93D2-4344-4801-BE0B-8DFB12EBB74E}.rpt
+05/02/2007  00:15            16,384 {7A7A570D-286E-4881-906F-7A9E85D12ED5}.rpt
+17/11/2006  05:36            16,384 {7D80BE88-A1D5-41DD-9A7C-52ABA450C978}.rpt
+17/10/2006  08:50            16,384 {FADEAA82-C097-48FF-9C63-ED913476978A}.rpt
+              34 File(s)        453,297 bytes
+               2 Dir(s)   1,100,705,792 bytes free

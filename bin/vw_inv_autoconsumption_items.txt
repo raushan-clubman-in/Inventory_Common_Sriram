@@ -1,0 +1,2 @@
+create view vw_inv_autoconsumption_items as
+select * from inv_inventoryitemmaster where itemcode not in(select gitemcode from bom_det) and category not  in('LIQ','BEV','CRO','ELE','ASSET')

@@ -1,0 +1,21 @@
+===== FarPoint Technologies, Inc =====
+===== Begin of Excel Export =====
+12/2/2009 - 00:52
+
+Col	Row	Information
+___	___	___________
+		Export Excel File: E:\SAM\INVENTORY_sc\bin\REPORTS\STKLEDGER.XLS
+-	-	102:Excel reads the AllowDragDrop, AutoClipboard, and EditEnterAction properties from the registry. If you modify these properties in Spread, the changes are not saved at export.
+1		173:Custom headers are not exported to Excel. 
+2		173:Custom headers are not exported to Excel. 
+3		173:Custom headers are not exported to Excel. 
+4		173:Custom headers are not exported to Excel. 
+5		173:Custom headers are not exported to Excel. 
+6		173:Custom headers are not exported to Excel. 
+7		173:Custom headers are not exported to Excel. 
+8		173:Custom headers are not exported to Excel. 
+9		173:Custom headers are not exported to Excel. 
+10		173:Custom headers are not exported to Excel. 
+
+===== End of Excel Export =====
+===== FarPoint Technologies, Inc =====

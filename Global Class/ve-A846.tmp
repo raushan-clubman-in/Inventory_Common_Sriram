@@ -1,0 +1,2169 @@
+Imports System.Data.SqlClient
+Public Class Main_MDI
+    Inherits System.Windows.Forms.Form
+#Region " Windows Form Designer generated code "
+
+    Public Sub New()
+        MyBase.New()
+
+        'This call is required by the Windows Form Designer.
+        InitializeComponent()
+
+        'Add any initialization after the InitializeComponent() call
+
+    End Sub
+
+    'Form overrides dispose to clean up the component list.
+    Protected Overloads Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing Then
+            If Not (components Is Nothing) Then
+                components.Dispose()
+            End If
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    Friend WithEvents MainMenu1 As System.Windows.Forms.MainMenu
+    Friend WithEvents MenuItem6 As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_GroupMaster As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_SubGroupMaster As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StoreMaster As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_ItemMaster As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_GRNCumPurchaseBill As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StockTransfer As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StockDamage As System.Windows.Forms.MenuItem
+    Friend WithEvents mnu_Masters As System.Windows.Forms.MenuItem
+    Friend WithEvents mnu_Transaction As System.Windows.Forms.MenuItem
+    Friend WithEvents mnu_Reports As System.Windows.Forms.MenuItem
+    Friend WithEvents mnu_Utility As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_Calculator As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_Notepad As System.Windows.Forms.MenuItem
+    Friend WithEvents mnu_Window As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_HorizontalTile As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_VerticalTile As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_Cascade As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_IssueRegister As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_IssueDetails As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_RatioChart As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StockLedger As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StockSummary As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StockOfBar As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_MainStorePosition As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_PurchaseRegister As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_Billmaterial As System.Windows.Forms.MenuItem
+    Friend WithEvents mnu_Administrator As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_Useradmin As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_Billofmaterial As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StockIssue As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_StockAdjustment As System.Windows.Forms.MenuItem
+    Friend WithEvents Submnu_Stocktransferregister As System.Windows.Forms.MenuItem
+    Friend WithEvents Submnu_StockReturnregister As System.Windows.Forms.MenuItem
+    Friend WithEvents Submnu_StockAdjustmentregister As System.Windows.Forms.MenuItem
+    Friend WithEvents Stock_Summary As System.Windows.Forms.MenuItem
+    Friend WithEvents mnu_Exception As System.Windows.Forms.MenuItem
+    Friend WithEvents MnuAccPost As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem2 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem3 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem4 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem5 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem7 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem8 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem9 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem10 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem11 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem12 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem13 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem14 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem19 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem20 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem21 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem22 As System.Windows.Forms.MenuItem
+    Friend WithEvents tot_stock As System.Windows.Forms.MenuItem
+    Friend WithEvents SubItemMaster As System.Windows.Forms.MenuItem
+    Friend WithEvents SubBOM As System.Windows.Forms.MenuItem
+    Friend WithEvents SubUOM As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem15 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem16 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem17 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem18 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem23 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem24 As System.Windows.Forms.MenuItem
+    Friend WithEvents submnu_VendorMaster As System.Windows.Forms.MenuItem
+    Friend WithEvents StockInDetails As System.Windows.Forms.MenuItem
+    Friend WithEvents StockOutDetails As System.Windows.Forms.MenuItem
+    Friend WithEvents StockIn As System.Windows.Forms.MenuItem
+    Friend WithEvents StockOut As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem25 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem26 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem27 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem28 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem29 As System.Windows.Forms.MenuItem
+    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(Main_MDI))
+        Me.MainMenu1 = New System.Windows.Forms.MainMenu
+        Me.mnu_Masters = New System.Windows.Forms.MenuItem
+        Me.submnu_GroupMaster = New System.Windows.Forms.MenuItem
+        Me.submnu_SubGroupMaster = New System.Windows.Forms.MenuItem
+        Me.submnu_StoreMaster = New System.Windows.Forms.MenuItem
+        Me.submnu_ItemMaster = New System.Windows.Forms.MenuItem
+        Me.MenuItem22 = New System.Windows.Forms.MenuItem
+        Me.SubUOM = New System.Windows.Forms.MenuItem
+        Me.SubBOM = New System.Windows.Forms.MenuItem
+        Me.SubItemMaster = New System.Windows.Forms.MenuItem
+        Me.MenuItem4 = New System.Windows.Forms.MenuItem
+        Me.submnu_Billmaterial = New System.Windows.Forms.MenuItem
+        Me.submnu_VendorMaster = New System.Windows.Forms.MenuItem
+        Me.MenuItem25 = New System.Windows.Forms.MenuItem
+        Me.MenuItem26 = New System.Windows.Forms.MenuItem
+        Me.mnu_Transaction = New System.Windows.Forms.MenuItem
+        Me.submnu_GRNCumPurchaseBill = New System.Windows.Forms.MenuItem
+        Me.MenuItem11 = New System.Windows.Forms.MenuItem
+        Me.MenuItem23 = New System.Windows.Forms.MenuItem
+        Me.submnu_StockIssue = New System.Windows.Forms.MenuItem
+        Me.submnu_StockTransfer = New System.Windows.Forms.MenuItem
+        Me.submnu_StockAdjustment = New System.Windows.Forms.MenuItem
+        Me.MenuItem24 = New System.Windows.Forms.MenuItem
+        Me.submnu_StockDamage = New System.Windows.Forms.MenuItem
+        Me.MnuAccPost = New System.Windows.Forms.MenuItem
+        Me.submnu_Billofmaterial = New System.Windows.Forms.MenuItem
+        Me.StockIn = New System.Windows.Forms.MenuItem
+        Me.StockOut = New System.Windows.Forms.MenuItem
+        Me.mnu_Reports = New System.Windows.Forms.MenuItem
+        Me.submnu_PurchaseRegister = New System.Windows.Forms.MenuItem
+        Me.MenuItem13 = New System.Windows.Forms.MenuItem
+        Me.MenuItem12 = New System.Windows.Forms.MenuItem
+        Me.submnu_IssueRegister = New System.Windows.Forms.MenuItem
+        Me.submnu_IssueDetails = New System.Windows.Forms.MenuItem
+        Me.submnu_StockSummary = New System.Windows.Forms.MenuItem
+        Me.Submnu_Stocktransferregister = New System.Windows.Forms.MenuItem
+        Me.Submnu_StockReturnregister = New System.Windows.Forms.MenuItem
+        Me.Submnu_StockAdjustmentregister = New System.Windows.Forms.MenuItem
+        Me.submnu_StockLedger = New System.Windows.Forms.MenuItem
+        Me.Stock_Summary = New System.Windows.Forms.MenuItem
+        Me.MenuItem14 = New System.Windows.Forms.MenuItem
+        Me.MenuItem20 = New System.Windows.Forms.MenuItem
+        Me.tot_stock = New System.Windows.Forms.MenuItem
+        Me.MenuItem19 = New System.Windows.Forms.MenuItem
+        Me.submnu_RatioChart = New System.Windows.Forms.MenuItem
+        Me.mnu_Exception = New System.Windows.Forms.MenuItem
+        Me.submnu_StockOfBar = New System.Windows.Forms.MenuItem
+        Me.submnu_MainStorePosition = New System.Windows.Forms.MenuItem
+        Me.MenuItem10 = New System.Windows.Forms.MenuItem
+        Me.MenuItem8 = New System.Windows.Forms.MenuItem
+        Me.MenuItem21 = New System.Windows.Forms.MenuItem
+        Me.MenuItem15 = New System.Windows.Forms.MenuItem
+        Me.MenuItem16 = New System.Windows.Forms.MenuItem
+        Me.MenuItem17 = New System.Windows.Forms.MenuItem
+        Me.MenuItem18 = New System.Windows.Forms.MenuItem
+        Me.StockInDetails = New System.Windows.Forms.MenuItem
+        Me.StockOutDetails = New System.Windows.Forms.MenuItem
+        Me.MenuItem27 = New System.Windows.Forms.MenuItem
+        Me.MenuItem28 = New System.Windows.Forms.MenuItem
+        Me.mnu_Utility = New System.Windows.Forms.MenuItem
+        Me.submnu_Calculator = New System.Windows.Forms.MenuItem
+        Me.submnu_Notepad = New System.Windows.Forms.MenuItem
+        Me.mnu_Administrator = New System.Windows.Forms.MenuItem
+        Me.submnu_Useradmin = New System.Windows.Forms.MenuItem
+        Me.MenuItem2 = New System.Windows.Forms.MenuItem
+        Me.MenuItem3 = New System.Windows.Forms.MenuItem
+        Me.MenuItem5 = New System.Windows.Forms.MenuItem
+        Me.MenuItem7 = New System.Windows.Forms.MenuItem
+        Me.MenuItem9 = New System.Windows.Forms.MenuItem
+        Me.mnu_Window = New System.Windows.Forms.MenuItem
+        Me.submnu_HorizontalTile = New System.Windows.Forms.MenuItem
+        Me.submnu_VerticalTile = New System.Windows.Forms.MenuItem
+        Me.submnu_Cascade = New System.Windows.Forms.MenuItem
+        Me.MenuItem6 = New System.Windows.Forms.MenuItem
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem
+        Me.MenuItem29 = New System.Windows.Forms.MenuItem
+        '
+        'MainMenu1
+        '
+        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnu_Masters, Me.mnu_Transaction, Me.mnu_Reports, Me.mnu_Utility, Me.mnu_Administrator, Me.mnu_Window, Me.MenuItem6})
+        '
+        'mnu_Masters
+        '
+        Me.mnu_Masters.Index = 0
+        Me.mnu_Masters.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.submnu_GroupMaster, Me.submnu_SubGroupMaster, Me.submnu_StoreMaster, Me.submnu_ItemMaster, Me.MenuItem22, Me.SubUOM, Me.SubBOM, Me.SubItemMaster, Me.MenuItem4, Me.submnu_Billmaterial, Me.submnu_VendorMaster, Me.MenuItem25, Me.MenuItem26})
+        Me.mnu_Masters.Text = "&Masters"
+        '
+        'submnu_GroupMaster
+        '
+        Me.submnu_GroupMaster.Index = 0
+        Me.submnu_GroupMaster.Shortcut = System.Windows.Forms.Shortcut.CtrlG
+        Me.submnu_GroupMaster.Text = "&Group Master"
+        '
+        'submnu_SubGroupMaster
+        '
+        Me.submnu_SubGroupMaster.Index = 1
+        Me.submnu_SubGroupMaster.Shortcut = System.Windows.Forms.Shortcut.CtrlR
+        Me.submnu_SubGroupMaster.Text = "Sub G&roup Master"
+        '
+        'submnu_StoreMaster
+        '
+        Me.submnu_StoreMaster.Index = 2
+        Me.submnu_StoreMaster.Shortcut = System.Windows.Forms.Shortcut.CtrlT
+        Me.submnu_StoreMaster.Text = "&Store Master"
+        '
+        'submnu_ItemMaster
+        '
+        Me.submnu_ItemMaster.Index = 3
+        Me.submnu_ItemMaster.Shortcut = System.Windows.Forms.Shortcut.CtrlI
+        Me.submnu_ItemMaster.Text = "&Item Master"
+        '
+        'MenuItem22
+        '
+        Me.MenuItem22.Index = 4
+        Me.MenuItem22.Shortcut = System.Windows.Forms.Shortcut.CtrlL
+        Me.MenuItem22.Text = "&Link Set Up"
+        '
+        'SubUOM
+        '
+        Me.SubUOM.Index = 5
+        Me.SubUOM.Text = "UOM Master"
+        '
+        'SubBOM
+        '
+        Me.SubBOM.Index = 6
+        Me.SubBOM.Text = "Bill oF Material  [BOM]"
+        Me.SubBOM.Visible = False
+        '
+        'SubItemMaster
+        '
+        Me.SubItemMaster.Index = 7
+        Me.SubItemMaster.Text = "Item Master-SubStore"
+        Me.SubItemMaster.Visible = False
+        '
+        'MenuItem4
+        '
+        Me.MenuItem4.Index = 8
+        Me.MenuItem4.Text = "Sub Sub Group Master"
+        Me.MenuItem4.Visible = False
+        '
+        'submnu_Billmaterial
+        '
+        Me.submnu_Billmaterial.Index = 9
+        Me.submnu_Billmaterial.Shortcut = System.Windows.Forms.Shortcut.CtrlU
+        Me.submnu_Billmaterial.Text = "&Billing Terms"
+        Me.submnu_Billmaterial.Visible = False
+        '
+        'submnu_VendorMaster
+        '
+        Me.submnu_VendorMaster.Index = 10
+        Me.submnu_VendorMaster.Text = "Vendor Item Link"
+        '
+        'MenuItem25
+        '
+        Me.MenuItem25.Index = 11
+        Me.MenuItem25.Text = "Vendor Creation"
+        '
+        'MenuItem26
+        '
+        Me.MenuItem26.Index = 12
+        Me.MenuItem26.Text = "Accounts Item Tagging"
+        '
+        'mnu_Transaction
+        '
+        Me.mnu_Transaction.Index = 1
+        Me.mnu_Transaction.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.submnu_GRNCumPurchaseBill, Me.MenuItem11, Me.MenuItem23, Me.submnu_StockIssue, Me.submnu_StockTransfer, Me.submnu_StockAdjustment, Me.MenuItem24, Me.submnu_StockDamage, Me.MnuAccPost, Me.submnu_Billofmaterial, Me.StockIn, Me.StockOut, Me.MenuItem29})
+        Me.mnu_Transaction.Text = "&Transactions"
+        '
+        'submnu_GRNCumPurchaseBill
+        '
+        Me.submnu_GRNCumPurchaseBill.Index = 0
+        Me.submnu_GRNCumPurchaseBill.Shortcut = System.Windows.Forms.Shortcut.CtrlP
+        Me.submnu_GRNCumPurchaseBill.Text = "GRN Cum &Purchase Bill"
+        '
+        'MenuItem11
+        '
+        Me.MenuItem11.Index = 1
+        Me.MenuItem11.Shortcut = System.Windows.Forms.Shortcut.CtrlD
+        Me.MenuItem11.Text = "Stock Indent"
+        '
+        'MenuItem23
+        '
+        Me.MenuItem23.Index = 2
+        Me.MenuItem23.Text = "Stock Issue"
+        '
+        'submnu_StockIssue
+        '
+        Me.submnu_StockIssue.Index = 3
+        Me.submnu_StockIssue.Shortcut = System.Windows.Forms.Shortcut.CtrlO
+        Me.submnu_StockIssue.Text = "Stock &Issue Indent"
+        '
+        'submnu_StockTransfer
+        '
+        Me.submnu_StockTransfer.Index = 4
+        Me.submnu_StockTransfer.Shortcut = System.Windows.Forms.Shortcut.CtrlT
+        Me.submnu_StockTransfer.Text = "Stock &Transfer/Return"
+        '
+        'submnu_StockAdjustment
+        '
+        Me.submnu_StockAdjustment.Index = 5
+        Me.submnu_StockAdjustment.Shortcut = System.Windows.Forms.Shortcut.CtrlA
+        Me.submnu_StockAdjustment.Text = "Stock &Adjustment"
+        '
+        'MenuItem24
+        '
+        Me.MenuItem24.Index = 6
+        Me.MenuItem24.Text = "PurchaseReturn Bill"
+        '
+        'submnu_StockDamage
+        '
+        Me.submnu_StockDamage.Index = 7
+        Me.submnu_StockDamage.Shortcut = System.Windows.Forms.Shortcut.CtrlD
+        Me.submnu_StockDamage.Text = "Stock &Damage"
+        '
+        'MnuAccPost
+        '
+        Me.MnuAccPost.Index = 8
+        Me.MnuAccPost.Shortcut = System.Windows.Forms.Shortcut.CtrlP
+        Me.MnuAccPost.Text = "Account Posting Inventory"
+        '
+        'submnu_Billofmaterial
+        '
+        Me.submnu_Billofmaterial.Index = 9
+        Me.submnu_Billofmaterial.Shortcut = System.Windows.Forms.Shortcut.CtrlB
+        Me.submnu_Billofmaterial.Text = "&Bill Of Material [BOM]"
+        Me.submnu_Billofmaterial.Visible = False
+        '
+        'StockIn
+        '
+        Me.StockIn.Index = 10
+        Me.StockIn.Text = "Stock In"
+        '
+        'StockOut
+        '
+        Me.StockOut.Index = 11
+        Me.StockOut.Text = "Stock Out"
+        '
+        'mnu_Reports
+        '
+        Me.mnu_Reports.Index = 2
+        Me.mnu_Reports.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.submnu_PurchaseRegister, Me.MenuItem13, Me.MenuItem12, Me.submnu_IssueRegister, Me.submnu_IssueDetails, Me.submnu_StockSummary, Me.Submnu_Stocktransferregister, Me.Submnu_StockReturnregister, Me.Submnu_StockAdjustmentregister, Me.submnu_StockLedger, Me.Stock_Summary, Me.MenuItem14, Me.MenuItem20, Me.tot_stock, Me.MenuItem19, Me.submnu_RatioChart, Me.mnu_Exception, Me.submnu_StockOfBar, Me.submnu_MainStorePosition, Me.MenuItem10, Me.MenuItem8, Me.MenuItem21, Me.MenuItem15, Me.StockInDetails, Me.StockOutDetails, Me.MenuItem27, Me.MenuItem28})
+        Me.mnu_Reports.Text = "Re&ports"
+        '
+        'submnu_PurchaseRegister
+        '
+        Me.submnu_PurchaseRegister.Index = 0
+        Me.submnu_PurchaseRegister.Text = "&Purchase/Return  Register"
+        '
+        'MenuItem13
+        '
+        Me.MenuItem13.Index = 1
+        Me.MenuItem13.Text = "Indentwise Register"
+        '
+        'MenuItem12
+        '
+        Me.MenuItem12.Index = 2
+        Me.MenuItem12.Text = "Pending Register Report"
+        '
+        'submnu_IssueRegister
+        '
+        Me.submnu_IssueRegister.Index = 3
+        Me.submnu_IssueRegister.Text = "&Issue Register"
+        '
+        'submnu_IssueDetails
+        '
+        Me.submnu_IssueDetails.Index = 4
+        Me.submnu_IssueDetails.Text = "Issue &Details"
+        '
+        'submnu_StockSummary
+        '
+        Me.submnu_StockSummary.Index = 5
+        Me.submnu_StockSummary.Text = "Issue &Summary"
+        '
+        'Submnu_Stocktransferregister
+        '
+        Me.Submnu_Stocktransferregister.Index = 6
+        Me.Submnu_Stocktransferregister.Text = "Stock &Transfer Register"
+        '
+        'Submnu_StockReturnregister
+        '
+        Me.Submnu_StockReturnregister.Index = 7
+        Me.Submnu_StockReturnregister.Text = "Stock &Return Register"
+        '
+        'Submnu_StockAdjustmentregister
+        '
+        Me.Submnu_StockAdjustmentregister.Index = 8
+        Me.Submnu_StockAdjustmentregister.Text = "Stock &Adjustment Register"
+        '
+        'submnu_StockLedger
+        '
+        Me.submnu_StockLedger.Index = 9
+        Me.submnu_StockLedger.Text = "Stock &Ledger"
+        '
+        'Stock_Summary
+        '
+        Me.Stock_Summary.Index = 10
+        Me.Stock_Summary.Text = "S&tock Summary"
+        '
+        'MenuItem14
+        '
+        Me.MenuItem14.Index = 11
+        Me.MenuItem14.Text = "Consolidated Summary"
+        '
+        'MenuItem20
+        '
+        Me.MenuItem20.Index = 12
+        Me.MenuItem20.Text = "ROL Summary"
+        '
+        'tot_stock
+        '
+        Me.tot_stock.Index = 13
+        Me.tot_stock.Text = "14.Total Stock Summary"
+        Me.tot_stock.Visible = False
+        '
+        'MenuItem19
+        '
+        Me.MenuItem19.Index = 14
+        Me.MenuItem19.Text = "14.ABC Report Analysis"
+        Me.MenuItem19.Visible = False
+        '
+        'submnu_RatioChart
+        '
+        Me.submnu_RatioChart.Index = 15
+        Me.submnu_RatioChart.Text = "&Ratio Chart"
+        Me.submnu_RatioChart.Visible = False
+        '
+        'mnu_Exception
+        '
+        Me.mnu_Exception.Index = 16
+        Me.mnu_Exception.Text = "6.&Exception Report"
+        Me.mnu_Exception.Visible = False
+        '
+        'submnu_StockOfBar
+        '
+        Me.submnu_StockOfBar.Index = 17
+        Me.submnu_StockOfBar.Text = "Stock Of &Bar"
+        Me.submnu_StockOfBar.Visible = False
+        '
+        'submnu_MainStorePosition
+        '
+        Me.submnu_MainStorePosition.Index = 18
+        Me.submnu_MainStorePosition.Text = "&Main Store Position"
+        Me.submnu_MainStorePosition.Visible = False
+        '
+        'MenuItem10
+        '
+        Me.MenuItem10.Index = 19
+        Me.MenuItem10.Text = "Purchase Register Recon"
+        Me.MenuItem10.Visible = False
+        '
+        'MenuItem8
+        '
+        Me.MenuItem8.Index = 20
+        Me.MenuItem8.Text = "14.VAT Input Tax Report"
+        Me.MenuItem8.Visible = False
+        '
+        'MenuItem21
+        '
+        Me.MenuItem21.Index = 21
+        Me.MenuItem21.Text = "16.Consolidated Issue Summary"
+        Me.MenuItem21.Visible = False
+        '
+        'MenuItem15
+        '
+        Me.MenuItem15.Index = 22
+        Me.MenuItem15.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem16, Me.MenuItem17, Me.MenuItem18})
+        Me.MenuItem15.Text = "OLD Reports"
+        Me.MenuItem15.Visible = False
+        '
+        'MenuItem16
+        '
+        Me.MenuItem16.Index = 0
+        Me.MenuItem16.Text = "StockSummary"
+        Me.MenuItem16.Visible = False
+        '
+        'MenuItem17
+        '
+        Me.MenuItem17.Index = 1
+        Me.MenuItem17.Text = "Purchase Register"
+        Me.MenuItem17.Visible = False
+        '
+        'MenuItem18
+        '
+        Me.MenuItem18.Index = 2
+        Me.MenuItem18.Text = "Input Tax"
+        Me.MenuItem18.Visible = False
+        '
+        'StockInDetails
+        '
+        Me.StockInDetails.Index = 23
+        Me.StockInDetails.Text = "Stock In Register"
+        '
+        'StockOutDetails
+        '
+        Me.StockOutDetails.Index = 24
+        Me.StockOutDetails.Text = "Stock Out Register"
+        '
+        'MenuItem27
+        '
+        Me.MenuItem27.Index = 25
+        Me.MenuItem27.Text = "Categorywise Stock Summary"
+        '
+        'MenuItem28
+        '
+        Me.MenuItem28.Index = 26
+        Me.MenuItem28.Text = "Stock Damage Register"
+        '
+        'mnu_Utility
+        '
+        Me.mnu_Utility.Index = 3
+        Me.mnu_Utility.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.submnu_Calculator, Me.submnu_Notepad})
+        Me.mnu_Utility.Text = "&Utility"
+        '
+        'submnu_Calculator
+        '
+        Me.submnu_Calculator.Index = 0
+        Me.submnu_Calculator.Shortcut = System.Windows.Forms.Shortcut.CtrlL
+        Me.submnu_Calculator.Text = "Calculator"
+        '
+        'submnu_Notepad
+        '
+        Me.submnu_Notepad.Index = 1
+        Me.submnu_Notepad.Shortcut = System.Windows.Forms.Shortcut.CtrlN
+        Me.submnu_Notepad.Text = "Note Pad"
+        '
+        'mnu_Administrator
+        '
+        Me.mnu_Administrator.Index = 4
+        Me.mnu_Administrator.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.submnu_Useradmin, Me.MenuItem2, Me.MenuItem3, Me.MenuItem5, Me.MenuItem7, Me.MenuItem9})
+        Me.mnu_Administrator.Text = "&Administrator"
+        '
+        'submnu_Useradmin
+        '
+        Me.submnu_Useradmin.Index = 0
+        Me.submnu_Useradmin.Shortcut = System.Windows.Forms.Shortcut.CtrlH
+        Me.submnu_Useradmin.Text = "User A&dmin"
+        '
+        'MenuItem2
+        '
+        Me.MenuItem2.Index = 1
+        Me.MenuItem2.Text = "Select Company"
+        '
+        'MenuItem3
+        '
+        Me.MenuItem3.Index = 2
+        Me.MenuItem3.Text = "Inventory Update"
+        Me.MenuItem3.Visible = False
+        '
+        'MenuItem5
+        '
+        Me.MenuItem5.Index = 3
+        Me.MenuItem5.Text = "Carry Forward"
+        '
+        'MenuItem7
+        '
+        Me.MenuItem7.Index = 4
+        Me.MenuItem7.Text = "Sub Store Consumption - Manual Updation"
+        '
+        'MenuItem9
+        '
+        Me.MenuItem9.Index = 5
+        Me.MenuItem9.Text = "Weighted Average"
+        Me.MenuItem9.Visible = False
+        '
+        'mnu_Window
+        '
+        Me.mnu_Window.Index = 5
+        Me.mnu_Window.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.submnu_HorizontalTile, Me.submnu_VerticalTile, Me.submnu_Cascade})
+        Me.mnu_Window.Text = "&Window"
+        '
+        'submnu_HorizontalTile
+        '
+        Me.submnu_HorizontalTile.Index = 0
+        Me.submnu_HorizontalTile.Text = "&Horizontal Tile"
+        '
+        'submnu_VerticalTile
+        '
+        Me.submnu_VerticalTile.Index = 1
+        Me.submnu_VerticalTile.Text = "&Vertical Tile"
+        '
+        'submnu_Cascade
+        '
+        Me.submnu_Cascade.Index = 2
+        Me.submnu_Cascade.Text = "&Cascade"
+        '
+        'MenuItem6
+        '
+        Me.MenuItem6.Index = 6
+        Me.MenuItem6.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1})
+        Me.MenuItem6.Text = "Exit"
+        '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = 0
+        Me.MenuItem1.Text = "Close"
+        '
+        'MenuItem29
+        '
+        Me.MenuItem29.Index = 12
+        Me.MenuItem29.Text = "Consumption Entry"
+        '
+        'Main_MDI
+        '
+        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.BackColor = System.Drawing.Color.Cornsilk
+        Me.ClientSize = New System.Drawing.Size(1026, 599)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IsMdiContainer = True
+        Me.KeyPreview = True
+        Me.Menu = Me.MainMenu1
+        Me.Name = "Main_MDI"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "INVENTORY"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+
+    End Sub
+
+#End Region
+    Dim gconnection As New GlobalClass
+    Private Sub Main_MDI_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        MDIParentobj = Me
+        AppPath = Application.StartupPath
+        AppPath = Application.StartupPath
+        If Dir(AppPath & "\Reports", FileAttribute.Directory) = "" Then
+            MkDir(AppPath & "\Reports")
+        End If
+
+        Call Updation()
+        Dim sqlstring As String
+        sqlstring = "SELECT ISNULL(INDENTISSFLAG,'') AS INDENTISSFLAG FROM INV_LINKSETUP "
+        gconnection.getDataSet(sqlstring, "INV_LINKSETUP")
+        If gdataset.Tables("INV_LINKSETUP").Rows.Count > 0 Then
+            GINDENTNO = Trim(UCase(gdataset.Tables("INV_LINKSETUP").Rows(0).Item("INDENTISSFLAG")))
+        Else
+            GINDENTNO = ""
+        End If
+        If GINDENTNO = "Y" Then
+            MenuItem23.Visible = False
+            submnu_StockIssue.Visible = True
+            MenuItem11.Visible = True
+            MenuItem12.Visible = True
+            MenuItem13.Visible = True
+        Else
+            MenuItem23.Visible = True
+            submnu_StockIssue.Visible = False
+            MenuItem11.Visible = False
+            MenuItem12.Visible = False
+            MenuItem13.Visible = False
+        End If
+        Call FillCompanyinfo()
+        Call POLINK()
+        Call GetAccountcode()
+        Call Activateuseradmin()
+        Call INVSETUP()
+        Me.IsMdiContainer = True
+        ' PictureBox1.Image = Image.FromFile(Photogen)
+    End Sub
+    Public Sub updation()
+        Dim str1 As String
+        Try
+            str1 = "alter table grn_details add PROFITAMT numeric(18,2)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table grn_header add PROFITAMT numeric(18,2)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table inventoryitemmaster add Ledger varchar(50)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table invsetup add VENDORLINK varchar(1)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table invsetup add GRNRATEONLINE varchar(1)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table stockadjustdetails add  Remarks_det varchar(500)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table invsetup add RSILINK varchar(1)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " ALTER   view [dbo].[vw_inv_stkajdbill] "
+            str1 = str1 & " as "
+            str1 = str1 & " SELECT ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,H.DOCDATE AS DOCDATE,ISNULL(H.STORELOCATIONCODE,'') AS STORELOCATIONCODE, "
+            str1 = str1 & " ISNULL(H.STORELOCATIONDESC,'') AS STORELOCATIONDESC,ISNULL(D.ITEMCODE,'') AS ITEMCODE, ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM, "
+            str1 = str1 & " ISNULL(D.STOCKINHAND,0) AS STOCKINHAND, ISNULL(D.PHYSICALSTOCK,0) AS PHYSICALSTOCK, ISNULL(D.ADJUSTEDSTOCK,0) AS ADJUSTEDSTOCK,ISNULL(D.RATE,0) AS RATE, "
+            str1 = str1 & " ISNULL(D.AMOUNT,0) AS AMOUNT,isnull(REMARKS,'') AS REMARKS,ISNULL(H.UPDFOOTER,'') AS UPDFOOTER ,ISNULL(H.UPDSIGN,'') AS UPDSIGN,ISNULL(D.REMARKS_DET,'') AS REMARKS_DET FROM STOCKADJUSTHEADER AS H INNER JOIN "
+            str1 = str1 & " STOCKADJUSTDETAILS AS D ON D.DOCDETAILS = H.DOCDETAILS "
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " CREATE TABLE [dbo].[STOCKINOUTDETAIL]( "
+            str1 = str1 & " [Autoid] [numeric](18, 0) IDENTITY(1,1) NOT NULL, "
+            str1 = str1 & " [Docno] [varchar](50) NULL, "
+            str1 = str1 & " [Docdetails] [varchar](50) NULL,"
+            str1 = str1 & " [Docdate] [datetime] NULL,"
+            str1 = str1 & " [Doctype] [varchar](10) NULL,"
+            str1 = str1 & " [Transferno] [varchar](50) NULL,"
+            str1 = str1 & " [storecode] [varchar](50) NULL,"
+            str1 = str1 & " [storedesc] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Tostorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Tostoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Challenno] [varchar](50) NULL,"
+            str1 = str1 & " [Itemcode] [varchar](50) NULL,"
+            str1 = str1 & " [Itemname] [varchar](50) NULL,"
+            str1 = str1 & " [Uom] [varchar](50) NULL,"
+            str1 = str1 & " [Qty] [numeric](18, 3) NULL,"
+            str1 = str1 & " [Rate] [numeric](18, 2) NULL,"
+            str1 = str1 & " [Amount] [numeric](18, 0) NULL,"
+            str1 = str1 & " [Dblamt] [numeric](18, 2) NULL,"
+            str1 = str1 & " [Dblconv] [varchar](50) NULL,"
+            str1 = str1 & " [Highratio] [float] NULL,"
+            str1 = str1 & " [Groupcode] [varchar](50) NULL,"
+            str1 = str1 & " [Subgroupcode] [varchar](50) NULL,"
+            str1 = str1 & " [Void] [char](1) NULL,"
+            str1 = str1 & " [Avgqty] [float] NULL,"
+            str1 = str1 & " [Avgrate] [float] NULL,"
+            str1 = str1 & " [Adduser] [varchar](50) NULL,"
+            str1 = str1 & " [Adddatetime] [datetime] NULL,"
+            str1 = str1 & " [Updateuser] [varchar](50) NULL,"
+            str1 = str1 & " [Updatetime] [datetime] NULL,"
+            str1 = str1 & " [IOTransQty] [decimal](18, 2) NULL,"
+            str1 = str1 & " [IOStockUom] [varchar](25) NULL,"
+            str1 = str1 & " [IOTransValue] [numeric](18, 2) NULL,"
+            str1 = str1 & " [IOTRANSRATE] [numeric](18, 2) NULL"
+            str1 = str1 & " ) ON [PRIMARY]"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " CREATE TABLE [dbo].[STOCKINOUTHEADER]("
+            str1 = str1 & " [Autoid] [numeric](18, 0) IDENTITY(1,1) NOT NULL,"
+            str1 = str1 & " [Docno] [varchar](50) NULL,"
+            str1 = str1 & " [Docdetails] [varchar](50) NOT NULL,"
+            str1 = str1 & " [Docdate] [datetime] NULL,"
+            str1 = str1 & " [Doctype] [varchar](10) NULL,"
+            str1 = str1 & " [Transferno] [varchar](50) NULL,"
+            str1 = str1 & " [storecode] [varchar](50) NULL,"
+            str1 = str1 & " [storedesc] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Tostorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Tostoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Challenno] [varchar](50) NULL,"
+            str1 = str1 & " [Challendate] [datetime] NULL,"
+            str1 = str1 & " [TotalAmt] [numeric](18, 2) NULL,"
+            str1 = str1 & " [Remarks] [varchar](100) NULL,"
+            str1 = str1 & " [Void] [char](10) NULL,"
+            str1 = str1 & " [Adduser] [varchar](50) NULL,"
+            str1 = str1 & " [Adddate] [datetime] NULL,"
+            str1 = str1 & " [Updateuser] [varchar](50) NULL,"
+            str1 = str1 & " [Updatetime] [datetime] NULL,"
+            str1 = str1 & " [UPDFOOTER] [varchar](100) NULL,"
+            str1 = str1 & " [UPDSIGN] [varchar](100) NULL"
+            str1 = str1 & " ) ON [PRIMARY]"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table stksummary add CATEGORY varchar(50)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table stocksummary add CATEGORY varchar(50)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table stockadjustdetails alter column Physicalstock numeric(18,3)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "alter table stockadjustdetails alter column Stockinhand numeric(18,3)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            '20APR12 VenuJD
+            str1 = " create  VIEW [dbo].[VW_INV_STKINOUTBILL] "
+            str1 = str1 & " as "
+            str1 = str1 & " SELECT ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,H.DOCDATE,ISNULL(H.FROMSTORECODE,'') AS FROMSTORECODE, "
+            str1 = str1 & " ISNULL(H.FROMSTOREDESC,'') AS FROMSTOREDESC,ISNULL(H.TOSTORECODE,'') AS TOSTORECODE, "
+            str1 = str1 & " ISNULL(H.TOSTOREDESC,'') AS TOSTOREDESC,ISNULL(H.CHALLENNO,'') AS CHALLENNO,H.CHALLENDATE AS CHALLENDATE, "
+            str1 = str1 & " ISNULL(D.ITEMCODE,'') AS ITEMCODE,ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM,ISNULL(D.QTY,0) AS QTY, "
+            str1 = str1 & " ISNULL(D.RATE,0) AS RATE,ISNULL(D.AMOUNT,0) AS AMOUNT,ISNULL(REMARKS,'') AS REMARKS,ISNULL(H.UPDFOOTER,'') "
+            str1 = str1 & " AS UPDFOOTER ,ISNULL(H.UPDSIGN,'') AS UPDSIGN FROM STOCKINOUTHEADER AS H INNER JOIN STOCKINOUTDETAIL AS D ON H.DOCDETAILS = D.DOCDETAILS "
+            gconnection.dataOperation1(6, str1, "item")
+
+            '25APR12 VenuJD
+            str1 = " CREATE TABLE [dbo].[STOCKDMGDETAIL]( "
+            str1 = str1 & " [Autoid] [numeric](18, 0) IDENTITY(1,1) NOT NULL, "
+            str1 = str1 & " [Docno] [varchar](50) NULL, "
+            str1 = str1 & " [Docdetails] [varchar](50) NULL,"
+            str1 = str1 & " [Docdate] [datetime] NULL,"
+            str1 = str1 & " [Doctype] [varchar](10) NULL,"
+            str1 = str1 & " [Transferno] [varchar](50) NULL,"
+            str1 = str1 & " [storecode] [varchar](50) NULL,"
+            str1 = str1 & " [storedesc] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Tostorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Tostoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Challenno] [varchar](50) NULL,"
+            str1 = str1 & " [Itemcode] [varchar](50) NULL,"
+            str1 = str1 & " [Itemname] [varchar](50) NULL,"
+            str1 = str1 & " [Uom] [varchar](50) NULL,"
+            str1 = str1 & " [Qty] [numeric](18, 3) NULL,"
+            str1 = str1 & " [Rate] [numeric](18, 2) NULL,"
+            str1 = str1 & " [Amount] [numeric](18, 0) NULL,"
+            str1 = str1 & " [Dblamt] [numeric](18, 2) NULL,"
+            str1 = str1 & " [Dblconv] [varchar](50) NULL,"
+            str1 = str1 & " [Highratio] [float] NULL,"
+            str1 = str1 & " [Groupcode] [varchar](50) NULL,"
+            str1 = str1 & " [Subgroupcode] [varchar](50) NULL,"
+            str1 = str1 & " [Void] [char](1) NULL,"
+            str1 = str1 & " [Avgqty] [float] NULL,"
+            str1 = str1 & " [Avgrate] [float] NULL,"
+            str1 = str1 & " [Adduser] [varchar](50) NULL,"
+            str1 = str1 & " [Adddatetime] [datetime] NULL,"
+            str1 = str1 & " [Updateuser] [varchar](50) NULL,"
+            str1 = str1 & " [Updatetime] [datetime] NULL,"
+            str1 = str1 & " [DMGTransQty] [decimal](18, 2) NULL,"
+            str1 = str1 & " [DMGStockUom] [varchar](25) NULL,"
+            str1 = str1 & " [DMGTransValue] [numeric](18, 2) NULL,"
+            str1 = str1 & " [DMGTRANSRATE] [numeric](18, 2) NULL"
+            str1 = str1 & " ) ON [PRIMARY]"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " CREATE TABLE [dbo].[STOCKDMGHEADER]("
+            str1 = str1 & " [Autoid] [numeric](18, 0) IDENTITY(1,1) NOT NULL,"
+            str1 = str1 & " [Docno] [varchar](50) NULL,"
+            str1 = str1 & " [Docdetails] [varchar](50) NOT NULL,"
+            str1 = str1 & " [Docdate] [datetime] NULL,"
+            str1 = str1 & " [Doctype] [varchar](10) NULL,"
+            str1 = str1 & " [Transferno] [varchar](50) NULL,"
+            str1 = str1 & " [storecode] [varchar](50) NULL,"
+            str1 = str1 & " [storedesc] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Fromstoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Tostorecode] [varchar](50) NULL,"
+            str1 = str1 & " [Tostoredesc] [varchar](50) NULL,"
+            str1 = str1 & " [Challenno] [varchar](50) NULL,"
+            str1 = str1 & " [Challendate] [datetime] NULL,"
+            str1 = str1 & " [TotalAmt] [numeric](18, 2) NULL,"
+            str1 = str1 & " [Remarks] [varchar](100) NULL,"
+            str1 = str1 & " [Void] [char](10) NULL,"
+            str1 = str1 & " [Adduser] [varchar](50) NULL,"
+            str1 = str1 & " [Adddate] [datetime] NULL,"
+            str1 = str1 & " [Updateuser] [varchar](50) NULL,"
+            str1 = str1 & " [Updatetime] [datetime] NULL,"
+            str1 = str1 & " [UPDFOOTER] [varchar](100) NULL,"
+            str1 = str1 & " [UPDSIGN] [varchar](100) NULL"
+            str1 = str1 & " ) ON [PRIMARY]"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " create  VIEW [dbo].[VW_INV_STKDMGBILL] "
+            str1 = str1 & " AS "
+            str1 = str1 & " SELECT ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,H.DOCDATE,ISNULL(H.FROMSTORECODE,'') AS FROMSTORECODE, "
+            str1 = str1 & " ISNULL(H.FROMSTOREDESC,'') AS FROMSTOREDESC,ISNULL(H.TOSTORECODE,'') AS TOSTORECODE,"
+            str1 = str1 & " ISNULL(H.TOSTOREDESC,'') AS TOSTOREDESC,ISNULL(H.CHALLENNO,'') AS CHALLENNO,H.CHALLENDATE AS CHALLENDATE, "
+            str1 = str1 & " ISNULL(D.ITEMCODE,'') AS ITEMCODE,ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM,ISNULL(D.QTY,0) AS QTY, "
+            str1 = str1 & " ISNULL(D.RATE,0) AS RATE,ISNULL(D.AMOUNT,0) AS AMOUNT,ISNULL(REMARKS,'') AS REMARKS,ISNULL(H.UPDFOOTER,'') "
+            str1 = str1 & " AS UPDFOOTER ,ISNULL(H.UPDSIGN,'') AS UPDSIGN "
+            str1 = str1 & " FROM STOCKDMGHEADER AS H INNER JOIN STOCKDMGDETAIL AS D ON H.DOCDETAILS = D.DOCDETAILS "
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " CREATE  VIEW [dbo].[VIEWSTOCKDMGREGISTER]"
+            str1 = str1 & " AS"
+            str1 = str1 & " SELECT ISNULL(H.STOREDESC,'') AS STOREDESC,ISNULL(H.FROMSTOREDESC,'') AS FROMSTOREDESC,ISNULL(H.TOSTOREDESC,'') AS TOSTOREDESC,ISNULL(H.DOCTYPE,'') AS DOCTYPE,"
+            str1 = str1 & " ISNULL(H.CHALLENNO,'') AS CHALLENNO,H.CHALLENDATE AS CHALLENDATE,ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,"
+            str1 = str1 & " H.DOCDATE AS DOCDATE,ISNULL(D.ITEMCODE,'') AS ITEMCODE,ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM,"
+            str1 = str1 & " ISNULL(SUM(D.QTY),0) AS QTY,ISNULL(D.RATE,0) AS RATE,SUM(D.QTY) * ISNULL(D.RATE,0) AS AMOUNT"
+            str1 = str1 & " FROM STOCKDMGHEADER AS H INNER JOIN STOCKDMGDETAIL AS D ON H.DOCDETAILS = D.DOCDETAILS AND"
+            str1 = str1 & " H.DOCDATE = D.DOCDATE"
+            str1 = str1 & " --WHERE ISNULL(H.DOCTYPE,'') <> 'RET'"
+            str1 = str1 & " GROUP BY H.DOCDETAILS,H.DOCDATE,D.ITEMNAME,D.ITEMCODE,H.STOREDESC,H.FROMSTOREDESC,H.TOSTOREDESC,H.CHALLENNO,H.CHALLENDATE,D.UOM,D.RATE,H.DOCTYPE"
+            str1 = str1 & " --ORDER BY DOCDETAILS,DOCDATE"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " CREATE TABLE [dbo].[INVENTORYCATEGORYMASTER]("
+            str1 = str1 & " [CATEGORYCODE] [varchar](10) NULL,"
+            str1 = str1 & " [CATEGORYDESC] [varchar](25) NULL,"
+            str1 = str1 & " [Freeze] [char](1) NULL,"
+            str1 = str1 & " [Adduser] [varchar](10) NULL,"
+            str1 = str1 & " [Adddate] [datetime] NULL,"
+            str1 = str1 & " [USERNAME] [varchar](50) NULL"
+            str1 = str1 & " ) ON [PRIMARY]"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table InventoryGroupMaster add Categorycode varchar(50) NULL"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table InventoryGroupMaster add Categorydesc varchar(50) NULL"
+            gconnection.dataOperation1(6, str1, "item")
+
+            '29MAY12 by VenuJD for RSI tracking purpose
+            str1 = " alter table Ratemaster add RGrndetails varchar(50) NULL"
+            gconnection.dataOperation1(6, str1, "item")
+
+            '12JUN12 by VenuJD for RSI SaleAmount purpose
+            str1 = " ALTER TABLE GRN_DETAILS ADD SALEAMOUNT NUMERIC(18,2)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            '22JUN12 by VenuJD for RSI SaleAmount purpose
+            str1 = " ALTER TABLE GRN_HEADER ADD TOTSALEAMT NUMERIC(18,2)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " ALTER TABLE GRN_HEADER ADD TOTPROFITAMT NUMERIC(18,2)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            '26JUN12 by VENUJD For Catholic Club
+            str1 = "  alter table invsetup add CATHOLIC varchar(1)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table inventoryitemmaster add CASEQTY numeric(18)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table grn_details add CASEQTY numeric(18)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table grn_details add CASERATE numeric(18,2)"
+            gconnection.dataOperation1(6, str1, "item")
+
+            '06JUL12 by VENUJD
+            str1 = " alter table invsetup add positemstorelink varchar(1) "
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " CREATE VIEW [dbo].[CALCRATE]"
+            str1 = str1 & " AS"
+            str1 = str1 & " Select Case DISTINCT '01-APR-1900' AS DOCDATE,ITEMCODE,STORECODE,ISNULL(OPVALUE,0)/ISNULL(OPSTOCK,0) AS RATE FROM INVENTORYITEMMASTER WHERE ISNULL(OPSTOCK,0)<>0"
+            str1 = str1 & "    UNION ALL "
+            str1 = str1 & " SELECT DISTINCT GRNDATE AS DOCDATE,Itemcode,storecode,RATE FROM GRN_DETAILS WHERE ISNULL(Voiditem,'')<>'y'"
+            str1 = str1 & " UNION ALL "
+            str1 = str1 & " SELECT DISTINCT Docdate, ITEMCODE,OPSTORELOCATIONCODE,Rate FROM STOCKISSUEDETAIL WHERE ISNULL(VOID,'')<>'y'"
+            gconnection.dataOperation1(6, str1, "item")
+
+            '10JUL12 by VENUJD
+            str1 = " alter table invsetup add HYDLINK varchar(1) "
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table invsetup add SALERATE varchar(1) "
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table invsetup add AVGRATE varchar(1) "
+            gconnection.dataOperation1(6, str1, "item")
+
+            '15JUL12 by VENUJD
+            str1 = " alter table stksummary add Adjqty numeric(18,3) "
+            gconnection.dataOperation1(6, str1, "item")
+            str1 = " alter table stksummary add Adjrate numeric(18,3) "
+            gconnection.dataOperation1(6, str1, "item")
+            str1 = " alter table stksummary add Adjval numeric(18,3) "
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = " alter table STOCKSUMMARY add Adjqty numeric(18,3) "
+            gconnection.dataOperation1(6, str1, "item")
+            str1 = " alter table STOCKSUMMARY add Adjrate numeric(18,3) "
+            gconnection.dataOperation1(6, str1, "item")
+            str1 = " alter table STOCKSUMMARY add Adjval numeric(18,3) "
+            gconnection.dataOperation1(6, str1, "item")
+
+            'Adding Salerate and saleamount in this view for RSI requirement on 26AUG12 by VENUJD
+            str1 = " ALTER    VIEW [dbo].[VW_INV_GRNBILL]"
+            str1 = str1 & " AS"
+            str1 = str1 & " SELECT ISNULL(D.AUTOID,'') AS AUTOID,ISNULL(G.PONO,'') AS PONO, ISNULL(G.GRNDETAILS,'') AS GRNDETAILS,G.GRNDATE, ISNULL(G.SUPPLIERCODE,'') AS SUPPLIERCODE, ISNULL(G.SUPPLIERNAME,'') AS SUPPLIERNAME,"
+            str1 = str1 & "   ISNULL(G.SUPPLIERINVNO,'') AS SUPPLIERINVNO,  ISNULL(G.StoreCode,'') AS EXCISEPASSNO,ISNULL(G.GLACCOUNTCODE,'') AS GLACCOUNTCODE,ISNULL(G.GLACCOUNTNAME,'') AS GLACCOUNTNAME, "
+            str1 = str1 & "   ISNULL(G.TOTALAMOUNT,0) AS TOTALAMOUNT,ISNULL(VATAMOUNT,0) AS VATAMOUNT,ISNULL(G.SURCHARGEAMT,0) AS SURCHARGEAMT,ISNULL(D.DISCOUNT,0) AS DISCOUNT,ISNULL(G.BILLAMOUNT,0) AS BILLAMOUNT,"
+            str1 = str1 & " ISNULL(D.ITEMCODE,'') AS ITEMCODE, ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM, ISNULL(D.QTY,0) AS QTY, ISNULL(D.RATE,0) AS RATE,ISNULL(G.REMARKS,'') AS REMARKS,  "
+            str1 = str1 & "  ISNULL(D.AMOUNT,0) AS AMOUNT,ISNULL(D.SALERATE,0) AS SALERATE,ISNULL(D.SALEAMOUNT,0) AS SALEAMOUNT,isnull(d.discount,0) as ddiscount,isnull(d.taxper,0) as taxper,isnull(d.taxamount,0) as taxamount, isnull(g.OverallDiscount,0) OverallDiscount,ISNULL(UPDFOOTER,'') AS UPDFOOTER,ISNULL(UPDNAME,'') AS UPDNAME,ISNULL(g.Adddate,'') AS ADDDATE ,ISNULL(g.UPDATETIME,'') AS UPDATETIME "
+            str1 = str1 & "   FROM GRN_HEADER AS G INNER JOIN GRN_DETAILS AS D ON G.GRNDETAILS = D.GRNDETAILS "
+            gconnection.dataOperation1(6, str1, "item")
+
+            '12SEP12 by VENUJD
+            str1 = " alter table invsetup add GRNGLCODE varchar(1) "
+            gconnection.dataOperation1(6, str1, "item")
+
+            'On 16OCT12 Transaction Date for Catholic club by VENUJD
+            str1 = " ALTER  VIEW [dbo].[VW_INV_IDENTBILL]"
+            str1 = str1 & " AS"
+            str1 = str1 & " SELECT 	ISNULL(HDR.INDENT_NO,'') INDENT_NO, ISNULL(HDR.INDENT_DATE,'')  INDENT_DATE,"
+            str1 = str1 & " ISNULL(HDR.FROMSTORECODE,'') FROMSTORECODE , ISNULL(HDR.STORELOCATIONCODE,'') STORELOCATIONCODE,"
+            str1 = str1 & " ISNULL(HDR.STORELOCATIONNAME,'') STORELOCATIONNAME,"
+            str1 = str1 & " ISNULL(HDR.PRODUCT_TYPE,'') PRODUCT_TYPE, ISNULL(HDR.REMARKS,'') REMARKS,ISNULL(HDR.updsign,'') updsign,"
+            str1 = str1 & " ISNULL(HDR.updfooter,'') updfooter,"
+            str1 = str1 & " ISNULL(ITEMCODE,'') ITEMCODE, ISNULL(ITEMNAME,'') ITEMNAME, ISNULL(UOM,'') UOM,"
+            str1 = str1 & " ISNULL(QTY,0) QTY, ISNULL(RATE,0) RATE, ISNULL(AMOUNT,0) AMOUNT, ISNULL(CLSQTY,0) CLSQTY,"
+            str1 = str1 & " (case  ISNULL(hdr.UPDATETIME,'')  when '' then ISNULL(hdr.ADDDATETIME,'') else ISNULL(hdr.UPDATETIME,'') end) as ADDDATE"
+            str1 = str1 & " FROM INVENTORY_INDENTHDR HDR"
+            str1 = str1 & " INNER JOIN INVENTORY_INDENTDET AS DET ON HDR.INDENT_NO = DET.INDENT_NO"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "   ALTER  VIEW  [dbo].[VW_INV_ISSUEBILL]"
+            str1 = str1 & " AS"
+            str1 = str1 & " SELECT TOP 100 PERCENT dbo.stockissueheader.docdetails, dbo.stockissueheader.docdate,"
+            str1 = str1 & " dbo.stockissueheader.storelocationname, dbo.stockissueheader.opstorelocationname, dbo.stockissuedetail.itemcode,"
+            str1 = str1 & " dbo.stockissueheader.storelocationcode,dbo.stockissueheader.opstorelocationcode, dbo.stockissuedetail.itemname,"
+            str1 = str1 & " dbo.stockissuedetail.uom,dbo.stockissuedetail.qty, dbo.stockissuedetail.rate, dbo.stockissuedetail.amount ,isnull(dbo.stockissuedetail.clsqty,0) as clsqty ,"
+            str1 = str1 & " dbo.stockissueheader.indentno ,  dbo.stockissueheader.indentdate,dbo.stockissueheader.remarks,"
+            str1 = str1 & " dbo.stockissueheader.UPDFOOTER,dbo.stockissueheader.UPDSIGN,"
+            str1 = str1 & " (case  ISNULL(dbo.stockissueheader.UPDATETIME,'')  when '' then ISNULL(dbo.stockissueheader.ADDDATE,'') else ISNULL(dbo.stockissueheader.UPDATETIME,'') end) as ADDDATE "
+            str1 = str1 & " FROM dbo.stockissuedetail INNER JOIN dbo.stockissueheader "
+            str1 = str1 & " ON dbo.stockissuedetail.docdetails = dbo.stockissueheader.docdetails"
+            gconnection.dataOperation1(6, str1, "item")
+
+            'On 22OCT12 Transaction Date for Catholic club by VENUJD
+            str1 = "   ALTER  VIEW [dbo].[VW_INV_STKTRFBILL]"
+            str1 = str1 & " AS "
+            str1 = str1 & " SELECT ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,H.DOCDATE,ISNULL(H.FROMSTORECODE,'') AS FROMSTORECODE,"
+            str1 = str1 & " ISNULL(H.FROMSTOREDESC,'') AS FROMSTOREDESC,ISNULL(H.TOSTORECODE,'') AS TOSTORECODE,"
+            str1 = str1 & " ISNULL(H.TOSTOREDESC,'') AS TOSTOREDESC,ISNULL(H.CHALLENNO,'') AS CHALLENNO,H.CHALLENDATE AS CHALLENDATE,"
+            str1 = str1 & " ISNULL(D.ITEMCODE,'') AS ITEMCODE,ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM,ISNULL(D.QTY,0) AS QTY,"
+            str1 = str1 & " ISNULL(D.RATE,0) AS RATE,ISNULL(D.AMOUNT,0) AS AMOUNT,ISNULL(REMARKS,'') AS REMARKS,ISNULL(H.UPDFOOTER,'') "
+            str1 = str1 & " AS UPDFOOTER ,ISNULL(H.UPDSIGN,'') AS UPDSIGN ,"
+            str1 = str1 & " (case  ISNULL(h.UPDATETIME,'')  when '' then ISNULL(h.ADDDATE,'') else ISNULL(h.UPDATETIME,'') end) as ADDDATE  "
+            str1 = str1 & " FROM STOCKTRANSFERHEADER AS H INNER JOIN STOCKTRANSFERDETAIL AS D ON H.DOCDETAILS = D.DOCDETAILS"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "   ALTER   view [dbo].[vw_inv_stkajdbill]"
+            str1 = str1 & " as  "
+            str1 = str1 & " SELECT ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,H.DOCDATE AS DOCDATE,ISNULL(H.STORELOCATIONCODE,'') AS STORELOCATIONCODE,  ISNULL(H.STORELOCATIONDESC,'') AS STORELOCATIONDESC,ISNULL(D.ITEMCODE,'') AS ITEMCODE, ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM,  ISNULL(D.STOCKINHAND,0) AS STOCKINHAND, ISNULL(D.PHYSICALSTOCK,0) AS PHYSICALSTOCK, ISNULL(D.ADJUSTEDSTOCK,0) AS ADJUSTEDSTOCK,ISNULL(D.RATE,0) AS RATE,  ISNULL(D.AMOUNT,0) AS AMOUNT,isnull(REMARKS,'') AS REMARKS,ISNULL(H.UPDFOOTER,'') AS UPDFOOTER ,ISNULL(H.UPDSIGN,'') AS UPDSIGN,ISNULL(D.REMARKS_DET,'') AS REMARKS_DET "
+            str1 = str1 & " , (case  ISNULL(h.UPDATETIME,'')  when '' then ISNULL(h.ADDDATE,'') else ISNULL(h.UPDATETIME,'') end) as ADDDATE  "
+            str1 = str1 & " FROM STOCKADJUSTHEADER AS H INNER JOIN  STOCKADJUSTDETAILS AS D ON D.DOCDETAILS = H.DOCDETAILS "
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "   ALTER  VIEW [dbo].[VW_INV_STKDMGBILL]"
+            str1 = str1 & "  AS "
+            str1 = str1 & "   SELECT ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,H.DOCDATE,ISNULL(H.FROMSTORECODE,'') AS FROMSTORECODE,"
+            str1 = str1 & " ISNULL(H.FROMSTOREDESC,'') AS FROMSTOREDESC,ISNULL(H.TOSTORECODE,'') AS TOSTORECODE,"
+            str1 = str1 & " ISNULL(H.TOSTOREDESC,'') AS TOSTOREDESC,ISNULL(H.CHALLENNO,'') AS CHALLENNO,H.CHALLENDATE AS CHALLENDATE,"
+            str1 = str1 & " ISNULL(D.ITEMCODE,'') AS ITEMCODE,ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM,ISNULL(D.QTY,0) AS QTY,"
+            str1 = str1 & " ISNULL(D.RATE,0) AS RATE,ISNULL(D.AMOUNT,0) AS AMOUNT,ISNULL(REMARKS,'') AS REMARKS,ISNULL(H.UPDFOOTER,'') "
+            str1 = str1 & " AS UPDFOOTER ,ISNULL(H.UPDSIGN,'') AS UPDSIGN,"
+            str1 = str1 & " (case  ISNULL(h.UPDATETIME,'')  when '' then ISNULL(h.ADDDATE,'') else ISNULL(h.UPDATETIME,'') end) as ADDDATE   "
+            str1 = str1 & " FROM STOCKDMGHEADER AS H INNER JOIN STOCKDMGDETAIL AS D ON H.DOCDETAILS = D.DOCDETAILS"
+            gconnection.dataOperation1(6, str1, "item")
+
+            str1 = "      ALTER  VIEW [dbo].[VW_INV_STKINOUTBILL]"
+            str1 = str1 & " AS "
+            str1 = str1 & " SELECT ISNULL(H.DOCDETAILS,'') AS DOCDETAILS,H.DOCDATE,ISNULL(H.FROMSTORECODE,'') AS FROMSTORECODE,"
+            str1 = str1 & " ISNULL(H.FROMSTOREDESC,'') AS FROMSTOREDESC,ISNULL(H.TOSTORECODE,'') AS TOSTORECODE,"
+            str1 = str1 & " ISNULL(H.TOSTOREDESC,'') AS TOSTOREDESC,ISNULL(H.CHALLENNO,'') AS CHALLENNO,H.CHALLENDATE AS CHALLENDATE,"
+            str1 = str1 & " ISNULL(D.ITEMCODE,'') AS ITEMCODE,ISNULL(D.ITEMNAME,'') AS ITEMNAME,ISNULL(D.UOM,'') AS UOM,ISNULL(D.QTY,0) AS QTY,"
+            str1 = str1 & " ISNULL(D.RATE,0) AS RATE,ISNULL(D.AMOUNT,0) AS AMOUNT,ISNULL(REMARKS,'') AS REMARKS,ISNULL(H.UPDFOOTER,'') "
+            str1 = str1 & " AS UPDFOOTER ,ISNULL(H.UPDSIGN,'') AS UPDSIGN ,"
+            str1 = str1 & " (case  ISNULL(h.UPDATETIME,'')  when '' then ISNULL(h.ADDDATE,'') else ISNULL(h.UPDATETIME,'') end) as ADDDATE   "
+            str1 = str1 & " FROM STOCKINOUTHEADER AS H INNER JOIN STOCKINOUTDETAIL AS D ON H.DOCDETAILS = D.DOCDETAILS"
+            gconnection.dataOperation1(6, str1, "item")
+
+
+            'On 26OCT12 to delete accountsposting for RSI Club by VENUJD
+            str1 = " --exec PJV_UNPOSTING 'GRN/CAT/0027/12-13'
+            str1 = str1 & " CREATE procedure PJV_UNPOSTING (@voucherno as varchar(50))"
+            str1 = str1 & " as"
+            str1 = str1 & " declare @SSQL varchar(2000),@db varchar(20),@cat varchar(50)"
+            str1 = str1 & " Print 'venu'"
+            str1 = str1 & " declare vno cursor for select distinct db from inv_accountsetup where category = substring(@voucherno,5,3)"
+            str1 = str1 & " open vno "
+            str1 = str1 & " fetch vno into @db"
+            str1 = str1 & " while (@@FETCH_STATUS=0)"
+            str1 = str1 & "  begin "
+            str1 = str1 & " print @db "
+            str1 = str1 & " set @SSQL=''"
+            str1 = str1 & " SET @SSQL='DELETE from '+ @DB +'..JOURNALENTRY where voucherno ='+ CHAR(39)+ @VOUCHERNO + CHAR(39)+' '"
+            str1 = str1 & " EXEC (@SSQL)"
+            str1 = str1 & " PRINT @SSQL"
+            str1 = str1 & " "
+            str1 = str1 & " set @SSQL=''	"
+            str1 = str1 & " SET @SSQL='UPDATE GRN_HEADER SET POSTINGFLAG='+char(39)+'N'+char(39)+' WHERE grndetails ='+ CHAR(39)+ @VOUCHERNO + CHAR(39)+' '"
+            str1 = str1 & " EXEC (@SSQL)"
+            str1 = str1 & " PRINT @SSQL"
+            str1 = str1 & " fetch vno into @db"
+            str1 = str1 & " End"
+            str1 = str1 & " Close vno"
+            str1 = str1 & " deallocate vno "
+            gconnection.dataOperation1(6, str1, "item")
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Sub POLINK()
+        Dim sqlstring As String
+        sqlstring = "SELECT ISNULL(POFLAG,'') AS POFLAG,ISNULL(PAYFLAG,'') AS PAYFLAG,ISNULL(INDENTNO,'N') AS INDENTNO ,ISNULL(ACCPOSTFLAG,'N') AS ACCPOSTFLAG  FROM INV_LINKSETUP "
+        gconnection.getDataSet(sqlstring, "INV_LINKSETUP")
+        If gdataset.Tables("INV_LINKSETUP").Rows.Count > 0 Then
+            gpocode = Trim(UCase(gdataset.Tables("INV_LINKSETUP").Rows(0).Item("POFLAG")))
+            gpaymentcode = Trim(UCase(gdataset.Tables("INV_LINKSETUP").Rows(0).Item("PAYFLAG")))
+            GINDENTNO = Trim(UCase(gdataset.Tables("INV_LINKSETUP").Rows(0).Item("INDENTNO")))
+            GACCPOST = Trim(UCase(gdataset.Tables("INV_LINKSETUP").Rows(0).Item("ACCPOSTFLAG")))
+        Else
+            gpocode = ""
+            gpaymentcode = ""
+            GINDENTNO = "N"
+            GACCPOST = "N"
+        End If
+    End Sub
+    Public Sub INVSETUP()
+        Dim sqlstring As String
+        sqlstring = "SELECT ISNULL(RSILINK,'N') AS RSILINK,ISNULL(HYDLINK,'N') AS HYDLINK,ISNULL(CATHOLIC,'N') AS CATHOLIC ,ISNULL(positemstorelink,'N') AS positemstorelink,ISNULL(salerate,'N') AS salerate,ISNULL(vendorlink,'N') AS vendorlink,ISNULL(AVGRATE,'N') AS AVGRATE,ISNULL(GRNGLCODE,'N') AS GRNGLCODE  FROM INVSETUP "
+        gconnection.getDataSet(sqlstring, "INVSETUP")
+        'gRSILINK, gHYDLINK, gCATHOLIC, gpositemstorelink, gsalerate, gvendorlink
+        If gdataset.Tables("INVSETUP").Rows.Count > 0 Then
+            gRSILINK = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("RSILINK")))
+            gHYDLINK = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("HYDLINK")))
+            gCATHOLIC = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("CATHOLIC")))
+            gpositemstorelink = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("positemstorelink")))
+            gsalerate = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("salerate")))
+            gvendorlink = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("vendorlink")))
+            gavgrate = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("avgrate")))
+            gGRNGLCODE = Trim(UCase(gdataset.Tables("INVSETUP").Rows(0).Item("GRNGLCODE")))
+        Else
+            gRSILINK = "N"
+            gHYDLINK = "N"
+            gCATHOLIC = "N"
+            gpositemstorelink = "N"
+            gsalerate = "N"
+            gvendorlink = "N"
+            gavgrate = "N"
+            gGRNGLCODE = "N"
+        End If
+    End Sub
+
+    Public Sub Clearfiles()
+        AppPath = Application.StartupPath
+        Shell("CLEAR.BAT", AppWinStyle.Hide)
+    End Sub
+    Private Sub Activateuseradmin()
+        Dim sqlstring As String
+        Try
+            Me.Text = "INVENTORY" & Space(20) & Trim(gCompanyname) & Space(50) & "[" & gFinancalyearStart & "-" & gFinancialyearEnd & " ]" & Space(30) & "User Name:" & gUsername
+            'e.Text = Trim(gCompanyname) & "  " & gFinancalyearStart & "-" & gFinancialyearEnd & " ] Last Updated " & Format(dtCreationDate, "dd/MMM/yyyy HH:mm:ss") & " Size " & CStr(FileSize) & "User Name:" & gUsername
+            AppPath = Application.StartupPath
+            GetAccountcode()
+            'mdi.ActiveForm.BackgroundImage=
+            MDIParentobj = Me
+            Dim totmenu As Integer
+            totmenu = 0
+            Call menublock()
+            Dim i, j, k, ckhmn, ckhmn1 As Integer
+            For i = 0 To MainMenu1.MenuItems.Count - 2
+                ckhmn1 = MainMenu1.MenuItems(i).MenuItems.Count()
+                If ckhmn1 <> 0 Then
+                    For j = 0 To MainMenu1.MenuItems(i).MenuItems.Count() - 1
+                        ckhmn = MainMenu1.MenuItems(i).MenuItems(j).MenuItems.Count()
+                        If ckhmn <> 0 Then
+                            For k = 0 To MainMenu1.MenuItems(i).MenuItems(j).MenuItems.Count() - 1
+                                totmenu = totmenu + 1
+                            Next
+                        Else
+                            totmenu = totmenu + 1
+                        End If
+                    Next
+                Else
+                    totmenu = totmenu + 1
+                End If
+            Next
+            gconnection.getDataSet("select count(*) from modulemaster Where PackageName='INVENTORY'", "chk")
+            If gdataset.Tables("chk").Rows.Count <> totmenu Then
+                'gconnection.ExcuteStoreProcedure("delete from modulemaster Where PackageName='INVENTORY'")
+
+                sqlstring = "delete from modulemaster Where PackageName='INVENTORY'"
+                gconnection.getDataSet(sqlstring, "modulemaster")
+                Call checkmenulist()
+            End If
+            If gUserCategory = "S" Or gUserCategory = "A" Then
+                Call menuclear()
+            Else
+                Call relemenu()
+            End If
+        Catch ex As Exception
+            MsgBox("Error Found While Loading! Bcoz " & ex.Message.ToString, MsgBoxStyle.Critical, "Error!")
+        End Try
+    End Sub
+    Sub menuclear()
+        Dim i, j, k, x As Integer
+        Dim vmain, vsmod, vssmod As Long
+        vmain = MainMenu1.MenuItems.Count
+        For i = 0 To vmain - 2
+            vsmod = MainMenu1.MenuItems(i).MenuItems.Count
+            If vsmod <> 0 Then
+                For j = 0 To vsmod - 1
+                    vssmod = MainMenu1.MenuItems(i).MenuItems(j).MenuItems.Count
+                    If vssmod <> 0 Then
+                        For k = 0 To vssmod - 1
+                            MainMenu1.MenuItems(i).MenuItems(j).MenuItems(k).Enabled = True
+                        Next
+                    Else
+                        MainMenu1.MenuItems(i).MenuItems(j).Enabled = True
+                    End If
+                Next
+            Else
+                MainMenu1.MenuItems(i).Enabled = True
+            End If
+        Next
+    End Sub
+    Sub menublock()
+        Dim i, j, k, x As Integer
+        Dim vmain, vsmod, vssmod As Long
+        vmain = MainMenu1.MenuItems.Count
+        For i = 0 To vmain - 2
+            vsmod = MainMenu1.MenuItems(i).MenuItems.Count
+            If vsmod <> 0 Then
+                For j = 0 To vsmod - 1
+                    vssmod = MainMenu1.MenuItems(i).MenuItems(j).MenuItems.Count
+                    If vssmod <> 0 Then
+                        For k = 0 To vssmod - 1
+                            MainMenu1.MenuItems(i).MenuItems(j).MenuItems(k).Enabled = False
+                        Next
+                    Else
+                        MainMenu1.MenuItems(i).MenuItems(j).Enabled = False
+                    End If
+                Next
+            Else
+                MainMenu1.MenuItems(i).Enabled = False
+            End If
+        Next
+    End Sub
+    Sub relemenu()
+        Dim i, j, k, x As Integer
+        Dim vmain, vsmod, vssmod As Long
+        Dim ssql As String
+        Dim ds As New DataSet
+        Dim chstr As String
+        ds = gconnection.getdata("select * from useradmin where username = '" & Trim(gUsername) & "' and MainGroup='INVENTORY'", "user")
+        If ds.Tables("user").Rows.Count - 1 >= 0 Then
+            For i = 0 To ds.Tables("user").Rows.Count - 1
+                With ds.Tables("user").Rows(i)
+                    If Trim(.Item("mainmoduleid") & "") <> "" And Trim(.Item("submoduleid") & "") <> "" And Trim(.Item("ssubmoduleid") & "") <> "" Then
+                        MainMenu1.MenuItems(Val(.Item("mainmoduleid"))).MenuItems(Val(.Item("submoduleid"))).MenuItems(Val(.Item("ssubmoduleid"))).Enabled = True
+                        chstr = abcdMINUS(.Item("rights"))
+                    ElseIf Trim(.Item("mainmoduleid") & "") <> "" And Trim(.Item("submoduleid") & "") <> "" Then
+                        MainMenu1.MenuItems(Val(.Item("mainmoduleid"))).MenuItems(Val(.Item("submoduleid"))).Enabled = True
+                        chstr = abcdMINUS(.Item("rights"))
+                    ElseIf Trim(.Item("mainmoduleid") & "") <> "" Then
+                        MainMenu1.MenuItems(Val(.Item("mainmoduleid"))).Enabled = True
+                        chstr = abcdMINUS(.Item("rights"))
+                    End If
+                End With
+            Next
+        End If
+    End Sub
+    Sub checkmenulist()
+        Dim i, j, k, x As Integer
+        Dim vsql() As String
+        Dim vmain, vsmod, vssmod As Long
+        x = 0
+        ReDim vsql(x)
+        vmain = MainMenu1.MenuItems.Count
+        If vmain <> 0 Then
+            For i = 0 To vmain - 2
+                vsmod = MainMenu1.MenuItems(i).MenuItems.Count
+                If vsmod <> 0 Then
+                    For j = 0 To vsmod - 1
+                        vssmod = MainMenu1.MenuItems(i).MenuItems(j).MenuItems.Count
+                        If vssmod <> 0 Then
+                            For k = 0 To vssmod - 1
+                                vsql(vsql.Length - 1) = "insert into Modulemaster(Mainmoduleid,MainModulename,SubModuleid,SubModulename,SsubModuleid,SsubModuleName,PackageName) values "
+                                vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & " ('" & i & "','" & Trim(MainMenu1.MenuItems(i).Text.Replace("&", "") & "") & "',"
+                                vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & "'" & j & "','" & Trim(MainMenu1.MenuItems(i).MenuItems(j).Text.Replace("&", "") & "") & "',"
+                                vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & "'" & k & "','" & Trim(MainMenu1.MenuItems(i).MenuItems(j).MenuItems(k).Text.Replace("&", "") & "") & "','INVENTORY')"
+                                ReDim Preserve vsql(vsql.Length)
+                            Next
+                        Else
+                            vsql(vsql.Length - 1) = "insert into Modulemaster(Mainmoduleid,MainModulename,SubModuleid,SubModulename,SsubModuleid,SsubModuleName,PackageName ) values "
+                            vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & " ('" & i & "','" & Trim(MainMenu1.MenuItems(i).Text.Replace("&", "") & "") & "',"
+                            vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & "'" & j & "','" & Trim(MainMenu1.MenuItems(i).MenuItems(j).Text.Replace("&", "") & "") & "',"
+                            vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & "'','','INVENTORY')"
+                            ReDim Preserve vsql(vsql.Length)
+                        End If
+                    Next
+                Else
+                    vsql(vsql.Length - 1) = "insert into Modulemaster(Mainmoduleid,MainModulename,SubModuleid,SubModulename,SsubModuleid,SsubModuleName,PackageName) values "
+                    vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & " ('" & i & "','" & Trim(MainMenu1.MenuItems(i).Text.Replace("&", "") & "") & "',"
+                    vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & "'','',"
+                    vsql(vsql.Length - 1) = vsql(vsql.Length - 1) & "'','','INVENTORY')"
+                    ReDim Preserve vsql(vsql.Length)
+                End If
+            Next
+            ReDim Preserve vsql(vsql.Length - 2)
+            gconnection.MoreTrans_womsg(vsql)
+        End If
+    End Sub
+    Private Sub GetAccountcode()
+        Dim sqlstring As String
+        sqlstring = "SELECT ISNULL(SDRSCODE,'') AS SDRSCODE,ISNULL(SCRSCODE,'') AS SCRSCODE FROM ACCOUNTSSETUP "
+        gconnection.getDataSet(sqlstring, "ACCOUNTSSETUP")
+        If gdataset.Tables("ACCOUNTSSETUP").Rows.Count > 0 Then
+            gDebitors = Trim(UCase(gdataset.Tables("ACCOUNTSSETUP").Rows(0).Item("SDRSCODE")))
+            gCreditors = Trim(UCase(gdataset.Tables("ACCOUNTSSETUP").Rows(0).Item("SCRSCODE")))
+        Else
+            gDebitors = ""
+            gCreditors = ""
+        End If
+    End Sub
+    Public Sub FillCompanyinfo()
+        Dim sqlstring As String
+        Try
+            If Trim(gDatabase) <> "" Then
+                sqlstring = " SELECT ISNULL(CompanyName,'') AS CompanyName,ISNULL(Fromdate,getdate()) AS Fromdate,ISNULL(Todate,getdate()) AS Todate,ISNULL(Add1,'') AS Add1,ISNULL(Add2,'') AS Add2,"
+                sqlstring = sqlstring & " ISNULL(City,'') AS City,ISNULL(State,'') AS State,ISNULL(Pincode,'') AS Pincode,ISNULL(Datafile,'') AS Datafile FROM ClubMaster WHERE DATAFILE = '" & Trim(gDatabase) & "'"
+            Else
+                sqlstring = " SELECT ISNULL(CompanyName,'') AS CompanyName,ISNULL(Fromdate,getdate()) AS Fromdate,ISNULL(Todate,getdate()) AS Todate,ISNULL(Add1,'') AS Add1,ISNULL(Add2,'') AS Add2,"
+                sqlstring = sqlstring & " ISNULL(City,'') AS City,ISNULL(State,'') AS State,ISNULL(Pincode,'') AS Pincode,ISNULL(Datafile,'') AS Datafile FROM ClubMaster "
+            End If
+            gconnection.getCompanyinfo(sqlstring, "ClubMaster")
+            If gdataset.Tables("ClubMaster").Rows.Count > 0 Then
+                MyCompanyName = Trim(CStr(gdataset.Tables("ClubMaster").Rows(0).Item("CompanyName")))
+                Address1 = Trim(CStr(gdataset.Tables("ClubMaster").Rows(0).Item("Add1")))
+                Address2 = Trim(CStr(gdataset.Tables("ClubMaster").Rows(0).Item("Add2")))
+                gCity = Trim(CStr(gdataset.Tables("ClubMaster").Rows(0).Item("City")))
+                gState = Trim(CStr(gdataset.Tables("ClubMaster").Rows(0).Item("State")))
+                gPincode = Trim(CStr(gdataset.Tables("ClubMaster").Rows(0).Item("Pincode")))
+                gDatabase = Trim(CStr(gdataset.Tables("ClubMaster").Rows(0).Item("Datafile")))
+                Me.Text = MyCompanyName & " [" & "INVENTORY" & " ]"
+                If Mid(MyCompanyName, 1, 3) = "HIN" Then
+                    PrintTaxheading1 = "C.F"
+                    PrintTaxheading2 = "CHARGES"
+                Else
+                    PrintTaxheading1 = "SALES"
+                    PrintTaxheading2 = "TAX"
+                End If
+            Else
+                MessageBox.Show("Plz. Contact to your Computer Administrator ", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(" Check the error :" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub submnu_HorizontalTile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_HorizontalTile.Click
+        GmoduleName = "Horizontal Tile"
+        Me.LayoutMdi(MdiLayout.TileHorizontal)
+        submnu_HorizontalTile.Checked = True
+        submnu_VerticalTile.Checked = False
+        submnu_Cascade.Checked = False
+    End Sub
+
+    Private Sub submnu_VerticalTile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_VerticalTile.Click
+        GmoduleName = "Vertical Tile"
+        Me.LayoutMdi(MdiLayout.TileVertical)
+        submnu_HorizontalTile.Checked = False
+        submnu_VerticalTile.Checked = True
+        submnu_Cascade.Checked = False
+    End Sub
+
+    Private Sub submnu_Cascade_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_Cascade.Click
+        GmoduleName = "Cascade"
+        Me.LayoutMdi(MdiLayout.Cascade)
+        submnu_HorizontalTile.Checked = False
+        submnu_VerticalTile.Checked = False
+        submnu_Cascade.Checked = True
+    End Sub
+
+    Private Sub submnu_Calculator_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_Calculator.Click
+        GmoduleName = "Calculator"
+        Shell(Environment.SystemDirectory & "\calc.exe", AppWinStyle.NormalFocus)
+        submnu_Calculator.Checked = True
+        submnu_Notepad.Checked = False
+    End Sub
+
+    Private Sub submnu_Notepad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_Notepad.Click
+        GmoduleName = "Note Pad"
+        Shell(Environment.SystemDirectory & "\notepad.exe", AppWinStyle.NormalFocus)
+        submnu_Calculator.Checked = False
+        submnu_Notepad.Checked = True
+    End Sub
+
+    Private Sub submnu_GroupMaster_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_GroupMaster.Click
+        Dim objGroupmaster As New Group_Master
+        GmoduleName = "Group Master"
+        If GroupMasterbool = False And submnu_GroupMaster.Checked = True Then
+            objGroupmaster.FormBorderStyle = FormBorderStyle.FixedDialog
+            objGroupmaster.MdiParent = Me
+            objGroupmaster.Show()
+            submnu_GroupMaster.Checked = True
+        End If
+        If submnu_GroupMaster.Checked = True Then
+            Exit Sub
+        End If
+        objGroupmaster.FormBorderStyle = FormBorderStyle.FixedDialog
+        objGroupmaster.MdiParent = Me
+        objGroupmaster.Show()
+        submnu_GroupMaster.Checked = True
+    End Sub
+    Private Sub submnu_SubGroupMaster_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_SubGroupMaster.Click
+        Dim objSubGroupmaster As New Sub_Group_Master
+        GmoduleName = "Sub Group Master"
+        If SubGroupMasterbool = False And submnu_SubGroupMaster.Checked = True Then
+            objSubGroupmaster.FormBorderStyle = FormBorderStyle.FixedDialog
+            objSubGroupmaster.MdiParent = Me
+            objSubGroupmaster.Show()
+            submnu_SubGroupMaster.Checked = True
+        End If
+        If submnu_SubGroupMaster.Checked = True Then
+            Exit Sub
+        End If
+        objSubGroupmaster.FormBorderStyle = FormBorderStyle.FixedDialog
+        objSubGroupmaster.MdiParent = Me
+        objSubGroupmaster.Show()
+        submnu_SubGroupMaster.Checked = True
+    End Sub
+    Private Sub submnu_StoreMaster_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StoreMaster.Click
+        Dim objStoreMaster As New Store_Master
+        GmoduleName = "Store Master"
+        If StoreMasterbool = False And submnu_StoreMaster.Checked = True Then
+            objStoreMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+            objStoreMaster.MdiParent = Me
+            objStoreMaster.Show()
+            submnu_StoreMaster.Checked = True
+        End If
+        If submnu_StoreMaster.Checked = True Then
+            Exit Sub
+        End If
+        objStoreMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+        objStoreMaster.MdiParent = Me
+        objStoreMaster.Show()
+        submnu_StoreMaster.Checked = True
+    End Sub
+    Private Sub submnu_ItemMaster_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_ItemMaster.Click
+        Dim objItemMaster As New Item_Master
+        GmoduleName = "Item Master"
+        If ItemMasterbool = False And submnu_ItemMaster.Checked = True Then
+            objItemMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+            objItemMaster.MdiParent = Me
+            objItemMaster.Show()
+            submnu_ItemMaster.Checked = True
+        End If
+        If submnu_ItemMaster.Checked = True Then
+            Exit Sub
+        End If
+        objItemMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+        objItemMaster.MdiParent = Me
+        objItemMaster.Show()
+        submnu_ItemMaster.Checked = True
+    End Sub
+    Private Sub submnu_Billmaterial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_Billmaterial.Click
+        Dim objBillingMaterial As New frm_BillingMaterial
+        GmoduleName = "Billing Terms"
+        If BillingMaterialbool = False And submnu_Billmaterial.Checked = True Then
+            objBillingMaterial.FormBorderStyle = FormBorderStyle.FixedDialog
+            objBillingMaterial.MdiParent = Me
+            objBillingMaterial.Show()
+            submnu_Billmaterial.Checked = True
+        End If
+        If submnu_Billmaterial.Checked = True Then
+            Exit Sub
+        End If
+        objBillingMaterial.FormBorderStyle = FormBorderStyle.FixedDialog
+        objBillingMaterial.MdiParent = Me
+        objBillingMaterial.Show()
+        submnu_Billmaterial.Checked = True
+    End Sub
+    Private Sub submnu_Exit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Application.Exit()
+    End Sub
+    Private Sub submnu_GRNCumPurchaseBill_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_GRNCumPurchaseBill.Click
+        Dim sqlvendor, VENDORLINK As String
+        sqlvendor = "select isnull(RSILINK,'N') as RSILINK,isnull(CATHOLIC,'N') as CATHOLIC from invsetup"
+        gconnection.getDataSet(sqlvendor, "invsetup")
+        If gdataset.Tables("invsetup").Rows.Count > 0 Then
+            RSILINK = gdataset.Tables("invsetup").Rows(0).Item("RSILINK")
+            CATHOLIC = gdataset.Tables("invsetup").Rows(0).Item("CATHOLIC")
+        End If
+
+        If RSILINK = "Y" Then
+            Dim objGRNCumPurchaseBill As New GRN_Cum_Purchase_Bill_CSC
+            GmoduleName = "GRN Cum Purchase Bill"
+            If GRNCumPurchaseBillTransbool = False And submnu_GRNCumPurchaseBill.Checked = True Then
+                objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+                objGRNCumPurchaseBill.MdiParent = Me
+                objGRNCumPurchaseBill.Show()
+                submnu_GRNCumPurchaseBill.Checked = True
+            End If
+            If submnu_GRNCumPurchaseBill.Checked = True Then
+                Exit Sub
+            End If
+            objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+            objGRNCumPurchaseBill.MdiParent = Me
+            objGRNCumPurchaseBill.Show()
+            submnu_GRNCumPurchaseBill.Checked = True
+            'ElseIf CATHOLIC = "Y" Then
+            '    Dim objGRNCumPurchaseBill As New GRN_Cum_Purchase_Bill_CATHOLIC
+            '    GmoduleName = "GRN Cum Purchase Bill"
+            '    If GRNCumPurchaseBillTransbool = False And submnu_GRNCumPurchaseBill.Checked = True Then
+            '        objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+            '        objGRNCumPurchaseBill.MdiParent = Me
+            '        objGRNCumPurchaseBill.Show()
+            '        submnu_GRNCumPurchaseBill.Checked = True
+            '    End If
+            '    If submnu_GRNCumPurchaseBill.Checked = True Then
+            '        Exit Sub
+            '    End If
+            '    objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+            '    objGRNCumPurchaseBill.MdiParent = Me
+            '    objGRNCumPurchaseBill.Show()
+            '    submnu_GRNCumPurchaseBill.Checked = True
+        Else
+            Dim objGRNCumPurchaseBill As New GRN_Cum_Purchase_Bill_COMMON
+            GmoduleName = "GRN Cum Purchase Bill"
+            If GRNCumPurchaseBillTransbool = False And submnu_GRNCumPurchaseBill.Checked = True Then
+                objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+                objGRNCumPurchaseBill.MdiParent = Me
+                objGRNCumPurchaseBill.Show()
+                submnu_GRNCumPurchaseBill.Checked = True
+            End If
+            If submnu_GRNCumPurchaseBill.Checked = True Then
+                Exit Sub
+            End If
+            objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+            objGRNCumPurchaseBill.MdiParent = Me
+            objGRNCumPurchaseBill.Show()
+            submnu_GRNCumPurchaseBill.Checked = True
+        End If
+    End Sub
+    Private Sub submnu_StockTransfer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StockTransfer.Click
+        Dim objStockTransfer As New Stock_Transfer
+        GmoduleName = "Stock Transfer/Return"
+        If StockTransferTransbool = False And submnu_StockTransfer.Checked = True Then
+            objStockTransfer.FormBorderStyle = FormBorderStyle.FixedDialog
+            objStockTransfer.MdiParent = Me
+            objStockTransfer.Show()
+            submnu_StockTransfer.Checked = True
+        End If
+        If submnu_StockTransfer.Checked = True Then
+            Exit Sub
+        End If
+        objStockTransfer.FormBorderStyle = FormBorderStyle.FixedDialog
+        objStockTransfer.MdiParent = Me
+        objStockTransfer.Show()
+        submnu_StockTransfer.Checked = True
+    End Sub
+    Private Sub submnu_StockDamage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StockDamage.Click
+        Dim objStockDamage As New Stock_DMG
+        GmoduleName = "Stock Damage"
+        If StockDamageTransbool = False And submnu_StockDamage.Checked = True Then
+            objStockDamage.FormBorderStyle = FormBorderStyle.FixedDialog
+            objStockDamage.MdiParent = Me
+            objStockDamage.Show()
+            submnu_StockDamage.Checked = True
+        End If
+        If submnu_StockDamage.Checked = True Then
+            Exit Sub
+        End If
+        objStockDamage.FormBorderStyle = FormBorderStyle.FixedDialog
+        objStockDamage.MdiParent = Me
+        objStockDamage.Show()
+        submnu_StockDamage.Checked = True
+    End Sub
+    Private Sub mnu_Masters_Select(ByVal sender As Object, ByVal e As System.EventArgs) Handles mnu_Masters.Select
+        If GroupMasterbool = False Then
+            submnu_GroupMaster.Checked = False
+        End If
+        If SubGroupMasterbool = False Then
+            submnu_SubGroupMaster.Checked = False
+        End If
+        If StoreMasterbool = False Then
+            submnu_StoreMaster.Checked = False
+        End If
+        If ItemMasterbool = False Then
+            submnu_ItemMaster.Checked = False
+        End If
+        If BillingMaterialbool = False Then
+            submnu_Billmaterial.Checked = False
+        End If
+    End Sub
+
+    Private Sub mnu_Transaction_Select(ByVal sender As Object, ByVal e As System.EventArgs) Handles mnu_Transaction.Select
+        If GRNCumPurchaseBillTransbool = False Then
+            submnu_GRNCumPurchaseBill.Checked = False
+        End If
+        If StockIssueTransbool = False Then
+            submnu_StockIssue.Checked = False
+        End If
+        If CockTailRatioTransbool = False Then
+            submnu_Billmaterial.Checked = False
+        End If
+        If StockTransferTransbool = False Then
+            submnu_StockTransfer.Checked = False
+        End If
+        If StockAdjustmentTransbool = False Then
+            submnu_StockAdjustment.Checked = False
+        End If
+        If StockDamageTransbool = False Then
+            submnu_StockDamage.Checked = False
+        End If
+        If CockTailRatioTransbool = False Then
+            submnu_Billofmaterial.Checked = False
+        End If
+    End Sub
+
+    Private Sub submnu_IssueRegister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_IssueRegister.Click
+        GmoduleName = "Issue Register"
+        Dim objIssueregister As New Issue_Register
+        objIssueregister.MdiParent = Me
+        objIssueregister.Show()
+    End Sub
+
+    Private Sub submnu_IssueDetails_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_IssueDetails.Click
+        GmoduleName = "Issue Details"
+        Dim objIssuedetails As New Itemwise_Issue_details
+        objIssuedetails.MdiParent = Me
+        objIssuedetails.Show()
+    End Sub
+
+    Private Sub submnu_RatioChart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_RatioChart.Click
+        GmoduleName = "Ratio Chart"
+        Dim objRatiochart As New frmCocktailratiochart
+        objRatiochart.MdiParent = Me
+        objRatiochart.Show()
+    End Sub
+
+    Private Sub submnu_StockLedger_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StockLedger.Click
+        GmoduleName = "Stock Ledger"
+        Dim objStockledgermainstock As New frmStockledgermainstock
+        objStockledgermainstock.MdiParent = Me
+        objStockledgermainstock.Show()
+    End Sub
+
+    Private Sub submnu_StockOfBar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StockOfBar.Click
+        GmoduleName = "Stock Of Bar"
+        Dim objBarstockposition As New frmBarstockposition
+        objBarstockposition.MdiParent = Me
+        objBarstockposition.Show()
+    End Sub
+
+    Private Sub submnu_StockSummary_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StockSummary.Click
+        GmoduleName = "Stock Summary"
+        Dim objmainstockposition As New frmmainstockposition
+        objmainstockposition.MdiParent = Me
+        objmainstockposition.Show()
+    End Sub
+    Public Sub GetServer()
+        Dim ServerConn As New OleDb.OleDbConnection
+        Dim servercmd As New OleDb.OleDbDataAdapter
+        Dim getserver As New DataSet
+        Dim sql, ssql As String
+        sql = "Provider=Microsoft.Jet.OLEDB.4.0;Data source="
+        sql = sql & AppPath & "DBS_KEY.MDB"
+        ServerConn.ConnectionString = sql
+        Try
+            ServerConn.Open()
+            ssql = "SELECT SERVER,database FROM DBSKEY"
+            servercmd = New OleDb.OleDbDataAdapter(ssql, ServerConn)
+            servercmd.Fill(getserver)
+            If getserver.Tables(0).Rows.Count > 0 Then
+                gserver = getserver.Tables(0).Rows(0).Item(0)
+                gDatabase = getserver.Tables(0).Rows(0).Item(1)
+            Else
+                MessageBox.Show("Failed to connect to data source")
+                Me.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Failed to connect to data source")
+            MsgBox(ex.Message)
+        Finally
+            ServerConn.Close()
+        End Try
+    End Sub
+
+    Private Sub submnu_PurchaseRegister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_PurchaseRegister.Click
+        GmoduleName = "Purchase Register"
+        Dim objpurchaseregister As New frmPurchaseregister
+        objpurchaseregister.MdiParent = Me
+        objpurchaseregister.Show()
+    End Sub
+
+    Private Sub submnu_MainStorePosition_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_MainStorePosition.Click
+        GmoduleName = "Main Store Position"
+        Dim objMainstockposition As New frmmainstockposition
+        objMainstockposition.MdiParent = Me
+        objMainstockposition.Show()
+    End Sub
+
+    Private Sub Main_MDI_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+
+    End Sub
+
+    Private Sub submnu_Useradmin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_Useradmin.Click
+        Dim Uadmin As New UserAdmin
+        If Me.DuplicateForm(Uadmin.Name) = False Then
+            submnu_Useradmin.Checked = True
+            Uadmin.MdiParent = Me
+            Uadmin.Show()
+        End If
+    End Sub
+    Private Function DuplicateForm(ByVal FormName As String) As Boolean
+        DuplicateForm = False
+        Dim i As Integer
+        If Me.MdiChildren Is Nothing Then
+            Exit Function
+        End If
+        For i = 0 To Me.MdiChildren.Length - 1
+            If Me.MdiChildren(i).Name = FormName Then
+                GmoduleName = FormName
+                DuplicateForm = True
+                Exit Function
+            End If
+        Next i
+    End Function
+
+    Private Sub submnu_StockAdjustment_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StockAdjustment.Click
+        Dim objStockAdjustment As New Stock_Adjustment
+        GmoduleName = "Stock Adjustment"
+        If StockAdjustmentTransbool = False And submnu_StockAdjustment.Checked = True Then
+            objStockAdjustment.FormBorderStyle = FormBorderStyle.FixedDialog
+            objStockAdjustment.MdiParent = Me
+            objStockAdjustment.Show()
+            submnu_StockAdjustment.Checked = True
+        End If
+        If submnu_StockAdjustment.Checked = True Then
+            Exit Sub
+        End If
+        objStockAdjustment.FormBorderStyle = FormBorderStyle.FixedDialog
+        objStockAdjustment.MdiParent = Me
+        objStockAdjustment.Show()
+        submnu_StockAdjustment.Checked = True
+    End Sub
+
+
+    Private Sub submnu_StockIssue_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_StockIssue.Click
+        Dim objStockIssue As New Stock_Issue_Indent
+        GmoduleName = "Stock Issue"
+        If StockIssueTransbool = False And submnu_StockIssue.Checked = True Then
+            objStockIssue.FormBorderStyle = FormBorderStyle.FixedDialog
+            objStockIssue.MdiParent = Me
+            objStockIssue.Show()
+            submnu_StockIssue.Checked = True
+        End If
+        If submnu_StockIssue.Checked = True Then
+            Exit Sub
+        End If
+        objStockIssue.FormBorderStyle = FormBorderStyle.FixedDialog
+        objStockIssue.MdiParent = Me
+        objStockIssue.Show()
+        submnu_StockIssue.Checked = True
+    End Sub
+
+    Private Sub submnu_Billofmaterial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_Billofmaterial.Click
+        Dim objCockTailRatio As New Cock_Tail_Ratio
+        GmoduleName = ""
+        If CockTailRatioTransbool = False And submnu_Billofmaterial.Checked = True Then
+            objCockTailRatio.FormBorderStyle = FormBorderStyle.FixedDialog
+            objCockTailRatio.MdiParent = Me
+            objCockTailRatio.Show()
+            submnu_Billofmaterial.Checked = True
+        End If
+        If submnu_Billofmaterial.Checked = True Then
+            Exit Sub
+        End If
+        objCockTailRatio.FormBorderStyle = FormBorderStyle.FixedDialog
+        objCockTailRatio.MdiParent = Me
+        objCockTailRatio.Show()
+        submnu_Billofmaterial.Checked = True
+    End Sub
+    Private Sub mnu_Administrator_Select(ByVal sender As Object, ByVal e As System.EventArgs) Handles mnu_Administrator.Select
+        If UserAdminbool = False Then
+            submnu_Useradmin.Checked = False
+        End If
+    End Sub
+
+    Private Sub Submnu_Stocktransferregister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Submnu_Stocktransferregister.Click
+        GmoduleName = "Stock Transfer Register"
+        Dim objStocktransferreport As New frmStocktransferreport
+        objStocktransferreport.MdiParent = Me
+        objStocktransferreport.Show()
+    End Sub
+
+    Private Sub Submnu_StockReturnregister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Submnu_StockReturnregister.Click
+        GmoduleName = "Stock Return Register"
+        Dim objStockreturnreport As New frmStockreturnreport
+        objStockreturnreport.MdiParent = Me
+        objStockreturnreport.Show()
+    End Sub
+
+    Private Sub Submnu_StockAdjustmentregister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Submnu_StockAdjustmentregister.Click
+        GmoduleName = "Stock Adjustment Register"
+        Dim objStockadjustmentreport As New frmStockadjustmentreport
+        objStockadjustmentreport.MdiParent = Me
+        objStockadjustmentreport.Show()
+    End Sub
+
+    Private Sub Stock_Summary_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Stock_Summary.Click
+        GmoduleName = "Stock Summary"
+        Dim objStockSummary As New frmStockSummary
+        objStockSummary.MdiParent = Me
+        objStockSummary.Show()
+    End Sub
+
+
+    Private Sub mnu_Exception_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnu_Exception.Click
+        GmoduleName = "Exception Report"
+        Dim objStockSummary As New frmStockSummary_excep
+        objStockSummary.MdiParent = Me
+        objStockSummary.Show()
+    End Sub
+
+    Private Sub MnuAccPost_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MnuAccPost.Click
+
+        GmoduleName = "Account Posting Inventory"
+        Dim sqlvendor As String
+        sqlvendor = "select isnull(RSILINK,'N') as RSILINK from invsetup"
+        gconnection.getDataSet(sqlvendor, "invsetup")
+        If gdataset.Tables("invsetup").Rows.Count > 0 Then
+            RSILINK = gdataset.Tables("invsetup").Rows(0).Item("RSILINK")
+        End If
+        If RSILINK = "Y" Then
+            Dim obj_accPost As New JournalRegister
+            obj_accPost.MdiParent = Me
+            obj_accPost.Show()
+        Else
+            Dim obj_accPost As New JournalRegister
+            obj_accPost.MdiParent = Me
+            obj_accPost.Show()
+        End If
+    End Sub
+
+    Private Sub MenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem1.Click
+        Dim vAns As Double
+        vAns = MsgBox("Do you want to Quit from Inventory?", MsgBoxStyle.Question + MsgBoxStyle.OKCancel + MsgBoxStyle.DefaultButton1, Me.Text)
+        If vAns = MsgBoxResult.OK Then
+            End
+        End If
+    End Sub
+    Private Sub MenuItem4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem4.Click
+        Dim objStoreMaster As New sub_Sub_Group_Master
+        GmoduleName = "Sub Sub Group Master"
+        If StoreMasterbool = False And submnu_StoreMaster.Checked = True Then
+            objStoreMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+            objStoreMaster.MdiParent = Me
+            objStoreMaster.Show()
+            submnu_StoreMaster.Checked = True
+        End If
+        If submnu_StoreMaster.Checked = True Then
+            Exit Sub
+        End If
+        objStoreMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+        objStoreMaster.MdiParent = Me
+        objStoreMaster.Show()
+        submnu_StoreMaster.Checked = True
+    End Sub
+    Private Sub MenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem2.Click
+        Main_MDI.ActiveForm.Close()
+        Dim cmp As New CompanyList1
+        cmp.Show()
+    End Sub
+    Private Sub MenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem3.Click
+        If MsgBox("DO U Want to Update......", MsgBoxStyle.OKCancel + MsgBoxStyle.DefaultButton2, "Stock Update") = MsgBoxResult.OK Then
+            Me.Cursor = Cursors.WaitCursor
+            Dim strsql As String
+            strsql = "Exec CP_StockUpdate"
+            gconnection.ExcuteStoreProcedure(strsql)
+            Me.Cursor = Cursors.Default
+        Else
+            MsgBox("Update Cancelled Try Again......", MsgBoxStyle.OKOnly, "Stock Update")
+        End If
+    End Sub
+    Private Sub MenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem5.Click
+        GmoduleName = "Carry Forward"
+        Dim objYrclsupdation As New YearEndConversion
+        objYrclsupdation.MdiParent = Me
+        objYrclsupdation.Show()
+    End Sub
+    Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem7.Click
+        GmoduleName = "Sub Store Consumption - Manual Updation"
+        Dim sqlvendor As String
+        sqlvendor = "select isnull(RSILINK,'N') as RSILINK,isnull(positemstorelink,'N') as positemstorelink from invsetup"
+        gconnection.getDataSet(sqlvendor, "invsetup")
+        If gdataset.Tables("invsetup").Rows.Count > 0 Then
+            RSILINK = gdataset.Tables("invsetup").Rows(0).Item("RSILINK")
+            positemstorelink = gdataset.Tables("invsetup").Rows(0).Item("positemstorelink")
+        End If
+        If RSILINK = "Y" Then
+            Dim objfrmMANUALUPDATION As New frmMANUALUPDATION_RSI
+            objfrmMANUALUPDATION.MdiParent = Me
+            objfrmMANUALUPDATION.Show()
+
+        ElseIf positemstorelink = "Y" Then
+            Dim objfrmMANUALUPDATION As New frmMANUALUPDATION_RSI
+            objfrmMANUALUPDATION.MdiParent = Me
+            objfrmMANUALUPDATION.Show()
+
+        Else
+            Dim objfrmMANUALUPDATION As New frmMANUALUPDATION
+            objfrmMANUALUPDATION.MdiParent = Me
+            objfrmMANUALUPDATION.Show()
+
+        End If
+    End Sub
+    Private Sub MenuItem8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem8.Click
+        GmoduleName = "VAT Input Tax Report"
+        Dim objYrclsupdation As New InputTax
+        objYrclsupdation.MdiParent = Me
+        objYrclsupdation.Show()
+    End Sub
+    Private Sub MenuItem9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem9.Click
+        GmoduleName = "Weighted Average"
+        Dim objfrmMANUALUPDATION As New frmstockissuerate
+        objfrmMANUALUPDATION.MdiParent = Me
+        objfrmMANUALUPDATION.Show()
+    End Sub
+    Private Sub MenuItem10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem10.Click
+        GmoduleName = "Purchase Register Recon"
+        Dim objpurchaseregister As New frmPurchaseregister_Recon
+        objpurchaseregister.MdiParent = Me
+        objpurchaseregister.Show()
+    End Sub
+
+    Private Sub MenuItem11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem11.Click
+        GmoduleName = "Stock Indent"
+        Dim objindentfrm As New StockIndent
+        objindentfrm.MdiParent = Me
+        objindentfrm.Show()
+    End Sub
+
+    Private Sub MenuItem12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem12.Click
+        GmoduleName = "Pending Register Report"
+        Dim objPendingIndentReport As New PendingIndent
+        objPendingIndentReport.MdiParent = Me
+        objPendingIndentReport.Show()
+    End Sub
+
+    Private Sub MenuItem13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem13.Click
+        GmoduleName = "Indentwise Report"
+        Dim objIndentwiseReport As New Indent_Register
+        objIndentwiseReport.MdiParent = Me
+        objIndentwiseReport.Show()
+    End Sub
+
+    Private Sub Main_MDI_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
+        Dim vAns As Double
+        vAns = MsgBox("Do you want to Quit from Inventory?", MsgBoxStyle.Question + MsgBoxStyle.OKCancel + MsgBoxStyle.DefaultButton1, Me.Text)
+        If vAns = MsgBoxResult.OK Then
+            End
+        End If
+    End Sub
+
+    Private Sub MenuItem14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem14.Click
+        'Dim sqlvendor, VENDORLINK As String
+        'sqlvendor = "select isnull(RSILINK,'N') as RSILINK from invsetup"
+        'gconnection.getDataSet(sqlvendor, "invsetup")
+        'If gdataset.Tables("invsetup").Rows.Count > 0 Then
+        '    RSILINK = gdataset.Tables("invsetup").Rows(0).Item("RSILINK")
+        'End If
+
+        'If RSILINK = "Y" Then
+        '    GmoduleName = "Consolidated Summary"
+        '    Dim objConsolidatedSummary As New frmConsolidatedSummary_RSI
+        '    objConsolidatedSummary.MdiParent = Me
+        '    objConsolidatedSummary.Show()
+        'Else
+        GmoduleName = "Consolidated Summary"
+        Dim objConsolidatedSummary As New frmConsolidatedLiquorSummary
+        objConsolidatedSummary.MdiParent = Me
+        objConsolidatedSummary.Show()
+        'End If
+    End Sub
+    Private Sub MenuItem15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        GmoduleName = "Account Posting Party"
+        Dim obj_accPost As New SJV_JournalRegister
+        obj_accPost.MdiParent = Me
+        obj_accPost.Show()
+    End Sub
+
+    Private Sub MenuItem16_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        GmoduleName = "Account Posting Transit Quarters"
+        Dim obj_accPostG As New GJV_JournalRegister
+        obj_accPostG.MdiParent = Me
+        obj_accPostG.Show()
+    End Sub
+    Private Sub MenuItem17_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        GmoduleName = "Month Bill Posting"
+        Dim obj_accPost As New MJV_JournalRegister
+        obj_accPost.MdiParent = Me
+        obj_accPost.Show()
+    End Sub
+    Private Sub MenuItem19_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem19.Click
+        GmoduleName = "ABC Report Analysis"
+        Dim obj_accPost As New ABC_Summary
+        obj_accPost.MdiParent = Me
+        obj_accPost.Show()
+    End Sub
+
+    Private Sub MenuItem20_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem20.Click
+        GmoduleName = "Rol Summary"
+        Dim obj_accPost As New frmrol_Summary
+        obj_accPost.MdiParent = Me
+        obj_accPost.Show()
+    End Sub
+    Private Sub MenuItem22_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem22.Click
+        GmoduleName = "Link Set Up"
+        Dim obj_accPost As New LinkSetup
+        obj_accPost.MdiParent = Me
+        obj_accPost.Show()
+    End Sub
+    Private Sub tot_stock_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tot_stock.Click
+        GmoduleName = "Total Stock Summary"
+        Dim objStockSummary1 As New frmStockSummary_tot
+        objStockSummary1.MdiParent = Me
+        objStockSummary1.Show()
+    End Sub
+
+    Private Sub mnu_Masters_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnu_Masters.Click
+
+    End Sub
+
+    Private Sub SubBOM_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SubBOM.Click
+        GmoduleName = "BOM"
+        Dim objStockSummary1 As New BOM
+        objStockSummary1.MdiParent = Me
+        objStockSummary1.Show()
+    End Sub
+
+    Private Sub SubItemMaster_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SubItemMaster.Click
+        GmoduleName = "SUBSTORE_Item_Master"
+        Dim objStockSummary1 As New SUBSTORE_Item_Master
+        objStockSummary1.MdiParent = Me
+        objStockSummary1.Show()
+
+    End Sub
+
+    Private Sub SubUOM_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SubUOM.Click
+        GmoduleName = "UOMMaster"
+        Dim objStockSummary1 As New UOMMaster
+        objStockSummary1.MdiParent = Me
+        objStockSummary1.Show()
+    End Sub
+
+    Private Sub MenuItem16_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem16.Click
+        GmoduleName = "Stock Summary_old"
+        Dim objStockadjustmentreport As New frmStockSummary_old
+        objStockadjustmentreport.MdiParent = Me
+        objStockadjustmentreport.Show()
+
+    End Sub
+
+    Private Sub MenuItem17_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem17.Click
+        GmoduleName = "Purchase Register_old"
+        Dim objpurchase As New FRM_PURCHASE
+        objpurchase.MdiParent = Me
+        objpurchase.Show()
+
+    End Sub
+
+    Private Sub MenuItem18_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem18.Click
+        GmoduleName = "Input Tax Report_old"
+        Dim objStocktransferreport As New InputTax
+        objStocktransferreport.MdiParent = Me
+        objStocktransferreport.Show()
+    End Sub
+
+    Private Sub MenuItem23_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem23.Click
+        GmoduleName = "Stock Issue"
+        Dim objStocktransferreport As New Stock_Issue_WithOutIndent
+        objStocktransferreport.MdiParent = Me
+        objStocktransferreport.Show()
+    End Sub
+
+    Private Sub MenuItem24_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem24.Click
+        Dim objGRNCumPurchaseBill As New PurchaseReturn_Bill
+        GmoduleName = "GRN Cum Purchase Bill"
+        If GRNCumPurchaseBillTransbool = False And submnu_GRNCumPurchaseBill.Checked = True Then
+            objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+            objGRNCumPurchaseBill.MdiParent = Me
+            objGRNCumPurchaseBill.Show()
+            submnu_GRNCumPurchaseBill.Checked = True
+        End If
+        If submnu_GRNCumPurchaseBill.Checked = True Then
+            Exit Sub
+        End If
+        objGRNCumPurchaseBill.FormBorderStyle = FormBorderStyle.FixedDialog
+        objGRNCumPurchaseBill.MdiParent = Me
+        objGRNCumPurchaseBill.Show()
+        submnu_GRNCumPurchaseBill.Checked = True
+    End Sub
+
+    Private Sub SubMnu_rtnRegister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        GmoduleName = "Purchase Return Register"
+        Dim objpurchaseregister As New frmPurchaseregister
+        objpurchaseregister.MdiParent = Me
+        objpurchaseregister.Show()
+    End Sub
+
+    Private Sub MenuItem25_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles submnu_VendorMaster.Click
+        Dim objVendorMaster As New VendorMaster
+        GmoduleName = "Item Master"
+        If ItemMasterbool = False And submnu_VendorMaster.Checked = True Then
+            objVendorMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+            objVendorMaster.MdiParent = Me
+            objVendorMaster.Show()
+            submnu_VendorMaster.Checked = True
+        End If
+        If submnu_VendorMaster.Checked = True Then
+            Exit Sub
+        End If
+        objVendorMaster.FormBorderStyle = FormBorderStyle.FixedDialog
+        objVendorMaster.MdiParent = Me
+        objVendorMaster.Show()
+        submnu_VendorMaster.Checked = True
+    End Sub
+
+    Private Sub StockInDetails_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockInDetails.Click
+        GmoduleName = "Stock In Details"
+        Dim objStockInDetails As New frmStockInreport
+        objStockInDetails.MdiParent = Me
+        objStockInDetails.Show()
+    End Sub
+
+    Private Sub StockOutDetails_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockOutDetails.Click
+        GmoduleName = "Stock Out Details"
+        Dim objStockOutDetails As New frmStockOutreport
+        objStockOutDetails.MdiParent = Me
+        objStockOutDetails.Show()
+    End Sub
+    Private Sub StockOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockOut.Click
+        GmoduleName = "Stock Out"
+        Dim objStockOut As New Stock_Out
+        objStockOut.MdiParent = Me
+        objStockOut.Show()
+    End Sub
+
+    Private Sub StockIn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockIn.Click
+        GmoduleName = "Stock In"
+        Dim objStockIn As New Stock_In
+        objStockIn.MdiParent = Me
+        objStockIn.Show()
+    End Sub
+    Private Sub MenuItem25_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem25.Click
+        Dim objSubledgermaster As New SUBLEDGERMASTER
+        objSubledgermaster.MdiParent = Me
+        objSubledgermaster.Show()
+    End Sub
+    Private Sub MenuItem26_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem26.Click
+        GmoduleName = "ACCOUNTSITEMTAGGING"
+        Dim ACCOUNTSITEMTAGGING As New ACCOUNTSITEMTAGGING
+        ACCOUNTSITEMTAGGING.Show()
+    End Sub
+
+    Private Sub MenuItem27_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem27.Click
+        GmoduleName = "CategoryWise Stock Summary"
+        Dim objCATStockSummary As New frmCATStockSummary
+        objCATStockSummary.MdiParent = Me
+        objCATStockSummary.Show()
+    End Sub
+
+    Private Sub MenuItem28_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem28.Click
+        GmoduleName = "Stock Damage Details"
+        Dim objStockDMGDetails As New frmStockDMGreport
+        objStockDMGDetails.MdiParent = Me
+        objStockDMGDetails.Show()
+    End Sub
+
+    Private Sub mnu_Administrator_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnu_Administrator.Click
+
+    End Sub
+
+    Private Sub mnu_Transaction_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnu_Transaction.Click
+
+    End Sub
+
+    Private Sub MenuItem29_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem29.Click
+        Dim CONSUMP As New CONSUMPTION
+        CONSUMP.MdiParent = Me
+        CONSUMP.Show()
+    End Sub
+End Class
