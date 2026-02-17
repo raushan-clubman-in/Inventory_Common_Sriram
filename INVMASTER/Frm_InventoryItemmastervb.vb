@@ -1,4 +1,5 @@
-﻿
+﻿Imports System.IO
+
 Imports CrystalDecisions.CrystalReports.Engine
 Public Class Frm_InventoryItemmastervb
     Dim sqlstring As String
@@ -2187,15 +2188,26 @@ Public Class Frm_InventoryItemmastervb
             ProgressBar1.Maximum = gdataset.Tables("inv_inventoryitemmaster").Rows.Count + 1
             Timer1.Enabled = True
 
+
+
+            Call Randomize()
+            AppPath = Application.StartupPath
+            vOutfile = Mid("Ste" & (Rnd() * 800000), 1, 8)
+            VFilePath = AppPath & "\Reports\" & vOutfile & ".txt"
+            Filewrite = File.AppendText(VFilePath)
+
             For j = 0 To gdataset.Tables("inv_inventoryitemmaster").Rows.Count - 1
 
                 Call Randomize()
-                vOutfile = Mid("WE" & (Rnd() * 800000000), 1, 10)
-                vOutfile = Replace(vOutfile, ".", "")
-                vOutfile = Replace(vOutfile, "+", "")
+                vOutfile1 = Mid("WE" & (Rnd() * 800000000), 1, 10)
+                vOutfile1 = Replace(vOutfile1, ".", "")
+                vOutfile1 = Replace(vOutfile1, "+", "")
+
 
                 Dim stockitemname As String
                 stockitemname = Trim(gdataset.Tables("inv_inventoryitemmaster").Rows(J).Item("itemcode"))
+
+                Filewrite.WriteLine(stockitemname)
 
                 '                MsgBox(stockitemname)
 
@@ -2208,10 +2220,9 @@ Public Class Frm_InventoryItemmastervb
                 dtitem.Rows.Add(stockitemname)
 
                 If Mid(UCase(gShortname), 1, 5) = "RSAOI" Or Mid(UCase(gShortname), 1, 3) = "RSI" Then
-                    strrate = CALC_WEIGHTEDRSI_A(Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), items, dtitem, "", "Q", vOutfile, loccode)
-
+                    strrate = CALC_WEIGHTEDRSI_A(Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), items, dtitem, "", "Q", vOutfile1, loccode)
                 Else
-                    strrate = CALC_WEIGHTED_A(Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), items, dtitem, "", "Q", vOutfile, loccode)
+                    strrate = CALC_WEIGHTED_A(Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), Format(CDate("01/04/" & gFinancalyearStart), "dd MMM yyyy"), items, dtitem, "", "Q", vOutfile1, loccode)
                     sqlstring = "if exists(select * from sysobjects where name='" & strrate & "') begin DROP TABLE " & strrate & " end"
                     gconnection.ExcuteStoreProcedure(sqlstring)
                 End If
@@ -2220,6 +2231,11 @@ Public Class Frm_InventoryItemmastervb
             Next j
             Timer1.Enabled = False
             ProgressBar1.Value = 1
+
+            Filewrite.Write(Chr(12))
+            Filewrite.Close()
+
+            '            OpenTextFile(VFilePath)
 
         End If
 

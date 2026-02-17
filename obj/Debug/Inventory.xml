@@ -6,77 +6,95 @@ Inventory
 </name>
 </assembly>
 <members>
-<member name="M:Inventory.FRM_PURCHASES.Fillgroup">
+<member name="M:Inventory.frmStockadjustmentreport.FillStorename">
 ******************************  To fill POS details from SupplierName  *******************************'''
 
-</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILSDataTable">
+</member><member name="M:Inventory.Itemwise_Issue_details.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.PendingIndent.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="T:Inventory.BarSale.VW_RateChangeDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILS1DataTable">
+</member><member name="T:Inventory.BarSale.SaleBarDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILSRow">
+</member><member name="T:Inventory.BarSale.VW_RateChangeRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILS1Row">
+</member><member name="T:Inventory.BarSale.SaleBarRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILSRowChangeEvent">
+</member><member name="T:Inventory.BarSale.VW_RateChangeRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILS1RowChangeEvent">
+</member><member name="T:Inventory.BarSale.SaleBarRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2">
+</member><member name="T:Inventory.BarSale">
 	<summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.STOCKADJUSTDETAILSTableAdapter">
+</member><member name="T:Inventory.BarSaleTableAdapters.VW_RateChangeTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.STOCKADJUSTDETAILS1TableAdapter">
+</member><member name="T:Inventory.BarSaleTableAdapters.SaleBarTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
-</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.mlrf_DataSet2,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.BarSale,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Update rows in top-down order.
 </summary>
-</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.mlrf_DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.BarSale,System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Insert rows in top-down order.
 </summary>
-</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.mlrf_DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.BarSale,System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Delete rows in bottom-up order.
 </summary>
-</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
 	<summary>
 Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
 </summary>
-</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateAll(Inventory.mlrf_DataSet2)">
+</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateAll(Inventory.BarSale)">
 	<summary>
 Update all changes to the dataset.
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateOrderOption">
+</member><member name="T:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateOrderOption">
 	<summary>
 Update Order Option
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
+</member><member name="T:Inventory.BarSaleTableAdapters.TableAdapterManager.SelfReferenceComparer">
 	<summary>
 Used to sort self-referenced table's rows
 </summary>
-</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager">
+</member><member name="T:Inventory.BarSaleTableAdapters.TableAdapterManager">
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
+</member><member name="M:Inventory.frmStockInreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.Issue_Register.FillGroupdetails">
+******************************  To fill GROUP DETAILS *******************************'''
+
+</member><member name="M:Inventory.Issue_Register.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.frmStockOutreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
 </member><member name="T:Inventory.DataSet1.VW_PURCHASEREGISTERNewDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -273,89 +291,9 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
-</member><member name="M:Inventory.Indent_Register.FillGroupdetails">
-******************************  To fill GROUP DETAILS *******************************'''
-
-</member><member name="M:Inventory.Indent_Register.FillStorename">
+</member><member name="M:Inventory.frmStocktransferreport.FillStorename">
 ******************************  To fill POS details from SupplierName  *******************************'''
 
-</member><member name="P:Inventory.Inventory.Issue_Details.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:Inventory.Inventory.Issue_Details.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:Inventory.DataSet2.STOCKTRANSFERDETAILDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.DataSet2.Profit_ReportDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.DataSet2.STOCKTRANSFERDETAILRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.DataSet2.Profit_ReportRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.DataSet2.STOCKTRANSFERDETAILRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.DataSet2.Profit_ReportRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.DataSet2">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:Inventory.DataSet2TableAdapters.STOCKTRANSFERDETAILTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Inventory.DataSet2TableAdapters.Profit_ReportTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.DataSet2,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateAll(Inventory.DataSet2)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:Inventory.DataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:Inventory.DataSet2TableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
 </member><member name="P:Inventory.My.Resources.Issue_Details1.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
@@ -369,9 +307,6 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="M:Inventory.frmStockreturnreport.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
 </member><member name="T:Inventory.NewDataSet.stockConsumption_1DataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -584,406 +519,15 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
-</member><member name="M:Inventory.UnMatchedVoucherPosting.GRN_RATE_CHECK_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
-	<summary>
-	</summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-</member><member name="M:Inventory.frmStockInreport.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="T:Inventory.MLRFDATA.VW_INV_GRNBILLDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.MLRFDATA.VW_INV_GRNBILLRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.MLRFDATA.VW_INV_GRNBILLRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.MLRFDATA">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:Inventory.MLRFDATATableAdapters.VW_INV_GRNBILLTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.MLRFDATA,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.MLRFDATA,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.MLRFDATA,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateAll(Inventory.MLRFDATA)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:Inventory.MLRFDATATableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:Inventory.MLRFDATATableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.ResourceManager">
+</member><member name="P:Inventory.Inventory.Issue_Details.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member><member name="P:Inventory.My.Resources.Resources.Culture">
+</member><member name="P:Inventory.Inventory.Issue_Details.Culture">
 	<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:Inventory.My.Resources.Resources._111in1024res">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources._111in1024res1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources._Exit">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.accept_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.background">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.Calcutta_Club_Logo">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.Check_24x24">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.chslogo">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.Clear">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.clear_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.Delete">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.excel">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.excel_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.exit_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.NUIScreen">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.NUIScreen1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.print">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.print_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.reject">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.save">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.save_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.skin">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.unvoid_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.view">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.view_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.void_web">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.welcome">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:Inventory.My.Resources.Resources.welcomelogo">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="T:Inventory.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.liq_conslidate">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:Inventory.liq_conslidateTableAdapters.INVENTORYITEMMASTERTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Inventory.liq_conslidateTableAdapters.STOCKSUMMARYTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateAll(Inventory.liq_conslidate)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member><member name="M:Inventory.frmRSIDayWiseAndProfitLossReport.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="M:Inventory.frmStockadjustmentreport.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="M:Inventory.frmStockOutreport.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="M:Inventory.Issue_Register.FillGroupdetails">
-******************************  To fill GROUP DETAILS *******************************'''
-
-</member><member name="M:Inventory.Issue_Register.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="T:Inventory.DC_DATASET.stocksummaryDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.DC_DATASET.stocksummaryRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.DC_DATASET.stocksummaryRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.DC_DATASET">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:Inventory.DC_DATASETTableAdapters.stocksummaryTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.DC_DATASET,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.DC_DATASET,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.DC_DATASET,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateAll(Inventory.DC_DATASET)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:Inventory.DC_DATASETTableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:Inventory.DC_DATASETTableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member><member name="M:Inventory.frmStockconsumptionreport.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="M:Inventory.Itemwise_Issue_details.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="M:Inventory.PendingIndent.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
-</member><member name="T:Inventory.BarSale.VW_RateChangeDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.BarSale.SaleBarDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Inventory.BarSale.VW_RateChangeRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.BarSale.SaleBarRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Inventory.BarSale.VW_RateChangeRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.BarSale.SaleBarRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Inventory.BarSale">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:Inventory.BarSaleTableAdapters.VW_RateChangeTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:Inventory.BarSaleTableAdapters.SaleBarTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.BarSale,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.BarSale,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.BarSale,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateAll(Inventory.BarSale)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:Inventory.BarSaleTableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:Inventory.BarSaleTableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:Inventory.BarSaleTableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member><member name="M:Inventory.frmStocktransferreport.FillStorename">
-******************************  To fill POS details from SupplierName  *******************************'''
-
 </member><member name="T:Inventory.BGCDATA.tempclosingqtyDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -1036,6 +580,11 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
+</member><member name="M:Inventory.UnMatchedVoucherPosting.GRN_RATE_CHECK_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+	<summary>
+	</summary>
+	<param name="sender"></param>
+	<param name="e"></param>
 </member><member name="T:Inventory.InvTrnds.TEMPSTOCKDMGDETAILDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -1632,9 +1181,460 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
+</member><member name="T:Inventory.DC_DATASET.stocksummaryDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DC_DATASET.stocksummaryRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DC_DATASET.stocksummaryRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DC_DATASET">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.DC_DATASETTableAdapters.stocksummaryTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.DC_DATASET,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.DC_DATASET,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.DC_DATASET,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateAll(Inventory.DC_DATASET)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.DC_DATASETTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.DC_DATASETTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.DC_DATASETTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:Inventory.MLRFDATA.VW_INV_GRNBILLDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.MLRFDATA.VW_INV_GRNBILLRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.MLRFDATA.VW_INV_GRNBILLRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.MLRFDATA">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.MLRFDATATableAdapters.VW_INV_GRNBILLTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.MLRFDATA,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.MLRFDATA,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.MLRFDATA,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateAll(Inventory.MLRFDATA)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.MLRFDATATableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.MLRFDATATableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.MLRFDATATableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.liq_conslidate.INVENTORYITEMMASTERRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.liq_conslidate.STOCKSUMMARYRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.liq_conslidate">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.INVENTORYITEMMASTERTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.STOCKSUMMARYTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.liq_conslidate,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateAll(Inventory.liq_conslidate)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.liq_conslidateTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
 </member><member name="M:Inventory.frmStockDMGreport.FillStorename">
 ******************************  To fill POS details from SupplierName  *******************************'''
 
+</member><member name="M:Inventory.frmRSIDayWiseAndProfitLossReport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="T:Inventory.DataSet2.STOCKTRANSFERDETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet2.Profit_ReportDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.DataSet2.STOCKTRANSFERDETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet2.Profit_ReportRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.DataSet2.STOCKTRANSFERDETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet2.Profit_ReportRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.DataSet2">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.DataSet2TableAdapters.STOCKTRANSFERDETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.DataSet2TableAdapters.Profit_ReportTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.DataSet2,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateAll(Inventory.DataSet2)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.DataSet2TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.DataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.DataSet2TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILSDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILS1DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILSRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILS1Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILSRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2.STOCKADJUSTDETAILS1RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.STOCKADJUSTDETAILSTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.STOCKADJUSTDETAILS1TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateUpdatedRows(Inventory.mlrf_DataSet2,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateInsertedRows(Inventory.mlrf_DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateDeletedRows(Inventory.mlrf_DataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateAll(Inventory.mlrf_DataSet2)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Inventory.mlrf_DataSet2TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="M:Inventory.frmStockreturnreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.Indent_Register.FillGroupdetails">
+******************************  To fill GROUP DETAILS *******************************'''
+
+</member><member name="M:Inventory.Indent_Register.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.frmStockconsumptionreport.FillStorename">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="M:Inventory.FRM_PURCHASES.Fillgroup">
+******************************  To fill POS details from SupplierName  *******************************'''
+
+</member><member name="P:Inventory.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources._111in1024res">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources._111in1024res1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources._Exit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.accept_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.background">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Calcutta_Club_Logo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Check_24x24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.chslogo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Clear">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.clear_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.Delete">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.excel">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.excel_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.exit_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.NUIScreen">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.NUIScreen1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.print">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.print_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.reject">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.save">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.save_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.skin">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.unvoid_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.view">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.view_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.void_web">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.welcome">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Inventory.My.Resources.Resources.welcomelogo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:Inventory.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member>
 </members>
 </doc>

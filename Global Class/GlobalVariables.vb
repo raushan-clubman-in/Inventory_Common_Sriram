@@ -83,7 +83,7 @@ Module GlobalVariables
     Public StockTransferTransbool As Boolean
     Public StockAdjustmentTransbool As Boolean
     Public StockDamageTransbool As Boolean
-    Public vOutfile, vheader, vLine, directissueing, TABNAME As String
+    Public vOutfile, vOutfile1, vheader, vLine, directissueing, TABNAME As String
     Public gFinancalyearStart As String
     Public gFinancialyearEnd As String
     Public Filewrite As StreamWriter

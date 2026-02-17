@@ -1396,6 +1396,7 @@ Public Class CoporateDet
             Filewrite.WriteLine(StrDup(80, "-"))
             Filewrite.Write(Chr(12))
             Filewrite.Close()
+
             If gPrint = False Then
                 OpenTextFile(vOutfile)
             Else
