@@ -14548,6 +14548,8 @@ Module GlobalFunction
         Dim SQLS, sqlstring, itemc, DocNO As String
         Dim Insert(0) As String
         Dim i, J As Integer
+        Dim RATE As Decimal = 0D
+
         Array.Clear(Insert, 0, Insert.Length)
         Try
             'Dim CNT As Integer
@@ -14619,20 +14621,20 @@ Module GlobalFunction
             SQLS = "UPDATE INV_WEIGHTED_TAB3 SET WEIGHTED_RATE =0"
             gconnection.ExcuteStoreProcedure(SQLS)
 
-            SQLS = " UPDATE INV_WEIGHTED_TAB3 SET CLSSTOCK=(SELECT SUM(QTY) FROM INV_WEIGHTED_TAB3 A WHERE A.ITEMCODE=INV_WEIGHTED_TAB3.ITEMCODE AND A.storecode=INV_WEIGHTED_TAB3.storecode AND A.LOCATION=INV_WEIGHTED_TAB3.LOCATION AND STORECODE IN (SELECT STORECODE FROM STOREMASTER WHERE ISNULL(STORESTATUS,'')='M') AND A.ROWID<=INV_WEIGHTED_TAB3.ROWID )"
+            SQLS = " UPDATE INV_WEIGHTED_TAB3 SET CLSSTOCK=(SELECT isnull(SUM(QTY),0) FROM INV_WEIGHTED_TAB3 A WHERE A.ITEMCODE=INV_WEIGHTED_TAB3.ITEMCODE AND A.storecode=INV_WEIGHTED_TAB3.storecode AND A.LOCATION=INV_WEIGHTED_TAB3.LOCATION AND STORECODE IN (SELECT STORECODE FROM STOREMASTER WHERE ISNULL(STORESTATUS,'')='M') AND A.ROWID<=INV_WEIGHTED_TAB3.ROWID )"
             gconnection.ExcuteStoreProcedure(SQLS)
             SQLS = " UPDATE INV_WEIGHTED_TAB3 SET LASTSTOCK=(SELECT ISNULL(SUM(QTY),0) FROM INV_WEIGHTED_TAB3 A WHERE A.ITEMCODE=INV_WEIGHTED_TAB3.ITEMCODE AND A.LOCATION=INV_WEIGHTED_TAB3.LOCATION AND A.storecode=INV_WEIGHTED_TAB3.storecode AND STORECODE IN (SELECT STORECODE FROM STOREMASTER WHERE ISNULL(STORESTATUS,'')='M') AND A.ROWID<INV_WEIGHTED_TAB3.ROWID )"
             gconnection.ExcuteStoreProcedure(SQLS)
-            SQLS = " UPDATE  INV_WEIGHTED_TAB3 SET LASTRATE=RATE WHERE TYPE IN ('OPENING','GRN','ISSUE GRN') AND ISNULL(LASTRATE,0)=0"
+            SQLS = " UPDATE  INV_WEIGHTED_TAB3 SET LASTRATE=isnull(RATE,0) WHERE TYPE IN ('OPENING','GRN','ISSUE GRN') AND ISNULL(LASTRATE,0)=0"
             gconnection.ExcuteStoreProcedure(SQLS)
             SQLS = " UPDATE INV_WEIGHTED_TAB3 SET LASTRATE=(SELECT TOP 1 ISNULL(RATE,0) AS RATE FROM INV_WEIGHTED_TAB3 A "
             SQLS = SQLS & " WHERE  A.ITEMCODE=INV_WEIGHTED_TAB3.ITEMCODE AND A.ROWID<INV_WEIGHTED_TAB3.ROWID AND A.TYPE IN ('OPENING','GRN','ISSUE GRN') ORDER BY A.ROWID DESC) "
             SQLS = SQLS & " WHERE TYPE IN ('OPENING','GRN','ISSUE GRN')"
             gconnection.ExcuteStoreProcedure(SQLS)
-            SQLS = " UPDATE  INV_WEIGHTED_TAB3 SET LASTRATE=RATE WHERE TYPE IN ('OPENING','ISSUE GRN') AND ISNULL(LASTRATE,0)=0"
+            SQLS = " UPDATE  INV_WEIGHTED_TAB3 SET LASTRATE=isnull(RATE,0) WHERE TYPE IN ('OPENING','ISSUE GRN') AND ISNULL(LASTRATE,0)=0"
             gconnection.ExcuteStoreProcedure(SQLS)
 
-            SQLS = " UPDATE INV_WEIGHTED_TAB3 SET WEIGHTED_RATE = RATE WHERE TYPE='OPENING'"
+            SQLS = " UPDATE INV_WEIGHTED_TAB3 SET WEIGHTED_RATE = isnull(RATE,0) WHERE TYPE='OPENING'"
             gconnection.ExcuteStoreProcedure(SQLS)
 
             'sqlstring = "SELECT * FROM INV_WEIGHTED_TAB2 WHERE STORECODE='MNS' ORDER BY ROWID"
@@ -14655,7 +14657,7 @@ Module GlobalFunction
 
             If DS.Tables("INV_WEIGHTED_TAB2").Rows.Count > 0 Then
                 Dim ITEMCODE, location, RATEFLAG As String
-                Dim RATE, LPRATE As Double
+                Dim LPRATE As Double
                 Dim QTY As Double
                 location = DS.Tables("INV_WEIGHTED_TAB2").Rows(0).Item("location")
                 ITEMCODE = DS.Tables("INV_WEIGHTED_TAB2").Rows(0).Item("ITEMCODE")
@@ -14687,16 +14689,49 @@ Module GlobalFunction
                                 QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
                                 If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                    RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    '                                    RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    '                                    RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i)("RATE").ToString()), 3)
 
+
+                                    Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i)("RATE")
+
+                                    If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                        If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                            RATE = 0D
+                                        End If
+                                    End If
+
+                                    RATE = Math.Round(RATE, 3)
                                 ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ISSUE GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE").ToString().ToUpper() = "TRANSFER TO" Then
                                     If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+
+                                        Dim objValue As Object = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
+                                        '                                        RATE = Math.Round(Decimal.Parse(((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))), 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                     ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") < 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                        Dim objValue As Object = (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                     Else
                                         RATE = 0
@@ -14709,17 +14744,49 @@ Module GlobalFunction
                                 QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
                                 If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                    RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    '                                    RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                    Dim objValue As Object = (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                    If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                        If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                            RATE = 0D
+                                        End If
+                                    End If
+
+                                    RATE = Math.Round(RATE, 3)
+
 
                                 ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ISSUE GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE").ToString().ToUpper() = "TRANSFER TO" Then
                                     If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+
+                                        '                                        RATE = Math.Round(Decimal.Parse(((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))), 3)
+
+                                        Dim objValue As Object = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                         '  DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
                                     ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") < 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                        '                                        RATE = Math.Round(Decimal.Parse((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))), 3)
+
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
 
                                     Else
@@ -14734,17 +14801,47 @@ Module GlobalFunction
                             QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
                             If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
                                 DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                '                                RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                    If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                        RATE = 0D
+                                    End If
+                                End If
+
+                                RATE = Math.Round(RATE, 3)
 
                             ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ISSUE GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE").ToString().ToUpper() = "TRANSFER TO" Then
                                 If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                    RATE = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+
+                                    '                                    RATE = Math.Round(Decimal.Parse(((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))), 3)
+
+                                    Dim objValue As Object = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+                                    If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                        If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                            RATE = 0D
+                                        End If
+                                    End If
+
+                                    RATE = Math.Round(RATE, 3)
+
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
 
                                 ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") < 0 Then
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                    RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                    '                                    RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                    Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                        If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                            RATE = 0D
+                                        End If
+                                    End If
+
+                                    RATE = Math.Round(RATE, 3)
+
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
 
                                 Else
@@ -14771,23 +14868,61 @@ Module GlobalFunction
                                 QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
                                 If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                    RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    '                                    RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                    Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                        If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                            RATE = 0D
+                                        End If
+                                    End If
+
+                                    RATE = Math.Round(RATE, 3)
 
                                 ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ISSUE GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE").ToString().ToUpper() = "TRANSFER TO" Then
                                     If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                     ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") < 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                     Else
                                         RATE = 0
                                     End If
                                 Else
                                     If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ADJUSTMENT" Then
-                                        RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                     End If
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
@@ -14798,17 +14933,45 @@ Module GlobalFunction
                                 QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
                                 If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                    RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    '                                    RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+                                    Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                        If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                            RATE = 0D
+                                        End If
+                                    End If
+
+                                    RATE = Math.Round(RATE, 3)
 
                                 ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ISSUE GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE").ToString().ToUpper() = "TRANSFER TO" Then
                                     If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                         '  DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
                                     ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") < 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
 
                                     Else
@@ -14816,7 +14979,16 @@ Module GlobalFunction
                                     End If
                                 Else
                                     If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ADJUSTMENT" Then
-                                        RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                     End If
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
@@ -14828,29 +15000,98 @@ Module GlobalFunction
                             QTY = QTY + DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY")
                             If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "OPENING" Then
                                 DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                RATE = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
-                                LPRATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+
+                                '                                RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+                                Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                    If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                        RATE = 0D
+                                    End If
+                                End If
+
+                                RATE = Math.Round(RATE, 3)
+
+                                '                                LPRATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+
+                                LPRATE = RATE
+
                             ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE") = "ISSUE GRN" Or DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("TYPE").ToString().ToUpper() = "TRANSFER TO" Then
                                 If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") <> 0 Then
                                     If DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") < 0 Then
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                        RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                        '                                        RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
+
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                     Else
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
+                                        Dim objValue As Object
                                         If gShortname = "CPC" Or gShortname = "RCL" Or gShortname = "HGA" Then
-                                            RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                            objValue = (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                            '                                            RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
                                         Else
-                                            RATE = ((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK"))
+                                            Dim lastStock As Decimal = 0D
+                                            Dim qtys As Decimal = 0D
+                                            Dim rateFromRow As Decimal = 0D
+                                            Dim clsStock As Decimal = 0D
+
+                                            Decimal.TryParse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i)("LASTSTOCK").ToString(), lastStock)
+                                            Decimal.TryParse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i)("QTY").ToString(), qtys)
+                                            Decimal.TryParse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i)("RATE").ToString(), rateFromRow)
+                                            Decimal.TryParse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i)("CLSSTOCK").ToString(), clsStock)
+
+                                            If gShortname = "CPC" Or gShortname = "RCL" Or gShortname = "HGA" Then
+
+                                                objValue = rateFromRow
+
+                                            Else
+
+                                                If clsStock <> 0 Then
+                                                    objValue = (lastStock * RATE + qtys * rateFromRow) / clsStock
+                                                Else
+                                                    objValue = 0D
+                                                End If
+
+                                            End If
+
+                                            RATE = Math.Round(Convert.ToDecimal(objValue), 3)
+                                            '                                           RATE = Math.Round(Decimal.Parse((DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("LASTSTOCK") * RATE) + (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("QTY") * DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))) / (DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK")), 3)
                                         End If
-                                        ' 
+
+                                        '                                        Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                        If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                            If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                                RATE = 0D
+                                            End If
+                                        End If
+
+                                        RATE = Math.Round(RATE, 3)
 
                                         DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
-                                        LPRATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                        '                                        LPRATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+                                        LPRATE = RATE
                                     End If
                                 ElseIf DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("CLSSTOCK") < 0 Then
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
-                                    RATE = Math.Abs(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE"))
+                                    '                                    RATE = Math.Round(Decimal.Parse(DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")), 3)
+
+                                    Dim objValue As Object = DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("RATE")
+                                    If objValue IsNot Nothing AndAlso objValue IsNot DBNull.Value Then
+                                        If Not Decimal.TryParse(objValue.ToString().Trim(), RATE) Then
+                                            RATE = 0D
+                                        End If
+                                    End If
+
+                                    RATE = Math.Round(RATE, 3)
+
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("WEIGHTED_RATE") = RATE
                                 Else
                                     DS.Tables("INV_WEIGHTED_TAB2").Rows(i).Item("lastRATE") = RATE
@@ -15225,7 +15466,7 @@ Module GlobalFunction
 
             If DS1.Tables("INV_WEIGHTED_TAB2").Rows.Count > 0 Then
                 Dim ITEMCODE, LOCATION, RATEFLAG As String
-                Dim RATE, LPRATE As Double
+                Dim LPRATE As Double
                 Dim QTY As Double
                 LOCATION = DS1.Tables("INV_WEIGHTED_TAB2").Rows(0).Item("STORECODE")
                 ITEMCODE = DS1.Tables("INV_WEIGHTED_TAB2").Rows(0).Item("ITEMCODE")
@@ -15886,9 +16127,22 @@ Module GlobalFunction
                 '    '    thr.Start()
                 'End If
         Catch ex As Exception
-            MessageBox.Show("Plz Check Error : CMD_ADD" & ex.Message, MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+            Dim st As New System.Diagnostics.StackTrace(ex, True)
+            Dim frame As System.Diagnostics.StackFrame = st.GetFrame(0)
+
+            Dim lineNumber As Integer = frame.GetFileLineNumber()
+
+            MessageBox.Show("Plz Check Error : MANUAL STOCK UPDATE" & vbCrLf &
+                            "Message: " & ex.Message & vbCrLf &
+                            "Line No: " & lineNumber,
+                            MyCompanyName,
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Exclamation,
+                            MessageBoxDefaultButton.Button1)
+
             Exit Function
         End Try
+
     End Function
 
 
