@@ -1041,32 +1041,67 @@ Public Class InvStockSummary
             machinename = Environment.MachineName
             '  sqlstring = " delete from stocksummary "
             'Added By Sriram 
-            sqlstring = " delete from stocksummary where username= '" & Trim(gUsername) & "' and machinename='" & machinename & "'"
-            gconnection.dataOperation(6, sqlstring, "stocksummary")
+            If CHK_DisplayColumn.Checked = False Then
 
-            'sqlstring = " delete from stocksummary"
-            'gconnection.dataOperation(6, sqlstring, "stocksummary")
-            sqlstring = " insert into stocksummary(itemcode,ITEMNAME,storecode,uom,opstk,username,MachineName) "
-            sqlstring = sqlstring & " select O.itemcode,I.ITEMNAME,storecode, "
-            sqlstring = sqlstring & " O.uom,O.openningqty,'" & Trim(gUsername) & "','" & machinename & "' from inv_InventoryOpenningstock O INNER JOIN INV_InventoryItemMaster I ON I.ITEMCODE=O.ITEMCODE where storecode ='" + txt_mainstorecode.Text + "' "
-            If CheckedListBox3.CheckedItems.Count <> 0 Then
-                sqlstring = sqlstring & " AND O.ITEMCODE IN ("
-                For i = 0 To CheckedListBox3.CheckedItems.Count - 1
-                    ITEMNAME = Split(CheckedListBox3.CheckedItems(i), "-->")
-                    sqlstring = sqlstring & " '" & Trim(ITEMNAME(0)) & "', "
-                Next
-                sqlstring = Mid(sqlstring, 1, Len(sqlstring) - 2)
-                sqlstring = sqlstring & ")"
-            Else
-                MessageBox.Show("Select the Item Code(s)", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Exit Sub
+                sqlstring = " delete from stocksummary where username= '" & Trim(gUsername) & "' and machinename='" & machinename & "'"
+                gconnection.dataOperation(6, sqlstring, "stocksummary")
+
+                'sqlstring = " delete from stocksummary"
+                'gconnection.dataOperation(6, sqlstring, "stocksummary")
+                sqlstring = " insert into stocksummary(itemcode,ITEMNAME,storecode,uom,opstk,username,MachineName) "
+                sqlstring = sqlstring & " select O.itemcode,I.ITEMNAME,storecode, "
+                sqlstring = sqlstring & " O.uom,O.openningqty,'" & Trim(gUsername) & "','" & machinename & "' from inv_InventoryOpenningstock O INNER JOIN INV_InventoryItemMaster I ON I.ITEMCODE=O.ITEMCODE where storecode ='" + txt_mainstorecode.Text + "' "
+                If CheckedListBox3.CheckedItems.Count <> 0 Then
+                    sqlstring = sqlstring & " AND O.ITEMCODE IN ("
+                    For i = 0 To CheckedListBox3.CheckedItems.Count - 1
+                        ITEMNAME = Split(CheckedListBox3.CheckedItems(i), "-->")
+                        sqlstring = sqlstring & " '" & Trim(ITEMNAME(0)) & "', "
+                    Next
+                    sqlstring = Mid(sqlstring, 1, Len(sqlstring) - 2)
+                    sqlstring = sqlstring & ")"
+                Else
+                    MessageBox.Show("Select the Item Code(s)", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+                End If
+                'sqlstring = sqlstring & " AND ISNULL(O.void,'') <>'Y' "
+                gconnection.dataOperation(6, sqlstring, "stocksummary")
+                sqlstring = " exec CP_stocksummary  '" + Format(gFinancialyearStart, "dd/MMM/yyyy") + "', '" + Format(dtpfromdate.Value, "dd/MMM/yyyy") + "','" + Format(dtptodate.Value, "dd/MMM/yyyy") + "','" + txt_mainstorecode.Text + "','" & Trim(gUsername) & "','" & machinename & "'"
+
+                gconnection.ExcuteStoreProcedure(sqlstring)
+
+                sqlstring = " select ITEMCODE,ITEMNAME ,UOM,OPSTK,opweightedrate AS OPRATE,opvalue AS OPVALUE,abs(issqty) AS ISSUE_QTY,dmgqty AS DMG_QTY,adjqty AS ADJ_QTY,abs(saleqty) AS SALE_QTY,receiveqty AS REC_QTY,closingqty AS CLOSING_QTY,clweightedrate AS CLOSING_RATE,clvalue AS CLOSING_VALUE from stocksummary where (issqty<>'0' or dmgqty<>'0' or adjqty<>'0' or saleqty<>'0' or receiveqty<>'0') AND username='" & Trim(gUsername) & "' and machinename='" & machinename & "' order by itemcode"
+
             End If
-            'sqlstring = sqlstring & " AND ISNULL(O.void,'') <>'Y' "
-            gconnection.dataOperation(6, sqlstring, "stocksummary")
-            sqlstring = " exec CP_stocksummary  '" + Format(gFinancialyearStart, "dd/MMM/yyyy") + "', '" + Format(dtpfromdate.Value, "dd/MMM/yyyy") + "','" + Format(dtptodate.Value, "dd/MMM/yyyy") + "','" + txt_mainstorecode.Text + "','" & Trim(gUsername) & "','" & machinename & "'"
+            If CHK_DisplayColumn.Checked = True Then
 
-            gconnection.ExcuteStoreProcedure(sqlstring)
-            sqlstring = " select ITEMCODE,ITEMNAME ,UOM,OPSTK,opweightedrate AS OPRATE,opvalue AS OPVALUE,abs(issqty) AS ISSUE_QTY,dmgqty AS DMG_QTY,adjqty AS ADJ_QTY,abs(saleqty) AS SALE_QTY,receiveqty AS REC_QTY,closingqty AS CLOSING_QTY,clweightedrate AS CLOSING_RATE,clvalue AS CLOSING_VALUE from stocksummary where (issqty<>'0' or dmgqty<>'0' or adjqty<>'0' or saleqty<>'0' or receiveqty<>'0') AND username='" & Trim(gUsername) & "' and machinename='" & machinename & "' order by itemcode"
+                sqlstring = " delete from stocksummary where username= '" & Trim(gUsername) & "' and machinename='" & machinename & "'"
+                gconnection.dataOperation(6, sqlstring, "stocksummary")
+
+                'sqlstring = " delete from stocksummary"
+                'gconnection.dataOperation(6, sqlstring, "stocksummary")
+                sqlstring = " insert into stocksummary(itemcode,ITEMNAME,storecode,uom,opstk,username,MachineName) "
+                sqlstring = sqlstring & " select O.itemcode,I.ITEMNAME,storecode, "
+                sqlstring = sqlstring & " O.uom,O.openningqty,'" & Trim(gUsername) & "','" & machinename & "' from inv_InventoryOpenningstock O INNER JOIN INV_InventoryItemMaster I ON I.ITEMCODE=O.ITEMCODE where storecode ='" + txt_mainstorecode.Text + "' "
+                If CheckedListBox3.CheckedItems.Count <> 0 Then
+                    sqlstring = sqlstring & " AND O.ITEMCODE IN ("
+                    For i = 0 To CheckedListBox3.CheckedItems.Count - 1
+                        ITEMNAME = Split(CheckedListBox3.CheckedItems(i), "-->")
+                        sqlstring = sqlstring & " '" & Trim(ITEMNAME(0)) & "', "
+                    Next
+                    sqlstring = Mid(sqlstring, 1, Len(sqlstring) - 2)
+                    sqlstring = sqlstring & ")"
+                Else
+                    MessageBox.Show("Select the Item Code(s)", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+                End If
+
+                sqlstring = " exec CP_stocksummary  '" + Format(gFinancialyearStart, "dd/MMM/yyyy") + "', '" + Format(dtpfromdate.Value, "dd/MMM/yyyy") + "','" + Format(dtptodate.Value, "dd/MMM/yyyy") + "','" + txt_mainstorecode.Text + "','" & Trim(gUsername) & "','" & machinename & "'"
+
+                gconnection.ExcuteStoreProcedure(sqlstring)
+
+                sqlstring = "select * from view_stocksummary where username='" & Trim(gUsername) & "' and machinename='" & machinename & "' order by itemcode"
+            End If
+
             Me.Cursor = Cursors.WaitCursor
             gconnection.getDataSet(sqlstring, "stocksummary")
             If gdataset.Tables("stocksummary").Rows.Count > 0 Then

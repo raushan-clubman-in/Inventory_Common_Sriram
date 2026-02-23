@@ -58,6 +58,7 @@ Partial Class InvStockSummary
         Me.Cmd_Clear = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.chk_without_zero = New System.Windows.Forms.CheckBox()
+        Me.CHK_DisplayColumn = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -329,6 +330,7 @@ Partial Class InvStockSummary
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.CHK_DisplayColumn)
         Me.GroupBox2.Controls.Add(Me.ChBZero)
         Me.GroupBox2.Controls.Add(Me.ButExport)
         Me.GroupBox2.Controls.Add(Me.chkdetail)
@@ -502,6 +504,17 @@ Partial Class InvStockSummary
         Me.chk_without_zero.Text = "WITH ZERO CLOSING QTY."
         Me.chk_without_zero.UseVisualStyleBackColor = True
         '
+        'CHK_DisplayColumn
+        '
+        Me.CHK_DisplayColumn.AutoSize = True
+        Me.CHK_DisplayColumn.Location = New System.Drawing.Point(3, 329)
+        Me.CHK_DisplayColumn.Name = "CHK_DisplayColumn"
+        Me.CHK_DisplayColumn.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.CHK_DisplayColumn.Size = New System.Drawing.Size(123, 17)
+        Me.CHK_DisplayColumn.TabIndex = 496
+        Me.CHK_DisplayColumn.Text = "With Display Column"
+        Me.CHK_DisplayColumn.UseVisualStyleBackColor = True
+        '
         'InvStockSummary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -569,4 +582,5 @@ Partial Class InvStockSummary
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents ChBZero As System.Windows.Forms.CheckBox
     Friend WithEvents chk_without_zero As CheckBox
+    Friend WithEvents CHK_DisplayColumn As System.Windows.Forms.CheckBox
 End Class
