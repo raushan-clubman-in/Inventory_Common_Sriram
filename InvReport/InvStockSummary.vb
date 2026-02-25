@@ -1048,6 +1048,7 @@ Public Class InvStockSummary
 
                 'sqlstring = " delete from stocksummary"
                 'gconnection.dataOperation(6, sqlstring, "stocksummary")
+
                 sqlstring = " insert into stocksummary(itemcode,ITEMNAME,storecode,uom,opstk,username,MachineName) "
                 sqlstring = sqlstring & " select O.itemcode,I.ITEMNAME,storecode, "
                 sqlstring = sqlstring & " O.uom,O.openningqty,'" & Trim(gUsername) & "','" & machinename & "' from inv_InventoryOpenningstock O INNER JOIN INV_InventoryItemMaster I ON I.ITEMCODE=O.ITEMCODE where storecode ='" + txt_mainstorecode.Text + "' "
@@ -1079,6 +1080,7 @@ Public Class InvStockSummary
 
                 'sqlstring = " delete from stocksummary"
                 'gconnection.dataOperation(6, sqlstring, "stocksummary")
+
                 sqlstring = " insert into stocksummary(itemcode,ITEMNAME,storecode,uom,opstk,username,MachineName) "
                 sqlstring = sqlstring & " select O.itemcode,I.ITEMNAME,storecode, "
                 sqlstring = sqlstring & " O.uom,O.openningqty,'" & Trim(gUsername) & "','" & machinename & "' from inv_InventoryOpenningstock O INNER JOIN INV_InventoryItemMaster I ON I.ITEMCODE=O.ITEMCODE where storecode ='" + txt_mainstorecode.Text + "' "
