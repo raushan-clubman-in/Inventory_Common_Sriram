@@ -1318,7 +1318,7 @@ Public Class FrmStockLedger
         gconnection.dataOperation(6, sql, "tempclosingqty")
         'gconnection.valuation()
         '   Dim sqlstring As String = "SELECT Trnno,itemcode,UoM,storecode,Trndate,openningstock,openningvalue,qty,closingstock,batchno,TTYPE into tempclosingqty FROM closingqty where storecode='" + txt_mainstorecode.Text + "' "
-        Dim sqlstring As String = " SELECT Trnno,A.itemcode,B.ITEMNAME,B.GROUPCODE,UoM,A.storecode,Trndate,openningstock,openningvalue,qty,closingstock,closingvalue,batchno,TTYPE,trns_seq,priority,RATE into tempclosingqty FROM  closingqty A INNER JOIN INV_INVENTORYITEMMASTER B ON A.itemcode=B.itemcode WHERE a.STORECODE='" + txt_mainstorecode.Text + "'"
+        Dim sqlstring As String = " SELECT Trnno,A.itemcode,B.ITEMNAME,B.GROUPCODE,UoM,A.storecode,Trndate,openningstock,openningvalue,qty,closingstock,closingvalue,A.batchno,TTYPE,trns_seq,priority,RATE into tempclosingqty FROM  closingqty A INNER JOIN INV_INVENTORYITEMMASTER B ON A.itemcode=B.itemcode WHERE a.STORECODE='" + txt_mainstorecode.Text + "'"
 
         If CheckedListBox3.CheckedItems.Count <> 0 Then
             sqlstring = sqlstring & " AND A.ITEMCODE IN ("
@@ -1341,7 +1341,6 @@ Public Class FrmStockLedger
 
         sqlstring1 = " ALTER TABLE tempclosingqty ADD  opqty NUMERIC(15,3) ,opval NUMERIC(15,2) ,purqty NUMERIC(15,3), purval NUMERIC(15,2), issqty NUMERIC(15,3), "
         sqlstring1 = sqlstring1 & " issval NUMERIC(15,2) ,adjqty NUMERIC(15,3) ,adjval NUMERIC(15,2) ,damqty NUMERIC(15,3) ,damval NUMERIC(15,2) ,SALEQTY NUMERIC(15,3) ,SALEVAL NUMERIC(15,2)"
-
         gconnection.dataOperation(6, sqlstring1, )
 
 
