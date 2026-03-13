@@ -155,10 +155,9 @@ Partial Class Frm_GRN
         Me.lbl_Heading.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Heading.Font = New System.Drawing.Font("Arial", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_Heading.ForeColor = System.Drawing.Color.White
-        Me.lbl_Heading.Location = New System.Drawing.Point(328, 28)
-        Me.lbl_Heading.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Heading.Location = New System.Drawing.Point(219, 18)
         Me.lbl_Heading.Name = "lbl_Heading"
-        Me.lbl_Heading.Size = New System.Drawing.Size(382, 33)
+        Me.lbl_Heading.Size = New System.Drawing.Size(258, 22)
         Me.lbl_Heading.TabIndex = 22
         Me.lbl_Heading.Text = "GRN CUM PURCHASE BILL"
         Me.lbl_Heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -174,11 +173,9 @@ Partial Class Frm_GRN
         Me.grp_Grngroup1.Controls.Add(Me.Label4)
         Me.grp_Grngroup1.Controls.Add(Me.Txt_PONo)
         Me.grp_Grngroup1.Controls.Add(Me.cmd_PONOhelp)
-        Me.grp_Grngroup1.Location = New System.Drawing.Point(34, 160)
-        Me.grp_Grngroup1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.grp_Grngroup1.Location = New System.Drawing.Point(23, 104)
         Me.grp_Grngroup1.Name = "grp_Grngroup1"
-        Me.grp_Grngroup1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.grp_Grngroup1.Size = New System.Drawing.Size(986, 62)
+        Me.grp_Grngroup1.Size = New System.Drawing.Size(657, 40)
         Me.grp_Grngroup1.TabIndex = 23
         Me.grp_Grngroup1.TabStop = False
         '
@@ -186,10 +183,9 @@ Partial Class Frm_GRN
         '
         Me.cmd_SPONhelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_SPONhelp.Image = CType(resources.GetObject("cmd_SPONhelp.Image"), System.Drawing.Image)
-        Me.cmd_SPONhelp.Location = New System.Drawing.Point(916, 17)
-        Me.cmd_SPONhelp.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmd_SPONhelp.Location = New System.Drawing.Point(611, 11)
         Me.cmd_SPONhelp.Name = "cmd_SPONhelp"
-        Me.cmd_SPONhelp.Size = New System.Drawing.Size(34, 40)
+        Me.cmd_SPONhelp.Size = New System.Drawing.Size(23, 26)
         Me.cmd_SPONhelp.TabIndex = 492
         Me.cmd_SPONhelp.Visible = False
         '
@@ -197,11 +193,10 @@ Partial Class Frm_GRN
         '
         Me.TXT_Sponsor.BackColor = System.Drawing.Color.Wheat
         Me.TXT_Sponsor.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXT_Sponsor.Location = New System.Drawing.Point(657, 20)
-        Me.TXT_Sponsor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TXT_Sponsor.Location = New System.Drawing.Point(438, 13)
         Me.TXT_Sponsor.MaxLength = 50
         Me.TXT_Sponsor.Name = "TXT_Sponsor"
-        Me.TXT_Sponsor.Size = New System.Drawing.Size(256, 28)
+        Me.TXT_Sponsor.Size = New System.Drawing.Size(172, 21)
         Me.TXT_Sponsor.TabIndex = 491
         Me.TXT_Sponsor.Visible = False
         '
@@ -210,10 +205,9 @@ Partial Class Frm_GRN
         Me.LBL_SPONSOR.AutoSize = True
         Me.LBL_SPONSOR.BackColor = System.Drawing.Color.Transparent
         Me.LBL_SPONSOR.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_SPONSOR.Location = New System.Drawing.Point(448, 26)
-        Me.LBL_SPONSOR.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LBL_SPONSOR.Location = New System.Drawing.Point(299, 17)
         Me.LBL_SPONSOR.Name = "LBL_SPONSOR"
-        Me.LBL_SPONSOR.Size = New System.Drawing.Size(145, 19)
+        Me.LBL_SPONSOR.Size = New System.Drawing.Size(90, 14)
         Me.LBL_SPONSOR.TabIndex = 490
         Me.LBL_SPONSOR.Text = "SPONSOR CODE"
         Me.LBL_SPONSOR.Visible = False
@@ -222,10 +216,9 @@ Partial Class Frm_GRN
         '
         Me.CmbGrnType.FormattingEnabled = True
         Me.CmbGrnType.Items.AddRange(New Object() {"PO", "SPONSOR", "DIRECT GRN"})
-        Me.CmbGrnType.Location = New System.Drawing.Point(150, 20)
-        Me.CmbGrnType.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CmbGrnType.Location = New System.Drawing.Point(100, 13)
         Me.CmbGrnType.Name = "CmbGrnType"
-        Me.CmbGrnType.Size = New System.Drawing.Size(138, 28)
+        Me.CmbGrnType.Size = New System.Drawing.Size(93, 21)
         Me.CmbGrnType.TabIndex = 486
         Me.CmbGrnType.Text = "PO"
         '
@@ -234,10 +227,9 @@ Partial Class Frm_GRN
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(4, 22)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(3, 14)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(93, 19)
+        Me.Label7.Size = New System.Drawing.Size(59, 14)
         Me.Label7.TabIndex = 485
         Me.Label7.Text = "GRN TYPE"
         '
@@ -246,10 +238,9 @@ Partial Class Frm_GRN
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(524, 25)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(349, 16)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(66, 19)
+        Me.Label4.Size = New System.Drawing.Size(42, 14)
         Me.Label4.TabIndex = 433
         Me.Label4.Text = "P.O NO"
         '
@@ -257,31 +248,28 @@ Partial Class Frm_GRN
         '
         Me.Txt_PONo.BackColor = System.Drawing.Color.Wheat
         Me.Txt_PONo.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_PONo.Location = New System.Drawing.Point(657, 20)
-        Me.Txt_PONo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Txt_PONo.Location = New System.Drawing.Point(438, 13)
         Me.Txt_PONo.MaxLength = 50
         Me.Txt_PONo.Name = "Txt_PONo"
-        Me.Txt_PONo.Size = New System.Drawing.Size(256, 28)
+        Me.Txt_PONo.Size = New System.Drawing.Size(172, 21)
         Me.Txt_PONo.TabIndex = 0
         '
         'cmd_PONOhelp
         '
         Me.cmd_PONOhelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_PONOhelp.Image = CType(resources.GetObject("cmd_PONOhelp.Image"), System.Drawing.Image)
-        Me.cmd_PONOhelp.Location = New System.Drawing.Point(916, 17)
-        Me.cmd_PONOhelp.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmd_PONOhelp.Location = New System.Drawing.Point(611, 11)
         Me.cmd_PONOhelp.Name = "cmd_PONOhelp"
-        Me.cmd_PONOhelp.Size = New System.Drawing.Size(34, 40)
+        Me.cmd_PONOhelp.Size = New System.Drawing.Size(23, 26)
         Me.cmd_PONOhelp.TabIndex = 434
         '
         'CMB_CATEGORY
         '
         Me.CMB_CATEGORY.BackColor = System.Drawing.Color.Wheat
         Me.CMB_CATEGORY.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMB_CATEGORY.Location = New System.Drawing.Point(153, 18)
-        Me.CMB_CATEGORY.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CMB_CATEGORY.Location = New System.Drawing.Point(102, 12)
         Me.CMB_CATEGORY.Name = "CMB_CATEGORY"
-        Me.CMB_CATEGORY.Size = New System.Drawing.Size(174, 29)
+        Me.CMB_CATEGORY.Size = New System.Drawing.Size(117, 23)
         Me.CMB_CATEGORY.TabIndex = 0
         '
         'Label13
@@ -289,10 +277,9 @@ Partial Class Frm_GRN
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(8, 23)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(5, 15)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(99, 19)
+        Me.Label13.Size = New System.Drawing.Size(65, 14)
         Me.Label13.TabIndex = 45
         Me.Label13.Text = "CATEGORY"
         '
@@ -307,11 +294,9 @@ Partial Class Frm_GRN
         Me.GroupBox4.Controls.Add(Me.cmd_Grnnohelp)
         Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Controls.Add(Me.lbl_Grndate)
-        Me.GroupBox4.Location = New System.Drawing.Point(32, 228)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox4.Location = New System.Drawing.Point(21, 148)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox4.Size = New System.Drawing.Size(988, 62)
+        Me.GroupBox4.Size = New System.Drawing.Size(659, 40)
         Me.GroupBox4.TabIndex = 469
         Me.GroupBox4.TabStop = False
         '
@@ -321,10 +306,9 @@ Partial Class Frm_GRN
         Me.dtp_Grndate.CustomFormat = "dd/MMM/yyyy"
         Me.dtp_Grndate.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp_Grndate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtp_Grndate.Location = New System.Drawing.Point(800, 18)
-        Me.dtp_Grndate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.dtp_Grndate.Location = New System.Drawing.Point(533, 12)
         Me.dtp_Grndate.Name = "dtp_Grndate"
-        Me.dtp_Grndate.Size = New System.Drawing.Size(164, 28)
+        Me.dtp_Grndate.Size = New System.Drawing.Size(111, 21)
         Me.dtp_Grndate.TabIndex = 471
         '
         'lbl_Grnno
@@ -332,10 +316,9 @@ Partial Class Frm_GRN
         Me.lbl_Grnno.AutoSize = True
         Me.lbl_Grnno.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Grnno.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Grnno.Location = New System.Drawing.Point(336, 23)
-        Me.lbl_Grnno.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Grnno.Location = New System.Drawing.Point(224, 15)
         Me.lbl_Grnno.Name = "lbl_Grnno"
-        Me.lbl_Grnno.Size = New System.Drawing.Size(76, 19)
+        Me.lbl_Grnno.Size = New System.Drawing.Size(47, 14)
         Me.lbl_Grnno.TabIndex = 23
         Me.lbl_Grnno.Text = "GRN NO"
         '
@@ -343,20 +326,18 @@ Partial Class Frm_GRN
         '
         Me.txt_Grnno.BackColor = System.Drawing.Color.Wheat
         Me.txt_Grnno.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Grnno.Location = New System.Drawing.Point(430, 18)
-        Me.txt_Grnno.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Grnno.Location = New System.Drawing.Point(287, 12)
         Me.txt_Grnno.MaxLength = 50
         Me.txt_Grnno.Name = "txt_Grnno"
-        Me.txt_Grnno.Size = New System.Drawing.Size(193, 28)
+        Me.txt_Grnno.Size = New System.Drawing.Size(130, 21)
         Me.txt_Grnno.TabIndex = 2
         '
         'cmd_Grnnohelp
         '
         Me.cmd_Grnnohelp.Image = CType(resources.GetObject("cmd_Grnnohelp.Image"), System.Drawing.Image)
-        Me.cmd_Grnnohelp.Location = New System.Drawing.Point(627, 17)
-        Me.cmd_Grnnohelp.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmd_Grnnohelp.Location = New System.Drawing.Point(418, 11)
         Me.cmd_Grnnohelp.Name = "cmd_Grnnohelp"
-        Me.cmd_Grnnohelp.Size = New System.Drawing.Size(34, 40)
+        Me.cmd_Grnnohelp.Size = New System.Drawing.Size(23, 26)
         Me.cmd_Grnnohelp.TabIndex = 24
         '
         'Label14
@@ -365,10 +346,9 @@ Partial Class Frm_GRN
         Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label14.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(660, 18)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Location = New System.Drawing.Point(440, 12)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 37)
+        Me.Label14.Size = New System.Drawing.Size(28, 24)
         Me.Label14.TabIndex = 470
         Me.Label14.Text = "F4"
         Me.Label14.Visible = False
@@ -378,10 +358,9 @@ Partial Class Frm_GRN
         Me.lbl_Grndate.AutoSize = True
         Me.lbl_Grndate.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Grndate.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Grndate.Location = New System.Drawing.Point(702, 23)
-        Me.lbl_Grndate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Grndate.Location = New System.Drawing.Point(468, 15)
         Me.lbl_Grndate.Name = "lbl_Grndate"
-        Me.lbl_Grndate.Size = New System.Drawing.Size(94, 19)
+        Me.lbl_Grndate.Size = New System.Drawing.Size(59, 14)
         Me.lbl_Grndate.TabIndex = 25
         Me.lbl_Grndate.Text = "GRN DATE"
         '
@@ -391,10 +370,9 @@ Partial Class Frm_GRN
         Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label16.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(284, 23)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Location = New System.Drawing.Point(189, 15)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(36, 37)
+        Me.Label16.Size = New System.Drawing.Size(24, 24)
         Me.Label16.TabIndex = 471
         Me.Label16.Text = "F4"
         Me.Label16.Visible = False
@@ -404,10 +382,9 @@ Partial Class Frm_GRN
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(332, 75)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(221, 49)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(71, 19)
+        Me.Label12.Size = New System.Drawing.Size(45, 14)
         Me.Label12.TabIndex = 432
         Me.Label12.Text = "STORE "
         '
@@ -417,10 +394,9 @@ Partial Class Frm_GRN
         Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label15.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(284, 66)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Location = New System.Drawing.Point(189, 43)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(36, 37)
+        Me.Label15.Size = New System.Drawing.Size(24, 24)
         Me.Label15.TabIndex = 471
         Me.Label15.Text = "F4"
         Me.Label15.Visible = False
@@ -430,10 +406,9 @@ Partial Class Frm_GRN
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(333, 28)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(222, 18)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(96, 19)
+        Me.Label11.Size = New System.Drawing.Size(61, 14)
         Me.Label11.TabIndex = 43
         Me.Label11.Text = "SUPPLIER "
         '
@@ -442,10 +417,9 @@ Partial Class Frm_GRN
         Me.lbl_Suppliercode.AutoSize = True
         Me.lbl_Suppliercode.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Suppliercode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.lbl_Suppliercode.Location = New System.Drawing.Point(6, 28)
-        Me.lbl_Suppliercode.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Suppliercode.Location = New System.Drawing.Point(4, 18)
         Me.lbl_Suppliercode.Name = "lbl_Suppliercode"
-        Me.lbl_Suppliercode.Size = New System.Drawing.Size(144, 19)
+        Me.lbl_Suppliercode.Size = New System.Drawing.Size(90, 14)
         Me.lbl_Suppliercode.TabIndex = 28
         Me.lbl_Suppliercode.Text = "SUPPLIER CODE"
         '
@@ -454,21 +428,19 @@ Partial Class Frm_GRN
         Me.txt_Suppliercode.BackColor = System.Drawing.Color.Wheat
         Me.txt_Suppliercode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_Suppliercode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Suppliercode.Location = New System.Drawing.Point(153, 23)
-        Me.txt_Suppliercode.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Suppliercode.Location = New System.Drawing.Point(102, 15)
         Me.txt_Suppliercode.MaxLength = 50
         Me.txt_Suppliercode.Name = "txt_Suppliercode"
-        Me.txt_Suppliercode.Size = New System.Drawing.Size(96, 28)
+        Me.txt_Suppliercode.Size = New System.Drawing.Size(65, 21)
         Me.txt_Suppliercode.TabIndex = 4
         '
         'cmd_Suppliercodehelp
         '
         Me.cmd_Suppliercodehelp.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_Suppliercodehelp.Image = CType(resources.GetObject("cmd_Suppliercodehelp.Image"), System.Drawing.Image)
-        Me.cmd_Suppliercodehelp.Location = New System.Drawing.Point(250, 22)
-        Me.cmd_Suppliercodehelp.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmd_Suppliercodehelp.Location = New System.Drawing.Point(167, 14)
         Me.cmd_Suppliercodehelp.Name = "cmd_Suppliercodehelp"
-        Me.cmd_Suppliercodehelp.Size = New System.Drawing.Size(34, 40)
+        Me.cmd_Suppliercodehelp.Size = New System.Drawing.Size(23, 26)
         Me.cmd_Suppliercodehelp.TabIndex = 29
         '
         'txt_Suppliername
@@ -477,22 +449,20 @@ Partial Class Frm_GRN
         Me.txt_Suppliername.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_Suppliername.Enabled = False
         Me.txt_Suppliername.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Suppliername.Location = New System.Drawing.Point(429, 23)
-        Me.txt_Suppliername.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Suppliername.Location = New System.Drawing.Point(286, 15)
         Me.txt_Suppliername.MaxLength = 50
         Me.txt_Suppliername.Name = "txt_Suppliername"
-        Me.txt_Suppliername.Size = New System.Drawing.Size(223, 28)
+        Me.txt_Suppliername.Size = New System.Drawing.Size(150, 21)
         Me.txt_Suppliername.TabIndex = 5
         '
         'txt_Supplierinvno
         '
         Me.txt_Supplierinvno.BackColor = System.Drawing.Color.Wheat
         Me.txt_Supplierinvno.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Supplierinvno.Location = New System.Drawing.Point(801, 23)
-        Me.txt_Supplierinvno.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Supplierinvno.Location = New System.Drawing.Point(534, 15)
         Me.txt_Supplierinvno.MaxLength = 50
         Me.txt_Supplierinvno.Name = "txt_Supplierinvno"
-        Me.txt_Supplierinvno.Size = New System.Drawing.Size(148, 28)
+        Me.txt_Supplierinvno.Size = New System.Drawing.Size(100, 21)
         Me.txt_Supplierinvno.TabIndex = 5
         '
         'lbl_Supplierinvno
@@ -500,10 +470,9 @@ Partial Class Frm_GRN
         Me.lbl_Supplierinvno.AutoSize = True
         Me.lbl_Supplierinvno.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Supplierinvno.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Supplierinvno.Location = New System.Drawing.Point(672, 28)
-        Me.lbl_Supplierinvno.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Supplierinvno.Location = New System.Drawing.Point(448, 18)
         Me.lbl_Supplierinvno.Name = "lbl_Supplierinvno"
-        Me.lbl_Supplierinvno.Size = New System.Drawing.Size(127, 19)
+        Me.lbl_Supplierinvno.Size = New System.Drawing.Size(83, 14)
         Me.lbl_Supplierinvno.TabIndex = 26
         Me.lbl_Supplierinvno.Text = "PARTY INV. NO"
         '
@@ -512,10 +481,9 @@ Partial Class Frm_GRN
         Me.lbl_Supplierinvdate.AutoSize = True
         Me.lbl_Supplierinvdate.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Supplierinvdate.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Supplierinvdate.Location = New System.Drawing.Point(672, 75)
-        Me.lbl_Supplierinvdate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Supplierinvdate.Location = New System.Drawing.Point(448, 49)
         Me.lbl_Supplierinvdate.Name = "lbl_Supplierinvdate"
-        Me.lbl_Supplierinvdate.Size = New System.Drawing.Size(87, 19)
+        Me.lbl_Supplierinvdate.Size = New System.Drawing.Size(57, 14)
         Me.lbl_Supplierinvdate.TabIndex = 27
         Me.lbl_Supplierinvdate.Text = "INV. DATE"
         '
@@ -525,10 +493,9 @@ Partial Class Frm_GRN
         Me.dtp_Supplierinvdate.CustomFormat = "dd/MMM/yyyy"
         Me.dtp_Supplierinvdate.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp_Supplierinvdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtp_Supplierinvdate.Location = New System.Drawing.Point(802, 72)
-        Me.dtp_Supplierinvdate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.dtp_Supplierinvdate.Location = New System.Drawing.Point(535, 47)
         Me.dtp_Supplierinvdate.Name = "dtp_Supplierinvdate"
-        Me.dtp_Supplierinvdate.Size = New System.Drawing.Size(148, 28)
+        Me.dtp_Supplierinvdate.Size = New System.Drawing.Size(100, 21)
         Me.dtp_Supplierinvdate.TabIndex = 6
         '
         'txt_Storecode
@@ -536,11 +503,10 @@ Partial Class Frm_GRN
         Me.txt_Storecode.BackColor = System.Drawing.Color.Wheat
         Me.txt_Storecode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_Storecode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Storecode.Location = New System.Drawing.Point(153, 72)
-        Me.txt_Storecode.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Storecode.Location = New System.Drawing.Point(102, 47)
         Me.txt_Storecode.MaxLength = 15
         Me.txt_Storecode.Name = "txt_Storecode"
-        Me.txt_Storecode.Size = New System.Drawing.Size(96, 28)
+        Me.txt_Storecode.Size = New System.Drawing.Size(65, 21)
         Me.txt_Storecode.TabIndex = 7
         '
         'Label3
@@ -548,10 +514,9 @@ Partial Class Frm_GRN
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(60, 77)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(40, 50)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(76, 19)
+        Me.Label3.Size = New System.Drawing.Size(48, 14)
         Me.Label3.TabIndex = 431
         Me.Label3.Text = "STORE  "
         '
@@ -560,10 +525,9 @@ Partial Class Frm_GRN
         Me.Cmd_Storecode.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Cmd_Storecode.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmd_Storecode.Image = CType(resources.GetObject("Cmd_Storecode.Image"), System.Drawing.Image)
-        Me.Cmd_Storecode.Location = New System.Drawing.Point(250, 65)
-        Me.Cmd_Storecode.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Cmd_Storecode.Location = New System.Drawing.Point(167, 42)
         Me.Cmd_Storecode.Name = "Cmd_Storecode"
-        Me.Cmd_Storecode.Size = New System.Drawing.Size(34, 40)
+        Me.Cmd_Storecode.Size = New System.Drawing.Size(23, 26)
         Me.Cmd_Storecode.TabIndex = 430
         Me.Cmd_Storecode.UseVisualStyleBackColor = False
         '
@@ -573,11 +537,10 @@ Partial Class Frm_GRN
         Me.txt_StoreDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_StoreDesc.Enabled = False
         Me.txt_StoreDesc.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_StoreDesc.Location = New System.Drawing.Point(429, 72)
-        Me.txt_StoreDesc.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_StoreDesc.Location = New System.Drawing.Point(286, 47)
         Me.txt_StoreDesc.MaxLength = 50
         Me.txt_StoreDesc.Name = "txt_StoreDesc"
-        Me.txt_StoreDesc.Size = New System.Drawing.Size(223, 28)
+        Me.txt_StoreDesc.Size = New System.Drawing.Size(150, 21)
         Me.txt_StoreDesc.TabIndex = 429
         '
         'GroupBox6
@@ -611,11 +574,9 @@ Partial Class Frm_GRN
         Me.GroupBox6.Controls.Add(Me.Cmd_Storecode)
         Me.GroupBox6.Controls.Add(Me.txt_StoreDesc)
         Me.GroupBox6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox6.Location = New System.Drawing.Point(30, 294)
-        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox6.Location = New System.Drawing.Point(20, 191)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox6.Size = New System.Drawing.Size(988, 209)
+        Me.GroupBox6.Size = New System.Drawing.Size(659, 136)
         Me.GroupBox6.TabIndex = 470
         Me.GroupBox6.TabStop = False
         '
@@ -624,9 +585,10 @@ Partial Class Frm_GRN
         Me.Lbl_SubledgerName.AutoSize = True
         Me.Lbl_SubledgerName.BackColor = System.Drawing.Color.Transparent
         Me.Lbl_SubledgerName.Font = New System.Drawing.Font("Arial", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbl_SubledgerName.Location = New System.Drawing.Point(363, 168)
+        Me.Lbl_SubledgerName.Location = New System.Drawing.Point(242, 109)
+        Me.Lbl_SubledgerName.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Lbl_SubledgerName.Name = "Lbl_SubledgerName"
-        Me.Lbl_SubledgerName.Size = New System.Drawing.Size(85, 19)
+        Me.Lbl_SubledgerName.Size = New System.Drawing.Size(58, 14)
         Me.Lbl_SubledgerName.TabIndex = 483
         Me.Lbl_SubledgerName.Text = "SL NAME "
         '
@@ -649,11 +611,9 @@ Partial Class Frm_GRN
         Me.GRP_GRNDET.Controls.Add(Me.Label18)
         Me.GRP_GRNDET.Controls.Add(Me.DTP_TODATE)
         Me.GRP_GRNDET.Controls.Add(Me.DTP_FROMDATE)
-        Me.GRP_GRNDET.Location = New System.Drawing.Point(108, 75)
-        Me.GRP_GRNDET.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GRP_GRNDET.Location = New System.Drawing.Point(72, 49)
         Me.GRP_GRNDET.Name = "GRP_GRNDET"
-        Me.GRP_GRNDET.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GRP_GRNDET.Size = New System.Drawing.Size(882, 494)
+        Me.GRP_GRNDET.Size = New System.Drawing.Size(588, 321)
         Me.GRP_GRNDET.TabIndex = 490
         Me.GRP_GRNDET.TabStop = False
         Me.GRP_GRNDET.Visible = False
@@ -663,10 +623,9 @@ Partial Class Frm_GRN
         Me.Button3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = Global.Inventory.My.Resources.Resources.view
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(684, 148)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button3.Location = New System.Drawing.Point(456, 96)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(188, 88)
+        Me.Button3.Size = New System.Drawing.Size(125, 57)
         Me.Button3.TabIndex = 500
         Me.Button3.Text = "View"
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -677,10 +636,9 @@ Partial Class Frm_GRN
         Me.BTN_EXIT.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTN_EXIT.Image = CType(resources.GetObject("BTN_EXIT.Image"), System.Drawing.Image)
         Me.BTN_EXIT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BTN_EXIT.Location = New System.Drawing.Point(684, 345)
-        Me.BTN_EXIT.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BTN_EXIT.Location = New System.Drawing.Point(456, 224)
         Me.BTN_EXIT.Name = "BTN_EXIT"
-        Me.BTN_EXIT.Size = New System.Drawing.Size(188, 88)
+        Me.BTN_EXIT.Size = New System.Drawing.Size(125, 57)
         Me.BTN_EXIT.TabIndex = 499
         Me.BTN_EXIT.Text = "EXIT"
         Me.BTN_EXIT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -691,10 +649,9 @@ Partial Class Frm_GRN
         Me.btn_view.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_view.Image = Global.Inventory.My.Resources.Resources.view
         Me.btn_view.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_view.Location = New System.Drawing.Point(684, 243)
-        Me.btn_view.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btn_view.Location = New System.Drawing.Point(456, 158)
         Me.btn_view.Name = "btn_view"
-        Me.btn_view.Size = New System.Drawing.Size(188, 88)
+        Me.btn_view.Size = New System.Drawing.Size(125, 57)
         Me.btn_view.TabIndex = 499
         Me.btn_view.Text = "View"
         Me.btn_view.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -703,10 +660,9 @@ Partial Class Frm_GRN
         'CHKLST_GRNS
         '
         Me.CHKLST_GRNS.FormattingEnabled = True
-        Me.CHKLST_GRNS.Location = New System.Drawing.Point(375, 166)
-        Me.CHKLST_GRNS.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CHKLST_GRNS.Location = New System.Drawing.Point(250, 108)
         Me.CHKLST_GRNS.Name = "CHKLST_GRNS"
-        Me.CHKLST_GRNS.Size = New System.Drawing.Size(298, 257)
+        Me.CHKLST_GRNS.Size = New System.Drawing.Size(200, 164)
         Me.CHKLST_GRNS.TabIndex = 498
         '
         'Label24
@@ -715,10 +671,9 @@ Partial Class Frm_GRN
         Me.Label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label24.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.White
-        Me.Label24.Location = New System.Drawing.Point(588, 123)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label24.Location = New System.Drawing.Point(392, 80)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(48, 37)
+        Me.Label24.Size = New System.Drawing.Size(32, 24)
         Me.Label24.TabIndex = 497
         Me.Label24.Text = "F3"
         '
@@ -726,10 +681,9 @@ Partial Class Frm_GRN
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Maroon
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(520, 123)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox2.Location = New System.Drawing.Point(347, 80)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(36, 37)
+        Me.PictureBox2.Size = New System.Drawing.Size(24, 24)
         Me.PictureBox2.TabIndex = 496
         Me.PictureBox2.TabStop = False
         '
@@ -737,10 +691,9 @@ Partial Class Frm_GRN
         '
         Me.CHKGRN.AutoSize = True
         Me.CHKGRN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CHKGRN.Location = New System.Drawing.Point(382, 92)
-        Me.CHKGRN.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CHKGRN.Location = New System.Drawing.Point(255, 60)
         Me.CHKGRN.Name = "CHKGRN"
-        Me.CHKGRN.Size = New System.Drawing.Size(92, 26)
+        Me.CHKGRN.Size = New System.Drawing.Size(65, 19)
         Me.CHKGRN.TabIndex = 495
         Me.CHKGRN.Text = "GRNS"
         Me.CHKGRN.UseVisualStyleBackColor = True
@@ -751,10 +704,9 @@ Partial Class Frm_GRN
         Me.Label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label21.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.White
-        Me.Label21.Location = New System.Drawing.Point(288, 120)
-        Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label21.Location = New System.Drawing.Point(192, 78)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(48, 37)
+        Me.Label21.Size = New System.Drawing.Size(32, 24)
         Me.Label21.TabIndex = 494
         Me.Label21.Text = "F3"
         '
@@ -762,10 +714,9 @@ Partial Class Frm_GRN
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Maroon
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(237, 120)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox1.Location = New System.Drawing.Point(158, 78)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(36, 37)
+        Me.PictureBox1.Size = New System.Drawing.Size(24, 24)
         Me.PictureBox1.TabIndex = 493
         Me.PictureBox1.TabStop = False
         '
@@ -774,10 +725,9 @@ Partial Class Frm_GRN
         Me.Label23.BackColor = System.Drawing.Color.Maroon
         Me.Label23.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.White
-        Me.Label23.Location = New System.Drawing.Point(380, 123)
-        Me.Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label23.Location = New System.Drawing.Point(253, 80)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(255, 37)
+        Me.Label23.Size = New System.Drawing.Size(170, 24)
         Me.Label23.TabIndex = 492
         Me.Label23.Text = "SELECT GRN :  "
         '
@@ -786,10 +736,9 @@ Partial Class Frm_GRN
         Me.Label22.BackColor = System.Drawing.Color.Maroon
         Me.Label22.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(33, 120)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label22.Location = New System.Drawing.Point(22, 78)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(298, 37)
+        Me.Label22.Size = New System.Drawing.Size(199, 24)
         Me.Label22.TabIndex = 492
         Me.Label22.Text = "SELECT SUPPLIER CODE :  "
         '
@@ -797,10 +746,9 @@ Partial Class Frm_GRN
         '
         Me.ChkSupplier.AutoSize = True
         Me.ChkSupplier.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChkSupplier.Location = New System.Drawing.Point(33, 92)
-        Me.ChkSupplier.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ChkSupplier.Location = New System.Drawing.Point(22, 60)
         Me.ChkSupplier.Name = "ChkSupplier"
-        Me.ChkSupplier.Size = New System.Drawing.Size(183, 24)
+        Me.ChkSupplier.Size = New System.Drawing.Size(126, 17)
         Me.ChkSupplier.TabIndex = 491
         Me.ChkSupplier.Text = "SUPPLIER NAME"
         Me.ChkSupplier.UseVisualStyleBackColor = True
@@ -809,20 +757,18 @@ Partial Class Frm_GRN
         '
         Me.CHKLST_SUPPLIERS.CheckOnClick = True
         Me.CHKLST_SUPPLIERS.FormattingEnabled = True
-        Me.CHKLST_SUPPLIERS.Location = New System.Drawing.Point(33, 163)
-        Me.CHKLST_SUPPLIERS.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CHKLST_SUPPLIERS.Location = New System.Drawing.Point(22, 106)
         Me.CHKLST_SUPPLIERS.Name = "CHKLST_SUPPLIERS"
-        Me.CHKLST_SUPPLIERS.Size = New System.Drawing.Size(298, 257)
+        Me.CHKLST_SUPPLIERS.Size = New System.Drawing.Size(200, 164)
         Me.CHKLST_SUPPLIERS.TabIndex = 490
         '
         'Label19
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(321, 46)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Location = New System.Drawing.Point(214, 30)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(76, 21)
+        Me.Label19.Size = New System.Drawing.Size(49, 15)
         Me.Label19.TabIndex = 1
         Me.Label19.Text = "To Date"
         '
@@ -830,27 +776,24 @@ Partial Class Frm_GRN
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(28, 43)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label18.Location = New System.Drawing.Point(19, 28)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(101, 21)
+        Me.Label18.Size = New System.Drawing.Size(65, 15)
         Me.Label18.TabIndex = 1
         Me.Label18.Text = "From Date"
         '
         'DTP_TODATE
         '
-        Me.DTP_TODATE.Location = New System.Drawing.Point(410, 43)
-        Me.DTP_TODATE.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DTP_TODATE.Location = New System.Drawing.Point(273, 28)
         Me.DTP_TODATE.Name = "DTP_TODATE"
-        Me.DTP_TODATE.Size = New System.Drawing.Size(145, 28)
+        Me.DTP_TODATE.Size = New System.Drawing.Size(98, 21)
         Me.DTP_TODATE.TabIndex = 0
         '
         'DTP_FROMDATE
         '
-        Me.DTP_FROMDATE.Location = New System.Drawing.Point(132, 40)
-        Me.DTP_FROMDATE.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DTP_FROMDATE.Location = New System.Drawing.Point(88, 26)
         Me.DTP_FROMDATE.Name = "DTP_FROMDATE"
-        Me.DTP_FROMDATE.Size = New System.Drawing.Size(178, 28)
+        Me.DTP_FROMDATE.Size = New System.Drawing.Size(120, 21)
         Me.DTP_FROMDATE.TabIndex = 0
         '
         'Lbl_SubledgerCode
@@ -858,9 +801,10 @@ Partial Class Frm_GRN
         Me.Lbl_SubledgerCode.AutoSize = True
         Me.Lbl_SubledgerCode.BackColor = System.Drawing.Color.Transparent
         Me.Lbl_SubledgerCode.Font = New System.Drawing.Font("Arial", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbl_SubledgerCode.Location = New System.Drawing.Point(48, 168)
+        Me.Lbl_SubledgerCode.Location = New System.Drawing.Point(32, 109)
+        Me.Lbl_SubledgerCode.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Lbl_SubledgerCode.Name = "Lbl_SubledgerCode"
-        Me.Lbl_SubledgerCode.Size = New System.Drawing.Size(85, 19)
+        Me.Lbl_SubledgerCode.Size = New System.Drawing.Size(56, 14)
         Me.Lbl_SubledgerCode.TabIndex = 481
         Me.Lbl_SubledgerCode.Text = "SL CODE "
         Me.Lbl_SubledgerCode.Visible = False
@@ -869,11 +813,12 @@ Partial Class Frm_GRN
         '
         Me.Txt_SlDesc.BackColor = System.Drawing.Color.Wheat
         Me.Txt_SlDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_SlDesc.Location = New System.Drawing.Point(478, 158)
+        Me.Txt_SlDesc.Location = New System.Drawing.Point(319, 103)
+        Me.Txt_SlDesc.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Txt_SlDesc.MaxLength = 50
         Me.Txt_SlDesc.Name = "Txt_SlDesc"
         Me.Txt_SlDesc.ReadOnly = True
-        Me.Txt_SlDesc.Size = New System.Drawing.Size(328, 30)
+        Me.Txt_SlDesc.Size = New System.Drawing.Size(220, 22)
         Me.Txt_SlDesc.TabIndex = 478
         Me.Txt_SlDesc.Visible = False
         '
@@ -881,19 +826,21 @@ Partial Class Frm_GRN
         '
         Me.Txt_Slcode.BackColor = System.Drawing.Color.Wheat
         Me.Txt_Slcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Slcode.Location = New System.Drawing.Point(153, 162)
+        Me.Txt_Slcode.Location = New System.Drawing.Point(102, 105)
+        Me.Txt_Slcode.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Txt_Slcode.MaxLength = 10
         Me.Txt_Slcode.Name = "Txt_Slcode"
-        Me.Txt_Slcode.Size = New System.Drawing.Size(138, 30)
+        Me.Txt_Slcode.Size = New System.Drawing.Size(93, 22)
         Me.Txt_Slcode.TabIndex = 477
         Me.Txt_Slcode.Visible = False
         '
         'Cmd_SlCodeHelp
         '
         Me.Cmd_SlCodeHelp.Image = CType(resources.GetObject("Cmd_SlCodeHelp.Image"), System.Drawing.Image)
-        Me.Cmd_SlCodeHelp.Location = New System.Drawing.Point(298, 160)
+        Me.Cmd_SlCodeHelp.Location = New System.Drawing.Point(199, 104)
+        Me.Cmd_SlCodeHelp.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Cmd_SlCodeHelp.Name = "Cmd_SlCodeHelp"
-        Me.Cmd_SlCodeHelp.Size = New System.Drawing.Size(30, 34)
+        Me.Cmd_SlCodeHelp.Size = New System.Drawing.Size(20, 22)
         Me.Cmd_SlCodeHelp.TabIndex = 482
         Me.Cmd_SlCodeHelp.Visible = False
         '
@@ -902,9 +849,10 @@ Partial Class Frm_GRN
         Me.lbl_Glaccountdesc.AutoSize = True
         Me.lbl_Glaccountdesc.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Glaccountdesc.Font = New System.Drawing.Font("Arial", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Glaccountdesc.Location = New System.Drawing.Point(351, 125)
+        Me.lbl_Glaccountdesc.Location = New System.Drawing.Point(234, 81)
+        Me.lbl_Glaccountdesc.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl_Glaccountdesc.Name = "lbl_Glaccountdesc"
-        Me.lbl_Glaccountdesc.Size = New System.Drawing.Size(119, 19)
+        Me.lbl_Glaccountdesc.Size = New System.Drawing.Size(81, 14)
         Me.lbl_Glaccountdesc.TabIndex = 476
         Me.lbl_Glaccountdesc.Text = "GL A/C DESC  "
         Me.lbl_Glaccountdesc.Visible = False
@@ -915,20 +863,22 @@ Partial Class Frm_GRN
         Me.Txt_GLAcDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Txt_GLAcDesc.Enabled = False
         Me.Txt_GLAcDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_GLAcDesc.Location = New System.Drawing.Point(478, 118)
+        Me.Txt_GLAcDesc.Location = New System.Drawing.Point(319, 77)
+        Me.Txt_GLAcDesc.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Txt_GLAcDesc.MaxLength = 50
         Me.Txt_GLAcDesc.Name = "Txt_GLAcDesc"
         Me.Txt_GLAcDesc.ReadOnly = True
-        Me.Txt_GLAcDesc.Size = New System.Drawing.Size(332, 30)
+        Me.Txt_GLAcDesc.Size = New System.Drawing.Size(223, 22)
         Me.Txt_GLAcDesc.TabIndex = 473
         Me.Txt_GLAcDesc.Visible = False
         '
         'Cmd_GLAcHelp
         '
         Me.Cmd_GLAcHelp.Image = CType(resources.GetObject("Cmd_GLAcHelp.Image"), System.Drawing.Image)
-        Me.Cmd_GLAcHelp.Location = New System.Drawing.Point(294, 117)
+        Me.Cmd_GLAcHelp.Location = New System.Drawing.Point(196, 76)
+        Me.Cmd_GLAcHelp.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Cmd_GLAcHelp.Name = "Cmd_GLAcHelp"
-        Me.Cmd_GLAcHelp.Size = New System.Drawing.Size(32, 37)
+        Me.Cmd_GLAcHelp.Size = New System.Drawing.Size(21, 24)
         Me.Cmd_GLAcHelp.TabIndex = 475
         Me.Cmd_GLAcHelp.Visible = False
         '
@@ -937,10 +887,11 @@ Partial Class Frm_GRN
         Me.Txt_GLAcIn.BackColor = System.Drawing.Color.Wheat
         Me.Txt_GLAcIn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Txt_GLAcIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_GLAcIn.Location = New System.Drawing.Point(152, 118)
+        Me.Txt_GLAcIn.Location = New System.Drawing.Point(101, 77)
+        Me.Txt_GLAcIn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Txt_GLAcIn.MaxLength = 10
         Me.Txt_GLAcIn.Name = "Txt_GLAcIn"
-        Me.Txt_GLAcIn.Size = New System.Drawing.Size(139, 30)
+        Me.Txt_GLAcIn.Size = New System.Drawing.Size(94, 22)
         Me.Txt_GLAcIn.TabIndex = 472
         Me.Txt_GLAcIn.Visible = False
         '
@@ -949,9 +900,10 @@ Partial Class Frm_GRN
         Me.Label25.AutoSize = True
         Me.Label25.BackColor = System.Drawing.Color.Transparent
         Me.Label25.Font = New System.Drawing.Font("Arial", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(57, 123)
+        Me.Label25.Location = New System.Drawing.Point(38, 80)
+        Me.Label25.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(85, 19)
+        Me.Label25.Size = New System.Drawing.Size(60, 14)
         Me.Label25.TabIndex = 474
         Me.Label25.Text = "GL A/C IN "
         Me.Label25.Visible = False
@@ -961,11 +913,9 @@ Partial Class Frm_GRN
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox10.Controls.Add(Me.Button2)
         Me.GroupBox10.Controls.Add(Me.AxfpSpread1)
-        Me.GroupBox10.Location = New System.Drawing.Point(27, 511)
-        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox10.Location = New System.Drawing.Point(18, 332)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox10.Size = New System.Drawing.Size(992, 277)
+        Me.GroupBox10.Size = New System.Drawing.Size(661, 180)
         Me.GroupBox10.TabIndex = 477
         Me.GroupBox10.TabStop = False
         '
@@ -977,10 +927,9 @@ Partial Class Frm_GRN
         Me.Button2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(9, 337)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button2.Location = New System.Drawing.Point(6, 219)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(182, 42)
+        Me.Button2.Size = New System.Drawing.Size(121, 27)
         Me.Button2.TabIndex = 489
         Me.Button2.Text = "Get Weight [F1]"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -991,7 +940,6 @@ Partial Class Frm_GRN
         '
         Me.AxfpSpread1.DataSource = Nothing
         Me.AxfpSpread1.Location = New System.Drawing.Point(11, 18)
-        Me.AxfpSpread1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.AxfpSpread1.Name = "AxfpSpread1"
         Me.AxfpSpread1.OcxState = CType(resources.GetObject("AxfpSpread1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.AxfpSpread1.Size = New System.Drawing.Size(687, 145)
@@ -1021,11 +969,9 @@ Partial Class Frm_GRN
         Me.GroupBox8.Controls.Add(Me.TXT_OVERALLdiscount)
         Me.GroupBox8.Controls.Add(Me.lbl_Billamount)
         Me.GroupBox8.Controls.Add(Me.txt_Billamount)
-        Me.GroupBox8.Location = New System.Drawing.Point(30, 802)
-        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox8.Location = New System.Drawing.Point(20, 521)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox8.Size = New System.Drawing.Size(990, 162)
+        Me.GroupBox8.Size = New System.Drawing.Size(660, 105)
         Me.GroupBox8.TabIndex = 478
         Me.GroupBox8.TabStop = False
         '
@@ -1034,11 +980,10 @@ Partial Class Frm_GRN
         Me.txt_Ertax.BackColor = System.Drawing.Color.Wheat
         Me.txt_Ertax.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_Ertax.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Ertax.Location = New System.Drawing.Point(807, 114)
-        Me.txt_Ertax.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Ertax.Location = New System.Drawing.Point(538, 74)
         Me.txt_Ertax.MaxLength = 15
         Me.txt_Ertax.Name = "txt_Ertax"
-        Me.txt_Ertax.Size = New System.Drawing.Size(154, 28)
+        Me.txt_Ertax.Size = New System.Drawing.Size(104, 21)
         Me.txt_Ertax.TabIndex = 492
         Me.txt_Ertax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txt_Ertax.Visible = False
@@ -1047,10 +992,9 @@ Partial Class Frm_GRN
         '
         Me.Label29.BackColor = System.Drawing.Color.Transparent
         Me.Label29.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(660, 111)
-        Me.Label29.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label29.Location = New System.Drawing.Point(440, 72)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(146, 51)
+        Me.Label29.Size = New System.Drawing.Size(97, 33)
         Me.Label29.TabIndex = 491
         Me.Label29.Text = "EXCISE RELATED TAX"
         Me.Label29.Visible = False
@@ -1060,11 +1004,10 @@ Partial Class Frm_GRN
         Me.TXT_ERSALETAX.BackColor = System.Drawing.Color.Wheat
         Me.TXT_ERSALETAX.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TXT_ERSALETAX.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXT_ERSALETAX.Location = New System.Drawing.Point(496, 109)
-        Me.TXT_ERSALETAX.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TXT_ERSALETAX.Location = New System.Drawing.Point(331, 71)
         Me.TXT_ERSALETAX.MaxLength = 15
         Me.TXT_ERSALETAX.Name = "TXT_ERSALETAX"
-        Me.TXT_ERSALETAX.Size = New System.Drawing.Size(154, 28)
+        Me.TXT_ERSALETAX.Size = New System.Drawing.Size(104, 21)
         Me.TXT_ERSALETAX.TabIndex = 490
         Me.TXT_ERSALETAX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TXT_ERSALETAX.Visible = False
@@ -1073,10 +1016,9 @@ Partial Class Frm_GRN
         '
         Me.Label28.BackColor = System.Drawing.Color.Transparent
         Me.Label28.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(346, 105)
-        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label28.Location = New System.Drawing.Point(231, 68)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(142, 52)
+        Me.Label28.Size = New System.Drawing.Size(95, 34)
         Me.Label28.TabIndex = 489
         Me.Label28.Text = "EXCISE RELATED SALE TAX"
         Me.Label28.Visible = False
@@ -1087,12 +1029,11 @@ Partial Class Frm_GRN
         Me.Txt_bill_2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Txt_bill_2.Enabled = False
         Me.Txt_bill_2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_bill_2.Location = New System.Drawing.Point(801, -5)
-        Me.Txt_bill_2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Txt_bill_2.Location = New System.Drawing.Point(534, -3)
         Me.Txt_bill_2.MaxLength = 15
         Me.Txt_bill_2.Name = "Txt_bill_2"
         Me.Txt_bill_2.ReadOnly = True
-        Me.Txt_bill_2.Size = New System.Drawing.Size(168, 28)
+        Me.Txt_bill_2.Size = New System.Drawing.Size(113, 21)
         Me.Txt_bill_2.TabIndex = 488
         Me.Txt_bill_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Txt_bill_2.Visible = False
@@ -1102,10 +1043,9 @@ Partial Class Frm_GRN
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(18, 115)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(12, 75)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(161, 19)
+        Me.Label9.Size = New System.Drawing.Size(105, 14)
         Me.Label9.TabIndex = 486
         Me.Label9.Text = "TOTAL ADD. CESS "
         '
@@ -1115,12 +1055,11 @@ Partial Class Frm_GRN
         Me.Txt_SPLCESS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Txt_SPLCESS.Enabled = False
         Me.Txt_SPLCESS.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_SPLCESS.Location = New System.Drawing.Point(183, 109)
-        Me.Txt_SPLCESS.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Txt_SPLCESS.Location = New System.Drawing.Point(122, 71)
         Me.Txt_SPLCESS.MaxLength = 15
         Me.Txt_SPLCESS.Name = "Txt_SPLCESS"
         Me.Txt_SPLCESS.ReadOnly = True
-        Me.Txt_SPLCESS.Size = New System.Drawing.Size(154, 28)
+        Me.Txt_SPLCESS.Size = New System.Drawing.Size(104, 21)
         Me.Txt_SPLCESS.TabIndex = 487
         Me.Txt_SPLCESS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1129,11 +1068,10 @@ Partial Class Frm_GRN
         Me.txt_RoundUP.BackColor = System.Drawing.Color.Wheat
         Me.txt_RoundUP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_RoundUP.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_RoundUP.Location = New System.Drawing.Point(496, 109)
-        Me.txt_RoundUP.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_RoundUP.Location = New System.Drawing.Point(331, 71)
         Me.txt_RoundUP.MaxLength = 15
         Me.txt_RoundUP.Name = "txt_RoundUP"
-        Me.txt_RoundUP.Size = New System.Drawing.Size(154, 28)
+        Me.txt_RoundUP.Size = New System.Drawing.Size(104, 21)
         Me.txt_RoundUP.TabIndex = 485
         Me.txt_RoundUP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1142,10 +1080,9 @@ Partial Class Frm_GRN
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(346, 109)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(231, 71)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(108, 19)
+        Me.Label8.Size = New System.Drawing.Size(66, 14)
         Me.Label8.TabIndex = 444
         Me.Label8.Text = "ROUND OFF"
         '
@@ -1154,10 +1091,9 @@ Partial Class Frm_GRN
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(660, 31)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(440, 20)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(100, 19)
+        Me.Label5.Size = New System.Drawing.Size(71, 14)
         Me.Label5.TabIndex = 442
         Me.Label5.Text = "TOTAL AMT"
         '
@@ -1166,10 +1102,9 @@ Partial Class Frm_GRN
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(345, 31)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(230, 20)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(98, 19)
+        Me.Label2.Size = New System.Drawing.Size(67, 14)
         Me.Label2.TabIndex = 441
         Me.Label2.Text = "TOTAL TAX"
         '
@@ -1178,10 +1113,9 @@ Partial Class Frm_GRN
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(18, 31)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(12, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(106, 19)
+        Me.Label1.Size = New System.Drawing.Size(71, 14)
         Me.Label1.TabIndex = 440
         Me.Label1.Text = "TOTAL DISC"
         '
@@ -1190,11 +1124,10 @@ Partial Class Frm_GRN
         Me.txt_total.BackColor = System.Drawing.Color.Wheat
         Me.txt_total.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_total.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_total.Location = New System.Drawing.Point(807, 25)
-        Me.txt_total.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_total.Location = New System.Drawing.Point(538, 16)
         Me.txt_total.MaxLength = 15
         Me.txt_total.Name = "txt_total"
-        Me.txt_total.Size = New System.Drawing.Size(154, 28)
+        Me.txt_total.Size = New System.Drawing.Size(104, 21)
         Me.txt_total.TabIndex = 439
         Me.txt_total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1203,11 +1136,10 @@ Partial Class Frm_GRN
         Me.txt_totaltax.BackColor = System.Drawing.Color.Wheat
         Me.txt_totaltax.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_totaltax.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_totaltax.Location = New System.Drawing.Point(496, 26)
-        Me.txt_totaltax.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_totaltax.Location = New System.Drawing.Point(331, 17)
         Me.txt_totaltax.MaxLength = 15
         Me.txt_totaltax.Name = "txt_totaltax"
-        Me.txt_totaltax.Size = New System.Drawing.Size(154, 28)
+        Me.txt_totaltax.Size = New System.Drawing.Size(104, 21)
         Me.txt_totaltax.TabIndex = 438
         Me.txt_totaltax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1216,11 +1148,10 @@ Partial Class Frm_GRN
         Me.txt_totdisc.BackColor = System.Drawing.Color.Wheat
         Me.txt_totdisc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_totdisc.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_totdisc.Location = New System.Drawing.Point(183, 26)
-        Me.txt_totdisc.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_totdisc.Location = New System.Drawing.Point(122, 17)
         Me.txt_totdisc.MaxLength = 15
         Me.txt_totdisc.Name = "txt_totdisc"
-        Me.txt_totdisc.Size = New System.Drawing.Size(154, 28)
+        Me.txt_totdisc.Size = New System.Drawing.Size(104, 21)
         Me.txt_totdisc.TabIndex = 437
         Me.txt_totdisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1229,10 +1160,9 @@ Partial Class Frm_GRN
         Me.lbl_Surchargeamt.AutoSize = True
         Me.lbl_Surchargeamt.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Surchargeamt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Surchargeamt.Location = New System.Drawing.Point(345, 71)
-        Me.lbl_Surchargeamt.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Surchargeamt.Location = New System.Drawing.Point(230, 46)
         Me.lbl_Surchargeamt.Name = "lbl_Surchargeamt"
-        Me.lbl_Surchargeamt.Size = New System.Drawing.Size(154, 19)
+        Me.lbl_Surchargeamt.Size = New System.Drawing.Size(96, 14)
         Me.lbl_Surchargeamt.TabIndex = 369
         Me.lbl_Surchargeamt.Text = "OTHER CHARGES"
         '
@@ -1241,10 +1171,9 @@ Partial Class Frm_GRN
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(18, 71)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(12, 46)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(131, 19)
+        Me.Label6.Size = New System.Drawing.Size(86, 14)
         Me.Label6.TabIndex = 436
         Me.Label6.Text = "OVERALL DISC"
         '
@@ -1253,11 +1182,10 @@ Partial Class Frm_GRN
         Me.txt_Surchargeamt.BackColor = System.Drawing.Color.Wheat
         Me.txt_Surchargeamt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_Surchargeamt.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Surchargeamt.Location = New System.Drawing.Point(496, 68)
-        Me.txt_Surchargeamt.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Surchargeamt.Location = New System.Drawing.Point(331, 44)
         Me.txt_Surchargeamt.MaxLength = 15
         Me.txt_Surchargeamt.Name = "txt_Surchargeamt"
-        Me.txt_Surchargeamt.Size = New System.Drawing.Size(154, 28)
+        Me.txt_Surchargeamt.Size = New System.Drawing.Size(104, 21)
         Me.txt_Surchargeamt.TabIndex = 10
         Me.txt_Surchargeamt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1266,11 +1194,10 @@ Partial Class Frm_GRN
         Me.TXT_OVERALLdiscount.BackColor = System.Drawing.Color.Wheat
         Me.TXT_OVERALLdiscount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TXT_OVERALLdiscount.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXT_OVERALLdiscount.Location = New System.Drawing.Point(183, 68)
-        Me.TXT_OVERALLdiscount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TXT_OVERALLdiscount.Location = New System.Drawing.Point(122, 44)
         Me.TXT_OVERALLdiscount.MaxLength = 30
         Me.TXT_OVERALLdiscount.Name = "TXT_OVERALLdiscount"
-        Me.TXT_OVERALLdiscount.Size = New System.Drawing.Size(154, 28)
+        Me.TXT_OVERALLdiscount.Size = New System.Drawing.Size(104, 21)
         Me.TXT_OVERALLdiscount.TabIndex = 11
         Me.TXT_OVERALLdiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1279,10 +1206,9 @@ Partial Class Frm_GRN
         Me.lbl_Billamount.AutoSize = True
         Me.lbl_Billamount.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Billamount.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Billamount.Location = New System.Drawing.Point(660, 71)
-        Me.lbl_Billamount.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Billamount.Location = New System.Drawing.Point(440, 46)
         Me.lbl_Billamount.Name = "lbl_Billamount"
-        Me.lbl_Billamount.Size = New System.Drawing.Size(125, 19)
+        Me.lbl_Billamount.Size = New System.Drawing.Size(84, 14)
         Me.lbl_Billamount.TabIndex = 370
         Me.lbl_Billamount.Text = "BILL AMOUNT "
         '
@@ -1291,12 +1217,11 @@ Partial Class Frm_GRN
         Me.txt_Billamount.BackColor = System.Drawing.Color.Wheat
         Me.txt_Billamount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_Billamount.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Billamount.Location = New System.Drawing.Point(812, 68)
-        Me.txt_Billamount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Billamount.Location = New System.Drawing.Point(541, 44)
         Me.txt_Billamount.MaxLength = 15
         Me.txt_Billamount.Name = "txt_Billamount"
         Me.txt_Billamount.ReadOnly = True
-        Me.txt_Billamount.Size = New System.Drawing.Size(154, 28)
+        Me.txt_Billamount.Size = New System.Drawing.Size(104, 21)
         Me.txt_Billamount.TabIndex = 373
         Me.txt_Billamount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1307,11 +1232,9 @@ Partial Class Frm_GRN
         Me.GroupBox9.Controls.Add(Me.Label20)
         Me.GroupBox9.Controls.Add(Me.txt_Remarks)
         Me.GroupBox9.Controls.Add(Me.lbl_Remarks)
-        Me.GroupBox9.Location = New System.Drawing.Point(27, 952)
-        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox9.Location = New System.Drawing.Point(18, 619)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox9.Size = New System.Drawing.Size(993, 86)
+        Me.GroupBox9.Size = New System.Drawing.Size(662, 56)
         Me.GroupBox9.TabIndex = 479
         Me.GroupBox9.TabStop = False
         '
@@ -1320,10 +1243,9 @@ Partial Class Frm_GRN
         Me.LabelClosingQuantity.AutoSize = True
         Me.LabelClosingQuantity.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelClosingQuantity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LabelClosingQuantity.Location = New System.Drawing.Point(618, 26)
-        Me.LabelClosingQuantity.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabelClosingQuantity.Location = New System.Drawing.Point(412, 17)
         Me.LabelClosingQuantity.Name = "LabelClosingQuantity"
-        Me.LabelClosingQuantity.Size = New System.Drawing.Size(0, 24)
+        Me.LabelClosingQuantity.Size = New System.Drawing.Size(0, 16)
         Me.LabelClosingQuantity.TabIndex = 477
         '
         'Label20
@@ -1332,10 +1254,9 @@ Partial Class Frm_GRN
         Me.Label20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label20.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label20.Location = New System.Drawing.Point(12, 45)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label20.Location = New System.Drawing.Point(8, 29)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(108, 37)
+        Me.Label20.Size = New System.Drawing.Size(72, 24)
         Me.Label20.TabIndex = 476
         Me.Label20.Text = "ALT+ R"
         Me.Label20.Visible = False
@@ -1345,12 +1266,11 @@ Partial Class Frm_GRN
         Me.txt_Remarks.BackColor = System.Drawing.Color.White
         Me.txt_Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_Remarks.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Remarks.Location = New System.Drawing.Point(132, 20)
-        Me.txt_Remarks.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_Remarks.Location = New System.Drawing.Point(88, 13)
         Me.txt_Remarks.MaxLength = 200
         Me.txt_Remarks.Multiline = True
         Me.txt_Remarks.Name = "txt_Remarks"
-        Me.txt_Remarks.Size = New System.Drawing.Size(846, 47)
+        Me.txt_Remarks.Size = New System.Drawing.Size(565, 32)
         Me.txt_Remarks.TabIndex = 14
         '
         'lbl_Remarks
@@ -1358,10 +1278,9 @@ Partial Class Frm_GRN
         Me.lbl_Remarks.AutoSize = True
         Me.lbl_Remarks.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Remarks.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Remarks.Location = New System.Drawing.Point(12, 20)
-        Me.lbl_Remarks.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Remarks.Location = New System.Drawing.Point(8, 13)
         Me.lbl_Remarks.Name = "lbl_Remarks"
-        Me.lbl_Remarks.Size = New System.Drawing.Size(91, 19)
+        Me.lbl_Remarks.Size = New System.Drawing.Size(59, 14)
         Me.lbl_Remarks.TabIndex = 43
         Me.lbl_Remarks.Text = "REMARKS"
         '
@@ -1378,10 +1297,9 @@ Partial Class Frm_GRN
         Me.Cmd_Freeze.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmd_Freeze.ForeColor = System.Drawing.Color.Black
         Me.Cmd_Freeze.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_Freeze.Location = New System.Drawing.Point(8, 322)
-        Me.Cmd_Freeze.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Cmd_Freeze.Location = New System.Drawing.Point(5, 209)
         Me.Cmd_Freeze.Name = "Cmd_Freeze"
-        Me.Cmd_Freeze.Size = New System.Drawing.Size(171, 71)
+        Me.Cmd_Freeze.Size = New System.Drawing.Size(114, 46)
         Me.Cmd_Freeze.TabIndex = 481
         Me.Cmd_Freeze.Text = "Void[F8]"
         Me.Cmd_Freeze.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1400,10 +1318,9 @@ Partial Class Frm_GRN
         Me.Cmd_Clear.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmd_Clear.ForeColor = System.Drawing.Color.Black
         Me.Cmd_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_Clear.Location = New System.Drawing.Point(8, 20)
-        Me.Cmd_Clear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Cmd_Clear.Location = New System.Drawing.Point(5, 13)
         Me.Cmd_Clear.Name = "Cmd_Clear"
-        Me.Cmd_Clear.Size = New System.Drawing.Size(171, 71)
+        Me.Cmd_Clear.Size = New System.Drawing.Size(114, 46)
         Me.Cmd_Clear.TabIndex = 482
         Me.Cmd_Clear.Text = "Clear[F6]"
         Me.Cmd_Clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1422,10 +1339,9 @@ Partial Class Frm_GRN
         Me.Cmd_Add.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmd_Add.ForeColor = System.Drawing.Color.Black
         Me.Cmd_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_Add.Location = New System.Drawing.Point(8, 95)
-        Me.Cmd_Add.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Cmd_Add.Location = New System.Drawing.Point(5, 62)
         Me.Cmd_Add.Name = "Cmd_Add"
-        Me.Cmd_Add.Size = New System.Drawing.Size(171, 71)
+        Me.Cmd_Add.Size = New System.Drawing.Size(114, 46)
         Me.Cmd_Add.TabIndex = 480
         Me.Cmd_Add.Text = "Add [F7]"
         Me.Cmd_Add.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1438,10 +1354,9 @@ Partial Class Frm_GRN
         Me.cmd_export.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_export.ForeColor = System.Drawing.Color.Black
         Me.cmd_export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_export.Location = New System.Drawing.Point(855, 3)
-        Me.cmd_export.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmd_export.Location = New System.Drawing.Point(570, 2)
         Me.cmd_export.Name = "cmd_export"
-        Me.cmd_export.Size = New System.Drawing.Size(108, 58)
+        Me.cmd_export.Size = New System.Drawing.Size(72, 38)
         Me.cmd_export.TabIndex = 471
         Me.cmd_export.Text = "Export"
         Me.cmd_export.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1461,10 +1376,9 @@ Partial Class Frm_GRN
         Me.Cmd_Exit.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmd_Exit.ForeColor = System.Drawing.Color.Black
         Me.Cmd_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_Exit.Location = New System.Drawing.Point(8, 397)
-        Me.Cmd_Exit.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Cmd_Exit.Location = New System.Drawing.Point(5, 258)
         Me.Cmd_Exit.Name = "Cmd_Exit"
-        Me.Cmd_Exit.Size = New System.Drawing.Size(171, 71)
+        Me.Cmd_Exit.Size = New System.Drawing.Size(114, 46)
         Me.Cmd_Exit.TabIndex = 468
         Me.Cmd_Exit.Text = "Exit[F11]"
         Me.Cmd_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1478,10 +1392,9 @@ Partial Class Frm_GRN
         Me.btn_auth.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_auth.ForeColor = System.Drawing.Color.Black
         Me.btn_auth.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_auth.Location = New System.Drawing.Point(966, 3)
-        Me.btn_auth.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btn_auth.Location = New System.Drawing.Point(644, 2)
         Me.btn_auth.Name = "btn_auth"
-        Me.btn_auth.Size = New System.Drawing.Size(108, 58)
+        Me.btn_auth.Size = New System.Drawing.Size(72, 38)
         Me.btn_auth.TabIndex = 470
         Me.btn_auth.Text = "Authorize"
         Me.btn_auth.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1495,10 +1408,9 @@ Partial Class Frm_GRN
         Me.cmd_print.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_print.ForeColor = System.Drawing.Color.Black
         Me.cmd_print.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_print.Location = New System.Drawing.Point(1184, 3)
-        Me.cmd_print.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmd_print.Location = New System.Drawing.Point(789, 2)
         Me.cmd_print.Name = "cmd_print"
-        Me.cmd_print.Size = New System.Drawing.Size(117, 58)
+        Me.cmd_print.Size = New System.Drawing.Size(78, 38)
         Me.cmd_print.TabIndex = 467
         Me.cmd_print.Text = "Print [F10]"
         Me.cmd_print.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1518,10 +1430,9 @@ Partial Class Frm_GRN
         Me.Cmd_View.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmd_View.ForeColor = System.Drawing.Color.Black
         Me.Cmd_View.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_View.Location = New System.Drawing.Point(8, 171)
-        Me.Cmd_View.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Cmd_View.Location = New System.Drawing.Point(5, 111)
         Me.Cmd_View.Name = "Cmd_View"
-        Me.Cmd_View.Size = New System.Drawing.Size(171, 71)
+        Me.Cmd_View.Size = New System.Drawing.Size(114, 46)
         Me.Cmd_View.TabIndex = 469
         Me.Cmd_View.Text = " View[F9]"
         Me.Cmd_View.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1532,10 +1443,9 @@ Partial Class Frm_GRN
         Me.lbl_Freeze.BackColor = System.Drawing.Color.Transparent
         Me.lbl_Freeze.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_Freeze.ForeColor = System.Drawing.Color.Red
-        Me.lbl_Freeze.Location = New System.Drawing.Point(914, 100)
-        Me.lbl_Freeze.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_Freeze.Location = New System.Drawing.Point(609, 65)
         Me.lbl_Freeze.Name = "lbl_Freeze"
-        Me.lbl_Freeze.Size = New System.Drawing.Size(334, 38)
+        Me.lbl_Freeze.Size = New System.Drawing.Size(223, 25)
         Me.lbl_Freeze.TabIndex = 483
         Me.lbl_Freeze.Text = "Record Void  On "
         Me.lbl_Freeze.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1550,11 +1460,9 @@ Partial Class Frm_GRN
         Me.GroupBox1.Controls.Add(Me.Cmd_Add)
         Me.GroupBox1.Controls.Add(Me.Cmd_Freeze)
         Me.GroupBox1.Controls.Add(Me.Cmd_View)
-        Me.GroupBox1.Location = New System.Drawing.Point(1036, 171)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Location = New System.Drawing.Point(691, 111)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox1.Size = New System.Drawing.Size(186, 486)
+        Me.GroupBox1.Size = New System.Drawing.Size(124, 316)
         Me.GroupBox1.TabIndex = 484
         Me.GroupBox1.TabStop = False
         '
@@ -1571,10 +1479,9 @@ Partial Class Frm_GRN
         Me.Button1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(8, 246)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button1.Location = New System.Drawing.Point(5, 160)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(171, 71)
+        Me.Button1.Size = New System.Drawing.Size(114, 46)
         Me.Button1.TabIndex = 483
         Me.Button1.Text = " Print[F10]"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1591,10 +1498,9 @@ Partial Class Frm_GRN
         Me.BTN_GRNDET.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTN_GRNDET.Image = CType(resources.GetObject("BTN_GRNDET.Image"), System.Drawing.Image)
         Me.BTN_GRNDET.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BTN_GRNDET.Location = New System.Drawing.Point(1036, 722)
-        Me.BTN_GRNDET.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BTN_GRNDET.Location = New System.Drawing.Point(691, 469)
         Me.BTN_GRNDET.Name = "BTN_GRNDET"
-        Me.BTN_GRNDET.Size = New System.Drawing.Size(171, 71)
+        Me.BTN_GRNDET.Size = New System.Drawing.Size(114, 46)
         Me.BTN_GRNDET.TabIndex = 496
         Me.BTN_GRNDET.Text = "GRNDETAILS"
         Me.BTN_GRNDET.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1606,10 +1512,9 @@ Partial Class Frm_GRN
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Maroon
-        Me.Label10.Location = New System.Drawing.Point(291, 768)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(194, 499)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(0, 20)
+        Me.Label10.Size = New System.Drawing.Size(0, 13)
         Me.Label10.TabIndex = 487
         '
         'Label17
@@ -1617,10 +1522,9 @@ Partial Class Frm_GRN
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.Color.Transparent
         Me.Label17.Font = New System.Drawing.Font("Arial", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(285, 114)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Location = New System.Drawing.Point(190, 74)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(247, 16)
+        Me.Label17.Size = New System.Drawing.Size(178, 12)
         Me.Label17.TabIndex = 488
         Me.Label17.Text = "PRESS F12 FOR CHECK ITEM RATE"
         '
@@ -1629,10 +1533,9 @@ Partial Class Frm_GRN
         Me.Label26.AutoSize = True
         Me.Label26.BackColor = System.Drawing.Color.Transparent
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(14, 38)
-        Me.Label26.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label26.Location = New System.Drawing.Point(9, 25)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(81, 20)
+        Me.Label26.Size = New System.Drawing.Size(55, 13)
         Me.Label26.TabIndex = 491
         Me.Label26.Text = "HSN NO"
         Me.Label26.Visible = False
@@ -1642,10 +1545,9 @@ Partial Class Frm_GRN
         Me.Label27.AutoSize = True
         Me.Label27.BackColor = System.Drawing.Color.Transparent
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(14, 82)
-        Me.Label27.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label27.Location = New System.Drawing.Point(9, 53)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(75, 20)
+        Me.Label27.Size = New System.Drawing.Size(52, 13)
         Me.Label27.TabIndex = 492
         Me.Label27.Text = "Label27"
         Me.Label27.Visible = False
@@ -1656,11 +1558,9 @@ Partial Class Frm_GRN
         Me.GRP_HSN.Controls.Add(Me.Label26)
         Me.GRP_HSN.Controls.Add(Me.Label27)
         Me.GRP_HSN.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GRP_HSN.Location = New System.Drawing.Point(1028, 814)
-        Me.GRP_HSN.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GRP_HSN.Location = New System.Drawing.Point(685, 529)
         Me.GRP_HSN.Name = "GRP_HSN"
-        Me.GRP_HSN.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GRP_HSN.Size = New System.Drawing.Size(219, 122)
+        Me.GRP_HSN.Size = New System.Drawing.Size(146, 79)
         Me.GRP_HSN.TabIndex = 493
         Me.GRP_HSN.TabStop = False
         Me.GRP_HSN.Text = "HSN NO DETAILS"
@@ -1672,22 +1572,21 @@ Partial Class Frm_GRN
         Me.Lbl_Last.BackColor = System.Drawing.Color.Transparent
         Me.Lbl_Last.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lbl_Last.ForeColor = System.Drawing.Color.Red
-        Me.Lbl_Last.Location = New System.Drawing.Point(572, 108)
-        Me.Lbl_Last.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Lbl_Last.Location = New System.Drawing.Point(381, 70)
         Me.Lbl_Last.Name = "Lbl_Last"
-        Me.Lbl_Last.Size = New System.Drawing.Size(146, 21)
+        Me.Lbl_Last.Size = New System.Drawing.Size(90, 15)
         Me.Lbl_Last.TabIndex = 610
         Me.Lbl_Last.Text = "LAST GRN NO :"
         Me.Lbl_Last.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Frm_GRN
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1257, 1038)
+        Me.ClientSize = New System.Drawing.Size(838, 512)
         Me.Controls.Add(Me.Lbl_Last)
         Me.Controls.Add(Me.BTN_GRNDET)
         Me.Controls.Add(Me.GRP_HSN)
@@ -1707,7 +1606,6 @@ Partial Class Frm_GRN
         Me.Controls.Add(Me.GroupBox8)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Frm_GRN"
