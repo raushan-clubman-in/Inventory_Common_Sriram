@@ -51,6 +51,8 @@ Public Class sub_Sub_Group_Master
     Friend WithEvents cmd_export As System.Windows.Forms.Button
     Friend WithEvents Cmd_Exit As System.Windows.Forms.Button
     Friend WithEvents cmd_auth As System.Windows.Forms.Button
+    Friend WithEvents Txt_Taxper As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(sub_Sub_Group_Master))
@@ -70,6 +72,8 @@ Public Class sub_Sub_Group_Master
         Me.cmd_auth = New System.Windows.Forms.Button()
         Me.cmdGroupCode = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Txt_Taxper = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.lbl_Freeze = New System.Windows.Forms.Label()
         Me.ssgrid = New AxFPSpreadADO.AxfpSpread()
@@ -328,6 +332,8 @@ Public Class sub_Sub_Group_Master
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.Txt_Taxper)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txt_GroupCode)
         Me.GroupBox1.Controls.Add(Me.cmdGroupCode)
         Me.GroupBox1.Controls.Add(Me.lbl_GroupCode)
@@ -339,6 +345,29 @@ Public Class sub_Sub_Group_Master
         Me.GroupBox1.Size = New System.Drawing.Size(411, 107)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
+        '
+        'Txt_Taxper
+        '
+        Me.Txt_Taxper.BackColor = System.Drawing.Color.Wheat
+        Me.Txt_Taxper.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Txt_Taxper.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Taxper.Location = New System.Drawing.Point(177, 93)
+        Me.Txt_Taxper.MaxLength = 50
+        Me.Txt_Taxper.Name = "Txt_Taxper"
+        Me.Txt_Taxper.Size = New System.Drawing.Size(101, 26)
+        Me.Txt_Taxper.TabIndex = 440
+        Me.Txt_Taxper.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(10, 93)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(41, 15)
+        Me.Label1.TabIndex = 441
+        Me.Label1.Text = "TAX %"
         '
         'GroupBox2
         '
@@ -680,11 +709,13 @@ Public Class sub_Sub_Group_Master
         Try
             Dim j As Integer
             If Trim(txt_GroupCode.Text) <> "" Then
-                sqlstring = "SELECT ISNULL(inventorysubsubgroupmaster.subgroupcode,'') AS subgroupcode,ISNULL(inventorysubgroupmaster.SUBGroupdesc,'') AS SUBGroupdesc,ISNULL(inventorysubsubgroupmaster.SUBSubgroupcode,'') AS SUBSubgroupcode,ISNULL(inventorysubsubgroupmaster.SUBSubgroupdesc,'') AS SUBSubgroupdesc,ISNULL(inventorysubsubgroupmaster.freeze,'N') AS freeze,ISNULL(inventorysubsubgroupmaster.voiddate,GETDATE()) AS voiddate "
+                sqlstring = "SELECT ISNULL(inventorysubsubgroupmaster.subgroupcode,'') AS subgroupcode,ISNULL(inventorysubgroupmaster.SUBGroupdesc,'') AS SUBGroupdesc,ISNULL(inventorysubsubgroupmaster.SUBSubgroupcode,'') AS SUBSubgroupcode,ISNULL(inventorysubsubgroupmaster.SUBSubgroupdesc,'') AS SUBSubgroupdesc,ISNULL(inventorysubsubgroupmaster.freeze,'N') AS freeze,ISNULL(inventorysubsubgroupmaster.voiddate,GETDATE()) AS voiddate, ISNULL(inventorysubsubgroupmaster.taxper,0) AS taxper "
                 sqlstring = sqlstring & " FROM inventorySUBsubgroupmaster inner join inventorysubgroupmaster on inventorysubgroupmaster.subgroupcode=inventorySUBsubgroupmaster.subgroupcode WHERE inventorySUBsubgroupmaster.SUBGROUPCODE='" & Trim(txt_GroupCode.Text) & "'"
                 gconnection.getDataSet(sqlstring, "inventorysubsubgroupmaster")
                 If gdataset.Tables("inventorysubsubgroupmaster").Rows.Count > 0 Then
                     txt_GroupDesc.Text = Trim(gdataset.Tables("inventorysubsubgroupmaster").Rows(0).Item("SUBGroupdesc"))
+                    Txt_Taxper.Text = Format(Val(gdataset.Tables("inventorysubsubgroupmaster").Rows(0).Item("taxper")), "0.00")
+
                     With ssgrid
                         For i = 1 To gdataset.Tables("inventorysubsubgroupmaster").Rows.Count
                             .SetText(1, i, Trim(gdataset.Tables("inventorysubsubgroupmaster").Rows(j).Item("SUBSubgroupcode")) & "")
@@ -835,6 +866,8 @@ Public Class sub_Sub_Group_Master
             txt_GroupDesc.ReadOnly = False
             txt_GroupCode.Text = ""
             txt_GroupDesc.Text = ""
+            Txt_Taxper.Text = ""
+
             Me.Cmd_Add.Enabled = True
             Me.Cmd_Freeze.Enabled = True
 
@@ -866,13 +899,15 @@ Public Class sub_Sub_Group_Master
                         .Col = 2
                         .Row = i
                         If Trim(.Text) <> "" Then
-                            strSQL = " INSERT INTO inventorysubsubgroupmaster (Subgroupcode,SUBSubgroupCODE,SUBSubgroupdesc,Freeze,Adduser,Adddate)"
+                            strSQL = " INSERT INTO inventorysubsubgroupmaster (Subgroupcode,SUBSubgroupCODE,SUBSubgroupdesc,TAXPER,Freeze,Adduser,Adddate)"
                             strSQL = strSQL & " VALUES ( '" & Trim(txt_GroupCode.Text) & "',"
                             .Col = 1
                             strSQL = strSQL & "'" & Trim(.Text) & "',"
                             .Col = 2
                             strSQL = strSQL & "'" & Trim(.Text) & "',"
+                            strSQL = strSQL & "" & Format(Val(Txt_Taxper.Text), "0.00") & ","
                             strSQL = strSQL & " 'N','" & Trim(gUsername) & "','" & Format(Now, "dd/MMM/yyyy") & "')"
+
                             ReDim Preserve Insert(Insert.Length)
                             Insert(Insert.Length - 1) = strSQL
                         End If
@@ -897,12 +932,13 @@ Public Class sub_Sub_Group_Master
                         .Col = 2
                         .Row = i
                         If Trim(.Text) <> "" Then
-                            strSQL = " INSERT INTO inventorysubsubgroupmaster (Subgroupcode,SUBSubgroupcode,SUBSubgroupdesc,Freeze,Adduser,Adddate)"
+                            strSQL = " INSERT INTO inventorysubsubgroupmaster (Subgroupcode,SUBSubgroupcode,SUBSubgroupdesc,TaxPer, Freeze,Adduser,Adddate)"
                             strSQL = strSQL & " VALUES ( '" & Trim(txt_GroupCode.Text) & "',"
                             .Col = 1
                             strSQL = strSQL & "'" & Trim(.Text) & "',"
                             .Col = 2
                             strSQL = strSQL & "'" & Trim(.Text) & "',"
+                            strSQL = strSQL & "" & Format(Val(Txt_Taxper.Text), "0.00") & ","
                             strSQL = strSQL & " 'N','" & Trim(gUsername) & "','" & Format(Now, "dd/MMM/yyyy") & "')"
                             ReDim Preserve Insert(Insert.Length)
                             Insert(Insert.Length - 1) = strSQL
@@ -1326,4 +1362,11 @@ Public Class sub_Sub_Group_Master
 
     End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub frmbut_Enter(sender As Object, e As EventArgs) Handles frmbut.Enter
+
+    End Sub
 End Class

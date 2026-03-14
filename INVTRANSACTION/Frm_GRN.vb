@@ -594,9 +594,10 @@ Public Class Frm_GRN
             AxfpSpread1.Col = 24
             AxfpSpread1.ColHidden = True
         End If
+
         If gShortname = "KSCA" Then
             AxfpSpread1.Col = 25
-            AxfpSpread1.ColHidden = False
+            AxfpSpread1.ColHidden = True
         Else
             AxfpSpread1.Col = 25
             AxfpSpread1.ColHidden = True
@@ -3380,6 +3381,7 @@ Public Class Frm_GRN
                     Else
                         itemtax = (amtwithoutdisc * taxperc) / 100
                     End If
+
                     AxfpSpread1.Col = 12
                     AxfpSpread1.Text = itemtax
 
@@ -3733,7 +3735,7 @@ Public Class Frm_GRN
         End If
         If gShortname = "KSCA" Then
             AxfpSpread1.Col = 25
-            AxfpSpread1.ColHidden = False
+            AxfpSpread1.ColHidden = True
         Else
             AxfpSpread1.Col = 25
             AxfpSpread1.ColHidden = True
@@ -3906,7 +3908,7 @@ Public Class Frm_GRN
                     If GEXPIRY = "Y" Then
                         sqlstring = sqlstring & "ExpiryDate,"
                     End If
-                    sqlstring = sqlstring & " UOM,Qty,Rate,baseamount,discper,Discount,amountafterdiscount,taxcode,TaxPer,taxamount,amount,batchno,othcharge,voiditem,Category,Adduser,Adddate,STORECODE,STOREDESC,GrnType,versionno,FreeQty,FqUom,SPONSORCODE,SPLCESS)"
+                    sqlstring = sqlstring & " UOM,Qty,Rate,baseamount,discper,Discount,amountafterdiscount,taxcode,TaxPer,taxamount,amount,batchno,othcharge,voiditem,Category,Adduser,Adddate,STORECODE,STOREDESC,GrnType,versionno,FreeQty,FqUom,SPONSORCODE,SPLCESS,MRPRATE)"
                     sqlstring = sqlstring & " VALUES('" & CStr(GRNNO_NEW) & "','" & Trim(txt_Grnno.Text) & "','" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "',"
                     sqlstring = sqlstring & " '" & Trim(Txt_PONo.Text) & "',"
                     sqlstring = sqlstring & " '" & Trim(txt_Suppliercode.Text) & "','" & Trim(txt_Suppliername.Text) & "',"
@@ -3931,6 +3933,7 @@ Public Class Frm_GRN
                             sqlstring = sqlstring & " '" & Format(CDate(AxfpSpread1.Text), "dd/MMM/yyyy") & "',"
                         End If
                     End If
+
                     AxfpSpread1.Col = 3
                     uom = AxfpSpread1.Text
                     sqlstring = sqlstring & " '" & Trim(AxfpSpread1.Text) & "',"
@@ -3983,12 +3986,14 @@ Public Class Frm_GRN
                     fquom = AxfpSpread1.Text
                     sqlstring = sqlstring & " '" & Trim(AxfpSpread1.Text) & "',"
                     AxfpSpread1.Col = 19
-
                     sqlstring = sqlstring & " '" & AxfpSpread1.Text & "',"
 
                     AxfpSpread1.Col = 21
-
+                    sqlstring = sqlstring & " " & Format(Val(AxfpSpread1.Text), "0.000") & ","
+                    AxfpSpread1.Col = 25
                     sqlstring = sqlstring & " " & Format(Val(AxfpSpread1.Text), "0.000") & ")"
+
+
                 Else
                     sqlstring = "INSERT INTO Grn_details(Grnno,Grndetails,Grndate,POno,Suppliercode,Suppliername,Itemcode,Itemname,"
                     If gShortname = "CPC" Then
@@ -4004,7 +4009,7 @@ Public Class Frm_GRN
                     If GSHELVING = "Y" Then
                         sqlstring = sqlstring & "SHELF,"
                     End If
-                    sqlstring = sqlstring & "SPLCESS)"
+                    sqlstring = sqlstring & "SPLCESS,MRPRATE)"
 
                     sqlstring = sqlstring & " VALUES('" & CStr(GRNNO_NEW) & "','" & Trim(txt_Grnno.Text) & "','" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "',"
 
@@ -4104,7 +4109,10 @@ Public Class Frm_GRN
                         sqlstring = sqlstring & " '" & AxfpSpread1.Text & "',"
                     End If
                     AxfpSpread1.Col = 21
-                    sqlstring = sqlstring & " " & Format(Val(AxfpSpread1.Text), "0.000") & ")"
+                    sqlstring = sqlstring & " " & Format(Val(AxfpSpread1.Text), "0.000") & ","
+                    AxfpSpread1.Col = 25
+                    sqlstring = sqlstring & " '" & Format(Val(AxfpSpread1.Text), "0.000") & "')"
+
                 End If
                 ReDim Preserve GrnQuery(GrnQuery.Length)
                 GrnQuery(GrnQuery.Length - 1) = sqlstring
@@ -4156,17 +4164,17 @@ Public Class Frm_GRN
                 ReDim Preserve GrnQuery(GrnQuery.Length)
                 GrnQuery(GrnQuery.Length - 1) = sqlstring
 
-                If gShortname = "KSCA" Then
-                    Dim item As String
-                    AxfpSpread1.Col = 1
-                    item = AxfpSpread1.Text
-                    AxfpSpread1.Col = 25
-                    If AxfpSpread1.Text > 0 Then
-                        sqlstring = "update inv_inventoryitemmaster set mrprate='" + AxfpSpread1.Text + "' where itemcode='" + item + "'"
-                        ReDim Preserve GrnQuery(GrnQuery.Length)
-                        GrnQuery(GrnQuery.Length - 1) = sqlstring
-                    End If
+                '                If gShortname = "KSCA" Then
+                Dim item As String
+                AxfpSpread1.Col = 1
+                item = AxfpSpread1.Text
+                AxfpSpread1.Col = 25
+                If AxfpSpread1.Text > 0 Then
+                    sqlstring = "update inv_inventoryitemmaster set mrprate='" + AxfpSpread1.Text + "' where itemcode='" + item + "'"
+                    ReDim Preserve GrnQuery(GrnQuery.Length)
+                    GrnQuery(GrnQuery.Length - 1) = sqlstring
                 End If
+                'End If
 
             Next
 
@@ -4211,7 +4219,6 @@ Public Class Frm_GRN
                 If nonstockable.Rows.Count > 0 Then
                     Call Addissueoperation()
                 End If
-
             End If
 
         Catch ex As Exception
@@ -5916,6 +5923,7 @@ Public Class Frm_GRN
 
         sqlstring = "iNSERT INTO GRN_DETAILS(Grnno,Grndetails,Grndate,POno,Suppliercode,Suppliername,Itemcode,Itemname,"
         sqlstring = sqlstring & " UOM,Qty,Rate,baseamount,discper,TaxPer,Discount,TaxAmount,Amount,Taxcode,batchno,othcharge,voiditem,Category,Adduser,Adddate,STORECODE,STOREDESC,GrnType,versionno,FreeQty,FQUOM,oldqty,trns_seq)"
+
         sqlstring = sqlstring & " SELECT Grnno,Grndetails,Grndate,POno,Suppliercode,Suppliername,Itemcode,Itemname,"
         sqlstring = sqlstring & " UOM,Qty,Rate,baseamount,discper,TaxPer,Discount,TaxAmount,Amount,Taxcode,batchno,othcharge,voiditem,Category,Adduser,Adddate,STORECODE,STOREDESC,GrnType,versionno,FreeQty,FQUOM,oldqty,trns_seq"
         sqlstring = sqlstring & "  FROM Grn_detailslog where Grndetails='" + Trim(txt_Grnno.Text) + "'"
@@ -6121,13 +6129,7 @@ Public Class Frm_GRN
                 ReDim Preserve GrnQuery(GrnQuery.Length)
                 GrnQuery(GrnQuery.Length - 1) = sqlstring
             ElseIf Trim(CmbGrnType.SelectedItem) = "DO" And grp_Grngroup1.Visible = True Then
-
-
             End If
-
-
-
-
 
             Dim sql1 As String
             Dim SEQ1 As Double
@@ -6152,7 +6154,7 @@ Public Class Frm_GRN
                 If GSHELVING = "Y" Then
                     sqlstring = sqlstring & "SHELF,"
                 End If
-                sqlstring = sqlstring & " SPLCESS)"
+                sqlstring = sqlstring & " SPLCESS,MRPRATE)"
 
                 sqlstring = sqlstring & " VALUES('" & CStr(GRNNO_NEW) & "','" & Trim(txt_Grnno.Text) & "','" & Format(CDate(dtp_Grndate.Value), "dd/MMM/yyyy") & "',"
 
@@ -6272,8 +6274,13 @@ Public Class Frm_GRN
                     AxfpSpread1.Col = 24
                     sqlstring = sqlstring & " '" & AxfpSpread1.Text & "',"
                 End If
+
                 AxfpSpread1.Col = 21
+                sqlstring = sqlstring & " " + Format(Val(AxfpSpread1.Text), "0.00") + ","
+
+                AxfpSpread1.Col = 25
                 sqlstring = sqlstring & " " + Format(Val(AxfpSpread1.Text), "0.00") + ")"
+
                 ReDim Preserve GrnQuery(GrnQuery.Length)
                 GrnQuery(GrnQuery.Length - 1) = sqlstring
 
@@ -6352,17 +6359,17 @@ Public Class Frm_GRN
                 ReDim Preserve GrnQuery(GrnQuery.Length)
                 GrnQuery(GrnQuery.Length - 1) = sqlstring
 
-                If gShortname = "KSCA" Then
-                    Dim item As String
-                    AxfpSpread1.Col = 1
-                    item = AxfpSpread1.Text
-                    AxfpSpread1.Col = 25
-                    If AxfpSpread1.Text > 0 Then
-                        sqlstring = "update inv_inventoryitemmaster set mrprate='" + AxfpSpread1.Text + "' where itemcode='" + item + "'"
-                        ReDim Preserve GrnQuery(GrnQuery.Length)
-                        GrnQuery(GrnQuery.Length - 1) = sqlstring
-                    End If
+                '                If gShortname = "KSCA" Then
+                Dim item As String
+                AxfpSpread1.Col = 1
+                item = AxfpSpread1.Text
+                AxfpSpread1.Col = 25
+                If AxfpSpread1.Text > 0 Then
+                    sqlstring = "update inv_inventoryitemmaster set mrprate='" + AxfpSpread1.Text + "' where itemcode='" + item + "'"
+                    ReDim Preserve GrnQuery(GrnQuery.Length)
+                    GrnQuery(GrnQuery.Length - 1) = sqlstring
                 End If
+                'End If
             Next
 
 
@@ -6449,6 +6456,7 @@ Public Class Frm_GRN
         Dim SQL As String
         Dim message, title, defaultValue, Ic As String
         Dim myValue As Object
+        Dim prate As Decimal
 
         message = "Enter Batch No"
         title = "Batch No"
@@ -6465,10 +6473,10 @@ Public Class Frm_GRN
                 bindlocation()
             End If
 
-            If gShortname = "KSCA" Then
-                AxfpSpread1.Col = 25
-                AxfpSpread1.Lock = False
-            End If
+            '            If gShortname = "KSCA" Then
+            AxfpSpread1.Col = 25
+            AxfpSpread1.Lock = False
+            '        End If
 
             If AxfpSpread1.ActiveCol = 1 And AxfpSpread1.Lock = False Then
                 AxfpSpread1.Col = 1
@@ -6486,7 +6494,7 @@ Public Class Frm_GRN
 
 
 
-                    SQL = " select I.itemcode,Itemname,uom,batchprocess from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
+                    SQL = " select I.itemcode,Itemname,uom,batchprocess, isnull(m.mrprate,0) as mrprate, isnull(m.prate,0) as prate from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
                     SQL = SQL & " I.itemcode=M.itemcode "
                     If (gdataset.Tables("Invitem_VendorMaster").Rows.Count > 0) Then
 
@@ -6509,6 +6517,16 @@ Public Class Frm_GRN
 
                     gconnection.getDataSet(SQL, "inv_InventoryOpenningstock")
                     If (gdataset.Tables("inv_InventoryOpenningstock").Rows.Count > 0) Then
+
+                        If Val(gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")) <> 0 Then
+                            prate = gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")
+                            AxfpSpread1.Col = 5
+                            AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                            AxfpSpread1.Text = prate
+                        Else
+                            prate = 0
+                        End If
+
 
                         AxfpSpread1.Col = 3
                         AxfpSpread1.Row = AxfpSpread1.ActiveRow
@@ -6565,9 +6583,11 @@ Public Class Frm_GRN
                                     AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("uom")
                                     AxfpSpread1.Col = 18
                                     AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("uom")
-                                    AxfpSpread1.Col = 5
-                                    AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                                    AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("rate")
+                                    If prate = 0 Then
+                                        AxfpSpread1.Col = 5
+                                        AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                                        AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("rate")
+                                    End If
 
                                     If (Val(gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("contractyn")) = 1) Then
                                         AxfpSpread1.Lock = False
@@ -6615,7 +6635,11 @@ Public Class Frm_GRN
 
                                     AxfpSpread1.Col = 5
                                     AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                                    AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") ') / Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
+                                    If prate = 0 Then
+                                        AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") ') / Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
+
+                                    End If
+
                                     AxfpSpread1.Lock = False
                                 Else
                                     AxfpSpread1.Col = 5
@@ -6638,7 +6662,9 @@ Public Class Frm_GRN
 
                                         AxfpSpread1.Col = 5
                                         AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                                        AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") ') / Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
+                                        If prate = 0 Then
+                                            AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") ') / Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
+                                        End If
                                         AxfpSpread1.Lock = False
                                     Else
                                         AxfpSpread1.Col = 5
@@ -6647,7 +6673,7 @@ Public Class Frm_GRN
                                         AxfpSpread1.Lock = False
                                     End If
                                 End If
-                               
+
                             End If
                             '    AxfpSpread1.SetText(3, i, Trim(gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("uom")))
                             If Trim(gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("batchprocess")) = "YES" Then
@@ -6792,7 +6818,7 @@ Public Class Frm_GRN
                     gconnection.getDataSet(SQL, "Invitem_VendorMaster")
 
 
-                    SQL = " select I.itemcode,Itemname,uom,batchprocess from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
+                    SQL = " select I.itemcode,Itemname,uom,batchprocess, isnull(m.mrprate,0) as mrprate, isnull(m.prate,0) as prate from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
                     SQL = SQL & " I.itemcode=M.itemcode  "
                     If (gdataset.Tables("Invitem_VendorMaster").Rows.Count > 0) Then
                         If UCase(gShortname) = "NIZAM" Then
@@ -6808,6 +6834,17 @@ Public Class Frm_GRN
                     End If
 
                     If (gdataset.Tables("inv_InventoryOpenningstock").Rows.Count > 0) Then
+
+
+                        If Val(gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")) <> 0 Then
+                            prate = gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")
+                            AxfpSpread1.Col = 5
+                            AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                            AxfpSpread1.Text = prate
+                        Else
+                            prate = 0
+                        End If
+
                         If (check_Duplicate(gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("itemcode")) = False) Then
 
                             AxfpSpread1.SetText(1, i, Trim(gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("itemcode")))
@@ -6844,7 +6881,9 @@ Public Class Frm_GRN
                                     AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("uom")
                                     AxfpSpread1.Col = 5
                                     AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                                    AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("rate")
+                                    If prate = 0 Then
+                                        AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("rate")
+                                    End If
 
                                     If (Val(gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("contractyn")) = 1) Then
                                         AxfpSpread1.Lock = False
@@ -6878,7 +6917,9 @@ Public Class Frm_GRN
 
                                     AxfpSpread1.Col = 5
                                     AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                                    AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") ') / Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
+                                    If prate = 0 Then
+                                        AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") ') / Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
+                                    End If
                                     AxfpSpread1.Lock = False
                                 Else
                                     AxfpSpread1.Col = 5

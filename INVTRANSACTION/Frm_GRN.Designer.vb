@@ -814,7 +814,7 @@ Partial Class Frm_GRN
         Me.Txt_SlDesc.BackColor = System.Drawing.Color.Wheat
         Me.Txt_SlDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Txt_SlDesc.Location = New System.Drawing.Point(319, 103)
-        Me.Txt_SlDesc.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Txt_SlDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.Txt_SlDesc.MaxLength = 50
         Me.Txt_SlDesc.Name = "Txt_SlDesc"
         Me.Txt_SlDesc.ReadOnly = True
@@ -827,7 +827,7 @@ Partial Class Frm_GRN
         Me.Txt_Slcode.BackColor = System.Drawing.Color.Wheat
         Me.Txt_Slcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Txt_Slcode.Location = New System.Drawing.Point(102, 105)
-        Me.Txt_Slcode.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Txt_Slcode.Margin = New System.Windows.Forms.Padding(2)
         Me.Txt_Slcode.MaxLength = 10
         Me.Txt_Slcode.Name = "Txt_Slcode"
         Me.Txt_Slcode.Size = New System.Drawing.Size(93, 22)
@@ -838,7 +838,7 @@ Partial Class Frm_GRN
         '
         Me.Cmd_SlCodeHelp.Image = CType(resources.GetObject("Cmd_SlCodeHelp.Image"), System.Drawing.Image)
         Me.Cmd_SlCodeHelp.Location = New System.Drawing.Point(199, 104)
-        Me.Cmd_SlCodeHelp.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Cmd_SlCodeHelp.Margin = New System.Windows.Forms.Padding(2)
         Me.Cmd_SlCodeHelp.Name = "Cmd_SlCodeHelp"
         Me.Cmd_SlCodeHelp.Size = New System.Drawing.Size(20, 22)
         Me.Cmd_SlCodeHelp.TabIndex = 482
@@ -864,7 +864,7 @@ Partial Class Frm_GRN
         Me.Txt_GLAcDesc.Enabled = False
         Me.Txt_GLAcDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Txt_GLAcDesc.Location = New System.Drawing.Point(319, 77)
-        Me.Txt_GLAcDesc.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Txt_GLAcDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.Txt_GLAcDesc.MaxLength = 50
         Me.Txt_GLAcDesc.Name = "Txt_GLAcDesc"
         Me.Txt_GLAcDesc.ReadOnly = True
@@ -876,7 +876,7 @@ Partial Class Frm_GRN
         '
         Me.Cmd_GLAcHelp.Image = CType(resources.GetObject("Cmd_GLAcHelp.Image"), System.Drawing.Image)
         Me.Cmd_GLAcHelp.Location = New System.Drawing.Point(196, 76)
-        Me.Cmd_GLAcHelp.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Cmd_GLAcHelp.Margin = New System.Windows.Forms.Padding(2)
         Me.Cmd_GLAcHelp.Name = "Cmd_GLAcHelp"
         Me.Cmd_GLAcHelp.Size = New System.Drawing.Size(21, 24)
         Me.Cmd_GLAcHelp.TabIndex = 475
@@ -888,7 +888,7 @@ Partial Class Frm_GRN
         Me.Txt_GLAcIn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Txt_GLAcIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Txt_GLAcIn.Location = New System.Drawing.Point(101, 77)
-        Me.Txt_GLAcIn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Txt_GLAcIn.Margin = New System.Windows.Forms.Padding(2)
         Me.Txt_GLAcIn.MaxLength = 10
         Me.Txt_GLAcIn.Name = "Txt_GLAcIn"
         Me.Txt_GLAcIn.Size = New System.Drawing.Size(94, 22)

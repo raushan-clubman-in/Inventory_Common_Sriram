@@ -34,6 +34,7 @@ Public Class Frm_InventoryItemmastervb
         TXT_HSNNO.Text = ""
         txtstock.Text = ""
         TXT_DEFAULT.Text = ""
+
         Cmbstockcategory.SelectedIndex = -1
         CMB_SALEITEM.SelectedIndex = -1
         ''Added by Sri for Expiry
@@ -88,6 +89,9 @@ Public Class Frm_InventoryItemmastervb
 
         Txt_Rate.Enabled = True
         Txt_Rate.ReadOnly = False
+        Txt_Rate.Text = ""
+        TXT_MRPRATE.Text = ""
+
         Me.txt_ItemCode.Focus()
         TabControl1.SelectedIndex = 0
 
@@ -141,12 +145,13 @@ Public Class Frm_InventoryItemmastervb
         ''
         If Cmd_Add.Text = "Add [F7]" Then
             SQL = "Insert into INV_InventoryItemMaster(Itemcode,Itemname,Groupcode,subGroupcode,subsubgroupcode,Category,AbcCategory,TaxRebate,batchprocess,void,PROFITPER,adddate,adduser,STOCKUOM,stockcategory,COMPANYREQ,COMPANYcode,COMPANYDESC,SPLCESS,SALEITEM,PRATE,"
+
             If UCase(gShortname) = "KGA" Or UCase(gShortname) = "DC" Or UCase(gShortname) = "CSC" Or UCase(gShortname) = "KORA" Then
                 SQL = SQL & "SALERATE,PURCHASERATE,"
             End If
-            If UCase(gShortname) = "KSCA" Then
-                SQL = SQL & "MRPRATE,"
-            End If
+            '            If UCase(gShortname) = "KSCA" Then
+            SQL = SQL & "MRPRATE,"
+            '        End If
             If UCase(gShortname) = "SKYYE" Or UCase(gShortname) = "CFC" Or UCase(gShortname) = "HBC" Then
                 SQL = SQL & "DEFAULTUOM,"
             End If
@@ -163,12 +168,13 @@ Public Class Frm_InventoryItemmastervb
             ''
             SQL = SQL & " values ('" + txt_ItemCode.Text + "','" + txt_ItemName.Text + "','" + txt_GroupCode.Text + "','" + txt_SubGroupCode.Text + "',"
             SQL = SQL & " '" + txt_SubSubGroupCode.Text + "','" + Txt_Categorycode.Text + "','" + ABCcategory + "','" + Taxrebate + "','" + batchprocess + "','N','" + Format(Val(TxtProfitPer.Text), "0.00") + "',getdate(),'" + gUsername + "','" + txtstock.Text + "','" + Cmbstockcategory.Text + "','" & CB_ComYesNo.Text & "','" & Txt_companycode.Text & "','" & TXT_COMPANYDESC.Text & "'," & splcess & ",'" & SALEITEM & "'," & Val(Txt_Rate.Text) & ","
+
             If UCase(gShortname) = "KGA" Or UCase(gShortname) = "DC" Or UCase(gShortname) = "CSC" Or UCase(gShortname) = "KORA" Then
                 SQL = SQL & " '" & txt_salerate.Text & "','" & txt_Purchaserate.Text & "',"
             End If
-            If UCase(gShortname) = "KSCA" Then
-                SQL = SQL & "'" & TXT_MRPRATE.Text & "',"
-            End If
+            'If UCase(gShortname) = "KSCA" Then
+            SQL = SQL & "'" & TXT_MRPRATE.Text & "',"
+            '        End If
             If UCase(gShortname) = "SKYYE" Or UCase(gShortname) = "HBC" Or UCase(gShortname) = "CFC" Then
                 SQL = SQL & "'" & TXT_DEFAULT.Text & "',"
             End If
@@ -438,9 +444,9 @@ Public Class Frm_InventoryItemmastervb
             If UCase(gShortname) = "KGA" Or UCase(gShortname) = "DC" Or UCase(gShortname) = "CSC" Or UCase(gShortname) = "KORA" Then
                 sql = sql & "SALERATE='" & txt_salerate.Text & "',PURCHASERATE='" & txt_Purchaserate.Text & "',"
             End If
-            If UCase(gShortname) = "KSCA" Then
-                sql = sql & "MRPRATE='" & TXT_MRPRATE.Text & "',"
-            End If
+            '            If UCase(gShortname) = "KSCA" Then
+            Sql = Sql & "MRPRATE='" & TXT_MRPRATE.Text & "',"
+            '        End If
             If UCase(gShortname) = "SKYYE" Or UCase(gShortname) = "CFC" Or UCase(gShortname) = "HBC" Then
                 Sql = Sql & "DEFAULTUOM='" & TXT_DEFAULT.Text & "',"
             End If
@@ -448,50 +454,50 @@ Public Class Frm_InventoryItemmastervb
                 Sql = Sql & "Batchno='" & batchno & "',ExpiryDate='" & expirydate & "',"
             End If
             If GSHELVING = "Y" Then
-                sql = sql & "Shelving='" & Shelving & "',"
+                Sql = Sql & "Shelving='" & Shelving & "',"
             End If
-            sql = sql & "HSNNO='" & TXT_HSNNO.Text & "' where itemcode ='" + txt_ItemCode.Text + "'  "
+            Sql = Sql & "HSNNO='" & TXT_HSNNO.Text & "' where itemcode ='" + txt_ItemCode.Text + "'  "
 
 
 
             ReDim Preserve insert(insert.Length)
-            insert(insert.Length - 1) = sql
+            insert(insert.Length - 1) = Sql
 
             'Dim Seq As Double = gconnection.getInvSeq(Format(CDate(gFinancialyearStart), "dd/MMM/yyyy"))
             For i As Integer = 1 To AxfpSpread1.DataRowCnt
                 AxfpSpread1.Row = i
                 AxfpSpread1.Col = 1
-                sql = "select * from inv_InventoryOpenningstock where itemcode='" + txt_ItemCode.Text + "' and storecode='" + AxfpSpread1.Text + "'"
-                gconnection.getDataSet(sql, "inv_InventoryOpenningstock")
+                Sql = "select * from inv_InventoryOpenningstock where itemcode='" + txt_ItemCode.Text + "' and storecode='" + AxfpSpread1.Text + "'"
+                gconnection.getDataSet(Sql, "inv_InventoryOpenningstock")
                 If (gdataset.Tables("inv_InventoryOpenningstock").Rows.Count > 0) Then
-                    sql = "update inv_InventoryOpenningstock set "
+                    Sql = "update inv_InventoryOpenningstock set "
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 2
-                    sql = sql & "  UOM='" + AxfpSpread1.Text + "',"
+                    Sql = Sql & "  UOM='" + AxfpSpread1.Text + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 3
-                    sql = sql & "  Minqty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  Minqty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 4
-                    sql = sql & "  MaxQty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  MaxQty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 5
-                    sql = sql & "  Reorder='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  Reorder='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 6
-                    sql = sql & "  OpenningQty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
-                    sql = sql & "  closingQty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  OpenningQty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  closingQty='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 7
-                    sql = sql & "  OpenningValue='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
-                    sql = sql & "  closingValue='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  OpenningValue='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  closingValue='" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 8
-                    sql = sql & "  void='" + AxfpSpread1.Text + "', updateuser='" + gUsername + "' ,updatedate=getdate()"
+                    Sql = Sql & "  void='" + AxfpSpread1.Text + "', updateuser='" + gUsername + "' ,updatedate=getdate()"
                     AxfpSpread1.Col = 1
-                    sql = sql & " where itemcode='" + txt_ItemCode.Text + "' and storecode='" + AxfpSpread1.Text + "'"
+                    Sql = Sql & " where itemcode='" + txt_ItemCode.Text + "' and storecode='" + AxfpSpread1.Text + "'"
                     ReDim Preserve insert(insert.Length)
-                    insert(insert.Length - 1) = sql
+                    insert(insert.Length - 1) = Sql
 
                     'AxfpSpread1.Col = 1
                     'Dim storecode As String = AxfpSpread1.Text
@@ -528,42 +534,42 @@ Public Class Frm_InventoryItemmastervb
 
 
                 Else
-                    sql = "Insert into inv_InventoryOpenningstock (itemcode,storecode,uom,minqty,maxqty,reorder,openningqty,openningvalue,void,closingqty,closingvalue,adduser,adddate,FYEAR)"
-                    sql = sql & " values ('" + txt_ItemCode.Text + "',"
+                    Sql = "Insert into inv_InventoryOpenningstock (itemcode,storecode,uom,minqty,maxqty,reorder,openningqty,openningvalue,void,closingqty,closingvalue,adduser,adddate,FYEAR)"
+                    Sql = Sql & " values ('" + txt_ItemCode.Text + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 1
-                    sql = sql & "  '" + AxfpSpread1.Text + "',"
+                    Sql = Sql & "  '" + AxfpSpread1.Text + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 2
-                    sql = sql & "  '" + AxfpSpread1.Text + "',"
+                    Sql = Sql & "  '" + AxfpSpread1.Text + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 3
-                    sql = sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 4
-                    sql = sql & "  '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & "  '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 5
-                    sql = sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 6
-                    sql = sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 7
-                    sql = sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 8
-                    sql = sql & "  '" + AxfpSpread1.Text + "',"
+                    Sql = Sql & "  '" + AxfpSpread1.Text + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 6
-                    sql = sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
                     AxfpSpread1.Row = i
                     AxfpSpread1.Col = 7
-                    sql = sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
-                    sql = sql & " '" + gUsername + "' ,getdate(),'" & Format(CDate(gFinancialyearStart), "dd/MMM/yyyy") & "' )"
+                    Sql = Sql & " '" + Format(Val(AxfpSpread1.Text), "0.000") + "',"
+                    Sql = Sql & " '" + gUsername + "' ,getdate(),'" & Format(CDate(gFinancialyearStart), "dd/MMM/yyyy") & "' )"
 
                     ReDim Preserve insert(insert.Length)
-                    insert(insert.Length - 1) = sql
+                    insert(insert.Length - 1) = Sql
                     'sqlstring = "insert into closingqty(Trnno,itemcode,uom,storecode,Trndate,openningstock,openningvalue,qty,closingstock,closingvalue,batchyn,ttype,batchno)"
                     'sqlstring = sqlstring & " values ('Openning',"
                     '' AxfpSpread1.Col = 1
@@ -661,24 +667,24 @@ Public Class Frm_InventoryItemmastervb
                 '    insert(insert.Length - 1) = sql
 
                 'Else
-                sql = "Insert into inv_Inventoryuomstorelink (itemcode,storecode,reportUOM,reportdecimaluom,void,adduser,adddate)"
-                sql = sql & " values ('" + txt_ItemCode.Text + "' ,"
+                Sql = "Insert into inv_Inventoryuomstorelink (itemcode,storecode,reportUOM,reportdecimaluom,void,adduser,adddate)"
+                Sql = Sql & " values ('" + txt_ItemCode.Text + "' ,"
                 AxfpSpread2.Row = i
                 AxfpSpread2.Col = 1
-                sql = sql & "  '" + AxfpSpread2.Text + "',"
+                Sql = Sql & "  '" + AxfpSpread2.Text + "',"
                 AxfpSpread2.Row = i
                 AxfpSpread2.Col = 2
-                sql = sql & "  '" + AxfpSpread2.Text + "',"
+                Sql = Sql & "  '" + AxfpSpread2.Text + "',"
                 AxfpSpread2.Row = i
                 AxfpSpread2.Col = 3
-                sql = sql & " '" + AxfpSpread2.Text + "',"
+                Sql = Sql & " '" + AxfpSpread2.Text + "',"
                 AxfpSpread2.Row = i
                 AxfpSpread2.Col = 4
-                sql = sql & " '" + AxfpSpread2.Text + "',"
-                sql = sql & "   '" + gUsername + "' ,getdate())"
+                Sql = Sql & " '" + AxfpSpread2.Text + "',"
+                Sql = Sql & "   '" + gUsername + "' ,getdate())"
 
                 ReDim Preserve insert(insert.Length)
-                insert(insert.Length - 1) = sql
+                insert(insert.Length - 1) = Sql
 
 
                 ' End If
@@ -1116,9 +1122,8 @@ Public Class Frm_InventoryItemmastervb
             TXT_RATE.ReadOnly = False
             Label13.Visible = True
         Else
-            Txt_Rate.Visible = False
-
-            Label13.Visible = False
+            Txt_Rate.Visible = True
+            Label13.Visible = True
         End If
 
         ' ADDED BY SRI FOR EXPIRY DATE AND BATCH NO
@@ -1196,11 +1201,11 @@ Public Class Frm_InventoryItemmastervb
             txt_Purchaserate.Text = "0.00"
             txt_salerate.Text = "0.00"
         End If
-        If UCase(gShortname) = "KSCA" Then
-            Label21.Visible = True
-            TXT_MRPRATE.Visible = True
-            TXT_MRPRATE.Text = "0.00"
-        End If
+        '        If UCase(gShortname) = "KSCA" Then
+        Label21.Visible = True
+        TXT_MRPRATE.Visible = True
+        TXT_MRPRATE.Text = "0.00"
+        'End If
         '  If UCase(gShortname) = "SKYYE" Then
         Label22.Visible = True
         TXT_DEFAULT.Visible = True
@@ -1485,9 +1490,9 @@ Public Class Frm_InventoryItemmastervb
                 If UCase(gShortname) = "KGA" Or UCase(gShortname) = "DC" Or UCase(gShortname) = "CSC" Or UCase(gShortname) = "KORA" Then
                     sql = sql & "ISNULL(I.SALERATE,0) AS SALERATE,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE ,"
                 End If
-                If UCase(gShortname) = "KSCA" Then
-                    sql = sql & "ISNULL(I.MRPRATE,0) AS MRPRATE,"
-                End If
+                '                If UCase(gShortname) = "KSCA" Then
+                sql = sql & "ISNULL(I.MRPRATE,0) AS MRPRATE,"
+                '            End If
                 If UCase(gShortname) = "SKYYE" Or UCase(gShortname) = "CFC" Or UCase(gShortname) = "HBC" Then
                     sql = sql & "ISNULL(I.DEFAULTUOM,'') AS DEFAULTUOM,"
                 End If
@@ -1520,10 +1525,10 @@ Public Class Frm_InventoryItemmastervb
                         txt_salerate.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("SALERATE")
                         txt_Purchaserate.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("PURCHASERATE")
                     End If
-                    If UCase(gShortname) = "KSCA" Then
-                        TXT_MRPRATE.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("MRPRATE")
+                    '                    If UCase(gShortname) = "KSCA" Then
+                    TXT_MRPRATE.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("MRPRATE")
 
-                    End If
+                    '                End If
                     If UCase(gShortname) = "SKYYE" Or UCase(gShortname) = "CFC" Or UCase(gShortname) = "HBC" Then
                         TXT_DEFAULT.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("DEFAULTUOM")
 
@@ -3414,9 +3419,9 @@ Public Class Frm_InventoryItemmastervb
                 If UCase(gShortname) = "KGA" Then
                     sql = sql & "ISNULL(I.SALERATE,0) AS SALERATE,ISNULL(I.PURCHASERATE,0) AS PURCHASERATE ,"
                 End If
-                If UCase(gShortname) = "KSCA" Then
-                    sql = sql & "ISNULL(I.MRPRATE,0) AS MRPRATE,"
-                End If
+                '                If UCase(gShortname) = "KSCA" Then
+                sql = sql & "ISNULL(I.MRPRATE,0) AS MRPRATE,"
+                '            End If
 
 
                 sql = sql & "I.voiduser,I.voiddate,ISNULL(g.Groupdesc,'') AS Groupdesc ,ISNULL(s.Subgroupdesc,'') AS Subgroupdesc,ISNULL(p.subsubgroupdesc,'') AS subsubgroupdesc,ISNULL(c.CATEGORYDESC,'') AS CATEGORYDESC,isnull(I.stockcategory,'') as stockcategory,ISNULL(COMPANYREQ ,'NO') AS COMPANYREQ ,ISNULL(COMPANYcode ,'') AS COMPANYcode ,ISNULL(COMPANYDESC ,'') AS COMPANYDESC,ISNULL(SPLCESS,0 ) AS SPLCESS,ISNULL(SALEITEM,'NO') AS SALEITEM from INV_InventoryItemMaster I inner join "
@@ -3443,13 +3448,15 @@ Public Class Frm_InventoryItemmastervb
                     Cbo_ABC_category.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("AbcCategory")
                     CBO_TAXREBATE.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("TaxRebate")
                     CmbBatch.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("batchprocess")
+
                     If UCase(gShortname) = "KGA" Then
                         txt_salerate.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("SALERATE")
                         txt_Purchaserate.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("PURCHASERATE")
                     End If
-                    If UCase(gShortname) = "KSCA" Then
-                        TXT_MRPRATE.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("MRPRATE")
-                    End If
+
+                    '                    If UCase(gShortname) = "KSCA" Then
+                    TXT_MRPRATE.Text = gdataset.Tables("INV_InventoryItemMaster").Rows(0).Item("MRPRATE")
+                    '                End If
 
 
                     If GBATCHNO = "Y" Or GEXPIRY = "Y" Then
@@ -3499,7 +3506,7 @@ Public Class Frm_InventoryItemmastervb
                         cmd_SubGroupCode.Enabled = False
                         cmd_SubSubGroupCode.Enabled = False
                         BttnCategory_Help.Enabled = False
-                
+
                     End If
 
                     Me.Cmd_Add.Text = "Update[F7]"
@@ -4127,5 +4134,35 @@ Public Class Frm_InventoryItemmastervb
 
     Private Sub txt_ItemName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_ItemName.KeyPress
         '   getAlphanumeric(e)
+    End Sub
+
+    Private Sub TXT_MRPRATE_KeyDown(sender As Object, e As KeyEventArgs) Handles TXT_MRPRATE.KeyDown
+        Dim SQL As String
+        Dim taxper As Integer
+        Dim taxper1 As Integer
+
+        If (e.KeyCode = Keys.Enter Or e.KeyCode = Keys.Tab Or e.KeyCode = Keys.F4) Then
+            SQL = "SELECT isnull(taxper,0) as taxper from inventorysubsubgroupmaster where subsubgroupcode='" + txt_SubSubGroupCode.Text + "'"
+            gconnection.getDataSet(SQL, "uommaster")
+            If (gdataset.Tables("uommaster").Rows.Count > 0) Then
+                If Val(gdataset.Tables("uommaster").Rows(0).Item("taxper")) <> 0 Then
+                    taxper1 = gdataset.Tables("uommaster").Rows(0).Item("taxper")
+                    taxper = gdataset.Tables("uommaster").Rows(0).Item("taxper") + 100
+                Else
+                    taxper1 = 0
+                    taxper = 0
+                End If
+            End If
+            If taxper <> 0 Then
+                Txt_Rate.Text = Format(Val(TXT_MRPRATE.Text) - (Val(TXT_MRPRATE.Text) / taxper * taxper1), "0.00")
+            Else
+                Txt_Rate.Text = "0.00"
+            End If
+
+        End If
+    End Sub
+
+    Private Sub TXT_MRPRATE_TextChanged(sender As Object, e As EventArgs) Handles TXT_MRPRATE.TextChanged
+
     End Sub
 End Class

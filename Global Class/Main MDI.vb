@@ -6717,7 +6717,14 @@ Public Class Main_MDI
         str = "IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'PO_HDR' AND  COLUMN_NAME = 'poquotdate') Begin alter table PO_HDR add  poquotdate datetime End"
         gconnection.dataOperation(6, str, "AddC")
 
+        str = "IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'inventorysubsubgroupmaster' AND  COLUMN_NAME = 'TAXPER') Begin alter table inventorysubsubgroupmaster add  TAXPER Numeric(18,2) End"
+        gconnection.dataOperation(6, str, "AddC")
 
+        str = "IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'GRN_DETAILS' AND  COLUMN_NAME = 'MRPRATE') Begin alter table GRN_DETAILS add  MRPRATE Numeric(18,2) End"
+        gconnection.dataOperation(6, str, "AddC")
+
+        str = "IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'inv_inventoryitemmaster' AND  COLUMN_NAME = 'MRPRATE') Begin alter table inv_inventoryitemmaster add  MRPRATE numeric(18,2) End"
+        gconnection.dataOperation(6, str, "AddC")
 
         str = "IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'inv_inventoryitemmaster' AND  COLUMN_NAME = 'Batchno') Begin alter table inv_inventoryitemmaster add  Batchno varchar(10) End"
         gconnection.dataOperation(6, str, "AddC")

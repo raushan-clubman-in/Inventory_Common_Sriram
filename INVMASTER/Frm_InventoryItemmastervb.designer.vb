@@ -131,7 +131,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.lbl_Heading.ForeColor = System.Drawing.Color.Transparent
         Me.lbl_Heading.Location = New System.Drawing.Point(406, 23)
         Me.lbl_Heading.Name = "lbl_Heading"
-        Me.lbl_Heading.Size = New System.Drawing.Size(222, 34)
+        Me.lbl_Heading.Size = New System.Drawing.Size(150, 22)
         Me.lbl_Heading.TabIndex = 26
         Me.lbl_Heading.Text = "ITEM  MASTER"
         Me.lbl_Heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -282,7 +282,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.labbatchprocess.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labbatchprocess.Location = New System.Drawing.Point(471, 9)
         Me.labbatchprocess.Name = "labbatchprocess"
-        Me.labbatchprocess.Size = New System.Drawing.Size(151, 19)
+        Me.labbatchprocess.Size = New System.Drawing.Size(96, 14)
         Me.labbatchprocess.TabIndex = 508
         Me.labbatchprocess.Text = "BATCH PROCESS"
         Me.labbatchprocess.Visible = False
@@ -295,7 +295,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.CmbBatch.Items.AddRange(New Object() {"YES", "NO"})
         Me.CmbBatch.Location = New System.Drawing.Point(573, 6)
         Me.CmbBatch.Name = "CmbBatch"
-        Me.CmbBatch.Size = New System.Drawing.Size(83, 28)
+        Me.CmbBatch.Size = New System.Drawing.Size(83, 21)
         Me.CmbBatch.TabIndex = 509
         Me.CmbBatch.Visible = False
         '
@@ -306,7 +306,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.labfreeze.ForeColor = System.Drawing.Color.Brown
         Me.labfreeze.Location = New System.Drawing.Point(391, 4)
         Me.labfreeze.Name = "labfreeze"
-        Me.labfreeze.Size = New System.Drawing.Size(73, 24)
+        Me.labfreeze.Size = New System.Drawing.Size(52, 16)
         Me.labfreeze.TabIndex = 510
         Me.labfreeze.Text = "Freeze"
         Me.labfreeze.Visible = False
@@ -402,7 +402,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.chklst_Uom.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chklst_Uom.Location = New System.Drawing.Point(5, 37)
         Me.chklst_Uom.Name = "chklst_Uom"
-        Me.chklst_Uom.Size = New System.Drawing.Size(217, 88)
+        Me.chklst_Uom.Size = New System.Drawing.Size(217, 79)
         Me.chklst_Uom.TabIndex = 480
         '
         'Label5
@@ -411,7 +411,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(9, 16)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(108, 19)
+        Me.Label5.Size = New System.Drawing.Size(71, 14)
         Me.Label5.TabIndex = 519
         Me.Label5.Text = "TRANS UOM"
         '
@@ -422,7 +422,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.LBL_LAST.ForeColor = System.Drawing.Color.Red
         Me.LBL_LAST.Location = New System.Drawing.Point(123, 3)
         Me.LBL_LAST.Name = "LBL_LAST"
-        Me.LBL_LAST.Size = New System.Drawing.Size(144, 25)
+        Me.LBL_LAST.Size = New System.Drawing.Size(99, 17)
         Me.LBL_LAST.TabIndex = 522
         Me.LBL_LAST.Text = "LAST NO IS:"
         '
@@ -502,7 +502,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.TXT_HSNNO.Location = New System.Drawing.Point(330, 170)
         Me.TXT_HSNNO.MaxLength = 15
         Me.TXT_HSNNO.Name = "TXT_HSNNO"
-        Me.TXT_HSNNO.Size = New System.Drawing.Size(116, 26)
+        Me.TXT_HSNNO.Size = New System.Drawing.Size(116, 20)
         Me.TXT_HSNNO.TabIndex = 26
         '
         'Label15
@@ -512,7 +512,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label15.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(246, 173)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(123, 19)
+        Me.Label15.Size = New System.Drawing.Size(78, 14)
         Me.Label15.TabIndex = 535
         Me.Label15.Text = "HSN / SAC NO"
         '
@@ -524,7 +524,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.TXT_DEFAULT.Location = New System.Drawing.Point(540, 171)
         Me.TXT_DEFAULT.MaxLength = 15
         Me.TXT_DEFAULT.Name = "TXT_DEFAULT"
-        Me.TXT_DEFAULT.Size = New System.Drawing.Size(80, 26)
+        Me.TXT_DEFAULT.Size = New System.Drawing.Size(80, 20)
         Me.TXT_DEFAULT.TabIndex = 27
         Me.TXT_DEFAULT.Visible = False
         '
@@ -535,7 +535,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label12.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(1, 175)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(95, 19)
+        Me.Label12.Size = New System.Drawing.Size(64, 14)
         Me.Label12.TabIndex = 530
         Me.Label12.Text = "SALE ITEM"
         '
@@ -547,7 +547,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.CMB_SALEITEM.Items.AddRange(New Object() {"NO", "YES"})
         Me.CMB_SALEITEM.Location = New System.Drawing.Point(134, 172)
         Me.CMB_SALEITEM.Name = "CMB_SALEITEM"
-        Me.CMB_SALEITEM.Size = New System.Drawing.Size(80, 28)
+        Me.CMB_SALEITEM.Size = New System.Drawing.Size(80, 21)
         Me.CMB_SALEITEM.TabIndex = 24
         '
         'Label22
@@ -556,7 +556,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label22.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.Location = New System.Drawing.Point(452, 174)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(126, 19)
+        Me.Label22.Size = New System.Drawing.Size(81, 14)
         Me.Label22.TabIndex = 537
         Me.Label22.Text = "DEFAULT UOM"
         Me.Label22.Visible = False
@@ -569,7 +569,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.TxtSPLCESS.Location = New System.Drawing.Point(551, 92)
         Me.TxtSPLCESS.MaxLength = 15
         Me.TxtSPLCESS.Name = "TxtSPLCESS"
-        Me.TxtSPLCESS.Size = New System.Drawing.Size(82, 26)
+        Me.TxtSPLCESS.Size = New System.Drawing.Size(82, 20)
         Me.TxtSPLCESS.TabIndex = 18
         Me.TxtSPLCESS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -580,7 +580,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label11.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(439, 95)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(96, 19)
+        Me.Label11.Size = New System.Drawing.Size(62, 14)
         Me.Label11.TabIndex = 527
         Me.Label11.Text = "SPL. CESS"
         '
@@ -592,7 +592,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label10.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(246, 149)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(90, 19)
+        Me.Label10.Size = New System.Drawing.Size(61, 14)
         Me.Label10.TabIndex = 523
         Me.Label10.Text = "COMPANY"
         '
@@ -605,7 +605,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Txt_companycode.Location = New System.Drawing.Point(330, 146)
         Me.Txt_companycode.MaxLength = 15
         Me.Txt_companycode.Name = "Txt_companycode"
-        Me.Txt_companycode.Size = New System.Drawing.Size(80, 26)
+        Me.Txt_companycode.Size = New System.Drawing.Size(80, 20)
         Me.Txt_companycode.TabIndex = 23
         '
         'CMD_Company
@@ -627,7 +627,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.TXT_COMPANYDESC.Location = New System.Drawing.Point(442, 146)
         Me.TXT_COMPANYDESC.MaxLength = 15
         Me.TXT_COMPANYDESC.Name = "TXT_COMPANYDESC"
-        Me.TXT_COMPANYDESC.Size = New System.Drawing.Size(191, 26)
+        Me.TXT_COMPANYDESC.Size = New System.Drawing.Size(191, 20)
         Me.TXT_COMPANYDESC.TabIndex = 524
         '
         'Label9
@@ -637,7 +637,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(1, 149)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(182, 19)
+        Me.Label9.Size = New System.Drawing.Size(115, 14)
         Me.Label9.TabIndex = 522
         Me.Label9.Text = "COMPANY REQUIRED"
         '
@@ -649,7 +649,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.CB_ComYesNo.Items.AddRange(New Object() {"NO", "YES"})
         Me.CB_ComYesNo.Location = New System.Drawing.Point(134, 146)
         Me.CB_ComYesNo.Name = "CB_ComYesNo"
-        Me.CB_ComYesNo.Size = New System.Drawing.Size(80, 28)
+        Me.CB_ComYesNo.Size = New System.Drawing.Size(80, 21)
         Me.CB_ComYesNo.TabIndex = 22
         '
         'Cmbstockcategory
@@ -660,7 +660,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Cmbstockcategory.Items.AddRange(New Object() {"STOCKABLE", "NONSTOCKABLE"})
         Me.Cmbstockcategory.Location = New System.Drawing.Point(551, 119)
         Me.Cmbstockcategory.Name = "Cmbstockcategory"
-        Me.Cmbstockcategory.Size = New System.Drawing.Size(83, 28)
+        Me.Cmbstockcategory.Size = New System.Drawing.Size(83, 21)
         Me.Cmbstockcategory.TabIndex = 21
         '
         'Label8
@@ -669,7 +669,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label8.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(439, 123)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(162, 19)
+        Me.Label8.Size = New System.Drawing.Size(105, 14)
         Me.Label8.TabIndex = 519
         Me.Label8.Text = "STOCK CATEGORY"
         '
@@ -680,7 +680,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(339, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(99, 19)
+        Me.Label1.Size = New System.Drawing.Size(67, 14)
         Me.Label1.TabIndex = 489
         Me.Label1.Text = "ITEM NAME"
         '
@@ -691,7 +691,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.lbl_SubGroupCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_SubGroupCode.Location = New System.Drawing.Point(339, 43)
         Me.lbl_SubGroupCode.Name = "lbl_SubGroupCode"
-        Me.lbl_SubGroupCode.Size = New System.Drawing.Size(163, 19)
+        Me.lbl_SubGroupCode.Size = New System.Drawing.Size(100, 14)
         Me.lbl_SubGroupCode.TabIndex = 488
         Me.lbl_SubGroupCode.Text = "SUB GROUP CODE"
         '
@@ -702,7 +702,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(339, 68)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(99, 19)
+        Me.Label2.Size = New System.Drawing.Size(65, 14)
         Me.Label2.TabIndex = 490
         Me.Label2.Text = "CATEGORY"
         '
@@ -722,7 +722,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(1, 95)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(144, 19)
+        Me.Label6.Size = New System.Drawing.Size(94, 14)
         Me.Label6.TabIndex = 497
         Me.Label6.Text = "ABC  CATEGORY"
         '
@@ -734,7 +734,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txtstock.Location = New System.Drawing.Point(330, 120)
         Me.txtstock.MaxLength = 15
         Me.txtstock.Name = "txtstock"
-        Me.txtstock.Size = New System.Drawing.Size(80, 26)
+        Me.txtstock.Size = New System.Drawing.Size(80, 20)
         Me.txtstock.TabIndex = 20
         '
         'txt_SubGroupDesc
@@ -746,7 +746,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_SubGroupDesc.Location = New System.Drawing.Point(550, 37)
         Me.txt_SubGroupDesc.MaxLength = 15
         Me.txt_SubGroupDesc.Name = "txt_SubGroupDesc"
-        Me.txt_SubGroupDesc.Size = New System.Drawing.Size(103, 26)
+        Me.txt_SubGroupDesc.Size = New System.Drawing.Size(103, 20)
         Me.txt_SubGroupDesc.TabIndex = 487
         '
         'Txt_Categorycode
@@ -757,7 +757,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Txt_Categorycode.Location = New System.Drawing.Point(458, 65)
         Me.Txt_Categorycode.MaxLength = 15
         Me.Txt_Categorycode.Name = "Txt_Categorycode"
-        Me.Txt_Categorycode.Size = New System.Drawing.Size(63, 26)
+        Me.Txt_Categorycode.Size = New System.Drawing.Size(63, 20)
         Me.Txt_Categorycode.TabIndex = 15
         '
         'Cbo_ABC_category
@@ -765,11 +765,11 @@ Partial Class Frm_InventoryItemmastervb
         Me.Cbo_ABC_category.BackColor = System.Drawing.Color.Wheat
         Me.Cbo_ABC_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Cbo_ABC_category.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cbo_ABC_category.ItemHeight = 19
+        Me.Cbo_ABC_category.ItemHeight = 14
         Me.Cbo_ABC_category.Items.AddRange(New Object() {"A", "B", "C"})
         Me.Cbo_ABC_category.Location = New System.Drawing.Point(134, 92)
         Me.Cbo_ABC_category.Name = "Cbo_ABC_category"
-        Me.Cbo_ABC_category.Size = New System.Drawing.Size(81, 27)
+        Me.Cbo_ABC_category.Size = New System.Drawing.Size(81, 22)
         Me.Cbo_ABC_category.TabIndex = 16
         '
         'BttnCategory_Help
@@ -798,7 +798,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.TXT_CATEGORY.Location = New System.Drawing.Point(550, 65)
         Me.TXT_CATEGORY.MaxLength = 15
         Me.TXT_CATEGORY.Name = "TXT_CATEGORY"
-        Me.TXT_CATEGORY.Size = New System.Drawing.Size(103, 26)
+        Me.TXT_CATEGORY.Size = New System.Drawing.Size(103, 20)
         Me.TXT_CATEGORY.TabIndex = 493
         '
         'Label4
@@ -807,7 +807,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(246, 123)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(110, 19)
+        Me.Label4.Size = New System.Drawing.Size(72, 14)
         Me.Label4.TabIndex = 516
         Me.Label4.Text = "STOCK UOM"
         '
@@ -818,7 +818,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label17.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(246, 95)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(106, 19)
+        Me.Label17.Size = New System.Drawing.Size(68, 14)
         Me.Label17.TabIndex = 499
         Me.Label17.Text = "TAXREBATE"
         '
@@ -830,7 +830,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_SubGroupCode.Location = New System.Drawing.Point(458, 37)
         Me.txt_SubGroupCode.MaxLength = 15
         Me.txt_SubGroupCode.Name = "txt_SubGroupCode"
-        Me.txt_SubGroupCode.Size = New System.Drawing.Size(63, 26)
+        Me.txt_SubGroupCode.Size = New System.Drawing.Size(63, 20)
         Me.txt_SubGroupCode.TabIndex = 13
         '
         'TxtProfitPer
@@ -841,7 +841,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.TxtProfitPer.Location = New System.Drawing.Point(134, 120)
         Me.TxtProfitPer.MaxLength = 15
         Me.TxtProfitPer.Name = "TxtProfitPer"
-        Me.TxtProfitPer.Size = New System.Drawing.Size(80, 26)
+        Me.TxtProfitPer.Size = New System.Drawing.Size(80, 20)
         Me.TxtProfitPer.TabIndex = 19
         '
         'CBO_TAXREBATE
@@ -852,7 +852,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.CBO_TAXREBATE.Items.AddRange(New Object() {"YES", "NO"})
         Me.CBO_TAXREBATE.Location = New System.Drawing.Point(330, 92)
         Me.CBO_TAXREBATE.Name = "CBO_TAXREBATE"
-        Me.CBO_TAXREBATE.Size = New System.Drawing.Size(80, 28)
+        Me.CBO_TAXREBATE.Size = New System.Drawing.Size(80, 21)
         Me.CBO_TAXREBATE.TabIndex = 17
         '
         'Label3
@@ -861,7 +861,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(1, 123)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(153, 19)
+        Me.Label3.Size = New System.Drawing.Size(96, 14)
         Me.Label3.TabIndex = 514
         Me.Label3.Text = "PROFIT PERCENT"
         '
@@ -873,7 +873,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_ItemName.Location = New System.Drawing.Point(458, 12)
         Me.txt_ItemName.MaxLength = 50
         Me.txt_ItemName.Name = "txt_ItemName"
-        Me.txt_ItemName.Size = New System.Drawing.Size(192, 26)
+        Me.txt_ItemName.Size = New System.Drawing.Size(192, 20)
         Me.txt_ItemName.TabIndex = 11
         '
         'txt_SubSubGroupDesc
@@ -885,7 +885,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_SubSubGroupDesc.Location = New System.Drawing.Point(239, 65)
         Me.txt_SubSubGroupDesc.MaxLength = 15
         Me.txt_SubSubGroupDesc.Name = "txt_SubSubGroupDesc"
-        Me.txt_SubSubGroupDesc.Size = New System.Drawing.Size(101, 26)
+        Me.txt_SubSubGroupDesc.Size = New System.Drawing.Size(101, 20)
         Me.txt_SubSubGroupDesc.TabIndex = 492
         '
         'cmd_SubSubGroupCode
@@ -904,7 +904,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.lbl_ItemCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_ItemCode.Location = New System.Drawing.Point(1, 18)
         Me.lbl_ItemCode.Name = "lbl_ItemCode"
-        Me.lbl_ItemCode.Size = New System.Drawing.Size(100, 19)
+        Me.lbl_ItemCode.Size = New System.Drawing.Size(65, 14)
         Me.lbl_ItemCode.TabIndex = 476
         Me.lbl_ItemCode.Text = "ITEM CODE"
         '
@@ -916,7 +916,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_SubSubGroupCode.Location = New System.Drawing.Point(134, 65)
         Me.txt_SubSubGroupCode.MaxLength = 15
         Me.txt_SubSubGroupCode.Name = "txt_SubSubGroupCode"
-        Me.txt_SubSubGroupCode.Size = New System.Drawing.Size(80, 26)
+        Me.txt_SubSubGroupCode.Size = New System.Drawing.Size(80, 20)
         Me.txt_SubSubGroupCode.TabIndex = 14
         '
         'lbl_SubSubGroupCode
@@ -926,7 +926,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.lbl_SubSubGroupCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_SubSubGroupCode.Location = New System.Drawing.Point(1, 70)
         Me.lbl_SubSubGroupCode.Name = "lbl_SubSubGroupCode"
-        Me.lbl_SubSubGroupCode.Size = New System.Drawing.Size(203, 19)
+        Me.lbl_SubSubGroupCode.Size = New System.Drawing.Size(124, 14)
         Me.lbl_SubSubGroupCode.TabIndex = 490
         Me.lbl_SubSubGroupCode.Text = "SUB SUB GROUP CODE"
         '
@@ -938,7 +938,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_ItemCode.Location = New System.Drawing.Point(134, 14)
         Me.txt_ItemCode.MaxLength = 15
         Me.txt_ItemCode.Name = "txt_ItemCode"
-        Me.txt_ItemCode.Size = New System.Drawing.Size(80, 26)
+        Me.txt_ItemCode.Size = New System.Drawing.Size(80, 20)
         Me.txt_ItemCode.TabIndex = 10
         '
         'Cmd_ItemCode
@@ -970,7 +970,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.lbl_GroupCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_GroupCode.Location = New System.Drawing.Point(1, 43)
         Me.lbl_GroupCode.Name = "lbl_GroupCode"
-        Me.lbl_GroupCode.Size = New System.Drawing.Size(123, 19)
+        Me.lbl_GroupCode.Size = New System.Drawing.Size(76, 14)
         Me.lbl_GroupCode.TabIndex = 484
         Me.lbl_GroupCode.Text = "GROUP CODE"
         '
@@ -982,7 +982,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_GroupCode.Location = New System.Drawing.Point(134, 39)
         Me.txt_GroupCode.MaxLength = 15
         Me.txt_GroupCode.Name = "txt_GroupCode"
-        Me.txt_GroupCode.Size = New System.Drawing.Size(80, 26)
+        Me.txt_GroupCode.Size = New System.Drawing.Size(80, 20)
         Me.txt_GroupCode.TabIndex = 12
         '
         'txt_GroupDesc
@@ -994,7 +994,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_GroupDesc.Location = New System.Drawing.Point(239, 39)
         Me.txt_GroupDesc.MaxLength = 15
         Me.txt_GroupDesc.Name = "txt_GroupDesc"
-        Me.txt_GroupDesc.Size = New System.Drawing.Size(101, 26)
+        Me.txt_GroupDesc.Size = New System.Drawing.Size(101, 20)
         Me.txt_GroupDesc.TabIndex = 483
         '
         'cmd_GroupCode
@@ -1011,11 +1011,12 @@ Partial Class Frm_InventoryItemmastervb
         Me.Txt_Rate.BackColor = System.Drawing.Color.Wheat
         Me.Txt_Rate.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Txt_Rate.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Rate.Location = New System.Drawing.Point(730, 159)
+        Me.Txt_Rate.Location = New System.Drawing.Point(744, 159)
         Me.Txt_Rate.MaxLength = 15
         Me.Txt_Rate.Name = "Txt_Rate"
-        Me.Txt_Rate.Size = New System.Drawing.Size(80, 26)
+        Me.Txt_Rate.Size = New System.Drawing.Size(80, 20)
         Me.Txt_Rate.TabIndex = 533
+        Me.Txt_Rate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label13
         '
@@ -1024,9 +1025,9 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(675, 162)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(52, 19)
+        Me.Label13.Size = New System.Drawing.Size(65, 14)
         Me.Label13.TabIndex = 531
-        Me.Label13.Text = "RATE"
+        Me.Label13.Text = "BASE RATE"
         Me.Label13.Visible = False
         '
         'TabControl1
@@ -1065,10 +1066,10 @@ Partial Class Frm_InventoryItemmastervb
         Me.TabPage1.Controls.Add(Me.CmbBatch)
         Me.TabPage1.Controls.Add(Me.labbatchprocess)
         Me.TabPage1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabPage1.Location = New System.Drawing.Point(4, 37)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 26)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(828, 574)
+        Me.TabPage1.Size = New System.Drawing.Size(828, 585)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Item Master"
         '
@@ -1080,9 +1081,9 @@ Partial Class Frm_InventoryItemmastervb
         Me.TXT_MRPRATE.Location = New System.Drawing.Point(760, 77)
         Me.TXT_MRPRATE.MaxLength = 15
         Me.TXT_MRPRATE.Name = "TXT_MRPRATE"
-        Me.TXT_MRPRATE.Size = New System.Drawing.Size(66, 26)
+        Me.TXT_MRPRATE.Size = New System.Drawing.Size(66, 20)
         Me.TXT_MRPRATE.TabIndex = 553
-        Me.TXT_MRPRATE.Visible = False
+        Me.TXT_MRPRATE.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label21
         '
@@ -1091,10 +1092,9 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label21.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.Location = New System.Drawing.Point(673, 79)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(93, 19)
+        Me.Label21.Size = New System.Drawing.Size(61, 14)
         Me.Label21.TabIndex = 552
         Me.Label21.Text = "MRP RATE"
-        Me.Label21.Visible = False
         '
         'txt_salerate
         '
@@ -1104,7 +1104,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_salerate.Location = New System.Drawing.Point(759, 49)
         Me.txt_salerate.MaxLength = 15
         Me.txt_salerate.Name = "txt_salerate"
-        Me.txt_salerate.Size = New System.Drawing.Size(66, 26)
+        Me.txt_salerate.Size = New System.Drawing.Size(66, 20)
         Me.txt_salerate.TabIndex = 551
         Me.txt_salerate.Visible = False
         '
@@ -1115,7 +1115,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label20.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.Location = New System.Drawing.Point(671, 52)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(100, 19)
+        Me.Label20.Size = New System.Drawing.Size(65, 14)
         Me.Label20.TabIndex = 550
         Me.Label20.Text = "SALE RATE"
         Me.Label20.Visible = False
@@ -1128,7 +1128,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.txt_Purchaserate.Location = New System.Drawing.Point(759, 11)
         Me.txt_Purchaserate.MaxLength = 15
         Me.txt_Purchaserate.Name = "txt_Purchaserate"
-        Me.txt_Purchaserate.Size = New System.Drawing.Size(66, 26)
+        Me.txt_Purchaserate.Size = New System.Drawing.Size(66, 20)
         Me.txt_Purchaserate.TabIndex = 537
         Me.txt_Purchaserate.Visible = False
         '
@@ -1151,7 +1151,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.CMB_Shelving.Items.AddRange(New Object() {"YES", "NO"})
         Me.CMB_Shelving.Location = New System.Drawing.Point(759, 196)
         Me.CMB_Shelving.Name = "CMB_Shelving"
-        Me.CMB_Shelving.Size = New System.Drawing.Size(63, 28)
+        Me.CMB_Shelving.Size = New System.Drawing.Size(63, 21)
         Me.CMB_Shelving.TabIndex = 548
         Me.CMB_Shelving.Visible = False
         '
@@ -1162,7 +1162,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label18.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.Location = New System.Drawing.Point(671, 198)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(138, 19)
+        Me.Label18.Size = New System.Drawing.Size(86, 14)
         Me.Label18.TabIndex = 547
         Me.Label18.Text = "SHELVING REQ."
         Me.Label18.Visible = False
@@ -1175,7 +1175,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Cmb_Expiry.Items.AddRange(New Object() {"YES", "NO"})
         Me.Cmb_Expiry.Location = New System.Drawing.Point(762, 132)
         Me.Cmb_Expiry.Name = "Cmb_Expiry"
-        Me.Cmb_Expiry.Size = New System.Drawing.Size(63, 28)
+        Me.Cmb_Expiry.Size = New System.Drawing.Size(63, 21)
         Me.Cmb_Expiry.TabIndex = 546
         Me.Cmb_Expiry.Visible = False
         '
@@ -1187,7 +1187,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Cmb_BatchNo.Items.AddRange(New Object() {"YES", "NO"})
         Me.Cmb_BatchNo.Location = New System.Drawing.Point(761, 106)
         Me.Cmb_BatchNo.Name = "Cmb_BatchNo"
-        Me.Cmb_BatchNo.Size = New System.Drawing.Size(63, 28)
+        Me.Cmb_BatchNo.Size = New System.Drawing.Size(63, 21)
         Me.Cmb_BatchNo.TabIndex = 545
         Me.Cmb_BatchNo.Visible = False
         '
@@ -1198,7 +1198,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label16.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.Location = New System.Drawing.Point(675, 136)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(115, 19)
+        Me.Label16.Size = New System.Drawing.Size(74, 14)
         Me.Label16.TabIndex = 544
         Me.Label16.Text = "EXPIRY DATE"
         Me.Label16.Visible = False
@@ -1210,7 +1210,7 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label14.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(674, 110)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(100, 19)
+        Me.Label14.Size = New System.Drawing.Size(64, 14)
         Me.Label14.TabIndex = 543
         Me.Label14.Text = "BATCH NO."
         Me.Label14.Visible = False
