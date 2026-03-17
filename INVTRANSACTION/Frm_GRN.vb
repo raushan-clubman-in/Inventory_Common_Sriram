@@ -600,7 +600,7 @@ Public Class Frm_GRN
             AxfpSpread1.ColHidden = True
         Else
             AxfpSpread1.Col = 25
-            AxfpSpread1.ColHidden = True
+            AxfpSpread1.ColHidden = False
         End If
 
         LBL_SPONSOR.Hide()
@@ -3281,6 +3281,10 @@ Public Class Frm_GRN
         Dim overalldisc, othercharge, extra, ROUNDOFF, grossamt As Double
         Dim totqty, totamt, taxamt, discamt, freeqty, totfreeqty, SPLCESS, ISPLCESS, TOSPLCESS As Double
         Dim itemqty, itemrate, itemamount, itemtax, itemdisc, discperc, taxperc, itemtot, amtwithoutdisc, overdiscextra, overotherextra As Double
+        Dim itemamount_mrp As Double
+        Dim itemtax_mrp As Double
+        Dim MrpTaxAmt As Double
+
         calcbool = True
         If AxfpSpread1.ActiveCol = 1 Or AxfpSpread1.ActiveCol = 2 Or AxfpSpread1.ActiveCol = 4 Or AxfpSpread1.ActiveCol = 5 Or AxfpSpread1.ActiveCol = 6 Or AxfpSpread1.ActiveCol = 7 Or AxfpSpread1.ActiveCol = 8 Or AxfpSpread1.ActiveCol = 10 Or AxfpSpread1.ActiveCol = 12 Or AxfpSpread1.ActiveCol = 16 Or AxfpSpread1.ActiveCol = 17 Or AxfpSpread1.ActiveCol = 21 Or AxfpSpread1.ActiveCol = 13 Then
             For i As Integer = 1 To AxfpSpread1.DataRowCnt
@@ -3294,6 +3298,8 @@ Public Class Frm_GRN
                 AxfpSpread1.Col = 3
                 UOM = Trim(AxfpSpread1.Text)
 
+                AxfpSpread1.Col = 25
+                MrpTaxAmt = Val(AxfpSpread1.Text)
 
                 AxfpSpread1.Row = i
                 AxfpSpread1.Col = 16
@@ -3312,6 +3318,9 @@ Public Class Frm_GRN
                     AxfpSpread1.Col = 6
                     itemamount = Nothing
                     itemamount = itemqty * itemrate
+
+                    'itemamount_mrp
+
                     If Val(AxfpSpread1.Text) <> Val(itemamount) Then
                         AxfpSpread1.Text = Format(itemamount, "0.00")
                     End If
@@ -3373,18 +3382,31 @@ Public Class Frm_GRN
                     taxperc = Val(AxfpSpread1.Text)
 
 
+                    If MrpTaxAmt = 0 Then
 
-                    AxfpSpread1.Col = 10
-                    ' itemtax = Math.Round((amtwithoutdisc * taxperc) / 100)
-                    If AxfpSpread1.Text = "NONE" Then
-                        itemtax = Math.Round((amtwithoutdisc * taxperc) / 100, 2)
+                        AxfpSpread1.Col = 10
+                        If AxfpSpread1.Text = "NONE" Then
+                            itemtax = Math.Round((amtwithoutdisc * taxperc) / 100, 2)
+                        Else
+                            itemtax = (amtwithoutdisc * taxperc) / 100
+                        End If
+
+                        AxfpSpread1.Col = 12
+                        AxfpSpread1.Text = itemtax
+
                     Else
-                        itemtax = (amtwithoutdisc * taxperc) / 100
+                        AxfpSpread1.Col = 10
+                        If AxfpSpread1.Text = "NONE" Then
+                            itemtax = Math.Round(itemqty * MrpTaxAmt, 2)
+                        Else
+                            itemtax = itemqty * MrpTaxAmt
+                        End If
+
+                        AxfpSpread1.Col = 12
+                        AxfpSpread1.Text = itemtax
+
+
                     End If
-
-                    AxfpSpread1.Col = 12
-                    AxfpSpread1.Text = itemtax
-
                     AxfpSpread1.Col = 13
 
                     ''''SPLCESS
@@ -3393,12 +3415,14 @@ Public Class Frm_GRN
                     itemtot = itemamount + itemtax - itemdisc ''+ (SPLCESS * itemqty)
                     '''
                     AxfpSpread1.Text = itemtot
+
                     totqty = totqty + itemqty
                     totfreeqty = totfreeqty + freeqty
                     totamt = totamt + itemamount
                     taxamt = taxamt + itemtax
                     discamt = discamt + itemdisc
                     grossamt = grossamt + itemtot
+
                     AxfpSpread1.Col = 11
                     If AxfpSpread1.Lock = True Then
                         AxfpSpread1.Col = 12
@@ -3738,7 +3762,7 @@ Public Class Frm_GRN
             AxfpSpread1.ColHidden = True
         Else
             AxfpSpread1.Col = 25
-            AxfpSpread1.ColHidden = True
+            AxfpSpread1.ColHidden = False
         End If
 
 
@@ -6522,7 +6546,12 @@ Public Class Frm_GRN
                             prate = gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")
                             AxfpSpread1.Col = 5
                             AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                            AxfpSpread1.Text = prate
+                            '                            AxfpSpread1.Text = prate
+
+                            AxfpSpread1.Col = 25
+                            AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                            AxfpSpread1.Text = gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")
+
                         Else
                             prate = 0
                         End If
@@ -6840,7 +6869,10 @@ Public Class Frm_GRN
                             prate = gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")
                             AxfpSpread1.Col = 5
                             AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                            AxfpSpread1.Text = prate
+                            '                            AxfpSpread1.Text = prate
+                            AxfpSpread1.Col = 25
+                            AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                            AxfpSpread1.Text = gdataset.Tables("inv_InventoryOpenningstock").Rows(0).Item("prate")
                         Else
                             prate = 0
                         End If
@@ -7380,33 +7412,42 @@ Public Class Frm_GRN
             ElseIf AxfpSpread1.ActiveCol = 12 Then
 
                 Dim BA, TP, TA As Double
-                AxfpSpread1.Col = 9
-                BA = Val(AxfpSpread1.Text)
-                AxfpSpread1.Col = 12
-                TA = Val(AxfpSpread1.Text)
-                ' TP = Math.Round((TA * 100) / BA)
-                If TA = 0 Then
-                    AxfpSpread1.SetText(11, i, "0.000")
-                    AxfpSpread1.SetActiveCell(12, AxfpSpread1.ActiveRow)
-                Else
-                    TP = (TA * 100) / BA
-                    AxfpSpread1.Col = 11
-                    AxfpSpread1.SetText(11, i, TP)
+                Dim mrptaxamt As Double
 
-                    'AxfpSpread1.SetActiveCell(1, i + 1)
-                    CALCULATE()
-                    AxfpSpread1.Col = 17
-                    If Trim(AxfpSpread1.Text) = "" Then
-                        AxfpSpread1.SetText(17, i, "0.000")
+                AxfpSpread1.Col = 25
+                mrptaxamt = Val(AxfpSpread1.Text)
 
-                        AxfpSpread1.SetActiveCell(1, i + 1)
+                If mrptaxamt = 0 Then
+                    AxfpSpread1.Col = 9
+                    BA = Val(AxfpSpread1.Text)
+
+                    AxfpSpread1.Col = 12
+                    TA = Val(AxfpSpread1.Text)
+                    ' TP = Math.Round((TA * 100) / BA)
+                    If TA = 0 Then
+                        AxfpSpread1.SetText(11, i, "0.000")
+                        AxfpSpread1.SetActiveCell(12, AxfpSpread1.ActiveRow)
                     Else
-                        AxfpSpread1.SetActiveCell(17, AxfpSpread1.ActiveRow)
+                        TP = (TA * 100) / BA
+                        AxfpSpread1.Col = 11
+                        AxfpSpread1.SetText(11, i, TP)
+
                         'AxfpSpread1.SetActiveCell(1, i + 1)
+                        CALCULATE()
+                        AxfpSpread1.Col = 17
+                        If Trim(AxfpSpread1.Text) = "" Then
+                            AxfpSpread1.SetText(17, i, "0.000")
 
+                            AxfpSpread1.SetActiveCell(1, i + 1)
+                        Else
+                            AxfpSpread1.SetActiveCell(17, AxfpSpread1.ActiveRow)
+                            'AxfpSpread1.SetActiveCell(1, i + 1)
+
+                        End If
                     End If
-                End If
+                Else
 
+                End If
                 If CmbGrnType.Text = "DIRECT GRN" Then
 
                     AxfpSpread1.Col = 1
@@ -7464,27 +7505,38 @@ Public Class Frm_GRN
             ElseIf AxfpSpread1.ActiveCol = 13 Then
 
                 Dim RRate, RQTY, RbasicAmt, RTaxP, RTaxAmt, RAmt As Double
+                Dim mrptaxamt As Double
 
                 If Val(AxfpSpread1.Text) = 0 Then
                     AxfpSpread1.SetActiveCell(5, i)
                 Else
-                    AxfpSpread1.Col = 13
-                    RAmt = Val(AxfpSpread1.Text)
-                    AxfpSpread1.Col = 11
-                    RTaxP = Val(AxfpSpread1.Text)
 
-                    AxfpSpread1.Col = 4
-                    RQTY = Val(AxfpSpread1.Text)
+                    AxfpSpread1.Col = 25
+                    mrptaxamt = Val(AxfpSpread1.Text)
 
-                    '  RAmt = Val(AxfpSpread1.Text)
+                    If mrptaxamt = 0 Then
+                        AxfpSpread1.Col = 13
+                        RAmt = Val(AxfpSpread1.Text)
 
-                    RbasicAmt = (RAmt) / (100 + RTaxP) * 100
+                        AxfpSpread1.Col = 11
+                        RTaxP = Val(AxfpSpread1.Text)
 
-                    RRate = RbasicAmt / RQTY
+                        AxfpSpread1.Col = 4
+                        RQTY = Val(AxfpSpread1.Text)
 
-                    AxfpSpread1.SetText(5, i, Val(RRate))
-                    CALCULATE()
-                    AxfpSpread1.SetActiveCell(17, AxfpSpread1.ActiveRow)
+                        '  RAmt = Val(AxfpSpread1.Text)
+
+                        RbasicAmt = (RAmt) / (100 + RTaxP) * 100
+
+                        RRate = RbasicAmt / RQTY
+
+                        AxfpSpread1.SetText(5, i, Val(RRate))
+                        CALCULATE()
+                        AxfpSpread1.SetActiveCell(17, AxfpSpread1.ActiveRow)
+
+                    Else
+
+                    End If
                 End If
 
             ElseIf AxfpSpread1.ActiveCol = 17 Then
@@ -9368,7 +9420,7 @@ l:
                     If GSHELVING = "Y" Then
                         sqlstring = sqlstring & "isnull(SHELF,'') as SHELF,"
                     End If
-                    sqlstring = sqlstring & " ISNULL(SPLCESS, 0) As SPLCESS  FROM GRN_DETAILS WHERE  GRNDETAILS ='" & Trim(txt_Grnno.Text) & "'"
+                    sqlstring = sqlstring & " ISNULL(SPLCESS, 0) As SPLCESS, ISNULL(MRPRATE,0) AS MRPRATE  FROM GRN_DETAILS WHERE  GRNDETAILS ='" & Trim(txt_Grnno.Text) & "'"
                     sqlstring = sqlstring & " ORDER BY AUTOID "
                     gconnection.getDataSet(sqlstring, "GRNDETAILS")
 
@@ -9434,6 +9486,8 @@ l:
                                 AxfpSpread1.SetText(24, I, gdataset.Tables("GRNDETAILS").Rows(J).Item("SHELF"))
                             End If
                             AxfpSpread1.SetText(21, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("SPLCESS")), "0.00"))
+                            AxfpSpread1.SetText(25, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("MRPRATE")), "0.00"))
+
                             '           ssgrid.SetText(11, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("SALERATE")), "0.000"))
                             '          ssgrid.SetText(12, I, Format(Val(gdataset.Tables("GRNDETAILS").Rows(J).Item("DBLAMOUNT")), "0.000"))
                             '         ssgrid.SetText(13, I, Trim(gdataset.Tables("GRNDETAILS").Rows(J).Item("DBLUOM")))

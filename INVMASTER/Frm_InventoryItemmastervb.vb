@@ -4154,7 +4154,8 @@ Public Class Frm_InventoryItemmastervb
                 End If
             End If
             If taxper <> 0 Then
-                Txt_Rate.Text = Format(Val(TXT_MRPRATE.Text) - (Val(TXT_MRPRATE.Text) / taxper * taxper1), "0.00")
+                '                Txt_Rate.Text = Format(Val(TXT_MRPRATE.Text) - (Val(TXT_MRPRATE.Text) / taxper * taxper1), "0.00")
+                Txt_Rate.Text = Format((Val(TXT_MRPRATE.Text) / taxper * taxper1), "0.00")
             Else
                 Txt_Rate.Text = "0.00"
             End If

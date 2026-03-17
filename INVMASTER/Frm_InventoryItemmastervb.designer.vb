@@ -1025,9 +1025,9 @@ Partial Class Frm_InventoryItemmastervb
         Me.Label13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(675, 162)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(65, 14)
+        Me.Label13.Size = New System.Drawing.Size(56, 14)
         Me.Label13.TabIndex = 531
-        Me.Label13.Text = "BASE RATE"
+        Me.Label13.Text = "TAX AMT"
         Me.Label13.Visible = False
         '
         'TabControl1
