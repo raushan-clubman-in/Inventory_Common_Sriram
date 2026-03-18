@@ -919,37 +919,29 @@ Public Class Frm_GRN
         Dim vform As New ListOperattion1
         Dim message, title, defaultValue As String
         Dim myValue As Object
+        Dim prate As Double = 0
+
         message = "Enter Batch No"
         title = "Batch No"
         defaultValue = txt_Grnno.Text
         M_Groupby = ""
         CATCODE = Split(CMB_CATEGORY.Text, "--->")
 
-        sql = "sELECT * FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "'"
+        sql = "SELECT * FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "'"
             gconnection.getDataSet(sql, "Invitem_VendorMaster")
-
-
-
-        gSQLString = "select DISTINCT I.itemcode,M.Itemname,uom,batchprocess,I.RATE AS RATE from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
+        gSQLString = "Select DISTINCT I.itemcode,M.Itemname,uom,batchprocess,I.RATE AS RATE, isnull(m.mrprate,0) as mrprate, isnull(m.prate,0) as prate from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
         gSQLString = gSQLString & " I.itemcode=M.itemcode "
-
         If (gdataset.Tables("Invitem_VendorMaster").Rows.Count > 0) Then
-
-
-
             If UCase(gShortname) = "NIZAM" Or UCase(gShortname) = "RGC" Then
                 M_WhereCondition = "  where  I.Autoid IN (SELECT MAX(Autoid) FROM CLOSINGQTY C WHERE I.itemcode=C.itemcode and isnull(C.storecode,'')='" + txt_Storecode.Text + "'  ) and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "'  AND I.itemcode IN (sELECT ITEMCODE FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "' )"
             ElseIf UCase(gShortname) = "HIND" Or UCase(gShortname) = "MCEME" Then
-
                 M_WhereCondition = " where M.Category='" + CATCODE(0) + "'  AND I.Autoid IN (SELECT MAX(Autoid) FROM CLOSINGQTY C WHERE I.itemcode=C.itemcode and isnull(C.storecode,'')='" + txt_Storecode.Text + "'  ) and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "'"
             Else
                 M_WhereCondition = "  where  M.Category='" + CATCODE(0) + "' AND I.Autoid IN (SELECT MAX(Autoid) FROM CLOSINGQTY C WHERE I.itemcode=C.itemcode and isnull(C.storecode,'')='" + txt_Storecode.Text + "'  ) and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "'  AND I.itemcode IN (sELECT ITEMCODE FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "' )"
             End If
-
         Else
             M_WhereCondition = " where M.Category='" + CATCODE(0) + "'  AND I.Autoid IN (SELECT MAX(Autoid) FROM CLOSINGQTY C WHERE I.itemcode=C.itemcode and isnull(C.storecode,'')='" + txt_Storecode.Text + "'  ) and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "'"
         End If
-
         gconnection.getDataSet(gSQLString, "Invitem_VendorMaster")
         vform.Field = " I.itemcode, M.Itemname,uom"
         vform.vFormatstring = "    Itemcode     |                        Itemname                            |        UOM      |    batchprocess  |    RATE   "
@@ -958,6 +950,10 @@ Public Class Frm_GRN
         vform.KeyPos1 = 1
         vform.KeyPos2 = 2
         vform.Keypos3 = 3
+        vform.keypos4 = 4
+        vform.Keypos5 = 5
+        vform.Keypos6 = 6
+
         vform.ShowDialog(Me)
         If Trim(vform.keyfield & "") <> "" Then
 
@@ -987,6 +983,16 @@ Public Class Frm_GRN
                 AxfpSpread1.Col = 2
                 AxfpSpread1.Row = AxfpSpread1.ActiveRow
                 AxfpSpread1.Text = Trim(vform.keyfield1)
+
+
+                AxfpSpread1.Col = 25
+                AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                AxfpSpread1.Text = Trim(vform.keyfield6)
+
+
+                prate = vform.keyfield6
+
+
                 'AxfpSpread1.Col = 3
                 'AxfpSpread1.Row = AxfpSpread1.ActiveRow
 
@@ -1007,11 +1013,9 @@ Public Class Frm_GRN
                 ''''''''''''''''''''''''''''''''
 
                 If UCase(gShortname) <> "FNCC" Or UCase(gShortname) <> "HGA" Or UCase(gShortname) <> "RCL" Or UCase(gShortname) <> "HIND" Or UCase(gShortname) <> "KIC" Then
-                    sql = "  sELECT isnull(rate,0) as rate,isnull(uom,'') as uom, isnull(contractyn,'0') as contractyn  FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "' and ITEMCODE='" + vform.keyfield + "' AND cast('" & Format(CDate(dtp_Grndate.Value), "yyyy/MM/dd") & "' as date) BETWEEN FROMDATE AND TODATE "
+                    sql = "  Select isnull(rate,0) as rate,isnull(uom,'') as uom, isnull(contractyn,'0') as contractyn  FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "' and ITEMCODE='" + vform.keyfield + "' AND cast('" & Format(CDate(dtp_Grndate.Value), "yyyy/MM/dd") & "' as date) BETWEEN FROMDATE AND TODATE "
                     gconnection.getDataSet(sql, "Invitem_VendorMaster")
                     If UCase(gShortname) <> "HIND" Or UCase(gShortname) = "MCEME" Then
-
-
                         If (gdataset.Tables("Invitem_VendorMaster").Rows.Count > 0) Then
                             AxfpSpread1.Col = 3
                             AxfpSpread1.Text = gdataset.Tables("Invitem_VendorMaster").Rows(0).Item("uom")
@@ -1027,7 +1031,6 @@ Public Class Frm_GRN
                             End If
                         Else
                             MessageBox.Show("Vendor Item link Expired . Plz update ", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-
                         End If
                     End If
                 End If
@@ -1052,11 +1055,13 @@ Public Class Frm_GRN
 
                 If gShortname <> "BBSR" Then
                     If (gdataset.Tables("RATE").Rows.Count > 0) Then
+                        If prate = 0 Then
+                            AxfpSpread1.Col = 5
+                            AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                            AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") '/ Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
+                            AxfpSpread1.Lock = False
+                        End If
 
-                        AxfpSpread1.Col = 5
-                        AxfpSpread1.Row = AxfpSpread1.ActiveRow
-                        AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") '/ Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
-                        AxfpSpread1.Lock = False
                     Else
                         AxfpSpread1.Col = 5
                         AxfpSpread1.Row = AxfpSpread1.ActiveRow
@@ -1064,7 +1069,7 @@ Public Class Frm_GRN
                         AxfpSpread1.Lock = False
                     End If
                 End If
-               
+
             End If
             ''''''''''''''''''''''''''''''''
             If Trim(vform.keyfield3) = "YES" Then
@@ -1092,6 +1097,7 @@ Public Class Frm_GRN
                     AxfpSpread1.Row = AxfpSpread1.ActiveRow
                     AxfpSpread1.Text = 0
                     AxfpSpread1.Lock = True
+
                 Else
                     sql = "SELECT i.TaxCode,SUM(taxper) as taxper,Effectfrom FROM Itemtaxtagging I INNER JOIN invtaxgroupmasterdetail T ON I.TaxCode=T.taxgroupcode  where itemcode='" + Trim(vform.keyfield) + "'"
                     sql = sql & " AND CAST('" & Format(CDate(dtp_Grndate.Value), "yyyy/MM/dd") & "' AS DATE)>=CAST(Effectfrom AS DATE) AND  CAST(ISNULL(effectto,GETDATE()) AS DATE)>= CAST('" & Format(CDate(dtp_Grndate.Value), "yyyy/MM/dd") & "' AS DATE) GROUP BY i.TaxCode,Effectfrom"
@@ -1122,13 +1128,15 @@ Public Class Frm_GRN
             AxfpSpread1.SetActiveCell(4, AxfpSpread1.ActiveRow)
         Else
             AxfpSpread1.DeleteRows(AxfpSpread1.ActiveRow, 1)
-                End If
+        End If
 
     End Sub
     Private Sub binditemname()
         Dim vform As New ListOperattion1
         Dim message, title, defaultValue As String
         Dim myValue As Object
+        Dim prate As Double = 0
+
         CATCODE = Split(CMB_CATEGORY.Text, "--->")
         message = "Enter Batch No"
         title = "Batch No"
@@ -1136,7 +1144,7 @@ Public Class Frm_GRN
         sql = "sELECT * FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "'"
         gconnection.getDataSet(sql, "Invitem_VendorMaster")
 
-        gSQLString = "select I.itemcode,M.Itemname,uom,batchprocess from  inv_InventoryOpenningstock  I inner join INV_InventoryItemMaster M on "
+        gSQLString = "select I.itemcode,M.Itemname,uom,batchprocess, isnull(m.mrprate,0) as mrprate, isnull(m.prate,0) as prate from  inv_InventoryOpenningstock  I inner join INV_InventoryItemMaster M on "
         gSQLString = gSQLString & " I.itemcode=M.itemcode "
         If (gdataset.Tables("Invitem_VendorMaster").Rows.Count > 0) Then
             If UCase(gShortname) = "NIZAM" Then
@@ -1144,20 +1152,20 @@ Public Class Frm_GRN
             Else
                 M_WhereCondition = "  where M.Category='" + CATCODE(0) + "' and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "'  AND I.itemcode IN (sELECT ITEMCODE FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "')"
             End If
-
-
-
         Else
 
             M_WhereCondition = " where M.Category='" + CATCODE(0) + "' and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "'"
         End If
-        vform.Field = " I.itemcode, m.Itemname,I.Uom,batchprocess"
+        vform.Field = " I.itemcode, m.Itemname,I.Uom,batchprocess, I.RATE, m.mrprate, m.prate"
         vform.vFormatstring = "    Itemcode    |                  Itemname                    |       UOM      |"
         vform.vCaption = "Item MASTER HELP"
         vform.KeyPos = 0
         vform.KeyPos1 = 1
         vform.KeyPos2 = 2
         vform.Keypos3 = 3
+        vform.keypos4 = 4
+        vform.Keypos5 = 5
+
         vform.ShowDialog(Me)
         If Trim(vform.keyfield & "") <> "" Then
             If (check_Duplicate(vform.keyfield) = False) Then
@@ -1165,11 +1173,21 @@ Public Class Frm_GRN
                 AxfpSpread1.Col = 1
                 AxfpSpread1.Row = AxfpSpread1.ActiveRow
                 AxfpSpread1.Text = Trim(vform.keyfield)
+
                 AxfpSpread1.Col = 2
                 AxfpSpread1.Row = AxfpSpread1.ActiveRow
                 AxfpSpread1.Text = Trim(vform.keyfield1)
+
+                AxfpSpread1.Col = 25
+                AxfpSpread1.Row = AxfpSpread1.ActiveRow
+                AxfpSpread1.Text = Trim(vform.keyfield5)
+
+                prate = vform.keyfield5
+
+
                 AxfpSpread1.Col = 3
                 AxfpSpread1.Row = AxfpSpread1.ActiveRow
+
 
                 Dim sql As String = "select distinct tranuom from INVITEM_TRANSUOM_LINK where itemcode='" + vform.keyfield + "'"
 
@@ -1192,8 +1210,6 @@ Public Class Frm_GRN
                     AxfpSpread1.Row = AxfpSpread1.ActiveRow
                     AxfpSpread1.Text = defaultValue
                 End If
-
-
                 If UCase(gShortname) <> "FNCC" Or UCase(gShortname) <> "HGA" Or UCase(gShortname) <> "KIC" Then
                     sql = "  sELECT isnull(rate,0) as rate,isnull(uom,'') as uom FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "' and itemcode='" + Trim(vform.keyfield) + "' and isnull(contractyn,0)='1' "
                     gconnection.getDataSet(sql, "Invitem_VendorMaster")
@@ -1206,24 +1222,17 @@ Public Class Frm_GRN
                         AxfpSpread1.Lock = True
                     Else
                         MessageBox.Show("Vendor Item link Expire . Plz update ", MyCompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-
                     End If
                 End If
-
-
                 If CATCODE(0) = "LIQ" Or UCase(gShortname) = "NIZAM" Or UCase(gShortname) = "FNCC" Or UCase(gShortname) = "MLRF" Or UCase(gShortname) = "CFC" Or UCase(gShortname) = "HGA" Or gShortname = "JSCA" Then
                     'sql = "SELECT TOP 1   rate as rate  FROM LiqRate WHERE itemcode='" + Trim(vform.keyfield) + "' AND storecode='" + txt_Storecode.Text + "'  and isnull(RET_QTY,0)=0 and isnull(Voiditem,'N')<>'Y' and   cast(convert(varchar(11),grndate,106)as datetime)<='" & Format(dtp_Grndate.Value, "dd/MMM/yyyy") & "'   ORDER BY autoid  DESC"
-
                     If GSUPPLIER = "Y" Then
-                        sql = "SELECT TOP 1   rate as rate  FROM LiqRate WHERE ITEMCODE='" + vform.keyfield + "' AND storecode='" + txt_Storecode.Text + "' and isnull(RET_QTY,0)=0 and isnull(Voiditem,'N')<>'Y' and  cast(convert(varchar(11),grndate,106)as datetime)<='" & Format(dtp_Grndate.Value, "dd/MMM/yyyy") & "' and Suppliercode='" + txt_Suppliercode.Text + "'  ORDER BY autoid  DESC"
+                        sql = "SELECT TOP 1 rate as rate  FROM LiqRate WHERE ITEMCODE='" + vform.keyfield + "' AND storecode='" + txt_Storecode.Text + "' and isnull(RET_QTY,0)=0 and isnull(Voiditem,'N')<>'Y' and  cast(convert(varchar(11),grndate,106)as datetime)<='" & Format(dtp_Grndate.Value, "dd/MMM/yyyy") & "' and Suppliercode='" + txt_Suppliercode.Text + "'  ORDER BY autoid  DESC"
                     Else
-                        sql = "SELECT TOP 1   rate as rate  FROM LiqRate WHERE ITEMCODE='" + vform.keyfield + "' AND storecode='" + txt_Storecode.Text + "' and isnull(RET_QTY,0)=0 and isnull(Voiditem,'N')<>'Y' and  cast(convert(varchar(11),grndate,106)as datetime)<='" & Format(dtp_Grndate.Value, "dd/MMM/yyyy") & "'   ORDER BY autoid  DESC"
+                        sql = "SELECT TOP 1 rate as rate  FROM LiqRate WHERE ITEMCODE='" + vform.keyfield + "' AND storecode='" + txt_Storecode.Text + "' and isnull(RET_QTY,0)=0 and isnull(Voiditem,'N')<>'Y' and  cast(convert(varchar(11),grndate,106)as datetime)<='" & Format(dtp_Grndate.Value, "dd/MMM/yyyy") & "'   ORDER BY autoid  DESC"
                     End If
-
-
                     gconnection.getDataSet(sql, "RATE")
                     If (gdataset.Tables("RATE").Rows.Count > 0) Then
-
                         AxfpSpread1.Col = 5
                         AxfpSpread1.Row = AxfpSpread1.ActiveRow
                         AxfpSpread1.Text = gdataset.Tables("RATE").Rows(0).Item("rate") ') / Val(gdataset.Tables("RATE").Rows(0).Item("CLOSINGSTOCK"))
@@ -3289,8 +3298,6 @@ Public Class Frm_GRN
         calcbool = True
         If AxfpSpread1.ActiveCol = 1 Or AxfpSpread1.ActiveCol = 2 Or AxfpSpread1.ActiveCol = 4 Or AxfpSpread1.ActiveCol = 5 Or AxfpSpread1.ActiveCol = 6 Or AxfpSpread1.ActiveCol = 7 Or AxfpSpread1.ActiveCol = 8 Or AxfpSpread1.ActiveCol = 10 Or AxfpSpread1.ActiveCol = 12 Or AxfpSpread1.ActiveCol = 16 Or AxfpSpread1.ActiveCol = 17 Or AxfpSpread1.ActiveCol = 21 Or AxfpSpread1.ActiveCol = 13 Then
             For i As Integer = 1 To AxfpSpread1.DataRowCnt
-
-
 
                 AxfpSpread1.Row = i
                 AxfpSpread1.Col = 1
@@ -6510,19 +6517,12 @@ Public Class Frm_GRN
                 Else
                     CATCODE = Split(CMB_CATEGORY.Text, "--->")
 
-
-
-                    SQL = "sELECT * FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "'"
+                    SQL = "SELECT * FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "'"
                     gconnection.getDataSet(SQL, "Invitem_VendorMaster")
 
-
-
-
-
-                    SQL = " select I.itemcode,Itemname,uom,batchprocess, isnull(m.mrprate,0) as mrprate, isnull(m.prate,0) as prate from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
+                    SQL = "Select I.itemcode,Itemname,uom,batchprocess, isnull(m.mrprate,0) as mrprate, isnull(m.prate,0) as prate from  CLOSINGQTY  I inner join INV_InventoryItemMaster M on "
                     SQL = SQL & " I.itemcode=M.itemcode "
                     If (gdataset.Tables("Invitem_VendorMaster").Rows.Count > 0) Then
-
                         If UCase(gShortname) = "NIZAM" Then
                             SQL = SQL & "  where isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "' and isnull(I.itemcode,'')='" + Trim(AxfpSpread1.Text) + "' and I.itemcode IN (sELECT ITEMCODE FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "')" ' and itemcode not in (select itemcode from trnsView where storecode<>'" + txt_Storecode.Text + "' and ttype='GRN'))"
                         ElseIf UCase(gShortname) = "HIND" Or UCase(gShortname) = "MCEME" Then
@@ -6531,13 +6531,8 @@ Public Class Frm_GRN
                         Else
                             SQL = SQL & "  where M.Category='" + CATCODE(0) + "' and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "' and isnull(I.itemcode,'')='" + Trim(AxfpSpread1.Text) + "' and I.itemcode IN (sELECT ITEMCODE FROM Invitem_VendorMaster WHERE VENDORCODE='" + txt_Suppliercode.Text + "')" ' and itemcode not in (select itemcode from trnsView where storecode<>'" + txt_Storecode.Text + "' and ttype='GRN'))"
                         End If
-
-
-
                     Else
-
                         SQL = SQL & "  where M.Category='" + CATCODE(0) + "' and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "' and isnull(I.itemcode,'')='" + Trim(AxfpSpread1.Text) + "'" ' and I.itemcode IN (select itemcode from trnsView where storecode<>'" + txt_Storecode.Text + "' and ttype='GRN') "
-
                     End If
 
                     gconnection.getDataSet(SQL, "inv_InventoryOpenningstock")
