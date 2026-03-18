@@ -949,6 +949,7 @@ Public Class Frm_GRN
         Else
             M_WhereCondition = " where M.Category='" + CATCODE(0) + "'  AND I.Autoid IN (SELECT MAX(Autoid) FROM CLOSINGQTY C WHERE I.itemcode=C.itemcode and isnull(C.storecode,'')='" + txt_Storecode.Text + "'  ) and isnull(M.void,'')='N' and isnull(I.storecode,'')='" + txt_Storecode.Text + "'"
         End If
+
         gconnection.getDataSet(gSQLString, "Invitem_VendorMaster")
         vform.Field = " I.itemcode, M.Itemname,uom"
         vform.vFormatstring = "    Itemcode     |                        Itemname                            |        UOM      |    batchprocess  |    RATE   "
@@ -4188,17 +4189,17 @@ Public Class Frm_GRN
                 ReDim Preserve GrnQuery(GrnQuery.Length)
                 GrnQuery(GrnQuery.Length - 1) = sqlstring
 
-                '                If gShortname = "KSCA" Then
-                Dim item As String
-                AxfpSpread1.Col = 1
-                item = AxfpSpread1.Text
-                AxfpSpread1.Col = 25
-                If AxfpSpread1.Text > 0 Then
-                    sqlstring = "update inv_inventoryitemmaster set mrprate='" + AxfpSpread1.Text + "' where itemcode='" + item + "'"
-                    ReDim Preserve GrnQuery(GrnQuery.Length)
-                    GrnQuery(GrnQuery.Length - 1) = sqlstring
+                If gShortname = "KSCA" Then
+                    Dim item As String
+                    AxfpSpread1.Col = 1
+                    item = AxfpSpread1.Text
+                    AxfpSpread1.Col = 25
+                    If Val(AxfpSpread1.Text) > 0 Then
+                        sqlstring = "update inv_inventoryitemmaster set mrprate='" + AxfpSpread1.Text + "' where itemcode='" + item + "'"
+                        ReDim Preserve GrnQuery(GrnQuery.Length)
+                        GrnQuery(GrnQuery.Length - 1) = sqlstring
+                    End If
                 End If
-                'End If
 
             Next
 
